@@ -1,0 +1,25 @@
+index:
+    path:      /showroom-b2b-mode
+    defaults:
+        _controller: AppBundle:Default:index
+
+connexion:
+    path:    /app/se-connecter
+    defaults:
+        _controller: AppBundle:Default:connexion
+
+marques_index:
+    resource: "@AppBundle/Resources/config/routing/marques.yml"
+    prefix:   /marques
+
+boutiques_index:
+    resource: "@AppBundle/Resources/config/routing/boutiques.yml"
+    prefix:   /boutiques
+
+legal_index:
+    resource: "@AppBundle/Resources/config/routing/legal.yml"
+    prefix:   /legal
+
+info_index:
+    resource: "@AppBundle/Resources/config/routing/info.yml"
+

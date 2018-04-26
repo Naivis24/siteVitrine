@@ -1,0 +1,24 @@
+offres_marques:
+   path:    /b2b-marques-mode
+   defaults:
+       _controller: AppBundle:Default:offresMarques
+
+showroom:
+    path:    /showroom-digital
+    defaults:
+        _controller: AppBundle:Default:showroom
+
+agence_commerciale:
+    path:    /agent-commercial-mode
+    defaults:
+        _controller: AppBundle:Default:agenceCommerciale
+
+salons_marques:
+    path:    /organisation-salons-mode
+    defaults:
+        _controller: AppBundle:Default:salonsMarques
+
+details_index:
+      resource: "@AppBundle/Resources/config/routing/details/details_marque.yml"
+      prefix:   /detail
+

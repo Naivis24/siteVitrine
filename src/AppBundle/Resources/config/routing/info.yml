@@ -1,0 +1,24 @@
+histoire:
+    path:   /notre-histoire
+    defaults:
+        _controller: AppBundle:Default:histoire
+
+equipe:
+    path:    /notre-equipe
+    defaults:
+        _controller: AppBundle:Default:equipe
+
+contact:
+    path:    /contactez-nous
+    defaults:
+        _controller: AppBundle:Default:contact
+
+presse:
+    path:    /presse
+    defaults:
+        _controller: AppBundle:Default:presse
+
+a-propos:
+    path:    /a-propos
+    defaults:
+        _controller: AppBundle:Default:aPropos

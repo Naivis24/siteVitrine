@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{% block title %}MonB2B{% endblock %}</title>
+    <meta name="Publisher" content="Showroom French Select"/>
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{  asset('bundles/app/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('bundles/app/css/main.css') }}"/>
+    {% endblock %}
+    {% block javascripts %}
+        <script src="{{ asset('bundles/app/js/popper.min.js') }}"></script>
+        <script src="{{ asset('bundles/app/js/jquery-3.3.1.min.js') }}"></script>
+        <script src="{{ asset('bundles/app/js/bootstrap.min.js') }}"></script>
+        <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
+    {% endblock %}
+    <link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Old+Standard+TT" rel="stylesheet">
+
+</head>';
+<body>
+<nav role="navigation" class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand" href="{{ path('index') }}"><img src="{{ asset('bundles/app/img/logo_clair.png ') }}" alt="logo" height="100px"/></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a class="nav-link" href="{{ path('marques') }}">Nos marques</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ path('offres_marques') }}">Vous êtes une marque ?</a></li>
+            <li class="nav-item dropdown"> <a class="nav-link" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Qui sommes-nous ?</a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{{ path('histoire') }}">Notre histoire</a>
+                    <a class="dropdown-item" href="{{ path('equipe') }}">Notre équipe</a>
+                </div>
+            </li>
+            <li class="nav-item"><a  class="nav-link" href="{{ path('contact') }}">
+                    Nous contacter</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+
+
+    {% block body %}
+    {% endblock %}
+
+
+</div>
+
+<footer class="modal-footer">
+    <!--Footer Links-->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-2 text-center"> <img src="{{ asset('bundles/app/img/logo_sombre.png ') }}" alt="logo"/> </div>
+            <div class="col-lg-3">
+                <h5>Vous êtes une boutique ?</h5>
+                <ul class="list-unstyled">
+                    <li> <a href="{{ path('marques') }}">Découvrez nos marques</a> </li>
+                    <li> <a href="{{ path('salons_boutiques') }}">Découvrez nos salons régionaux</a> </li>
+                        <li> <a href="{{ path('connexion') }}">Inscrivez-vous gratuitement</a> </li>
+                </ul>
+            </div>
+            <div class="col-lg-3">
+                <h5>Vous êtes une marque ?</h5>
+                <ul class="list-unstyled">
+                    <li> <a href="{{ path('offres_marques') }}">La solution B2B 100% mode</a> </li>
+                    <li> <a href="{{ path('showroom') }}">La plateforme en ligne 24/7</a> </li>
+                    <li> <a href="{{ path('agence_commerciale') }}">L'agence commerciale de mode</a> </li>
+                    <li> <a href="{{ path('salons_marques') }}"> L'organisation de salons de mode</a> </li>
+                    <li> <a href="{{ path('contact') }}">Contactez-nous</a> </li>
+                </ul>
+            </div>
+            <div class="col-lg-4">
+                <h5>Nous suivre sur les réseaux</h5>
+                <div class="footer-icons"> <a href="https://www.facebook.com/profile.php?id=100013779673917&fref=ts" target="_blank" title="Facebook French Select"><i class="fab fa-facebook-f"></i></a> <a href="https://www.instagram.com/showroomfrenchselect/" target="_blank" title="Instagram French Select"><i class="fab fa-instagram"></i></a> <a href="https://twitter.com/frenchselectFR" target="_blank" title="Twitter French Select"><i class="fab fa-twitter"></i></a> </div>
+                <?php     include 'table_trad.php'; ?>
+                <a href="#">FR</a> - <a href="../en/<?php echo $table_trad[basename($_SERVER['PHP_SELF'], '.php')]; ?>">EN</a>
+            </div>
+        </div>
+        <!--/.Footer Links-->
+
+        <!--Copyright-->
+        <div id="copyright" class="footer-copyright py-3 text-center"><a href="{{ path('mentions_legales') }}">Mentions légales</a> - <a href="{{ path('cgu') }}">CGU</a> - <a href="{{ path('confidentialite') }}">Confidentialité</a> - <a href="{{ path('cookies') }}">Cookies</a> - © 2018 Copyright French Select </div>
+        <!--/.Copyright-->
+    </div>
+        <!--/.Footer-->
+</footer>
+
+</body>
+</html>
+

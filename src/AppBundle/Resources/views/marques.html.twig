@@ -1,0 +1,26 @@
+{% extends "AppBundle::layout.html.twig" %}
+
+{% block title %}
+    Showroom French Select - Nos marques
+{% endblock %}
+
+    {% block body %}
+        <h1>Liste des Marques</h1>
+
+        <table class="table table-stripped">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom d'utilisateur</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for brand in brands %}
+                <tr>
+                    <td><a href="{{path('details', {'marque':brand.getName()})}}">{{ brand.getId() }}</a></td>
+                    <td>{{ brand.getName() }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% endblock %}

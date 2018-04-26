@@ -1,0 +1,19 @@
+cgu:
+   path:    /cgu
+   defaults:
+       _controller: AppBundle:Default:cgu
+
+confidentialite:
+   path:    /politique-confidentialite
+   defaults:
+       _controller: AppBundle:Default:confidentialite
+
+cookies:
+   path:    /charte-cookies
+   defaults:
+       _controller: AppBundle:Default:cookies
+
+mentions_legales:
+   path:    /mentions-legales
+   defaults:
+       _controller: AppBundle:Default:mentionsLegales
