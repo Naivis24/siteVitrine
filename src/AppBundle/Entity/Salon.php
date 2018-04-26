@@ -13,6 +13,22 @@ use Doctrine\ORM\Mapping as ORM;
 class Salon
 {
     /**
+     * @return int
+     */
+    public function getSalonId()
+    {
+        return $this->salonId;
+    }
+
+    /**
+     * @param int $salonId
+     */
+    public function setSalonId($salonId)
+    {
+        $this->salonId = $salonId;
+    }
+
+    /**
      * @return string
      */
     public function getName()
@@ -125,7 +141,7 @@ class Salon
     }
 
     /**
-     * @return string
+     * @return int
      */
     public function getGImg()
     {
@@ -133,7 +149,7 @@ class Salon
     }
 
     /**
-     * @param string $gImg
+     * @param int $gImg
      */
     public function setGImg($gImg)
     {
@@ -141,7 +157,7 @@ class Salon
     }
 
     /**
-     * @return string
+     * @return int
      */
     public function getPImg()
     {
@@ -149,28 +165,21 @@ class Salon
     }
 
     /**
-     * @param string $pImg
+     * @param int $pImg
      */
     public function setPImg($pImg)
     {
         $this->pImg = $pImg;
     }
-
     /**
-     * @return int
+     * @var integer
+     *
+     * @ORM\Column(name="salon_id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    public function getSalonId()
-    {
-        return $this->salonId;
-    }
+    private $salonId;
 
-    /**
-     * @param int $salonId
-     */
-    public function setSalonId($salonId)
-    {
-        $this->salonId = $salonId;
-    }
     /**
      * @var string
      *
@@ -221,27 +230,18 @@ class Salon
     private $description;
 
     /**
-     * @var string
+     * @var integer
      *
-     * @ORM\Column(name="G_img", type="string", length=255, nullable=false)
+     * @ORM\Column(name="G_img", type="integer", nullable=false)
      */
     private $gImg;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="p_img", type="string", length=255, nullable=false)
-     */
-    private $pImg;
-
-    /**
      * @var integer
      *
-     * @ORM\Column(name="salon_id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\Column(name="p_img", type="integer", nullable=false)
      */
-    private $salonId;
+    private $pImg;
 
 
 }

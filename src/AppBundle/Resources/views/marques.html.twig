@@ -7,20 +7,25 @@
     {% block body %}
         <h1>Liste des Marques</h1>
 
-        <table class="table table-stripped">
-            <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nom d'utilisateur</th>
-            </tr>
-            </thead>
-            <tbody>
-            {% for brand in brands %}
-                <tr>
-                    <td><a href="{{path('details', {'marque':brand.getName()})}}">{{ brand.getId() }}</a></td>
-                    <td>{{ brand.getName() }}</td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
+       <div class="card-columns">
+               {% for brand in brands %}
+
+
+
+
+
+
+                   <div class="card card-marques">
+                       <img class="card-img-top" src="{{ asset('bundles/app/img/anaik_1.jpg') }}">
+                       <div class="card-body">
+                           <h5 class="card-title">{{ brand.getName() }}</h5>
+                       </div>
+                   </div>
+
+
+
+
+               {% endfor %}
+           </div>
+
     {% endblock %}

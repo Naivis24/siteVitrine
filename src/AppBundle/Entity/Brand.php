@@ -13,6 +13,38 @@ use Doctrine\ORM\Mapping as ORM;
 class Brand
 {
     /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+    /**
      * @return string
      */
     public function getCompeting()
@@ -141,23 +173,7 @@ class Brand
     }
 
     /**
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * @param int $id
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
-
-    /**
-     * @return PriceRange
+     * @return \PriceRange
      */
     public function getPriceRange()
     {
@@ -165,7 +181,7 @@ class Brand
     }
 
     /**
-     * @param PriceRange $priceRange
+     * @param \PriceRange $priceRange
      */
     public function setPriceRange($priceRange)
     {
@@ -173,7 +189,7 @@ class Brand
     }
 
     /**
-     * @return Country
+     * @return \Country
      */
     public function getBillingCountry()
     {
@@ -181,7 +197,7 @@ class Brand
     }
 
     /**
-     * @param Country $billingCountry
+     * @param \Country $billingCountry
      */
     public function setBillingCountry($billingCountry)
     {
@@ -189,7 +205,7 @@ class Brand
     }
 
     /**
-     * @return Country
+     * @return \Country
      */
     public function getManufactureCountry()
     {
@@ -197,7 +213,7 @@ class Brand
     }
 
     /**
-     * @param Country $manufactureCountry
+     * @param \Country $manufactureCountry
      */
     public function setManufactureCountry($manufactureCountry)
     {
@@ -205,7 +221,7 @@ class Brand
     }
 
     /**
-     * @return Country
+     * @return \Country
      */
     public function getCountry()
     {
@@ -213,7 +229,7 @@ class Brand
     }
 
     /**
-     * @param Country $country
+     * @param \Country $country
      */
     public function setCountry($country)
     {
@@ -221,7 +237,7 @@ class Brand
     }
 
     /**
-     * @return Myfile
+     * @return \Myfile
      */
     public function getLogo()
     {
@@ -229,7 +245,7 @@ class Brand
     }
 
     /**
-     * @param Myfile $logo
+     * @param \Myfile $logo
      */
     public function setLogo($logo)
     {
@@ -283,6 +299,15 @@ class Brand
     {
         $this->target = $target;
     }
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
     /**
      * @var string
      *
@@ -347,18 +372,9 @@ class Brand
     private $lifestyle;
 
     /**
-     * @var integer
+     * @var \PriceRange
      *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $id;
-
-    /**
-     * @var \AppBundle\Entity\PriceRange
-     *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\PriceRange")
+     * @ORM\ManyToOne(targetEntity="PriceRange")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="price_range_id", referencedColumnName="id")
      * })
@@ -366,9 +382,9 @@ class Brand
     private $priceRange;
 
     /**
-     * @var \AppBundle\Entity\Country
+     * @var \Country
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Country")
+     * @ORM\ManyToOne(targetEntity="Country")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="billing_country_id", referencedColumnName="id")
      * })
@@ -376,9 +392,9 @@ class Brand
     private $billingCountry;
 
     /**
-     * @var \AppBundle\Entity\Country
+     * @var \Country
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Country")
+     * @ORM\ManyToOne(targetEntity="Country")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="manufacture_country_id", referencedColumnName="id")
      * })
@@ -386,9 +402,9 @@ class Brand
     private $manufactureCountry;
 
     /**
-     * @var \AppBundle\Entity\Country
+     * @var \Country
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Country")
+     * @ORM\ManyToOne(targetEntity="Country")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="country_id", referencedColumnName="id")
      * })
@@ -396,9 +412,9 @@ class Brand
     private $country;
 
     /**
-     * @var \AppBundle\Entity\Myfile
+     * @var \Myfile
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Myfile")
+     * @ORM\ManyToOne(targetEntity="Myfile")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="logo_id", referencedColumnName="id")
      * })
@@ -408,7 +424,7 @@ class Brand
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\PrimaryCategory", inversedBy="brand")
+     * @ORM\ManyToMany(targetEntity="PrimaryCategory", inversedBy="brand")
      * @ORM\JoinTable(name="brand_primary_category",
      *   joinColumns={
      *     @ORM\JoinColumn(name="brand_id", referencedColumnName="id")
@@ -423,7 +439,7 @@ class Brand
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Style", inversedBy="brand")
+     * @ORM\ManyToMany(targetEntity="Style", inversedBy="brand")
      * @ORM\JoinTable(name="brand_style",
      *   joinColumns={
      *     @ORM\JoinColumn(name="brand_id", referencedColumnName="id")
@@ -438,7 +454,7 @@ class Brand
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Target", inversedBy="brand")
+     * @ORM\ManyToMany(targetEntity="Target", inversedBy="brand")
      * @ORM\JoinTable(name="brand_target",
      *   joinColumns={
      *     @ORM\JoinColumn(name="brand_id", referencedColumnName="id")
@@ -460,21 +476,5 @@ class Brand
         $this->target = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
-    /**
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * @param string $name
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-    }
-    
 }
 

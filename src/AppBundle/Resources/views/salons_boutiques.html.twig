@@ -9,31 +9,10 @@
 
     <h1>Liste des salons</h1>
 
-    <div class="card-deck">
-            {% for salon in salons %}
 
-                <div class="card card-marques text-white">
-                    <img class="card-img" src="{{ asset('bundles/app/img/anaik_1.jpg') }}">
-                    <div class="card-img-overlay">
-                        <h5 class="card-title">{{ salon.getName() }}</h5>
-                        <p class="card-text">{{ salon.getDateSalon()|date("m/d/Y") }}</p>
-                        <p class="card-text">{{ salon.getVille() }}</p>
-                    </div>
-                </div>
-
-
-            {% endfor %}
-    </div>
-
-    {% set cpt = 0 %}
     <div class="card-columns">
         {% for salon in salons %}
 
-
-
-            {% if cpt !=0 and cpt % 4 == 0 %}
-
-            {% endif %}
             <div class="card card-salons">
                 <img class="card-img-top" src="{{ asset('bundles/app/img/anaik_1.jpg') }}">
                 <div class="card-body">
@@ -43,7 +22,7 @@
                 </div>
             </div>
 
-            {% set cpt = cpt + 1 %}
+
         {% endfor %}
     </div>
 

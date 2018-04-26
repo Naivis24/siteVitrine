@@ -15,7 +15,7 @@ class ParticipeSalon
     /**
      * @var integer
      *
-     * @ORM\Column(name="brand_id", type="integer")
+     * @ORM\Column(name="brand_id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
      */
@@ -24,7 +24,7 @@ class ParticipeSalon
     /**
      * @var integer
      *
-     * @ORM\Column(name="salon_id", type="integer")
+     * @ORM\Column(name="salon_id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
      */
