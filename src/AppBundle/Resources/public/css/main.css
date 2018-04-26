@@ -175,3 +175,35 @@ h5 {
 	background-color: #333745;
 	color: #fff;
 }
+
+/* LISTE MARQUES SALONS */
+
+.card-deck{
+ margin-bottom: 35px;
+}
+.card-marques {
+	border-color: #FE5F55;
+	border-radius: 0;
+	border-width: 10px;
+	text-align: center;
+}
+
+.card-salons {
+	background-color: white;
+	border-color: white;
+	border-radius: 0;
+	border-width: 10px;
+	text-align: left;
+}
+
+.card-img {
+	border-radius: 0;
+}
+
+.card-img-top {
+	border-radius: 0;
+}
+
+
+
+
