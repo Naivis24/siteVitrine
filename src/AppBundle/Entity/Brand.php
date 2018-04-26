@@ -13,6 +13,277 @@ use Doctrine\ORM\Mapping as ORM;
 class Brand
 {
     /**
+     * @return string
+     */
+    public function getCompeting()
+    {
+        return $this->competing;
+    }
+
+    /**
+     * @param string $competing
+     */
+    public function setCompeting($competing)
+    {
+        $this->competing = $competing;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUrlwebsite()
+    {
+        return $this->urlwebsite;
+    }
+
+    /**
+     * @param string $urlwebsite
+     */
+    public function setUrlwebsite($urlwebsite)
+    {
+        $this->urlwebsite = $urlwebsite;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSlogan()
+    {
+        return $this->slogan;
+    }
+
+    /**
+     * @param string $slogan
+     */
+    public function setSlogan($slogan)
+    {
+        $this->slogan = $slogan;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param string $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUrlFac()
+    {
+        return $this->urlFac;
+    }
+
+    /**
+     * @param string $urlFac
+     */
+    public function setUrlFac($urlFac)
+    {
+        $this->urlFac = $urlFac;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUrlInsta()
+    {
+        return $this->urlInsta;
+    }
+
+    /**
+     * @param string $urlInsta
+     */
+    public function setUrlInsta($urlInsta)
+    {
+        $this->urlInsta = $urlInsta;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPicture()
+    {
+        return $this->picture;
+    }
+
+    /**
+     * @param string $picture
+     */
+    public function setPicture($picture)
+    {
+        $this->picture = $picture;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLifestyle()
+    {
+        return $this->lifestyle;
+    }
+
+    /**
+     * @param string $lifestyle
+     */
+    public function setLifestyle($lifestyle)
+    {
+        $this->lifestyle = $lifestyle;
+    }
+
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return PriceRange
+     */
+    public function getPriceRange()
+    {
+        return $this->priceRange;
+    }
+
+    /**
+     * @param PriceRange $priceRange
+     */
+    public function setPriceRange($priceRange)
+    {
+        $this->priceRange = $priceRange;
+    }
+
+    /**
+     * @return Country
+     */
+    public function getBillingCountry()
+    {
+        return $this->billingCountry;
+    }
+
+    /**
+     * @param Country $billingCountry
+     */
+    public function setBillingCountry($billingCountry)
+    {
+        $this->billingCountry = $billingCountry;
+    }
+
+    /**
+     * @return Country
+     */
+    public function getManufactureCountry()
+    {
+        return $this->manufactureCountry;
+    }
+
+    /**
+     * @param Country $manufactureCountry
+     */
+    public function setManufactureCountry($manufactureCountry)
+    {
+        $this->manufactureCountry = $manufactureCountry;
+    }
+
+    /**
+     * @return Country
+     */
+    public function getCountry()
+    {
+        return $this->country;
+    }
+
+    /**
+     * @param Country $country
+     */
+    public function setCountry($country)
+    {
+        $this->country = $country;
+    }
+
+    /**
+     * @return Myfile
+     */
+    public function getLogo()
+    {
+        return $this->logo;
+    }
+
+    /**
+     * @param Myfile $logo
+     */
+    public function setLogo($logo)
+    {
+        $this->logo = $logo;
+    }
+
+    /**
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPrimaryCategory()
+    {
+        return $this->primaryCategory;
+    }
+
+    /**
+     * @param \Doctrine\Common\Collections\Collection $primaryCategory
+     */
+    public function setPrimaryCategory($primaryCategory)
+    {
+        $this->primaryCategory = $primaryCategory;
+    }
+
+    /**
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getStyle()
+    {
+        return $this->style;
+    }
+
+    /**
+     * @param \Doctrine\Common\Collections\Collection $style
+     */
+    public function setStyle($style)
+    {
+        $this->style = $style;
+    }
+
+    /**
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getTarget()
+    {
+        return $this->target;
+    }
+
+    /**
+     * @param \Doctrine\Common\Collections\Collection $target
+     */
+    public function setTarget($target)
+    {
+        $this->target = $target;
+    }
+    /**
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255, nullable=false)

@@ -23,9 +23,4 @@ class SalonController extends Controller
             'countries' => $countries,
         ));
     }
-
-
-
-
-
 }
