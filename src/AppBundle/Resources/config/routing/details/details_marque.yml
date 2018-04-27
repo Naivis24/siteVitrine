@@ -1,4 +1,0 @@
-details:
-   path:    /{marque}
-   defaults:
-       _controller: AppBundle:BrandDetails:getOneBrand
