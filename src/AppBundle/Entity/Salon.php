@@ -47,17 +47,33 @@ class Salon
     /**
      * @return \DateTime
      */
-    public function getDateSalon()
+    public function getDateDebut()
     {
-        return $this->dateSalon;
+        return $this->dateDebut;
     }
 
     /**
-     * @param \DateTime $dateSalon
+     * @param \DateTime $dateDebut
      */
-    public function setDateSalon($dateSalon)
+    public function setDateDebut($dateDebut)
     {
-        $this->dateSalon = $dateSalon;
+        $this->dateDebut = $dateDebut;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getDateFin()
+    {
+        return $this->dateFin;
+    }
+
+    /**
+     * @param \DateTime $dateFin
+     */
+    public function setDateFin($dateFin)
+    {
+        $this->dateFin = $dateFin;
     }
 
     /**
@@ -190,9 +206,16 @@ class Salon
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date_salon", type="date", nullable=false)
+     * @ORM\Column(name="date_debut", type="date", nullable=false)
      */
-    private $dateSalon;
+    private $dateDebut;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_fin", type="date", nullable=true)
+     */
+    private $dateFin;
 
     /**
      * @var string

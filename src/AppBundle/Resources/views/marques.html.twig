@@ -18,14 +18,16 @@
                 {% endif %}
 
                    <div class="card card-marques">
-                   <a href="{{ path('details', {'marque': brand.getName()} ) }}">
+
                        <img class="card-img" src="{{ asset('bundles/app/img/anaik_1.jpg') }}">
                        <div class="card-img-overlay info">
-                           <p>{{ brand.getLogo() }}</p>
+                           <img src="{{ asset('bundles/app/img/' ~ brand.getLogo())}}" >
                        </div>
                        <div class="card-img-overlay hover-info">
-                           <h5 class="card-title"> TEST </h5>
+                           <h5 class="card-title"> {{ brand.getName() }} </h5>
                            <p> {{ brand.getSlogan() }} </p>
+
+                           <a href="{{ path('details', {'marque': brand.getName()} ) }}"> Découvrir la marque </a>
                        </div>
 
                    </div>
