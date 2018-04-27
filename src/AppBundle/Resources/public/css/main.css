@@ -186,6 +186,7 @@ h5 {
 	border-radius: 0;
 	border-width: 10px;
 	text-align: center;
+	background-color: #FE5F55;
 }
 
 .card-salons {
@@ -202,6 +203,22 @@ h5 {
 
 .card-img-top {
 	border-radius: 0;
+}
+
+.card-marques:hover .card-img{
+
+	opacity: 0.7;
+
+}
+.card-marques .hover-info{
+	visibility: hidden;
+}
+.card-marques:hover .hover-info{
+	visibility: visible;
+}
+
+.card-marques:hover .info{
+	visibility: hidden;
 }
 
 

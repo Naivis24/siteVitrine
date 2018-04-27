@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Brand
  *
- * @ORM\Table(name="brand", uniqueConstraints={@ORM\UniqueConstraint(name="UNIQ_1C52F958F98F144A", columns={"logo_id"}), @ORM\UniqueConstraint(name="pict", columns={"picture"})}, indexes={@ORM\Index(name="IDX_1C52F958F92F3E70", columns={"country_id"}), @ORM\Index(name="IDX_1C52F958E052B35C", columns={"manufacture_country_id"}), @ORM\Index(name="IDX_1C52F9584834EBA6", columns={"price_range_id"}), @ORM\Index(name="IDX_1C52F958754851E1", columns={"billing_country_id"})})
+ * @ORM\Table(name="brand", uniqueConstraints={@ORM\UniqueConstraint(name="pict", columns={"picture"})}, indexes={@ORM\Index(name="IDX_1C52F958F92F3E70", columns={"country_id"}), @ORM\Index(name="IDX_1C52F958E052B35C", columns={"manufacture_country_id"}), @ORM\Index(name="IDX_1C52F9584834EBA6", columns={"price_range_id"}), @ORM\Index(name="IDX_1C52F958754851E1", columns={"billing_country_id"})})
  * @ORM\Entity
  */
 class Brand
@@ -173,6 +173,22 @@ class Brand
     }
 
     /**
+     * @return string
+     */
+    public function getLogo()
+    {
+        return $this->logo;
+    }
+
+    /**
+     * @param string $logo
+     */
+    public function setLogo($logo)
+    {
+        $this->logo = $logo;
+    }
+
+    /**
      * @return \PriceRange
      */
     public function getPriceRange()
@@ -234,22 +250,6 @@ class Brand
     public function setCountry($country)
     {
         $this->country = $country;
-    }
-
-    /**
-     * @return \Myfile
-     */
-    public function getLogo()
-    {
-        return $this->logo;
-    }
-
-    /**
-     * @param \Myfile $logo
-     */
-    public function setLogo($logo)
-    {
-        $this->logo = $logo;
     }
 
     /**
@@ -372,6 +372,13 @@ class Brand
     private $lifestyle;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="logo", type="string", length=255, nullable=true)
+     */
+    private $logo;
+
+    /**
      * @var \PriceRange
      *
      * @ORM\ManyToOne(targetEntity="PriceRange")
@@ -410,16 +417,6 @@ class Brand
      * })
      */
     private $country;
-
-    /**
-     * @var \Myfile
-     *
-     * @ORM\ManyToOne(targetEntity="Myfile")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="logo_id", referencedColumnName="id")
-     * })
-     */
-    private $logo;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
