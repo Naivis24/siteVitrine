@@ -7,3 +7,5 @@ salons_boutiques:
     path:    /salons-mode
     defaults:
         _controller: AppBundle:Salon:listSalon
+
+

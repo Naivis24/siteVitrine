@@ -1,13 +1,13 @@
 
 {% extends "AppBundle::layout.html.twig" %}
 
+
+
 {% block title %}
     Showroom French Select - Nos salons de mode
 {% endblock %}
 
 {% block body %}
-
-
 
     <h1>Liste des salons</h1>
 
@@ -16,12 +16,18 @@
         {% for salon in salons %}
 
             <div class="card card-salons">
+                <a href="{{ path('details_salons', {'ville': salon.getVille(), 'id': salon.getSalonId()} ) }}">
                 <img class="card-img-top" src="{{ asset('bundles/app/img/anaik_1.jpg') }}">
                 <div class="card-body">
                     <h5 class="card-title">{{ salon.getName() }}</h5>
-                    <p class="card-text" style="color: #FE5F55">{{ salon.getDateSalon()|date("m/d) }} - {{ salon.getVille() }} </p>
-                    <p class="card-text" {{ salon.getPImg() }}</p>
+                    <p class="card-text" style="color: #FE5F55"><strong>Du {{ salon.getDateDebut()|date("d") }}
+                            au {{  salon.getDateFin()|date("d") }}
+                            {{  salon.getDateFin()|date("m") }}
+                            {{  salon.getDateDebut()|date("Y") }}
+                      </strong></p>
+                    <p class="card-text" style="color: #FE5F55"> {{ salon.getVille() }}</p>
                 </div>
+                </a>
             </div>
 
 
