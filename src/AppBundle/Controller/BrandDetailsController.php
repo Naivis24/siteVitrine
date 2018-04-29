@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\AppBundle;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use AppBundle\Entity\Brand;
@@ -13,12 +14,15 @@ class BrandDetailsController extends Controller
     public function getOneBrandAction($marque){
         $em = $this->getDoctrine()->getManager();
 
-        $repository = $em->getRepository('AppBundle:Brand');
-        $brand = $repository->findOneByName($marque);
+        $brand = $em->getRepository('AppBundle:Brand')->findOneByName($marque);
+        $country = $em->getRepository('AppBundle:Country')->findAll();
+
+
+
 
 
         return $this->render('AppBundle::details.html.twig', array(
-            'brand' => $brand,
+            'brand' => $brand, 'countries' => $country,
         ));
     }
 
