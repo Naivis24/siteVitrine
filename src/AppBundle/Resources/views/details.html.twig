@@ -1,0 +1,23 @@
+{% extends "AppBundle::layout.html.twig" %}
+
+{% block title %}
+        Une marque
+    {% endblock %}
+
+    {% block body %}
+            <h1>La marque</h1>
+
+            <table class="table table-stripped">
+                    <thead>
+                    <tr>
+                            <th>Id</th>
+                            <th>Nom d'utilisateur</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                                <td>{{ brand.getName() }}</td>
+                            </tr>
+                    </tbody>
+                </table>
+        {% endblock %}

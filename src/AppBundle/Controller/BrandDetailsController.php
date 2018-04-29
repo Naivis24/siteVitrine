@@ -15,14 +15,12 @@ class BrandDetailsController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $brand = $em->getRepository('AppBundle:Brand')->findOneByName($marque);
-        $country = $em->getRepository('AppBundle:Country')->findAll();
-
 
 
 
 
         return $this->render('AppBundle::details.html.twig', array(
-            'brand' => $brand, 'countries' => $country,
+            'brand' => $brand, 
         ));
     }
 
