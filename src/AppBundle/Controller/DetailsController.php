@@ -10,17 +10,6 @@ use AppBundle\Entity\Brand;
 
 class DetailsController extends Controller
 {
-    public function getOneBrandAction($marque){
-        $em = $this->getDoctrine()->getManager();
-
-        $repository = $em->getRepository('AppBundle:Brand');
-        $brand = $repository->findOneByName($marque);
-
-
-        return $this->render('AppBundle::marque_details.html.twig', array(
-            'brand' => $brand,
-        ));
-    }
 
     public function getOneShowroomAction($id){
         $em = $this->getDoctrine()->getManager();

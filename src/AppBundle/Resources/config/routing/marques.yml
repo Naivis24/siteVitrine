@@ -18,4 +18,12 @@ salons_marques:
     defaults:
         _controller: AppBundle:Default:salonsMarques
 
+tarifs_marques:
+    path:    /b2b-marques-tarifs
+    defaults:
+        _controller: AppBundle:Default:tarifsMarques
 
+details_marques:
+    path:    /marque/{marque}
+    defaults:
+        _controller: AppBundle:BrandDetails:getOneBrand

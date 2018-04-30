@@ -29,14 +29,14 @@
             <li class="nav-item"><a class="nav-link" href="{{ path('index') }}">Accueil</a></li>
             <li class="nav-item"><a class="nav-link" href="{{ path('marques') }}">Nos marques</a></li>
             <li class="nav-item"><a class="nav-link" href="{{ path('salons_boutiques') }}">Nos showrooms</a></li>
-            <li class="nav-item"><a class="nav-link" href="offres-marques.php">Nos offres</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ path('offres_marques') }}">Nos offres</a></li>
             <li class="nav-item"><a  class="nav-link" href="{{ path('contact') }}"><span class="button-fc p-2">Contactez-nous</span></a> </li>
         </ul>
     </div>
     <div class="container-brand">Le showroom des professionnels<br /><span style="color:#FE5F55;">100% mode</span></div>
     <div class="container-back"><a href="#section-start" title="Retour en haut"><img src=" {{ asset('bundles/app/img/angle-up.svg')}}" height="40px"/></a></div>
     <div class="container-action">
-        <a  class="nav-link" href="contact.php"><span class="button-fc p-2">Contactez-nous</span></a>
+        <a  class="nav-link" href="{{ path('contact') }}"><span class="button-fc p-2">Contactez-nous</span></a>
     </div>
 </nav>
 
@@ -55,45 +55,45 @@
         $(this).parents(".dropdown").find('.dropdown-toggle').val($(this).data('value'));
     });</script>
 
-<div class="container">
+
 
 
     {% block body %}
     {% endblock %}
 
 
-</div>
+
 
 <footer class="modal-footer">
     <!--Footer Links-->
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-2 text-center"> <img src="./../images/logo-french-select-blanc.svg" alt="logo" width="100px"/> </div>
+            <div class="col-lg-2 text-center"> <img src="{{ asset('bundles/app/img/logo-french-select-blanc.svg')}}" alt="logo" width="100px"/> </div>
             <div class="col-lg-3">
                 <h6>Vous êtes une boutique ?</h6>
                 <ul class="list-unstyled">
-                    <li> <a href="marques">Découvrez nos marques</a> </li>
-                    <li> <a href="salon">Nos showrooms éphémères régionaux</a> </li>
-                    <li> <a href="inscrivez-vous">Inscrivez-vous gratuitement</a> </li>
+                    <li> <a href="{{ path('marques') }}">Découvrez nos marques</a> </li>
+                    <li> <a href="{{ path('salons_boutiques') }}">Nos showrooms éphémères régionaux</a> </li>
+                    <li> <a href="{{ path('contact') }}">Inscrivez-vous gratuitement</a> </li>
                 </ul>
             </div>
             <div class="col-lg-3">
                 <h6>Vous êtes une marque ?</h6>
                 <ul class="list-unstyled">
-                    <li> <a href="offres-marques.php">Notre solution B2B 100% mode</a> </li>
-                    <li> <a href="showroom.php">> La plateforme en ligne 24/7</a> </li>
-                    <li> <a href="equipe_commerciale.php">> L'agence commerciale de mode</a> </li>
-                    <li> <a href="salons_regionaux.php">> L'organisation de salons de mode</a> </li>
-                    <li> <a href="tarifs-marques.php">Nos tarifs pro</a> </li>
+                    <li> <a href="{{ path('offres_marques') }}">Notre solution B2B 100% mode</a> </li>
+                    <li> <a href="{{ path('showroom') }}">> La plateforme en ligne 24/7</a> </li>
+                    <li> <a href="{{ path('agence_commerciale') }}">> L'agence commerciale de mode</a> </li>
+                    <li> <a href="{{ path('salons_marques') }}">> L'organisation de salons de mode</a> </li>
+                    <li> <a href="{{ path('tarifs_marques') }}">Nos tarifs pro</a> </li>
                 </ul>
             </div>
             <div class="col-lg-4">
-                <h6><a href="contact.php">Contactez-nous</a></h6>
+                <h6><a href="{{ path('contact') }}">Contactez-nous</a></h6>
                 <h6>Nous suivre sur les réseaux</h6>
                 <div class="footer-icons"> <a href="https://www.facebook.com/profile.php?id=100013779673917&fref=ts" target="_blank" title="Facebook French Select"><i class="fab fa-facebook-f"></i></a> <a href="https://www.instagram.com/showroomfrenchselect/" target="_blank" title="Instagram French Select"><i class="fab fa-instagram"></i></a> <a href="https://twitter.com/frenchselectFR" target="_blank" title="Twitter French Select"><i class="fab fa-twitter"></i></a> </div>
 
-                <div class="p-1"><a href="#"><img src="./../images/flag_fr.png" alt="Francais" height="20px"/> FR</a> -
-                    <a class="m-0 p-1" style="text-align:right;" href="../en/<?php echo $table_trad[basename($_SERVER['PHP_SELF'], '.php')]; ?>"><img src="./../images/flag_en.png" alt="Anglais" height="20px"/> EN</a>
+                <div class="p-1"><a href="#"><img src="{{ asset('bundles/app/img/flag_fr.png')}}" alt="Francais" height="20px"/> FR</a> -
+                    <a class="m-0 p-1" style="text-align:right;" href="../en/<?php echo $table_trad[basename($_SERVER['PHP_SELF'], '.php')]; ?>"><img src="{{ asset('bundles/app/img/flag_en.png')}}" alt="Anglais" height="20px"/> EN</a>
                 </div>
 
             </div>
@@ -101,7 +101,7 @@
         <!--/.Footer Links-->
 
         <!--Copyright-->
-        <div id="copyright" class="footer-copyright py-3 text-center"><a href="legal.php">Mentions légales</a> - <a href="cgv.php">CGU</a> - <a href="confidentialite.php">Confidentialité</a> - <a href="cookies.php">Cookies</a> - © 2018 Copyright French Select </div>
+        <div id="copyright" class="footer-copyright py-3 text-center"><a href="{{ path('mentions_legales') }}">Mentions légales</a> - <a href="{{ path('cgu') }}">CGU</a> - <a href="{{ path('confidentialite') }}">Confidentialité</a> - <a href="{{ path('cookies') }}">Cookies</a> - © 2018 Copyright French Select </div>
         <!--/.Copyright-->
 
         <!--/.Footer-->

@@ -8,12 +8,15 @@ connexion:
     defaults:
         _controller: AppBundle:Default:connexion
 
+<<<<<<< HEAD
 
 details_marques:
     path:    /{marque}
     defaults:
         _controller: AppBundle:BrandDetails:getOneBrand
 
+=======
+>>>>>>> 01dc8f6cadb726136f79c5740da886b4c6afb109
 details_salons:
     path:    /salon/{ville}-{id}
     defaults:
@@ -21,15 +24,12 @@ details_salons:
 
 marques_index:
     resource: "@AppBundle/Resources/config/routing/marques.yml"
-    prefix:   /marques
 
 boutiques_index:
     resource: "@AppBundle/Resources/config/routing/boutiques.yml"
-    prefix:   /boutiques
 
 legal_index:
     resource: "@AppBundle/Resources/config/routing/legal.yml"
-    prefix:   /legal
 
 info_index:
     resource: "@AppBundle/Resources/config/routing/info.yml"

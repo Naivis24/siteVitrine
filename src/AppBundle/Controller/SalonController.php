@@ -16,11 +16,9 @@ class SalonController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $salons = $em->getRepository('AppBundle:Salon')->findAll();
-        $countries  = $em->getRepository('AppBundle:Country')->findAll();
 
         return $this->render('AppBundle::salons_boutiques.html.twig', array(
-            'salons' => $salons,
-            'countries' => $countries,
+            'salons' => $salons
         ));
     }
 }
