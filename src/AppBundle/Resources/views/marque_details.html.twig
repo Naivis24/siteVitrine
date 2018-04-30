@@ -12,16 +12,26 @@
             <tr>
                 <th>Marque</th>
                 <th>Pays</th>
+                <th>Slogan</th>
+                <th>Description</th>
+                <th>Facebook</th>
+                <th>Instagram</th>
+                <th>Site</th>
+                <th>Price Range</th>
+                <th>Lifestyle</th>
             </tr>
             </thead>
             <tbody>
             <tr>
                 <td>{{ brand.getName() }}</td>
-                {% for country in countries %}
-                    {% if brand.getCountry.Id() == country.getId() %}
-                        <td>{{ country.getName() }}</td>
-                    {% endif %}
-                {% endfor %}
+                <td>{{ brand.getCountry().getName() }}</td>
+                <td>{{ brand.getSlogan() }}</td>
+                <td>{{ brand.getDescription() }}</td>
+                <td>{{ brand.getUrlFac() }}</td>
+                <td>{{ brand.getUrlInsta() }}</td>
+                <td>{{ brand.getUrlwebsite() }}</td>
+                <td>{{ brand.getPriceRange().getLabel() }}</td>
+                <td><img href=""></td>
             </tr>
             </tbody>
         </table>
