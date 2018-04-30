@@ -267,5 +267,7 @@ class Salon
     private $salonId;
 
 
+
+
 }
 
