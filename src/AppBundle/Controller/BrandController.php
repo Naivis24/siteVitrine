@@ -18,7 +18,7 @@ class BrandController extends Controller
         $brands = $em->getRepository('AppBundle:Brand')->findAll();
 
         return $this->render('AppBundle::marques.html.twig', array(
-            'brands' => $brands,
+            'brands' => $brands
         ));
     }
 }

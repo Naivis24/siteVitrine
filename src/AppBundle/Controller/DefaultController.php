@@ -107,4 +107,10 @@ class DefaultController extends Controller
 
         return new Response($content);
     }
+
+    public function tarifsMarquesAction(){
+        $content = $this->get('templating')->render('AppBundle::tarifs.html.twig');
+
+        return new Response($content);
+    }
 }

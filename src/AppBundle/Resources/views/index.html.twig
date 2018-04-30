@@ -109,21 +109,21 @@
             <div class="row my-4 px-4">
                 <div class="col-lg-4 px-4">
                     <div class="slide-brands my-1 shadow-sm"> <img src="{{ asset('bundles/app/img/anaik_brand.jpg')}}" alt="Anaik" class="img-fluid"/>
-                        <div class="container-img-brand"><img src="./../images/logo_anaik2.png" alt="Anaik" class="img-fluid"/></div>
+                        <div class="container-img-brand"><img src="{{ asset('bundles/app/img/logo_anaik.png')}}" alt="Anaik" class="img-fluid"/></div>
                     </div>
                 </div>
                 <div class="col-lg-4 px-4">
-                    <div class="slide-brands my-1 shadow-sm"> <img src="./../images/bsb_brand.jpg" alt="BSB" class="img-fluid"/>
-                        <div class="container-img-brand"><img src="./../images/logo_bsb.png" alt="BSB" class="img-fluid"/></div>
+                    <div class="slide-brands my-1 shadow-sm"> <img src="{{ asset('bundles/app/img/bsb_brand.jpg')}}" alt="BSB" class="img-fluid"/>
+                        <div class="container-img-brand"><img src="{{ asset('bundles/app/img/logo_bsb.png')}}" alt="BSB" class="img-fluid"/></div>
                     </div>
                 </div>
                 <div class="col-lg-4 px-4">
-                    <div class="slide-brands my-1 shadow-sm"> <img src="./../images/charlytherapy_brand.jpg" alt="Charly Therapy" class="img-fluid"/>
-                        <div class="container-img-brand"><img src="./../images/logo_charlytherapy.png" alt="Charly Therapy" class="img-fluid"/></div>
+                    <div class="slide-brands my-1 shadow-sm"> <img src="{{ asset('bundles/app/img/charlytherapy_brand.jpg')}}" alt="Charly Therapy" class="img-fluid"/>
+                        <div class="container-img-brand"><img src="{{ asset('bundles/app/img/logo_charlytherapy.png')}}" alt="Charly Therapy" class="img-fluid"/></div>
                     </div>
                 </div>
             </div>
-            <div class="container-btn text-center"><a href="salons.php" class="button-fh p-2">En voir plus</a></div>
+            <div class="container-btn text-center"><a href="{{ path('marques') }}" class="button-fh p-2">En voir plus</a></div>
         </div>
     </div>
     </div>
@@ -134,7 +134,7 @@
             <p class="text-center">Venez découvrir les marques dans les salons que nous organisons près de chez vous !</p>
             <div class="row my-4 px-4">
                 <div class="col-lg-4 px-4">
-                    <div class="slide-salons my-1 p-2"><a href="salon1"> <img src="./../images/salons.png" alt="salon" class="img-fluid shadow-sm"/>
+                    <div class="slide-salons my-1 p-2"><a href="salon1"> <img src="{{ asset('bundles/app/img/salons.png')}}" alt="salon" class="img-fluid shadow-sm"/>
                             <div class="p-2">
                                 <h6>Showroom Toulouse</h6>
                                 <p style="font-family: Lato;color: #FE5F55;font-weight: bold;">Le 16 & 17 Juillet - Hotel holiday Inn</p>
@@ -142,7 +142,7 @@
                         </a> </div>
                 </div>
                 <div class="col-lg-4 px-4">
-                    <div class="slide-salons my-1 p-2"><a href="salon2"> <img src="./../images/salons.png" alt="salon" class="img-fluid shadow-sm"/>
+                    <div class="slide-salons my-1 p-2"><a href="salon2"> <img src="{{ asset('bundles/app/img/salons.png')}}" alt="salon" class="img-fluid shadow-sm"/>
                             <div class="p-2">
                                 <h6>Showroom Toulouse</h6>
                                 <p style="font-family: Lato;color: #FE5F55;font-weight: bold;">Le 16 & 17 Juillet - Hotel holiday Inn</p>
@@ -150,7 +150,7 @@
                         </a> </div>
                 </div>
                 <div class="col-lg-4 px-4">
-                    <div class="slide-salons my-1 p-2"><a href="salon3"> <img src="./../images/salons.png" alt="salon" class="img-fluid shadow-sm"/>
+                    <div class="slide-salons my-1 p-2"><a href="salon3"> <img src="{{ asset('bundles/app/img/salons.png')}}" alt="salon" class="img-fluid shadow-sm"/>
                             <div class="p-2">
                                 <h6>Showroom Toulouse</h6>
                                 <p style="font-family: Lato;color: #FE5F55;font-weight: bold;">Le 16 & 17 Juillet - Hotel holiday Inn</p>
@@ -158,7 +158,7 @@
                         </a> </div>
                 </div>
             </div>
-            <div class="container-btn text-center"><a href="salons.php" class="button-fh p-2">En voir plus</a></div>
+            <div class="container-btn text-center"><a href="{{ path('salons_boutiques') }}" class="button-fh p-2">En voir plus</a></div>
         </div>
     </div>
     </div>
@@ -199,7 +199,7 @@
         <div class="container">
             <h2 class="text-center">Avec French Select,<br />
                 <span style="color:#FE5F55;">profitez des tendances d’aujourd’hui et de demain et facilitez vos achats gratuitement !</span></h2>
-            <div class="container-btn text-center"><a href="contactez-nous.php" class="button-fh p-2">Contactez-nous</a></div>
+            <div class="container-btn text-center"><a href="{{ path('contact') }}" class="button-fh p-2">Contactez-nous</a></div>
         </div>
     </div>
 
