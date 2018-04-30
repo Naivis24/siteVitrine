@@ -7,35 +7,161 @@
 
 {% block body %}
 
-    <div class="container-fluid home1">
+    <div class="container-fluid bg1" id="section-start">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
-                    <h1>Découvrez de nouvelles marques pour vos boutiques !</h1>
-                    <h2>Un large catalogue de marques</h2>
-                    <p>Difficile de s’y retrouver dans la jungle des marques de prêt à porter, d’accessoires et de décoration ? French Select sélectionne pour vous un large catalogue de marques de modes et décoration <u>gratuitement</u>.</p>
-                    <h2>Un large catalogue de marques</h2>
-                    <p>Retrouvez une sélection de marques de modes et de décoration en fonction de votre profil, au plus près des envies de vos clients. Nous sélectionnons l’ensemble de nos marques partenaires en fonction de leur sérieux, de leur style et de leur image.
-                    <h2>Un large catalogue de marques</h2>
-                    Retrouvez ces marques chez vous grâce notre showroom de modes digitale, dans nos salons régionaux et dans vos boutiques.
-                    </p>
+                    <h1>Le showroom des professionnels<br />
+                        <span style="color:#FE5F55;">100% mode</span></h1>
+                    <p style="font-size:20px">Exclusivement réservé aux professionnels. Découvrez et gérez l'ensemble des marques de votre boutique.</p>
+                    <div class="container-btn"><a href="contactez-nous.php" class="button-fh p-2">Contactez-nous</a></div>
                 </div>
-                <div class="col-lg-6 text-center"><img src="{{ asset('bundles/app/img/list-brands.png') }}" alt="brands" class="img-fluid"/></div>
-            </div>
-            <div class="mt-4 mb-4"></div>
-            <div class="row">
-                <div class="col-lg-6 text-center"><img src="{{ asset('bundles/app/img/list-brands.png') }}" alt="brands" class="img-fluid"/></div>
-                <div class="col-lg-6">
-                    <h1>Découvrez de nouvelles marques pour vos boutiques !</h1>
-                    <h2>Un large catalogue de marques</h2>
-                    <p>Difficile de s’y retrouver dans la jungle des marques de prêt à porter, d’accessoires et de décoration ? French Select sélectionne pour vous un large catalogue de marques de modes et décoration.</p>
-                    <h2>Un large catalogue de marques</h2>
-                    <p>Retrouvez une sélection de marques de modes et de décoration en fonction de votre profil, au plus près des envies de vos clients. Nous sélectionnons l’ensemble de nos marques partenaires en fonction de leur sérieux, de leur style et de leur image.</p>
-                    <h2>Un large catalogue de marques</h2>
-                    <p>Retrouvez ces marques chez vous grâce notre showroom de modes digitale, dans nos salons régionaux et dans vos boutiques.</p>
+                <div class="col-lg-6 align-self-center">
+                    <div class="row text-center align-items-end">
+                        <div class="col-lg-4 p-4"> <img src="{{ asset('bundles/app/img/picto-mode.svg')}}"/>
+                            <div class="picto-text">Mode</div>
+                        </div>
+                        <div class="col-lg-4 p-4"> <img src="{{ asset('bundles/app/img/picto-deco.svg')}}"/>
+                            <div class="picto-text">Déco</div>
+                        </div>
+                        <div class="col-lg-4 p-4"> <img src="{{ asset('bundles/app/img/picto-cosme.svg')}}"/>
+                            <div class="picto-text">Cosmétique</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
+    <div class="container-fluid home2">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h2>Découvrez de nouvelles marques pour vos boutiques !</h2>
+                    <h3>Un large catalogue de marques</h3>
+                    <p>L’objectif du showroom French Select est de vous faire bénéficier d’un choix varié de marques tendances de mode, déco et cosmétiques gratuitement en fonction de vos attentes.</p>
+                    <h3>Une offre personnalisée</h3>
+                    <p>L‘équipe commerciale de French Select sélectionne en amont l‘ensemble des marques partenaires présentes sur le B2B en fonction de leur style, leur sérieux, leur valeur ajoutée et leur image.</p>
+                    <h3>Plateforme Digitale & Services Physiques</h3>
+                    <p>Retrouvez ces marques chez vous grâce à notre marketplace mais aussi à nos commerciaux et dans nos salons régionaux.</p>
+                </div>
+                <div class="col-lg-6 p-4 text-center animated fadeInRight"><img src="{{ asset('bundles/app/img/list-brands.png')}}" alt="brands" class="img-fluid"/></div>
+            </div>
+            <div class="mt-4 mb-4"></div>
+            <div class="row">
+                <div class="col-lg-6 p-4 text-center"><img src="{{ asset('bundles/app/img/list-brands.png')}}" alt="brands" class="img-fluid"/></div>
+                <div class="col-lg-6">
+                    <h2>Simplifiez-vous la vie, commandez facilement et à tout moment</h2>
+                    <h3>Centralisation des commandes</h3>
+                    <p>En ligne ou lors de nos salons de modes régionaux, entre deux clients ou chez vous, réalisez l’ensemble de vos achats sur le même site internet.</p>
+                    <h3>Des achats personnalisés</h3>
+                    <p>Nous vous accompagnons dans vos choix en vous fournissant des conseils de sélection de produits, un suivi de vos commandes et un service après-vente.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid home3">
+        <div class="container">
+            <h4>Un site d'achat professionnel</br>
+                <span style="color:#FE5F55;">pensé pour vous</span></h4>
+            <div class="row">
+                <div class="col mx-4">
+                    <h5><img src="{{ asset('bundles/app/img/time.svg')}}" class="big-icon"/> Gagnez du temps</h5>
+                </div>
+            </div>
+            <div class="row px-4">
+                <div class="col-lg-4">
+                    <h3>Rechercher d'articles</h3>
+                    <p>Trouvez en 30 secondes les produits adaptés à votre clientèle.</p>
+                </div>
+                <div class="col-lg-4">
+                    <h3>Gestion des stocks</h3>
+                    <p>Gérez vos réassorts facilement grâce au stock disponible mis à jour de chaque marque.</p>
+                </div>
+                <div class="col-lg-4">
+                    <h3>Plusieurs boutiques ?</h3>
+                    <p>Accéder sur le même compte à l’ensemble de vos commandes.</p>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col mx-4">
+                    <h5><img src="{{ asset('bundles/app/img/budget.svg')}}" class="big-icon"/> Optimisez votre budget</h5>
+                </div>
+            </div>
+            <div class="row px-4">
+                <div class="col-lg-4">
+                    <h3>Centralisation</h3>
+                    <p>Tous vos achats sur une seule plateforme afin de maitriser au mieux votre budget.</p>
+                </div>
+                <div class="col-lg-4">
+                    <h3>Réductions et promotions</h3>
+                    <p>Soyez informé instantanément des réductions et offres promotionnelles des marques.</p>
+                </div>
+                <div class="col-lg-4">
+                    <h3>Paiement</h3>
+                    <p>Anticiper les échéances de paiement des différentes marques grâce à des rappels.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid home2">
+        <div class="container">
+            <h4>Nos marques <span style="color:#FE5F55;">partenaires</span></h4>
+            <div class="row my-4 px-4">
+                <div class="col-lg-4 px-4">
+                    <div class="slide-brands my-1 shadow-sm"> <img src="{{ asset('bundles/app/img/anaik_brand.jpg')}}" alt="Anaik" class="img-fluid"/>
+                        <div class="container-img-brand"><img src="./../images/logo_anaik2.png" alt="Anaik" class="img-fluid"/></div>
+                    </div>
+                </div>
+                <div class="col-lg-4 px-4">
+                    <div class="slide-brands my-1 shadow-sm"> <img src="./../images/bsb_brand.jpg" alt="BSB" class="img-fluid"/>
+                        <div class="container-img-brand"><img src="./../images/logo_bsb.png" alt="BSB" class="img-fluid"/></div>
+                    </div>
+                </div>
+                <div class="col-lg-4 px-4">
+                    <div class="slide-brands my-1 shadow-sm"> <img src="./../images/charlytherapy_brand.jpg" alt="Charly Therapy" class="img-fluid"/>
+                        <div class="container-img-brand"><img src="./../images/logo_charlytherapy.png" alt="Charly Therapy" class="img-fluid"/></div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-btn text-center"><a href="salons.php" class="button-fh p-2">En voir plus</a></div>
+        </div>
+    </div>
+    </div>
+    <div class="container-fluid home3">
+        <div class="container">
+            <h4>Les prochains showrooms</br>
+                <span style="color:#FE5F55;">French Select</span></h4>
+            <p class="text-center">Venez découvrir les marques dans les salons que nous organisons près de chez vous !</p>
+            <div class="row my-4 px-4">
+                <div class="col-lg-4 px-4">
+                    <div class="slide-salons my-1 p-2"><a href="salon1"> <img src="./../images/salons.png" alt="salon" class="img-fluid shadow-sm"/>
+                            <div class="p-2">
+                                <h6>Showroom Toulouse</h6>
+                                <p style="font-family: Lato;color: #FE5F55;font-weight: bold;">Le 16 & 17 Juillet - Hotel holiday Inn</p>
+                            </div>
+                        </a> </div>
+                </div>
+                <div class="col-lg-4 px-4">
+                    <div class="slide-salons my-1 p-2"><a href="salon2"> <img src="./../images/salons.png" alt="salon" class="img-fluid shadow-sm"/>
+                            <div class="p-2">
+                                <h6>Showroom Toulouse</h6>
+                                <p style="font-family: Lato;color: #FE5F55;font-weight: bold;">Le 16 & 17 Juillet - Hotel holiday Inn</p>
+                            </div>
+                        </a> </div>
+                </div>
+                <div class="col-lg-4 px-4">
+                    <div class="slide-salons my-1 p-2"><a href="salon3"> <img src="./../images/salons.png" alt="salon" class="img-fluid shadow-sm"/>
+                            <div class="p-2">
+                                <h6>Showroom Toulouse</h6>
+                                <p style="font-family: Lato;color: #FE5F55;font-weight: bold;">Le 16 & 17 Juillet - Hotel holiday Inn</p>
+                            </div>
+                        </a> </div>
+                </div>
+            </div>
+            <div class="container-btn text-center"><a href="salons.php" class="button-fh p-2">En voir plus</a></div>
+        </div>
+    </div>
+    </div>
     </div>
     <div class="container-fluid home2">
         <div class="container">
@@ -43,21 +169,24 @@
                 <div class="col-lg-1"> </div>
                 <div class="col-lg-10">
                     <div class="row home-box mx-2 my-2 py-4 px-4">
+                        <div class="container-wt">
+                            <h4>Comment ça marche ?</h4>
+                        </div>
                         <div class="col-lg-1"> </div>
-                        <div class="col-lg-10">
-                            <h1>Comment ça marche ?</h1>
-                            <h2><span style="font-size:40px;padding-right:20px">01</span> Inscription</h2>
-                            <p>Inscrivez-vous sur notre showroom de modes rapidement et gratuitement</p>
-                            <h2><span style="font-size:40px;padding-right:20px">02</span> Un catalogue personnalisé</h2>
-                            <p>Parcourez un large catalogue de marques de modes et de décoration et découvrez celles qui vous correspondent. Utilisez simplement des outils de recherche et des filtres avancées pour trouver les marques de modes et décoration que vous souhaitez voir.</p>
-                            <h2><span style="font-size:40px;padding-right:20px">03</span> Commandez</h2>
-                            <p>Commandez directement et simplement les produits des collections actuelles et à venir de toutes les marques. Nous vous fournissons des conseils de sélection de produits. En cas de besoin, une assistance vous sera proposée afin de faciliter la prise de commande.</p>
-                            <h2><span style="font-size:40px;padding-right:20px">04</span> Suivi de commande</h2>
-                            <p>Suivez vos commandes en temps réel grâce à des tableaux de bord complet et accédez à l’ensemble des documents dont vous avez besoin : commandes, factures, bons de livraison.</p>
-                            <h2><span style="font-size:40px;padding-right:20px">05</span> Service clientèle</h2>
-                            <p>Bénéficiez d’un service clientèle personnalisé et toujours disponible.</p>
-                            <h2><span style="font-size:40px;padding-right:20px">06</span> Les salons French Select</h2>
-                            <p>Venez découvrir les marques dans les salons que nous organisons près de chez vous.</p>
+                        <div class="col-lg-10 container-wtx">
+                            <h3><span style="font-size:40px;padding-right:20px">01</span> Inscrivez-vous</h3>
+                            <p>Gratuit et en 80 secondes !</p>
+                            <h3><span style="font-size:40px;padding-right:20px">02</span> Explorez</h3>
+                            <p>Naviguez toute l’année de marques en marques et découvrez celles que vous cherchiez à l’aide d’outils de recherche et des filtres avancés.</p>
+                            <h3><span style="font-size:40px;padding-right:20px">03</span> Commandez</h3>
+                            <p>En 3 clics, à l’aide des dates de livraison des articles des collections actuelles et à venir.
+                                En cas de besoin, des conseils de sélection de produits et une assistance vous sera proposée.</p>
+                            <h3><span style="font-size:40px;padding-right:20px">04</span> Gérez votre back office</h3>
+                            <p>Suivez vos commandes en temps réel grâce à des tableaux de bord complet et accédez ou imprimez l’ensemble des documents dont vous avez besoin : commandes, factures, bons de livraison.</p>
+                            <h3><span style="font-size:40px;padding-right:20px">05</span> Faites-vous assister</h3>
+                            <p>Bénéficiez d’un accompagnement , d’un service personnalisé toujours disponible.</p>
+                            <h3><span style="font-size:40px;padding-right:20px">06</span> Profitez d’un showroom physique et local</h3>
+                            <p>Venez toucher les marques dans nos salons French Select régionaux et rencontrez les créateurs et nos commerciaux.</p>
                         </div>
                         <div class="col-lg-1"> </div>
                     </div>
@@ -66,6 +195,14 @@
             </div>
         </div>
     </div>
+    <div class="container-fluid bg2">
+        <div class="container">
+            <h2 class="text-center">Avec French Select,<br />
+                <span style="color:#FE5F55;">profitez des tendances d’aujourd’hui et de demain et facilitez vos achats gratuitement !</span></h2>
+            <div class="container-btn text-center"><a href="contactez-nous.php" class="button-fh p-2">Contactez-nous</a></div>
+        </div>
+    </div>
+
 
 
 
