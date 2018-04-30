@@ -5,19 +5,24 @@
 {% endblock %}
 
     {% block body %}
-        <h1>La marque</h1>
+        <h1>LOOOOOL</h1>
 
         <table class="table table-stripped">
             <thead>
             <tr>
-                <th>Id</th>
-                <th>Nom d'utilisateur</th>
+                <th>Marque</th>
+                <th>Pays</th>
             </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>{{ brand.getName() }}</td>
-                </tr>
+            <tr>
+                <td>{{ brand.getName() }}</td>
+                {% for country in countries %}
+                    {% if brand.getCountry.Id() == country.getId() %}
+                        <td>{{ country.getName() }}</td>
+                    {% endif %}
+                {% endfor %}
+            </tr>
             </tbody>
         </table>
     {% endblock %}
