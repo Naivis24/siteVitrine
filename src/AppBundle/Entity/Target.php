@@ -13,15 +13,6 @@ use Doctrine\ORM\Mapping as ORM;
 class Target
 {
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="id", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $id;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="label", type="string", length=255, nullable=false)
@@ -29,9 +20,18 @@ class Target
     private $label;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Brand", mappedBy="target")
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Brand", mappedBy="target")
      */
     private $brand;
 
