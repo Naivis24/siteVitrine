@@ -1,39 +1,27 @@
 {% extends "AppBundle::layout.html.twig" %}
 
 {% block title %}
-    Une marque
+    Détails Marque
 {% endblock %}
 
     {% block body %}
-        <h1>LOOOOOL</h1>
 
-        <table class="table table-stripped">
-            <thead>
-            <tr>
-                <th>Marque</th>
-                <th>Pays</th>
-                <th>Slogan</th>
-                <th>Description</th>
-                <th>Facebook</th>
-                <th>Instagram</th>
-                <th>Site</th>
-                <th>Price Range</th>
-                <th>Lifestyle</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>{{ brand.getName() }}</td>
+        <div class="container-fluid" id="section-start">
+            <h1>{{ brand.getName() }}</h1>
 
-                <td>{{ brand.getCountry().getName() }}</td>
-                <td>{{ brand.getSlogan() }}</td>
-                <td>{{ brand.getDescription() }}</td>
-                <td>{{ brand.getUrlFac() }}</td>
-                <td>{{ brand.getUrlInsta() }}</td>
-                <td>{{ brand.getUrlwebsite() }}</td>
-                <td>{{ brand.getPriceRange().getLabel() }}</td>
-                <td><img src="{{ asset('bundles/app/img/'~brand.getLifestyle()) }}"></td>
-            </tr>
-            </tbody>
-        </table>
+            <img src="{{ asset('bundles/app/img/'~brand.getLifestyle()) }}" width="50%" height="50%">
+
+
+            <ol>
+                <li>Pays : {{ brand.getCountry().getName() }}</li>
+                <li>Slogan : {{ brand.getSlogan() }}</li>
+                <li>Description : {{ brand.getDescription() }}</li>
+                <li>Price Range : {{ brand.getPriceRange().getLabel() }}</li>
+                <li>Site Web : <a href="{{ brand.getUrlwebsite() }}">{{ brand.getName() }}</a></li>
+                <li>Facebook : <a href="{{ brand.getUrlFac() }}">Facebook {{ brand.getName }}</a></li>
+                <li>Instagram : <a href="{{ brand.getUrlInsta() }}">Instagram {{ brand.getName() }}</a></li>
+            </ol>
+        </div>
+
+
     {% endblock %}
