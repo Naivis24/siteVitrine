@@ -8,15 +8,11 @@ connexion:
     defaults:
         _controller: AppBundle:Default:connexion
 
-<<<<<<< HEAD
-
 details_marques:
     path:    /{marque}
     defaults:
         _controller: AppBundle:BrandDetails:getOneBrand
 
-=======
->>>>>>> 01dc8f6cadb726136f79c5740da886b4c6afb109
 details_salons:
     path:    /salon/{ville}-{id}
     defaults:
