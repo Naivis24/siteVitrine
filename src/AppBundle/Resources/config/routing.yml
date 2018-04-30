@@ -12,7 +12,7 @@ connexion:
 details_marques:
     path:    /{marque}
     defaults:
-        _controller: AppBundle:Details:getOneBrand
+        _controller: AppBundle:BrandDetails:getOneBrand
 
 details_salons:
     path:    /salon/{ville}-{id}
@@ -33,4 +33,3 @@ legal_index:
 
 info_index:
     resource: "@AppBundle/Resources/config/routing/info.yml"
-

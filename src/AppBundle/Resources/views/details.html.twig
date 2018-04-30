@@ -8,21 +8,21 @@
             <h1>LOOOOOL</h1>
 
             <table class="table table-stripped">
-                    <thead>
+                <thead>
+                <tr>
+                    <th>Marque</th>
+                    <th>Pays</th>
+                </tr>
+                </thead>
+                <tbody>
                     <tr>
-                        <th>Marque</th>
-                        <th>Pays</th>
+                        <td>{{ brand.getName() }}</td>
+                        {% for country in countries %}
+                            {% if brand.getCountry.Id() == country.getId() %}
+                            <td>{{ country.getName() }}</td>
+                            {% endif %}
+                        {% endfor %}
                     </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>{{ brand.getName() }}</td>
-                            {% for country in countries %}
-                                {% if brand.getCountry.Id() == country.getId() %}
-                                <td>{{ country.getName() }}</td>
-                                {% endif %}
-                            {% endfor %}
-                        </tr>
-                    </tbody>
-                </table>
-        {% endblock %}
+                </tbody>
+            </table>
+    {% endblock %}

@@ -21,7 +21,7 @@ class BrandDetailsController extends Controller
 
 
 
-        return $this->render('AppBundle::details.html.twig', array(
+        return $this->render('AppBundle::marque_details.html.twig', array(
             'brand' => $brand, 'countries' => $countries,
         ));
     }
