@@ -19,7 +19,7 @@ class DetailsController extends Controller
 
 
         return $this->render('AppBundle::salon_details.html.twig', array(
-            'salon' => $salon,
+            'salon' => $salon
         ));
     }
 

@@ -79,6 +79,22 @@ class Salon
     /**
      * @return string
      */
+    public function getLieu()
+    {
+        return $this->lieu;
+    }
+
+    /**
+     * @param string $lieu
+     */
+    public function setLieu($lieu)
+    {
+        $this->lieu = $lieu;
+    }
+
+    /**
+     * @return string
+     */
     public function getAdresse()
     {
         return $this->adresse;
@@ -187,6 +203,22 @@ class Salon
     {
         $this->pays = $pays;
     }
+
+    /**
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getBrand()
+    {
+        return $this->brand;
+    }
+
+    /**
+     * @param \Doctrine\Common\Collections\Collection $brand
+     */
+    public function setBrand($brand)
+    {
+        $this->brand = $brand;
+    }
     /**
      * @var integer
      *
@@ -216,6 +248,13 @@ class Salon
      * @ORM\Column(name="date_fin", type="date", nullable=true)
      */
     private $dateFin;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="lieu", type="string", length=255, nullable=true)
+     */
+    private $lieu;
 
     /**
      * @var string
@@ -269,8 +308,20 @@ class Salon
      */
     private $pays;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Brand", mappedBy="salon")
+     */
+    private $brand;
 
-
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->brand = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
 }
 

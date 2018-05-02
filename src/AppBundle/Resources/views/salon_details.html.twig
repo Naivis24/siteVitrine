@@ -7,10 +7,47 @@
     {% block body %}
         <div class="container-fluid " id="section-start">
 
-        <h1>{{ salon.getName() }}</h1>
+            <div class="container">
+                <h1>{{ salon.getName() }}</h1>
 
-            salon.
+                <p>{{ salon.getDescription() }}</p>
+                <p style="color: #FE5F55">
+                    <strong>Du {{ salon.getDateDebut()|date("d") }}
+                        au {{ salon.getDateFin()|date("d") }}
+                        {{ salon.getDateFin()|date("m") }}
+                        {{ salon.getDateDebut()|date("Y") }}
+                    </strong></p>
+                <p style="color: #FE5F55"> {{ salon.getAdresse() }}, {{ salon.getVille() }}
+                    - {{ salon.getPays().getName() }}</p>
+            </div>
+            <div class="container">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">Participants</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                   {% set participants = salon.getBrand.toArray() %}
+                   {%  for participant in participants  %}
+                        <tr>
+
+                            <td>{{ participant.getName() }}</td>
+
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="map-responsive">
+                <iframe
+                        width="600"
+                        height="450"
+                        frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAK1YsHXrLJDt6DNx4x0fkdgeA6LBo8wMM
+    &q=~{{ salon.getAdresse() }},Bordeaux+France" allowfullscreen>
+                </iframe>
+            </div>
         </div>
-
-
     {% endblock %}

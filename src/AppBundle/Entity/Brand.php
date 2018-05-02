@@ -299,6 +299,22 @@ class Brand
     {
         $this->target = $target;
     }
+
+    /**
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getSalon()
+    {
+        return $this->salon;
+    }
+
+    /**
+     * @param \Doctrine\Common\Collections\Collection $salon
+     */
+    public function setSalon($salon)
+    {
+        $this->salon = $salon;
+    }
     /**
      * @var integer
      *
@@ -464,6 +480,21 @@ class Brand
     private $target;
 
     /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Salon", inversedBy="brand")
+     * @ORM\JoinTable(name="participe_salon",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="brand_id", referencedColumnName="id")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="salon_id", referencedColumnName="salon_id")
+     *   }
+     * )
+     */
+    private $salon;
+
+    /**
      * Constructor
      */
     public function __construct()
@@ -471,6 +502,7 @@ class Brand
         $this->primaryCategory = new \Doctrine\Common\Collections\ArrayCollection();
         $this->style = new \Doctrine\Common\Collections\ArrayCollection();
         $this->target = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->salon = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
 }

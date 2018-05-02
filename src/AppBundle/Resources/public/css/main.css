@@ -616,6 +616,10 @@ p {
 
 
 /* FOOTER */
+
+footer > .container-fluid{
+	padding-top: 0rem;
+}
 .modal-footer {
 	width: 100%;
 	padding: 40px 30px;
@@ -746,3 +750,17 @@ p {
 	display: flex;
 }
 
+.map-responsive {
+	overflow:hidden;
+	padding-bottom:56.25%;
+	position:relative;>
+height:0;
+}
+
+.map-responsive iframe {
+	left:0;
+	top:0;
+	height:100%;
+	width:100%;
+	position:absolute;
+}
