@@ -6,22 +6,16 @@
 
     {% block body %}
 
-        <div class="container-fluid" id="section-start">
-            <h1>{{ brand.getName() }}</h1>
+        <div class="card card-marques">
 
-            <img src="{{ asset('bundles/app/img/'~brand.getLifestyle()) }}" width="50%" height="50%">
+            <img class="card-img" src="{{ asset('bundles/app/img/'~brand.getLifestyle()) }}">
+            <div class="card-img-overlay">
+                <h5 class="card-title"> {{ brand.getSlogan() }} </h5>
+                <a href="{{ brand.getUrlwebsite() }}" target="_blank">{{ brand.getName() }}</a>
+                <a href="{{ brand.getUrlFac() }}" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="{{ brand.getUrlInsta() }}" target="_blank" ><i class="fab fa-instagram"></i></a>
+            </div>
 
-
-            <ul>
-                <li>Pays : {{ brand.getCountry().getName() }}</li>
-                <li>Slogan : {{ brand.getSlogan() }}</li>
-                <li>Description : {{ brand.getDescription() }}</li>
-                <li>Price Range : {{ brand.getPriceRange().getLabel() }}</li>
-                <li>Site Web : <a href="{{ brand.getUrlwebsite() }}" target="_blank">{{ brand.getName() }}</a></li>
-                <li>Facebook : <a href="{{ brand.getUrlFac() }}" target="_blank">Facebook {{ brand.getName }}</a></li>
-                <li>Instagram : <a href="{{ brand.getUrlInsta() }}" target="_blank" >Instagram {{ brand.getName() }}</a></li>
-            </ul>
         </div>
-
 
     {% endblock %}
