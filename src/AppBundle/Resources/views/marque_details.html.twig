@@ -33,8 +33,9 @@
         </div>
 
         <div id="competing">
-            <p> Marques recommandées</p>
+            <p> Marques recommandées - Style</p>
             {% set var1 = brand.getStyle.toArray() %}
+            {% set tab = [] %}
             {% for b in brands %}
                 {% set var2 = b.getStyle.toArray() %}
                 {% for s in var2 %}
@@ -42,11 +43,11 @@
                         {% if s.getLabel() == truc.getLabel() %}
                             {% if brand.getName() != b.getName() %}
                                 {{ b.getName() }}
+                                {{ tab.push(b.getName()) }}
                             {% endif %}
                         {% endif %}
                     {% endfor %}
                  {% endfor %}
-
             {% endfor %}
 
 
