@@ -32,23 +32,27 @@
 
             </div>
 
-            <div id="competing">
-                <p> Marques recommandées</p>
-                {% set var1 = brand.getStyle.toArray() %}
-                {% for b in brands %}
-                    {% set var2 = b.getStyle.toArray() %}
-                    {% for s in var2 %}
-                        {% for truc in var1 %}
-                            {% if s.getLabel() == truc.getLabel() %}
-                                {% if brand.getName() != b.getName() %}
+
+
+        <div id="competing">
+            <p> Marques recommandées - Style</p>
+            {% set var1 = brand.getStyle.toArray() %}
+            {% set tab = [] %}
+            {% for b in brands %}
+                {% set var2 = b.getStyle.toArray() %}
+                {% for s in var2 %}
+                    {% for truc in var1 %}
+                        {% if s.getLabel() == truc.getLabel() %}
+                            {% if brand.getName() != b.getName() %}
+                                {% if b.getName() not in tab %}
                                     {{ b.getName() }}
+                                    {% set tab = tab|merge([''~b.getName()])  %}
                                 {% endif %}
                             {% endif %}
                         {% endfor %}
                     {% endfor %}
 
                 {% endfor %}
-
 
             </div>
         </div>
