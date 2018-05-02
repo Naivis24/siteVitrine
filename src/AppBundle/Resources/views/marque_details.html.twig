@@ -7,7 +7,7 @@
     {% block body %}
 
         <div class="container-fluid " id="section-start">
-        <h1>LOOOOOL</h1>
+        <h1>{{ brand.getName() }}</h1>
 
         <div class="card card-marques">
 
@@ -18,6 +18,38 @@
                 <a href="{{ brand.getUrlFac() }}" target="_blank"><i class="fab fa-facebook-f"></i></a>
                 <a href="{{ brand.getUrlInsta() }}" target="_blank" ><i class="fab fa-instagram"></i></a>
             </div>
+
+        </div>
+
+
+        <div id="test">
+
+
+            {% for t in brand.getStyle.toArray() %}
+
+            {% endfor %}
+
+
+
+        </div>
+
+        <div id="competing">
+            <p> Marques recommandées</p>
+            {% set var1 = brand.getStyle.toArray() %}
+            {% for b in brands %}
+                {% set var2 = b.getStyle.toArray() %}
+                {% for s in var2 %}
+                    {% for truc in var1 %}
+                        {% if s.getLabel() == truc.getLabel() %}
+                            {% if brand.getName() != b.getName() %}
+                                {{ b.getName() }}
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                 {% endfor %}
+
+            {% endfor %}
+
 
         </div>
 
