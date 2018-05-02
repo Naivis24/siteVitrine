@@ -22,38 +22,78 @@
             </div>
 
 
-            <div id="test">
-
-
-                {% for t in brand.getStyle.toArray() %}
-
-                {% endfor %}
-
-
-            </div>
-
 
 
         <div id="competing">
             <p> Marques recommandées - Style</p>
-            {% set var1 = brand.getStyle.toArray() %}
-            {% set tab = [] %}
-            {% for b in brands %}
-                {% set var2 = b.getStyle.toArray() %}
-                {% for s in var2 %}
-                    {% for truc in var1 %}
-                        {% if s.getLabel() == truc.getLabel() %}
-                            {% if brand.getName() != b.getName() %}
-                                {% if b.getName() not in tab %}
-                                    {{ b.getName() }}
-                                    {% set tab = tab|merge([''~b.getName()])  %}
+            <!--Initialisation des variables -->
+            {% set styleBrand = brand.getStyle.toArray() %}
+            {% set targetBrand = brand.getTarget.toArray() %}
+            {% set categoryBrand = brand.getPrimaryCategory().toArray() %}
+            {% set tab1 = [] %}
+            {% set tab2 = [] %}
+            {% set tab3 = [] %}
+            {% set res = [] %}
+            {% for currentBrand in brands %}
+                {% set styleComp = currentBrand.getStyle.toArray()  %}
+                {% set targetComp = currentBrand.getTarget.toArray() %}
+                {% set categoryComp = currentBrand.getPrimaryCategory().toArray() %}
+
+                <!-- Comparaison des styles -->
+
+                {% for styleC in styleComp %}
+                    {% for styleB in styleBrand %}
+                        {% if styleB.getLabel() == styleC.getLabel() %}
+                            {% if brand.getName() != currentBrand.getName() %}
+                                {% if currentBrand.getName() not in tab1 %}
+                                    {% set tab1 = tab1|merge([''~currentBrand.getName()])  %}
                                 {% endif %}
                             {% endif %}
-                        {% endfor %}
+                        {% endif %}
                     {% endfor %}
-
                 {% endfor %}
 
-            </div>
+                <!-- Comparaison des cibles -->
+
+                {% for targetC in targetComp %}
+                    {% for targetB in targetBrand %}
+                        {% if targetB.getLabel() == targetC.getLabel() %}
+                            {% if brand.getName() != currentBrand.getName() %}
+                                {% if currentBrand.getName() not in tab2 %}
+                                    {% set tab2 = tab2|merge([''~currentBrand.getName()])  %}
+                                {% endif %}
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                {% endfor %}
+
+                <!-- Comparaison des catégories -->
+
+                {% for categoryC in categoryComp %}
+                    {% for categoryB in categoryBrand %}
+                        {% if categoryB.getLabel() == categoryC.getLabel() %}
+                            {% if brand.getName() != currentBrand.getName() %}
+                                {% if currentBrand.getName() not in tab3 %}
+                                    {% set tab3 = tab3|merge([''~currentBrand.getName()])  %}
+                                {% endif %}
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                {% endfor %}
+
+            {% endfor %}
+
+            <!-- Comparaion des tab -->
+            {% for element in tab1 %}
+                {% if element in tab2 and element in tab3 %}
+                    {% set res = res|merge([element]) %}
+                {% endif %}
+            {% endfor %}
+
+
+            <!-- Affichage des résultats -->
+            {% for resultats in res %}
+                {{ resultats }}
+            {% endfor %}
         </div>
     {% endblock %}
