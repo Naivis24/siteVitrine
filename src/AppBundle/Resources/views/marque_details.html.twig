@@ -1,41 +1,24 @@
 {% extends "AppBundle::layout.html.twig" %}
 
 {% block title %}
-    Une marque
+    Détails Marque
 {% endblock %}
 
     {% block body %}
+
         <div class="container-fluid " id="section-start">
         <h1>LOOOOOL</h1>
 
-        <table class="table table-stripped">
-            <thead>
-            <tr>
-                <th>Marque</th>
-                <th>Pays</th>
-                <th>Slogan</th>
-                <th>Description</th>
-                <th>Facebook</th>
-                <th>Instagram</th>
-                <th>Site</th>
-                <th>Price Range</th>
-                <th>Lifestyle</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>{{ brand.getName() }}</td>
+        <div class="card card-marques">
 
-                <td>{{ brand.getCountry().getName() }}</td>
-                <td>{{ brand.getSlogan() }}</td>
-                <td>{{ brand.getDescription() }}</td>
-                <td>{{ brand.getUrlFac() }}</td>
-                <td>{{ brand.getUrlInsta() }}</td>
-                <td>{{ brand.getUrlwebsite() }}</td>
-                <td>{{ brand.getPriceRange().getLabel() }}</td>
-                <td><img src="{{ asset('bundles/app/img/'~brand.getLifestyle()) }}"></td>
-            </tr>
-            </tbody>
-        </table>
+            <img class="card-img" src="{{ asset('bundles/app/img/'~brand.getLifestyle()) }}">
+            <div class="card-img-overlay">
+                <h5 class="card-title"> {{ brand.getSlogan() }} </h5>
+                <a href="{{ brand.getUrlwebsite() }}" target="_blank">{{ brand.getName() }}</a>
+                <a href="{{ brand.getUrlFac() }}" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="{{ brand.getUrlInsta() }}" target="_blank" ><i class="fab fa-instagram"></i></a>
+            </div>
+
         </div>
+        
     {% endblock %}

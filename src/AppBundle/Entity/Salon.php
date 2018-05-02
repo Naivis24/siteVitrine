@@ -270,5 +270,7 @@ class Salon
     private $pays;
 
 
+
+
 }
 
