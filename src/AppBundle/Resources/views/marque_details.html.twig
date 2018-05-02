@@ -43,8 +43,10 @@
                     {% for truc in var1 %}
                         {% if s.getLabel() == truc.getLabel() %}
                             {% if brand.getName() != b.getName() %}
-                                {{ b.getName() }}
-                                {{ tab.push(b.getName()) }}
+                                {% if b.getName() not in tab %}
+                                    {{ b.getName() }}
+                                    {% set tab = tab|merge([''~b.getName()])  %}
+                                {% endif %}
                             {% endif %}
                         {% endif %}
                     {% endfor %}
