@@ -19,20 +19,22 @@
                     <div class="card-deck">
                 {% endif %}
 
-                   <div class="card card-marques">
+                 <div class="card card-marques">
 
-                       <img class="card-img" src="{{ asset('bundles/app/img' ~brand.getLifestyle() ) }}">
-                       <div class="card-img-overlay info">
-                           <img src="{{ asset('bundles/app/img/' ~ brand.getLogo())}}" >
-                       </div>
-                       <div class="card-img-overlay hover-info">
-                           <h5 class="card-title"> {{ brand.getName() }} </h5>
-                           <p> {{ brand.getSlogan() }} </p>
+                      <div class="card-img ">
+                           <img class="card-img" src="{{ asset('bundles/app/img/' ~brand.getPicture() ) }}">
+                     </div>
+                     <div class="card-img-overlay info p-t-2">
+                            <img class="img-fluid"src="{{ asset('bundles/app/img/' ~ brand.getLogo())}}" >
+                     </div>
+                     <div class="card-img-overlay hover-info">
+                             <h5 class="card-title"> {{ brand.getName() }} </h5>
+                             <p> {{ brand.getSlogan() }} </p>
+                              <a href="{{ path('details_marques', {'marque': brand.getName()} ) }}">
+                                  Découvrir la marque </a>
+                     </div>
 
-                           <a href="{{ path('details_marques', {'marque': brand.getName()} ) }}"> Découvrir la marque </a>
-                       </div>
-
-                   </div>
+                 </div>
                    {% set cpt = cpt + 1 %}
                {% endfor %}
        </div>

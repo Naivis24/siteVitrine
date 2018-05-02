@@ -404,26 +404,7 @@ p {
 .slide-salons:hover {
 	transform: scale(1.025);
 }
-.slide-brands {
-	background-color: #f4efeb;
-	height: 385px;
-	width: 300px;
-}
-.slide-brands img {
-	height: 361px;
-	width: 272px;
-	margin-top: 13px;
-	margin-left: 14px;
-}
-.container-img-brand {
-	position: absolute;
-	bottom: 30px;
-	left: 55px;
-	width: 237px;
-	height: 60px;
-	background-color: #f4efeb;
-	text-align: center;
-}
+
 .container-img-brand img {
 	height: 50px;
 	width: auto;
@@ -698,15 +679,25 @@ p {
 }
 
 .card-salons {
-	background-color: #f4efeb;
-	border-color: #f4efeb;
+	background-color: #FFFFFF;
+	border-color: #FFFFFF;
 	border-radius: 0;
 	border-width: 10px;
 	text-align: left;
+	-webkit-transition: all .5s ease;
+	-moz-transition: all .5s ease;
+	-ms-transition: all .5s ease;
+	-o-transition: all .5s ease;
+	transition: all .5s ease;
+}
+.card-salons:hover {
+	transform: scale(1.025);
 }
 
-.card-img {
+.card-marques .card-img {
 	border-radius: 0;
+	height: 361px;
+	widht: 272px;
 }
 
 .card-img-top {
@@ -714,9 +705,7 @@ p {
 }
 
 .card-marques:hover .card-img{
-
 	opacity: 0.3;
-
 }
 .card-marques .hover-info{
 	visibility: hidden;
