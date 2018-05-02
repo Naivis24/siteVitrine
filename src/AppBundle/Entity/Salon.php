@@ -13,88 +13,6 @@ use Doctrine\ORM\Mapping as ORM;
 class Salon
 {
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="salon_id", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $salonId;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="name", type="string", length=255, nullable=false)
-     */
-    private $name;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="date_debut", type="date", nullable=false)
-     */
-    private $dateDebut;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="date_fin", type="date", nullable=true)
-     */
-    private $dateFin;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="adresse", type="string", length=255, nullable=true)
-     */
-    private $adresse;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="zipCode", type="integer", nullable=false)
-     */
-    private $zipcode;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="ville", type="string", length=255, nullable=true)
-     */
-    private $ville;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="description", type="string", length=255, nullable=true)
-     */
-    private $description;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="G_img", type="integer", nullable=false)
-     */
-    private $gImg;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="p_img", type="integer", nullable=false)
-     */
-    private $pImg;
-
-    /**
-     * @var \Country
-     *
-     * @ORM\ManyToOne(targetEntity="Country")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="pays", referencedColumnName="id")
-     * })
-     */
-    private $pays;
-
-    /**
      * @return int
      */
     public function getSalonId()
@@ -286,7 +204,6 @@ class Salon
         $this->pays = $pays;
     }
 
-
     /**
      * @return \Doctrine\Common\Collections\Collection
      */
@@ -302,7 +219,35 @@ class Salon
     {
         $this->brand = $brand;
     }
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="salon_id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $salonId;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255, nullable=false)
+     */
+    private $name;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_debut", type="date", nullable=false)
+     */
+    private $dateDebut;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_fin", type="date", nullable=true)
+     */
+    private $dateFin;
 
     /**
      * @var string
@@ -310,6 +255,58 @@ class Salon
      * @ORM\Column(name="lieu", type="string", length=255, nullable=true)
      */
     private $lieu;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="adresse", type="string", length=255, nullable=true)
+     */
+    private $adresse;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="zipCode", type="integer", nullable=false)
+     */
+    private $zipcode;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ville", type="string", length=255, nullable=true)
+     */
+    private $ville;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="string", length=255, nullable=true)
+     */
+    private $description;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="G_img", type="integer", nullable=false)
+     */
+    private $gImg;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="p_img", type="integer", nullable=false)
+     */
+    private $pImg;
+
+    /**
+     * @var \Country
+     *
+     * @ORM\ManyToOne(targetEntity="Country")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="pays", referencedColumnName="id")
+     * })
+     */
+    private $pays;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
