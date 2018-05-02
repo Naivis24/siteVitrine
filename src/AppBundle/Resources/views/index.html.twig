@@ -149,7 +149,7 @@
                             <div class="card card-marques">
 
                                 <div class="card-img ">
-                                    <img class="card-img" src="{{ asset('bundles/app/img/' ~brand.getPicture() ) }}">
+                                    <img class="card-img" src="{{ asset('bundles/app/img/' ~ brand.getPicture() ) }}">
                                 </div>
                                 <div class="card-img-overlay info p-t-2">
                                     <img class="img-fluid" src="{{ asset('bundles/app/img/' ~ brand.getLogo()) }}">
@@ -177,45 +177,7 @@
     </div>
     <div class="container-fluid home3">
         <div class="container">
-            <h4>Les prochains showrooms</br>
-                <span style="color:#FE5F55;">French Select</span></h4>
-            <p class="text-center">Venez découvrir les <strong>marques</strong> dans les <strong>showrooms</strong> que
-                nous organisons près de chez vous !</p>
-            <div class="row my-4 px-4">
-                <div class="col-lg-4 px-4">
-                    <div class="slide-salons my-1 p-2"><a href="salon1"> <img
-                                    src="{{ asset('bundles/app/img/salons.png') }}" alt="salon"
-                                    class="img-fluid shadow-sm"/>
-                            <div class="p-2">
-                                <h6>Showroom Toulouse</h6>
-                                <p style="font-family: Lato;color: #FE5F55;font-weight: bold;">Le 16 & 17 Juillet -
-                                    Hotel holiday Inn</p>
-                            </div>
-                        </a></div>
-                </div>
-                <div class="col-lg-4 px-4">
-                    <div class="slide-salons my-1 p-2"><a href="salon2"> <img
-                                    src="{{ asset('bundles/app/img/salons.png') }}" alt="salon"
-                                    class="img-fluid shadow-sm"/>
-                            <div class="p-2">
-                                <h6>Showroom Toulouse</h6>
-                                <p style="font-family: Lato;color: #FE5F55;font-weight: bold;">Le 16 & 17 Juillet -
-                                    Hotel holiday Inn</p>
-                            </div>
-                        </a></div>
-                </div>
-                <div class="col-lg-4 px-4">
-                    <div class="slide-salons my-1 p-2"><a href="salon3"> <img
-                                    src="{{ asset('bundles/app/img/salons.png') }}" alt="salon"
-                                    class="img-fluid shadow-sm"/>
-                            <div class="p-2">
-                                <h6>Showroom Toulouse</h6>
-                                <p style="font-family: Lato;color: #FE5F55;font-weight: bold;">Le 16 & 17 Juillet -
-                                    Hotel holiday Inn</p>
-                            </div>
-                        </a></div>
-                </div>
-            </div>
+
 
             <div class="card-deck">
                 {% set cpt = 0 %}
@@ -246,8 +208,7 @@
                     voir plus</a></div>
         </div>
     </div>
-    </div>
-    </div>
+
     <div class="container-fluid home2">
         <div class="container">
             <div class="row mx-2 my-2 py-4 px-1">

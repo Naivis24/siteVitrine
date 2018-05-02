@@ -8,49 +8,48 @@
 
         <div class="container-fluid " id="section-start">
         <h1>{{ brand.getName() }}</h1>
+        <div class="container">
+            <div class="card">
 
-        <div class="card card-marques">
+                <img class="card-img" src="{{ asset('bundles/app/img/'~brand.getLifestyle()) }}">
+                <div class="card-img-overlay">
+                    <h5 class="card-title"> {{ brand.getSlogan() }} </h5>
+                    <a href="{{ brand.getUrlwebsite() }}" target="_blank">{{ brand.getName() }}</a>
+                    <a href="{{ brand.getUrlFac() }}" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="{{ brand.getUrlInsta() }}" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
 
-            <img class="card-img" src="{{ asset('bundles/app/img/'~brand.getLifestyle()) }}">
-            <div class="card-img-overlay">
-                <h5 class="card-title"> {{ brand.getSlogan() }} </h5>
-                <a href="{{ brand.getUrlwebsite() }}" target="_blank">{{ brand.getName() }}</a>
-                <a href="{{ brand.getUrlFac() }}" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                <a href="{{ brand.getUrlInsta() }}" target="_blank" ><i class="fab fa-instagram"></i></a>
             </div>
 
-        </div>
+
+            <div id="test">
 
 
-        <div id="test">
+                {% for t in brand.getStyle.toArray() %}
+
+                {% endfor %}
 
 
-            {% for t in brand.getStyle.toArray() %}
+            </div>
 
-            {% endfor %}
-
-
-
-        </div>
-
-        <div id="competing">
-            <p> Marques recommandées</p>
-            {% set var1 = brand.getStyle.toArray() %}
-            {% for b in brands %}
-                {% set var2 = b.getStyle.toArray() %}
-                {% for s in var2 %}
-                    {% for truc in var1 %}
-                        {% if s.getLabel() == truc.getLabel() %}
-                            {% if brand.getName() != b.getName() %}
-                                {{ b.getName() }}
+            <div id="competing">
+                <p> Marques recommandées</p>
+                {% set var1 = brand.getStyle.toArray() %}
+                {% for b in brands %}
+                    {% set var2 = b.getStyle.toArray() %}
+                    {% for s in var2 %}
+                        {% for truc in var1 %}
+                            {% if s.getLabel() == truc.getLabel() %}
+                                {% if brand.getName() != b.getName() %}
+                                    {{ b.getName() }}
+                                {% endif %}
                             {% endif %}
-                        {% endif %}
+                        {% endfor %}
                     {% endfor %}
-                 {% endfor %}
 
-            {% endfor %}
+                {% endfor %}
 
 
+            </div>
         </div>
-
     {% endblock %}
