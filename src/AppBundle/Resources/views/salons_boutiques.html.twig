@@ -11,7 +11,7 @@
 
     <h1>Liste des salons</h1>
 
-
+    <div class="container-fluid " id="section-start">
     <div class="card-columns">
         {% for salon in salons %}
 
@@ -25,13 +25,14 @@
                             {{  salon.getDateFin()|date("m") }}
                             {{  salon.getDateDebut()|date("Y") }}
                       </strong></p>
-                    <p class="card-text" style="color: #FE5F55"> {{ salon.getVille() }} - {{ salon.getCountry() }}</p>
+                    <p class="card-text" style="color: #FE5F55"> {{ salon.getVille() }} - {{ salon.getPays().getName() }}</p>
                 </div>
                 </a>
             </div>
 
 
         {% endfor %}
+    </div>
     </div>
 
 

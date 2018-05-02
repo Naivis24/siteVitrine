@@ -7,171 +7,23 @@
 
 {% block body %}
 
-    <div class="container-fluid pricebg" id="section-start">
-        <div class="container">
-            <h1>Une offre claire et transparente</h1>
-            <p class="text-center">Exclusivement réservée aux <span style="color:#FE5F55;font-weight:700;">marques</span> !</p>
-            <div class="card-deck">
-                <div class="card shadow">
-                    <div class="card-body text-center card-price"> <img class="card-img" src="{{ asset('bundles/app/img/picto-first.svg') }}">
-                        <h2 class="card-title">Genèse</h2>
-                        <div class="price"><div class="price-num">30 €</div> / mois</div>
-                        <div class="sb-price">360 € / an</div>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    </div>
-                    <div class="card-footer text-center"><a href="{{ path('contact') }}" class="button-fh p-2">Contactez-nous</a></div>
-                </div>
-                <div class="card shadow">
-                    <div class="card-body text-center card-price"> <img class="card-img" src="{{ asset('bundles/app/img/picto-second.svg') }}">
-                        <h2 class="card-title">Essentiel</h2>
-                        <div class="price"><div class="price-num">100 €</div> / mois</div>
-                        <div class="sb-price">1 200 € / an</div>
-                        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                    </div>
-                    <div class="card-footer text-center"><a href="{{ path('contact') }}" class="button-fh p-2">Contactez-nous</a></div>
-                </div>
-                <div class="card shadow">
-                    <div class="card-body text-center card-price"> <img class="card-img" src="{{ asset('bundles/app/img/picto-third.svg') }}">
-                        <h2 class="card-title">Standard</h2>
-                        <div class="price"><div class="price-num">250 €</div> / mois</div>
-                        <div class="sb-price">3 000 € / an</div>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                    </div>
-                    <div class="card-footer text-center"><a href="{{ path('contact') }}" class="button-fh p-2">Contactez-nous</a></div>
-                </div>
-                <div class="card shadow">
-                    <div class="card-body text-center card-price"> <img class="card-img" src="{{ asset('bundles/app/img/picto-four.svg') }}">
-                        <h2 class="card-title">Premium</h2>
-                        <div class="price"><div class="price-num">Sur devis</div></div>
-                        <div class="sb-price"></div>
-                        <p class="card-text">Notre équipe est à votre disposition pour vous offrir des services personnalisés.</p>
-                    </div>
-                    <div class="card-footer text-center"><a href="{{ path('contact') }}" class="button-fh p-2">Contactez-nous</a></div>
-                </div>
-            </div>
-            <h1>Détail et options</h1>
-            <div class="table-responsive-lg">
-                <table class="table text-center">
-                    <thead>
-                    <tr>
-                        <th scope="col" style="width:40%" class="table-price-title">Visibilité</th>
-                        <th scope="col" style="width:20%">Genèse</th>
-                        <th scope="col" style="width:20%">Essentiel</th>
-                        <th scope="col" style="width:20%">Standard</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td scope="row" class="table-price-title">Présence sur le marketplace</th>
-                        <td><i class="fas fa-times"></i></td>
-                        <td><i class="fas fa-check"></i></td>
-                        <td><i class="fas fa-check"></i></td>
-                    </tr>
-                    <tr>
-                        <td scope="row" class="table-price-title">Contrôle d'accès au catalogue en ligne</th>
-                        <td><i class="fas fa-times"></i></td>
-                        <td><i class="fas fa-times"></i></td>
-                        <td>Possible</td>
-                    </tr>
-                    </tbody>
-                </table>
-                <table class="table text-center">
-                    <thead>
-                    <tr>
-                        <th scope="col" style="width:40%" class="table-price-title">Gestion des collections</th>
-                        <th scope="col" style="width:20%">Genèse</th>
-                        <th scope="col" style="width:20%">Essentiel</th>
-                        <th scope="col" style="width:20%">Standard</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td scope="row" class="table-price-title">Création / Modification des collections</th>
-                        <td><i class="fas fa-check"></i> par marque</td>
-                        <td><i class="fas fa-check"></i> par FS</td>
-                        <td><i class="fas fa-check"></i> par FS</td>
-                    </tr>
-                    <tr>
-                        <td scope="row" class="table-price-title">Ajout / Modification d'un produit</th>
-                        <td><i class="fas fa-check"></i> par marque</td>
-                        <td><i class="fas fa-check"></i> par FS</td>
-                        <td><i class="fas fa-check"></i> par FS</td>
-                    </tr>
-                    <tr>
-                        <td scope="row" class="table-price-title">Importation / Exportation de produits</th>
-                        <td><i class="fas fa-check"></i> par marque</td>
-                        <td><i class="fas fa-check"></i> par FS</td>
-                        <td><i class="fas fa-check"></i> par FS</td>
-                    </tr>
-                    <tr>
-                        <td scope="row" class="table-price-title">Validation fiche produit par FS</th>
-                        <td><i class="fas fa-check"></i></td>
-                        <td><i class="fas fa-check"></i></td>
-                        <td><i class="fas fa-check"></i></td>
-                    </tr>
-                    <tr>
-                        <td scope="row" class="table-price-title">Nombre de produits</th>
-                        <td>50</td>
-                        <td>50</td>
-                        <td>200</td>
-                    </tr><tr>
-                        <td scope="row" class="table-price-title">Contrôle disponibilité référence</th>
-                        <td><i class="fas fa-check"></i></td>
-                        <td><i class="fas fa-check"></i></td>
-                        <td><i class="fas fa-check"></i></td>
-                    </tr>
-                    </tbody>
-                </table>
-                <table class="table text-center">
-                    <thead>
-                    <tr>
-                        <th scope="col" style="width:40%" class="table-price-title">Gestion des clients</th>
-                        <th scope="col" style="width:20%">Genèse</th>
-                        <th scope="col" style="width:20%">Essentiel</th>
-                        <th scope="col" style="width:20%">Standard</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td scope="row" class="table-price-title">Consultation des clients</td>
-                        <td><i class="fas fa-check"></i></td>
-                        <td><i class="fas fa-check"></i></td>
-                        <td><i class="fas fa-check"></i></td>
-                    </tr>
-                    <tr>
-                        <td scope="row" class="table-price-title">Création / Modification d'un client</td>
-                        <td><i class="fas fa-check"></i></td>
-                        <td><i class="fas fa-check"></i></td>
-                        <td><i class="fas fa-check"></i></td>
-                    </tr>
-                    <tr>
-                        <td scope="row" class="table-price-title">Gestion demandes clients</td>
-                        <td><i class="fas fa-times"></i></td>
-                        <td><i class="fas fa-check"></i></td>
-                        <td><i class="fas fa-check"></i></td>
-                    </tr>
-                    <tr>
-                        <td scope="row" class="table-price-title">Importation / Exportation de listing clients</td>
-                        <td><i class="fas fa-check"></i></td>
-                        <td><i class="fas fa-check"></i></td>
-                        <td><i class="fas fa-check"></i></td>
-                    </tr>
-                    <tr>
-                        <td scope="row" class="table-price-title">Nombre de clients</td>
-                        <td>Illimité</td>
-                        <td>Illimité</td>
-                        <td>Illimité</td>
-                    </tr><tr>
-                        <td scope="row" class="table-price-title">Impression listing client</td>
-                        <td><i class="fas fa-check"></i></td>
-                        <td><i class="fas fa-check"></i></td>
-                        <td><i class="fas fa-check"></i></td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
+    <div class="container-fluid " id="section-start">
+        <h1> Offre marque </h1>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vestibulum fringilla quam egestas elementum. Quisque rutrum nulla non vulputate viverra. Donec in felis et dui iaculis vestibulum. Etiam placerat consequat mauris, in fermentum justo venenatis a. Proin dignissim libero sem, nec sodales est porta vel. Aliquam erat volutpat. Suspendisse auctor vestibulum dolor sed luctus. Donec imperdiet dui sit amet sapien pretium molestie. Duis a mauris et nibh semper venenatis mattis eu odio. Sed blandit enim eu consectetur pulvinar. Morbi sollicitudin nulla sed justo vulputate, non feugiat nisl aliquam. Nullam vulputate pulvinar odio sed iaculis. Vestibulum convallis tortor ac nisl consequat congue. Sed libero nulla, faucibus sit amet nisi a, euismod condimentum turpis. Donec in ligula hendrerit, varius diam vel, ultrices nunc. Proin volutpat scelerisque rutrum.
+        </p>
+        <p>
+            Quisque nec justo purus. Nam imperdiet est magna, vitae ullamcorper dolor condimentum vel. Nam urna arcu, pulvinar ac auctor ac, pellentesque a ante. Phasellus est augue, laoreet in vulputate et, semper id mauris. Nullam nec volutpat libero. Suspendisse convallis orci eget tellus ornare pellentesque. Fusce euismod risus leo, in mollis risus feugiat pharetra. Vestibulum sollicitudin lorem dignissim nulla vehicula suscipit et vel dolor. Pellentesque vitae ligula iaculis, interdum orci in, lacinia risus. Sed placerat sapien libero, et dapibus augue interdum finibus. Maecenas purus nunc, auctor sed facilisis sit amet, facilisis lobortis odio. Praesent posuere aliquet orci sed sagittis. Mauris commodo ante sit amet velit sagittis condimentum. Morbi et consectetur turpis, non tincidunt ante.
+        </p>
+        <p>
+            Pellentesque nisl risus, luctus eget posuere et, tincidunt non lorem. Vivamus fringilla elit nisl, in interdum sapien gravida nec. Mauris ultrices eget enim a fermentum. Ut scelerisque felis leo, a eleifend nunc tincidunt quis. Sed nec ante sit amet eros dapibus bibendum. Phasellus gravida ex non ultricies porttitor. Suspendisse commodo sem in massa cursus scelerisque. Vivamus varius tellus cursus, auctor felis vitae, pretium diam. Donec ac magna ac eros egestas maximus id ac risus. Integer varius sed massa at interdum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non egestas risus. Integer ac pharetra mi. Praesent vehicula dui id sapien tincidunt, et accumsan ipsum hendrerit. Quisque ipsum felis, blandit vitae laoreet in, accumsan ut nisl.
+        </p>
+        <p>
+            Ut ac massa ex. In id lacinia quam, id egestas nisi. Duis eu dignissim justo, eget congue mauris. Donec mollis ex ac consectetur blandit. Aliquam id enim elementum, euismod nulla et, tincidunt velit. Nunc tempor dapibus orci, id viverra metus lobortis in. Nam in urna euismod, cursus ipsum sed, mattis risus. Aenean vitae elit sit amet erat sodales imperdiet.
+        </p>
+        <p>
+            Ut auctor nunc sit amet diam cursus, quis pharetra urna tempus. In ut tellus consequat, iaculis ligula nec, pharetra tortor. Donec volutpat tortor sed tortor porta, nec scelerisque sem venenatis. Nunc consequat eget ex in vehicula. Donec mi eros, ornare a vulputate a, facilisis sit amet odio. Sed bibendum purus quis est gravida pretium. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean efficitur ut libero quis tincidunt. Maecenas semper molestie mi quis fringilla.
+        </p></div>
 
 
 

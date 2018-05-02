@@ -7,11 +7,27 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Salon
  *
- * @ORM\Table(name="salon")
+ * @ORM\Table(name="salon", indexes={@ORM\Index(name="pays", columns={"pays"})})
  * @ORM\Entity
  */
 class Salon
 {
+    /**
+     * @return int
+     */
+    public function getSalonId()
+    {
+        return $this->salonId;
+    }
+
+    /**
+     * @param int $salonId
+     */
+    public function setSalonId($salonId)
+    {
+        $this->salonId = $salonId;
+    }
+
     /**
      * @return string
      */
@@ -109,22 +125,6 @@ class Salon
     }
 
     /**
-     * @return int
-     */
-    public function getPays()
-    {
-        return $this->pays;
-    }
-
-    /**
-     * @param int $pays
-     */
-    public function setPays($pays)
-    {
-        $this->pays = $pays;
-    }
-
-    /**
      * @return string
      */
     public function getDescription()
@@ -173,20 +173,29 @@ class Salon
     }
 
     /**
-     * @return int
+     * @return \Country
      */
-    public function getSalonId()
+    public function getPays()
     {
-        return $this->salonId;
+        return $this->pays;
     }
 
     /**
-     * @param int $salonId
+     * @param \Country $pays
      */
-    public function setSalonId($salonId)
+    public function setPays($pays)
     {
-        $this->salonId = $salonId;
+        $this->pays = $pays;
     }
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="salon_id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $salonId;
+
     /**
      * @var string
      *
@@ -230,13 +239,6 @@ class Salon
     private $ville;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="pays", type="integer", nullable=false)
-     */
-    private $pays;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="description", type="string", length=255, nullable=true)
@@ -258,13 +260,14 @@ class Salon
     private $pImg;
 
     /**
-     * @var integer
+     * @var \Country
      *
-     * @ORM\Column(name="salon_id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\ManyToOne(targetEntity="Country")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="pays", referencedColumnName="id")
+     * })
      */
-    private $salonId;
+    private $pays;
 
 
 }

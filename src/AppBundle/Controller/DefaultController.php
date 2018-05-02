@@ -9,9 +9,14 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        $content = $this->get('templating')->render('AppBundle::index.html.twig');
 
-        return new Response($content);
+
+        $em = $this->getDoctrine()->getManager();
+        $brands = $em->getRepository('AppBundle:Brand')->findAll();
+
+        return $this->render('AppBundle::index.html.twig', array(
+            'brands' => $brands
+        ));
 
     }
 

@@ -13,20 +13,20 @@ use Doctrine\ORM\Mapping as ORM;
 class PriceRange
 {
     /**
-     * @var string
-     *
-     * @ORM\Column(name="label", type="string", length=255, nullable=false)
+     * @return int
      */
-    private $label;
+    public function getId()
+    {
+        return $this->id;
+    }
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @param int $id
      */
-    private $id;
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
 
     /**
      * @return string
@@ -43,22 +43,21 @@ class PriceRange
     {
         $this->label = $label;
     }
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
 
     /**
-     * @return int
+     * @var string
+     *
+     * @ORM\Column(name="label", type="string", length=255, nullable=false)
      */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * @param int $id
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
+    private $label;
 
 
 }

@@ -5,6 +5,8 @@
 {% endblock %}
 
     {% block body %}
+     <div class="container-fluid " id="section-start">
+
         <h1>Liste des Marques</h1>
 
 
@@ -19,7 +21,7 @@
 
                    <div class="card card-marques">
 
-                       <img class="card-img" src="{{ asset('bundles/app/img/anaik_1.jpg') }}">
+                       <img class="card-img" src="{{ asset('bundles/app/img' ~brand.getLifestyle() ) }}">
                        <div class="card-img-overlay info">
                            <img src="{{ asset('bundles/app/img/' ~ brand.getLogo())}}" >
                        </div>
@@ -33,6 +35,8 @@
                    </div>
                    {% set cpt = cpt + 1 %}
                {% endfor %}
+       </div>
+
        </div>
 
     {% endblock %}

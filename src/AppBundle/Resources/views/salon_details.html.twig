@@ -1,11 +1,14 @@
 {% extends "AppBundle::layout.html.twig" %}
 
 {% block title %}
-    Un salon
+    Salon
 {% endblock %}
 
     {% block body %}
+        <div class="container-fluid " id="section-start">
+
         <h1>Le salon</h1>
 
        {{ salon.getName() }}
+        </div>
     {% endblock %}

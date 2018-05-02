@@ -13,9 +13,40 @@ use Doctrine\ORM\Mapping as ORM;
 class ParticipeSalon
 {
     /**
+     * @return int
+     */
+    public function getBrandId()
+    {
+        return $this->brandId;
+    }
+
+    /**
+     * @param int $brandId
+     */
+    public function setBrandId($brandId)
+    {
+        $this->brandId = $brandId;
+    }
+
+    /**
+     * @return int
+     */
+    public function getSalonId()
+    {
+        return $this->salonId;
+    }
+
+    /**
+     * @param int $salonId
+     */
+    public function setSalonId($salonId)
+    {
+        $this->salonId = $salonId;
+    }
+    /**
      * @var integer
      *
-     * @ORM\Column(name="brand_id", type="integer")
+     * @ORM\Column(name="brand_id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
      */
@@ -24,7 +55,7 @@ class ParticipeSalon
     /**
      * @var integer
      *
-     * @ORM\Column(name="salon_id", type="integer")
+     * @ORM\Column(name="salon_id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
      */

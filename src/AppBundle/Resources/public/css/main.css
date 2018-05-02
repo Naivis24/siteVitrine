@@ -352,15 +352,19 @@ p {
 	margin-left: 50px;
 	margin-right: 50px;
 }
+
+.container-fluid{
+	padding-top: 8rem;
+}
 /* HOME */
 .bg1 {
-	background-image: url(./../images/background_1.jpg);
+	background-image: url("../img/background_1.jpg");
 	background-size: cover;
 	padding-top: 8rem;
 	padding-bottom: 8rem;
 }
 .bg2 {
-	background-image: url(./../images/background_2.jpg);
+	background-image: url("../img/background_2.jpg");
 	background-size: cover;
 	padding-top: 4rem;
 	padding-bottom: 4rem;
@@ -431,6 +435,13 @@ p {
 	font-size: 27px;
 	margin-top: 10px;
 }
+.picto-img {
+	width: 80px;
+}
+.title-home-picto h5 {
+	margin-left: 0;
+	font-size: 35px;
+}
 .big-icon {
 	color: #FE5F55;
 	font-size: 50px;
@@ -476,7 +487,6 @@ p {
 	.container-wt {
 		width: 300px;
 	}
-
 	.container-wt h4 {
 		font-size: 30px;
 	}
@@ -488,13 +498,13 @@ p {
 	background: -o-linear-gradient(left, #f4efeb 0%, #fbf8f6 100%);
 	background: linear-gradient(to right, #f4efeb 0%, #fbf8f6 100%);
 	padding-top: 6rem;
-	padding-bottom: 6rem;
+	padding-bottom: 3rem;
 }
 .pricebg h1 {
 	text-align: center;
 }
-.card-img {
-	width: 20%;
+.card-img-price {
+	width: 30%;
 	margin-top: 2rem;
 	margin-bottom: 1rem;
 }
@@ -513,48 +523,114 @@ p {
 	vertical-align: bottom;
 	margin-right: 4px;
 	margin-top: 15px;
-	font-weight:700;
+	font-weight: 700;
 }
 .card-text {
 	margin-top: 2rem;
+	color: #333745;
+}
+.card-price ul{
+	list-style:none;
+	padding-left:0;
+}
+.card-price li{
+	text-align:left;
+	margin-top:10px;
+	font-size:15px;
 }
 .card-footer {
-	background-color:#FFF;
-	border:none;
-	margin-bottom:2rem;
+	background-color: #FFF;
+	border: none;
+	margin-bottom: 2rem;
 }
-.card-deck{
-	margin-top:2rem;
+.card-deck {
+	margin-top: 2rem;
 }
-.card{
-	border:none;
+.card-price {
+	border: none;
 }
-@media (min-width: 576px){
-	.card-deck .card {
-		min-width: 200px;
-		margin-bottom:15px;
+.offer-first {
+	color: #77CE44;
+}
+.offer-second {
+	color: #06B4FE;
+}
+.offer-third {
+	color: #F98D5E;
+}
+.offer-four {
+	color: #6F738C;
+}
+
+@media screen and (min-width: 768px) {
+	.container-option{
+		display:none;
+	}
+	.container-detail{
+		display:block;
 	}
 }
-.table td, .table th{
-	border:none;
+
+@media screen and (max-width: 768px) {
+	.container-detail{
+		display:none;
+	}
+	.container-option{
+		display:block;
+	}
+	.container-option h2 {
+		text-align: center;
+	}
+	.container-option ul {
+		list-style-type: none;
+		padding-left:0;
+	}
+	.container-option .wrapper-li-opt {
+		width: 100%;
+		position: relative;
+		text-align: center;
+		padding-top: 30px;
+	}
+	.container-option .wrapper-li-opt .li-opt .opt .title {
+		display: block;
+		width: 100%;
+		text-align: center;
+		margin-top:10px;
+	}
+	.container-option .wrapper-li-opt .li-opt .opt .dsc {
+		display: block;
+		width: 100%;
+		text-align: center;
+		color: #FE5F55;
+		font-weight:700;
+	}
 }
-.table th{
-	padding:1rem;
+@media (min-width: 576px) {
+	.card-deck .card-price {
+		min-width: 200px;
+		margin-bottom: 15px;
+	}
 }
-.table td{
-	padding:0.5rem 2rem;
+.table td, .table th {
+	border: none;
 }
-.table thead th{
-	border-bottom:1px solid #888d9c;
+.table th {
+	padding: 1rem;
 }
-.table-price-title{
-	text-align:left;
+.table td {
+	padding: 0.5rem 2rem;
 }
-.fa-times{
-	color:#FE5F55;
+.table thead th {
+	border-bottom: 1px solid #888d9c;
 }
-.fa-check{
-	color:#77CE44;
+.table-price-title {
+	text-align: left;
+}
+.fa-times {
+	color: #FE5F55;
+}
+.fa-check {
+	color: #77CE44;
 }
 
 
@@ -654,5 +730,28 @@ p {
 }
 
 
+/* CAROUSEL MARQUE */
+/* equal card height */
+.row-equal > div[class*='col-'] {
+	display: flex;
+	flex: 1 0 auto;
+}
 
+.row-equal .card {
+	width: 100%;
+}
+
+/* ensure equal card height inside carousel */
+.carousel-inner>.row-equal.active,
+.carousel-inner>.row-equal.next,
+.carousel-inner>.row-equal.prev {
+	display: flex;
+}
+
+/* prevent flicker during transition */
+.carousel-inner>.row-equal.active.left,
+.carousel-inner>.row-equal.active.right {
+	opacity: 0.5;
+	display: flex;
+}
 

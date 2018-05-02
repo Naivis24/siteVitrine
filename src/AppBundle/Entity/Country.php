@@ -13,20 +13,20 @@ use Doctrine\ORM\Mapping as ORM;
 class Country
 {
     /**
-     * @var string
-     *
-     * @ORM\Column(name="name", type="string", length=255, nullable=false)
+     * @return int
      */
-    private $name;
+    public function getId()
+    {
+        return $this->id;
+    }
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @param int $id
      */
-    private $id;
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
 
     /**
      * @return string
@@ -43,22 +43,21 @@ class Country
     {
         $this->name = $name;
     }
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
 
     /**
-     * @return int
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255, nullable=false)
      */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * @param int $id
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
+    private $name;
 
 
 }
