@@ -175,6 +175,22 @@ class Brand
     /**
      * @return string
      */
+    public function getLifestyle2()
+    {
+        return $this->lifestyle2;
+    }
+
+    /**
+     * @param string $lifestyle2
+     */
+    public function setLifestyle2($lifestyle2)
+    {
+        $this->lifestyle2 = $lifestyle2;
+    }
+
+    /**
+     * @return string
+     */
     public function getLogo()
     {
         return $this->logo;
@@ -386,6 +402,13 @@ class Brand
      * @ORM\Column(name="lifestyle", type="string", length=255, nullable=true)
      */
     private $lifestyle;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="lifestyle2", type="string", length=255, nullable=true)
+     */
+    private $lifestyle2;
 
     /**
      * @var string

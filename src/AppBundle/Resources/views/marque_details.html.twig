@@ -127,12 +127,38 @@
             {% endfor %}
 
             <!-- Affichage des résultats -->
-            {{ M1.getName() }} : {{ res1 }} pts <br>
-            {{ M2.getName() }} : {{ res2 }} pts <br>
-            {{ M3.getName() }} : {{ res3 }} pts <br>
-            {{ M4.getName() }} : {{ res4 }} pts <br>
 
+            {% set tabRes = [M1, M2, M3, M4] %}
+            <div class="card-deck">
+
+                {% for m in tabRes %}
+
+                <div class="card card-marques">
+
+                    <div class="card-img ">
+                        <img class="card-img" src="{{ asset('bundles/app/img/' ~m.getPicture() ) }}">
+                    </div>
+                    <div class="card-img-overlay info p-t-2">
+                        <img class="img-fluid"src="{{ asset('bundles/app/img/' ~ m.getLogo())}}" >
+                    </div>
+                    <div class="card-img-overlay hover-info">
+                        <h5 class="card-title"> {{ m.getName() }} </h5>
+                        <p> {{ m.getSlogan() }} </p>
+                        <a href="{{ path('details_marques', {'marque': m.getName()} ) }}">
+                            Découvrir la marque </a>
+                    </div>
+
+                </div>
+                {% endfor %}
+            </div>
             <!-- Fin de l'algorithme -->
         </div>
+
+            <div class="container containter-brand-detail">
+                <img class="img-fluid bandeau-marque" src="{{ asset('bundles/app/img/'~brand.getLifestyle2()) }}">
+                <div class="centered"><h1 style="color: #FFFFFF">{{ brand.getName() }}</h1></div>
+            </div>
+
+
         </div>
     {% endblock %}

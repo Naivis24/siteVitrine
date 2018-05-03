@@ -15,7 +15,7 @@
 
             <div class="card card-salons">
                 <a href="{{ path('details_salons', {'ville': salon.getVille(), 'id': salon.getSalonId()} ) }}">
-                <img class="card-img-top" src="{{ asset('bundles/app/img/anaik_1.jpg') }}">
+                <img class="card-img-top" src="{{ asset('bundles/app/img/' ~salon.getPImg() ) }}">
                 <div class="card-body">
                     <h5 class="card-title">{{ salon.getName() }}</h5>
                     <p class="card-text" style="color: #FE5F55"><strong>Du {{ salon.getDateDebut()|date("d") }}
@@ -23,6 +23,7 @@
                             {{  salon.getDateFin()|date("m") }}
                             {{  salon.getDateDebut()|date("Y") }}
                       </strong></p>
+                    <p>{{ salon.getLieu() }}</p>
                     <p class="card-text" style="color: #FE5F55"> {{ salon.getVille() }} - {{ salon.getPays().getName() }}</p>
                 </div>
                 </a>

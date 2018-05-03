@@ -90,8 +90,5 @@ class Style
         $this->brand = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
-
-
-
 }
 

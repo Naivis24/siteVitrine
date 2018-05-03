@@ -60,6 +60,5 @@ class PriceRange
     private $label;
 
 
-
 }
 

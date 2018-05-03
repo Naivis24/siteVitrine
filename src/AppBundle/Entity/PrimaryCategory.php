@@ -90,7 +90,5 @@ class PrimaryCategory
         $this->brand = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
-
-
 }
 

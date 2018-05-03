@@ -157,7 +157,7 @@ class Salon
     }
 
     /**
-     * @return int
+     * @return string
      */
     public function getGImg()
     {
@@ -165,7 +165,7 @@ class Salon
     }
 
     /**
-     * @param int $gImg
+     * @param string $gImg
      */
     public function setGImg($gImg)
     {
@@ -173,7 +173,7 @@ class Salon
     }
 
     /**
-     * @return int
+     * @return string
      */
     public function getPImg()
     {
@@ -181,7 +181,7 @@ class Salon
     }
 
     /**
-     * @param int $pImg
+     * @param string $pImg
      */
     public function setPImg($pImg)
     {
@@ -285,16 +285,16 @@ class Salon
     private $description;
 
     /**
-     * @var integer
+     * @var string
      *
-     * @ORM\Column(name="G_img", type="integer", nullable=false)
+     * @ORM\Column(name="G_img", type="string", length=255, nullable=false)
      */
     private $gImg;
 
     /**
-     * @var integer
+     * @var string
      *
-     * @ORM\Column(name="p_img", type="integer", nullable=false)
+     * @ORM\Column(name="p_img", type="string", length=255, nullable=false)
      */
     private $pImg;
 
@@ -322,7 +322,6 @@ class Salon
     {
         $this->brand = new \Doctrine\Common\Collections\ArrayCollection();
     }
-
 
 }
 
