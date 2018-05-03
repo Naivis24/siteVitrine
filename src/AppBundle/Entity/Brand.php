@@ -13,6 +13,196 @@ use Doctrine\ORM\Mapping as ORM;
 class Brand
 {
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255, nullable=false)
+     */
+    private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="competing", type="string", length=255, nullable=true)
+     */
+    private $competing;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="urlWebsite", type="string", length=255, nullable=false)
+     */
+    private $urlwebsite;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="slogan", type="string", length=255, nullable=true)
+     */
+    private $slogan;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="text", nullable=false)
+     */
+    private $description;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="url_fac", type="string", length=255, nullable=false)
+     */
+    private $urlFac;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="url_insta", type="string", length=255, nullable=false)
+     */
+    private $urlInsta;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="picture", type="string", length=255, nullable=true)
+     */
+    private $picture;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="lifestyle", type="string", length=255, nullable=true)
+     */
+    private $lifestyle;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="logo", type="string", length=255, nullable=true)
+     */
+    private $logo;
+
+    /**
+     * @var \PriceRange
+     *
+     * @ORM\ManyToOne(targetEntity="PriceRange")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="price_range_id", referencedColumnName="id")
+     * })
+     */
+    private $priceRange;
+
+    /**
+     * @var \Country
+     *
+     * @ORM\ManyToOne(targetEntity="Country")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="billing_country_id", referencedColumnName="id")
+     * })
+     */
+    private $billingCountry;
+
+    /**
+     * @var \Country
+     *
+     * @ORM\ManyToOne(targetEntity="Country")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="manufacture_country_id", referencedColumnName="id")
+     * })
+     */
+    private $manufactureCountry;
+
+    /**
+     * @var \Country
+     *
+     * @ORM\ManyToOne(targetEntity="Country")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="country_id", referencedColumnName="id")
+     * })
+     */
+    private $country;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="PrimaryCategory", inversedBy="brand")
+     * @ORM\JoinTable(name="brand_primary_category",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="brand_id", referencedColumnName="id")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="primary_category_id", referencedColumnName="id")
+     *   }
+     * )
+     */
+    private $primaryCategory;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Style", inversedBy="brand")
+     * @ORM\JoinTable(name="brand_style",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="brand_id", referencedColumnName="id")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="style_id", referencedColumnName="id")
+     *   }
+     * )
+     */
+    private $style;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Target", inversedBy="brand")
+     * @ORM\JoinTable(name="brand_target",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="brand_id", referencedColumnName="id")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="target_id", referencedColumnName="id")
+     *   }
+     * )
+     */
+    private $target;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Salon", inversedBy="brand")
+     * @ORM\JoinTable(name="participe_salon",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="brand_id", referencedColumnName="id")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="salon_id", referencedColumnName="salon_id")
+     *   }
+     * )
+     */
+    private $salon;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->primaryCategory = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->style = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->target = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->salon = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
      * @return int
      */
     public function getId()
@@ -331,202 +521,7 @@ class Brand
     {
         $this->salon = $salon;
     }
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="id", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $id;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="name", type="string", length=255, nullable=false)
-     */
-    private $name;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="competing", type="string", length=255, nullable=true)
-     */
-    private $competing;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="urlWebsite", type="string", length=255, nullable=false)
-     */
-    private $urlwebsite;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="slogan", type="string", length=255, nullable=true)
-     */
-    private $slogan;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="description", type="text", nullable=false)
-     */
-    private $description;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="url_fac", type="string", length=255, nullable=false)
-     */
-    private $urlFac;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="url_insta", type="string", length=255, nullable=false)
-     */
-    private $urlInsta;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="picture", type="string", length=255, nullable=true)
-     */
-    private $picture;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="lifestyle", type="string", length=255, nullable=true)
-     */
-    private $lifestyle;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="lifestyle2", type="string", length=255, nullable=true)
-     */
-    private $lifestyle2;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="logo", type="string", length=255, nullable=true)
-     */
-    private $logo;
-
-    /**
-     * @var \PriceRange
-     *
-     * @ORM\ManyToOne(targetEntity="PriceRange")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="price_range_id", referencedColumnName="id")
-     * })
-     */
-    private $priceRange;
-
-    /**
-     * @var \Country
-     *
-     * @ORM\ManyToOne(targetEntity="Country")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="billing_country_id", referencedColumnName="id")
-     * })
-     */
-    private $billingCountry;
-
-    /**
-     * @var \Country
-     *
-     * @ORM\ManyToOne(targetEntity="Country")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="manufacture_country_id", referencedColumnName="id")
-     * })
-     */
-    private $manufactureCountry;
-
-    /**
-     * @var \Country
-     *
-     * @ORM\ManyToOne(targetEntity="Country")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="country_id", referencedColumnName="id")
-     * })
-     */
-    private $country;
-
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToMany(targetEntity="PrimaryCategory", inversedBy="brand")
-     * @ORM\JoinTable(name="brand_primary_category",
-     *   joinColumns={
-     *     @ORM\JoinColumn(name="brand_id", referencedColumnName="id")
-     *   },
-     *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="primary_category_id", referencedColumnName="id")
-     *   }
-     * )
-     */
-    private $primaryCategory;
-
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToMany(targetEntity="Style", inversedBy="brand")
-     * @ORM\JoinTable(name="brand_style",
-     *   joinColumns={
-     *     @ORM\JoinColumn(name="brand_id", referencedColumnName="id")
-     *   },
-     *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="style_id", referencedColumnName="id")
-     *   }
-     * )
-     */
-    private $style;
-
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToMany(targetEntity="Target", inversedBy="brand")
-     * @ORM\JoinTable(name="brand_target",
-     *   joinColumns={
-     *     @ORM\JoinColumn(name="brand_id", referencedColumnName="id")
-     *   },
-     *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="target_id", referencedColumnName="id")
-     *   }
-     * )
-     */
-    private $target;
-
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToMany(targetEntity="Salon", inversedBy="brand")
-     * @ORM\JoinTable(name="participe_salon",
-     *   joinColumns={
-     *     @ORM\JoinColumn(name="brand_id", referencedColumnName="id")
-     *   },
-     *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="salon_id", referencedColumnName="salon_id")
-     *   }
-     * )
-     */
-    private $salon;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->primaryCategory = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->style = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->target = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->salon = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
 }
 

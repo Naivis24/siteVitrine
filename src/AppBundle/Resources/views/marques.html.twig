@@ -28,8 +28,49 @@
                             <img class="img-fluid"src="{{ asset('bundles/app/img/' ~ brand.getLogo())}}" >
                      </div>
                      <div class="card-img-overlay hover-info">
-                             <h5 class="card-title"> {{ brand.getName() }} </h5>
-                             <p> {{ brand.getSlogan() }} </p>
+                             {% set targets = brand.getTarget.toArray() %}
+                             {% set styles = brand.getStyle.toArray() %}
+                             {% set categories = brand.getPrimaryCategory().toArray() %}
+
+                            <h5 class="card-title"> {{ brand.getName() }} </h5>
+                             {{ brand.getSlogan() }}
+                            <ul>
+                                <li><strong>Pays</strong><br>
+                                    {{ brand.getCountry().getName() }}</li>
+
+                                <li><strong>Catégories</strong><br>
+                                    {% for categorie in categories %}
+                                        {{ categorie.getLabel() }},
+                                    {% endfor %}
+                                </li>
+
+                                <li>
+                                    <strong>Styles</strong><br>
+                                    {% for style in styles %}
+                                        {{ style.getLabel() }},
+                                    {% endfor %}
+                                </li>
+
+                                <li>
+                                    <strong>Cible</strong><br>
+                                    {% for target in targets %}
+                                        {{ target.getLabel() }},
+                                    {% endfor %}
+                                </li>
+
+                                <li>
+                                    <strong>Gamme de prix</strong><br>
+                                    {{ brand.getPriceRange().getLabel() }}
+                                </li>
+                            </ul>
+
+
+
+
+
+
+
+
                               <a href="{{ path('details_marques', {'marque': brand.getName()} ) }}">
                                   Découvrir la marque </a>
                      </div>
