@@ -764,3 +764,23 @@ height:0;
 	width:100%;
 	position:absolute;
 }
+
+
+.bandeau-marque{
+	height: 40%;
+	width: 100%;
+	border-color: #721c24;
+	border-width: 5px;
+	filter: grayscale(60%);
+}
+.centered {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+.container container-brand-detail {
+	position: relative;
+	text-align: center;
+	color: white;
+}
