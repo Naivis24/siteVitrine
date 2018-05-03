@@ -178,11 +178,35 @@
     <div class="container-fluid home3">
         <div class="container">
 
+            <h4>Les prochains showrooms</br>
+                <span style="color:#FE5F55;">French Select</span></h4>
+            <p class="text-center">Venez découvrir les <strong>marques</strong> dans les <strong>showrooms</strong> que nous organisons près de chez vous !</p>
 
             <div class="card-deck">
                 {% set cpt = 0 %}
                 {% for salon in salons if cpt<3 %}
 
+<<<<<<< HEAD
+                    {% if  salon.getDateDebut > date() %}
+                        <div class="card card-salons">
+                            <a href="{{ path('details_salons', {'ville': salon.getVille(), 'id': salon.getSalonId()} ) }}">
+                                <img class="card-img-top" src="{{ asset('bundles/app/img/anaik_1.jpg') }}">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ salon.getName() }}</h5>
+                                    <p class="card-text" style="color: #FE5F55">
+                                        <strong>Du {{ salon.getDateDebut()|date("d") }}
+                                            au {{ salon.getDateFin()|date("d") }}
+                                            {{ salon.getDateFin()|date("m") }}
+                                            {{ salon.getDateDebut()|date("Y") }}
+                                        </strong></p>
+                                    <p class="card-text" style="color: #FE5F55"> {{ salon.getVille() }}
+                                        - {{ salon.getPays().getName() }}</p>
+                                </div>
+                            </a>
+                        </div>
+                        {% set cpt = cpt + 1 %}
+                    {% endif %}
+=======
                     <div class="card card-salons">
                         <a href="{{ path('details_salons', {'ville': salon.getVille(), 'id': salon.getSalonId()} ) }}">
                             <img class="card-img-top" src="{{ asset('bundles/app/img/anaik_1.jpg') }}">
@@ -200,6 +224,7 @@
                         </a>
                     </div>
                     {% set cpt = cpt + 1 %}
+>>>>>>> 5c17df1729361fa04b8b63a54f607019006661ab
                 {% endfor %}
             </div>
 
