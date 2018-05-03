@@ -323,5 +323,6 @@ class Salon
         $this->brand = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
+
 }
 
