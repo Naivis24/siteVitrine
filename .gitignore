@@ -18,3 +18,8 @@
 *.xml
 composer.lock
 .idea/workspace.xml___jb_tmp___
+src/.DS_Store
+src/AppBundle/.DS_Store
+src/AppBundle/Resources/.DS_Store
+src/AppBundle/Resources/public/.DS_Store
+.DS_Store

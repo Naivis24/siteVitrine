@@ -425,6 +425,25 @@ class Brand
     }
 
     /**
+<<<<<<< HEAD
+     * @return string
+     */
+    public function getLookbook()
+    {
+        return $this->lookbook;
+    }
+
+    /**
+     * @param string $lookbook
+     */
+    public function setLookbook($lookbook)
+    {
+        $this->lookbook = $lookbook;
+    }
+
+    /**
+=======
+>>>>>>> 4ef959d6de1a361c89f6629c7252eaa4f5711cd4
      * @return \PriceRange
      */
     public function getPriceRange()

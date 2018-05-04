@@ -12,7 +12,7 @@ class DefaultController extends Controller
 
 
         $em = $this->getDoctrine()->getManager();
-        $brands = $em->getRepository('AppBundle:Brand')->findAll();
+        $brands = $em->getRepository('AppBundle:Brand')->findBy(array(), array('homepageIndex' => 'ASC'));
         $salons = $em->getRepository('AppBundle:Salon')->findAll();
 
         return $this->render('AppBundle::index.html.twig', array(
