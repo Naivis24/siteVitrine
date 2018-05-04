@@ -23,3 +23,4 @@ src/AppBundle/.DS_Store
 src/AppBundle/Resources/.DS_Store
 src/AppBundle/Resources/public/.DS_Store
 .DS_Store
+app/config/config.yml
