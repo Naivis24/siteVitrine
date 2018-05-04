@@ -205,6 +205,38 @@ class Brand
     }
 
     /**
+     * @return int
+     */
+    public function getHomepageIndex()
+    {
+        return $this->homepageIndex;
+    }
+
+    /**
+     * @param int $homepageIndex
+     */
+    public function setHomepageIndex($homepageIndex)
+    {
+        $this->homepageIndex = $homepageIndex;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLookbook()
+    {
+        return $this->lookbook;
+    }
+
+    /**
+     * @param string $lookbook
+     */
+    public function setLookbook($lookbook)
+    {
+        $this->lookbook = $lookbook;
+    }
+
+    /**
      * @return \PriceRange
      */
     public function getPriceRange()
@@ -416,6 +448,20 @@ class Brand
      * @ORM\Column(name="logo", type="string", length=255, nullable=true)
      */
     private $logo;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="homepage_index", type="integer", nullable=true)
+     */
+    private $homepageIndex = '0';
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="lookbook", type="string", length=255, nullable=true)
+     */
+    private $lookbook;
 
     /**
      * @var \PriceRange

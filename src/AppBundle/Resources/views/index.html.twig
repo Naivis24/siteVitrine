@@ -138,12 +138,14 @@
             <section class="carousel slide" data-ride="carousel" id="postsCarousel">
                 <div class="container p-t-0 m-t-2 carousel-inner">
                     <div class="row row-equal carousel-item active m-t-0">
-                        {% set cpt = 0 %}
-                        {% for brand in brands if cpt<6 %}
-                        {% if cpt == 3 %}
+                        {% set idx = 1 %}
+                        {% for brand in brands if brand.getHomepageIndex() == idx %}
+
+                        {% if idx == 4 %}
                     </div>
-                    <div class="row row-equal carousel-item m-t-0">
+                    <div class="row row-equal carousel-item mt-0">
                         {% endif %}
+                        {% set idx = idx + 1 %}
 
                         <div class="col-md-4">
                             <div class="card card-marques">
@@ -151,7 +153,7 @@
                                 <div class="card-img ">
                                     <img class="card-img" src="{{ asset('bundles/app/img/' ~ brand.getPicture() ) }}">
                                 </div>
-                                <div class="card-img-overlay info p-t-2">
+                                <div class="card-img-overlay info pt-2">
                                     <img class="img-fluid" src="{{ asset('bundles/app/img/' ~ brand.getLogo()) }}">
                                 </div>
                                 <div class="card-img-overlay hover-info">
@@ -199,7 +201,8 @@
 
                             </div>
                         </div>
-                        {% set cpt = cpt + 1 %}
+
+
                         {% endfor %}
                     </div>
                 </div>

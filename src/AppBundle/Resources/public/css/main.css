@@ -779,7 +779,13 @@ height:0;
 	left: 50%;
 	transform: translate(-50%, -50%);
 }
-.container container-brand-detail {
+.container-brand-detail {
+	position: relative;
+	text-align: center;
+	color: white;
+}
+
+.container-brand-detail-2 {
 	position: relative;
 	text-align: center;
 	color: white;
