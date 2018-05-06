@@ -129,87 +129,70 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid home2">
+    <div class="container-fluid home2 container-slide-brands">
         <div class="container">
-            <h4>Nos marques <span style="color:#FE5F55;">partenaires</span></h4>
+            <h4>Quelques marques <span style="color:#FE5F55;">partenaires</span></h4>
 
-            <section class="carousel slide" data-ride="carousel" id="postsCarousel">
-                <div class="container p-t-0 m-t-2 carousel-inner">
-                    <div class="row row-equal carousel-item active m-t-0">
+            <div id="carousel-brands" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item row-equal active">
                         {% set idx = 1 %}
                         {% for brand in brands if brand.getHomepageIndex() == idx %}
-
                         {% if idx == 4 %}
                     </div>
-                    <div class="row row-equal carousel-item mt-0">
+                    <div class="carousel-item row-equal">
                         {% endif %}
                         {% set idx = idx + 1 %}
-
-                        <div class="col-md-4">
-                            <div class="card card-marques">
-
-                                <div class="card-img ">
-                                    <img class="card-img" src="{{ asset('bundles/app/img/' ~ brand.getPicture() ) }}">
+                        <div class="col-lg-4">
+                            <div class="card-marques shadow-sm">
+                                    <img class="img-fluid card-img" src="{{ asset('bundles/app/img/' ~ brand.getPicture() ) }}">
+                                <div class="container-img-brand">
+                                    <img src="{{ asset('bundles/app/img/' ~ brand.getLogo()) }}" class="img-fluid">
                                 </div>
-                                <div class="card-img-overlay info pt-2">
-                                    <img class="img-fluid" src="{{ asset('bundles/app/img/' ~ brand.getLogo()) }}">
-                                </div>
-                                <div class="card-img-overlay hover-info">
+                                <div class="container-hover-info">
                                     {% set targets = brand.getTarget.toArray() %}
                                     {% set styles = brand.getStyle.toArray() %}
                                     {% set categories = brand.getPrimaryCategory().toArray() %}
-
                                     <h5 class="card-title"> {{ brand.getName() }} </h5>
                                     {{ brand.getSlogan() }}
                                     <ul>
-                                        <li><strong>Pays</strong><br>
-                                            {{ brand.getCountry().getName() }}</li>
-
-                                        <li><strong>Catégories</strong><br>
-                                            {% for categorie in categories %}
+                                        <li>PAYS<br>
+                                            <strong>{{ brand.getCountry().getName() }}</strong></li>
+                                        <li>CATÉGORIE<br>
+                                            <strong> {% for categorie in categories %}
                                                 {{ categorie.getLabel() }},
-                                            {% endfor %}
+                                            {% endfor %}</strong>
                                         </li>
-
-                                        <li>
-                                            <strong>Styles</strong><br>
-                                            {% for style in styles %}
+                                        <li>STYLE<br>
+                                            <strong>  {% for style in styles %}
                                                 {{ style.getLabel() }},
-                                            {% endfor %}
+                                            {% endfor %}</strong>
                                         </li>
-
-                                        <li>
-                                            <strong>Cible</strong><br>
-                                            {% for target in targets %}
+                                        <li>CIBLE<br>
+                                            <strong> {% for target in targets %}
                                                 {{ target.getLabel() }},
-                                            {% endfor %}
+                                            {% endfor %}</strong>
                                         </li>
-
-                                        <li>
-                                            <strong>Gamme de prix</strong><br>
-                                            {{ brand.getPriceRange().getLabel() }}
+                                        <li>GAMME DE PRIX<br>
+                                            <strong>{{ brand.getPriceRange().getLabel() }}</strong>
                                         </li>
                                     </ul>
-
-
-                                    <a href="{{ path('details_marques', {'marque': brand.getName()} ) }}">
+                                </div>
+                                <div class="button-slide-brands"><a href="{{ path('details_marques', {'marque': brand.getName()} ) }}" class="button-fh p-1">
                                         Découvrir la marque </a>
                                 </div>
-
-
                             </div>
                         </div>
-
-
                         {% endfor %}
                     </div>
                 </div>
-            </section>
-
+            </div>
+            <script>$('.carousel').carousel({
+                    interval: 6000
+                })</script>
             <div class="container-btn text-center"><a href="{{ path('marques') }}" class="button-fh p-2">En voir
                     plus</a></div>
         </div>
-    </div>
     </div>
     <div class="container-fluid home3">
         <div class="container">
@@ -219,33 +202,31 @@
             <p class="text-center">Venez découvrir les <strong>marques</strong> dans les <strong>showrooms</strong> que
                 nous organisons près de chez vous !</p>
 
-            <div class="card-deck">
+            <div class="row my-4 px-4">
                 {% set cpt = 0 %}
                 {% for salon in salons if cpt<3 %}
 
                     {% if  salon.getDateDebut > date() %}
-                        <div class="card card-salons">
+
+                <div class="col-lg-4 px-4">
+                        <div class="slide-salons my-1 p-2">
                             <a href="{{ path('details_salons', {'ville': salon.getVille(), 'id': salon.getSalonId()} ) }}">
-                                <img class="card-img-top" src="{{ asset('bundles/app/img/anaik_1.jpg') }}">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ salon.getName() }}</h5>
-                                    <p class="card-text" style="color: #FE5F55">
-                                        <strong>Du {{ salon.getDateDebut()|date("d") }}
-                                            au {{ salon.getDateFin()|date("d") }}
-                                            {{ salon.getDateFin()|date("m") }}
-                                            {{ salon.getDateDebut()|date("Y") }}
-                                        </strong></p>
-                                    <p>{{ salon.getLieu() }}</p>
-                                    <p class="card-text" style="color: #FE5F55"> {{ salon.getVille() }}
-                                        - {{ salon.getPays().getName() }}</p>
+                                <img class="img-fluid shadow-sm" src="{{ asset('bundles/app/img/anaik_1.jpg') }}">
+                                <div class="p-3">
+                                    <h6>{{ salon.getName() }}</h6>
+                                    <p class="slide-salons-date">
+                                        Du {{ salon.getDateDebut()|date("d") }}
+                                            au {{ salon.getDateFin()|date("d") }}/{{ salon.getDateFin()|date("m") }}/{{ salon.getDateDebut()|date("Y") }}</p>
+                                    <p class="slide-salons-place">{{ salon.getLieu() }} - {{ salon.getVille() }}<br>{{ salon.getPays().getName() }}</p>
                                 </div>
                             </a>
                         </div>
+
+                </div>
                         {% set cpt = cpt + 1 %}
                     {% endif %}
                 {% endfor %}
             </div>
-
 
             <div class="container-btn text-center"><a href="{{ path('salons_boutiques') }}" class="button-fh p-2">En
                     voir plus</a></div>
