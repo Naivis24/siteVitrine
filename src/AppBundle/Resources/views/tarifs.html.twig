@@ -8,65 +8,131 @@
     <div class="container-fluid pricebg" id="section-start">
         <div class="container">
             <h1>Une offre claire et transparente</h1>
-            <p class="text-center">Exclusivement réservée aux <span style="color:#FE5F55;font-weight:700;">marques</span> !</p>
+            <p class="text-center">Exclusivement réservée aux <span style="color:#FE5F55;"><strong>marques</strong></span>. Pour les boutiques, l'inscription est <span style="color:#FE5F55;"><strong>gratuit</strong></span> !</p>
+            <p class="text-center">Prix affichés en hors taxes (HT). Engagement sur 12 mois.</p>
             <div class="card-deck">
-                <div class="card shadow">
+                <div class="card shadow-sm">
                     <div class="card-body text-center card-price"> <img class="card-img-price" src="{{ asset('bundles/app/img/picto-first.svg') }}">
-                        <h2 class="card-title">Genèse</h2>
-                        <div class="price"><div class="price-num">30 €</div> / mois</div>
+                        <h2 class="card-title offer-first">Easy Start</h2>
+                        <div class="price">
+                            <div class="price-num">30 €</div>
+                            / mois</div>
                         <div class="sb-price">360 € / an</div>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <p class="card-text">Indispensable pour démarrer</p>
+                        <ul>
+                            <li>Outil de gestion en ligne</li>
+                            <li>Catalogue 50 produits mis en ligne par la marque</li>
+                            <li>Paiement en ligne<span class="stick-update">À venir</span></li>
+                        </ul>
                     </div>
-                    <div class="card-footer text-center"><a href="{{ path('contact') }}" class="button-fh p-2">Contactez-nous</a></div>
+                    <div class="card-footer text-center"><a href="{{ path('contact') }}" class="button-fh p-2">Choisir ce forfait</a></div>
                 </div>
-                <div class="card shadow">
+                <div class="card scale-best shadow-lg">
+                    <div class="overlay-top p-2">Recommandé</div>
                     <div class="card-body text-center card-price"> <img class="card-img-price" src="{{ asset('bundles/app/img/picto-second.svg') }}">
-                        <h2 class="card-title">Essentiel</h2>
-                        <div class="price"><div class="price-num">100 €</div> / mois</div>
+                        <h2 class="card-title offer-second">Essentiel</h2>
+                        <div class="price">
+                            <div class="price-num">100 €</div>
+                            / mois</div>
                         <div class="sb-price">1 200 € / an</div>
-                        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                        <p class="card-text">Idéal pour se développer</p>
+                        <ul>
+                            <li>Outil de gestion en ligne</li>
+                            <li>Présence sur le marketplace</li>
+                            <li>Catalogue 50 produits mis en ligne par French Select</li>
+                            <li>1 compte commercial</li>
+                            <li>Paiement en ligne<span class="stick-update">À venir</span></li>
+                            <li>2 newsletters / an</li>
+                        </ul>
                     </div>
-                    <div class="card-footer text-center"><a href="{{ path('contact') }}" class="button-fh p-2">Contactez-nous</a></div>
+                    <div class="card-footer text-center"><a href="{{ path('contact') }}" class="button-fh p-2">Choisir ce forfait</a></div>
                 </div>
-                <div class="card shadow">
+                <div class="card shadow-sm">
                     <div class="card-body text-center card-price"> <img class="card-img-price" src="{{ asset('bundles/app/img/picto-third.svg') }}">
-                        <h2 class="card-title">Standard</h2>
-                        <div class="price"><div class="price-num">250 €</div> / mois</div>
+                        <h2 class="card-title offer-third">Business</h2>
+                        <div class="price">
+                            <div class="price-num">250 €</div>
+                            / mois</div>
                         <div class="sb-price">3 000 € / an</div>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                        <p class="card-text">Parfait pour décoller</p>
+                        <ul>
+                            <li>Outil de gestion en ligne</li>
+                            <li>Présence sur le marketplace</li>
+                            <li>Catalogue 200 produits mis en ligne par French Select</li>
+                            <li>3 comptes commerciaux</li>
+                            <li>Contrôle d'accès au catalogue</li>
+                            <li>Paiement en ligne<span class="stick-update">À venir</span></li>
+                            <li>4 newsletters / an</li>
+                        </ul>
                     </div>
-                    <div class="card-footer text-center"><a href="{{ path('contact') }}" class="button-fh p-2">Contactez-nous</a></div>
+                    <div class="card-footer text-center"><a href="{{ path('contact') }}" class="button-fh p-2">Choisir ce forfait</a></div>
                 </div>
-                <div class="card shadow">
+                <div class="card shadow-sm">
                     <div class="card-body text-center card-price"> <img class="card-img-price" src="{{ asset('bundles/app/img/picto-four.svg') }}">
-                        <h2 class="card-title">Premium</h2>
-                        <div class="price"><div class="price-num">Sur devis</div></div>
+                        <h2 class="card-title offer-four">Premium</h2>
+                        <div class="price">
+                            <div class="price-num">Sur devis</div>
+                        </div>
                         <div class="sb-price"></div>
-                        <p class="card-text">Notre équipe est à votre disposition pour vous offrir des services personnalisés.</p>
+                        <p class="card-text">Bénéficez d'une offre sur mesure adapté à vos besoins d'aujourd'hui et de demain.</p>
                     </div>
                     <div class="card-footer text-center"><a href="{{ path('contact') }}" class="button-fh p-2">Contactez-nous</a></div>
                 </div>
             </div>
-            <h1>Détail et options</h1>
+        </div>
+    </div>
+    <div class="container-fluid container-detail home2">
+        <div class="container">
+            <h4>Détail et options</h4>
             <div class="table-responsive-lg">
                 <table class="table text-center">
                     <thead>
                     <tr>
-                        <th scope="col" style="width:40%" class="table-price-title">Visibilité</th>
-                        <th scope="col" style="width:20%">Genèse</th>
+                        <th scope="col" style="width:40%" class="table-price-title">Comptes utilisateurs</th>
+                        <th scope="col" style="width:20%">Easy Start</th>
                         <th scope="col" style="width:20%">Essentiel</th>
-                        <th scope="col" style="width:20%">Standard</th>
+                        <th scope="col" style="width:20%">Business</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr>
-                        <td scope="row" class="table-price-title">Présence sur le marketplace</th>
+                        <td scope="row" class="table-price-title">Compte marque</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td scope="row" class="table-price-title">Compte commercial</td>
+                        <td><i class="fas fa-times"></i></td>
+                        <td>1</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td scope="row" class="table-price-title">Compte commercial supplémentaire</td>
+                        <td>150 € / an</td>
+                        <td>150 € / an</td>
+                        <td>150 € / an</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <table class="table text-center">
+                    <thead>
+                    <tr>
+                        <th scope="col" style="width:40%" class="table-price-title">Visibilité de la marque</th>
+                        <th scope="col" style="width:20%">Easy Start</th>
+                        <th scope="col" style="width:20%">Essentiel</th>
+                        <th scope="col" style="width:20%">Business</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td scope="row" class="table-price-title">Présence sur le marketplace des marques</td>
                         <td><i class="fas fa-times"></i></td>
                         <td><i class="fas fa-check"></i></td>
                         <td><i class="fas fa-check"></i></td>
                     </tr>
                     <tr>
-                        <td scope="row" class="table-price-title">Contrôle d'accès au catalogue en ligne</th>
+                        <td scope="row" class="table-price-title">Accés verrouillé du catalogue en ligne</td>
                         <td><i class="fas fa-times"></i></td>
                         <td><i class="fas fa-times"></i></td>
                         <td>Possible</td>
@@ -77,44 +143,51 @@
                     <thead>
                     <tr>
                         <th scope="col" style="width:40%" class="table-price-title">Gestion des collections</th>
-                        <th scope="col" style="width:20%">Genèse</th>
+                        <th scope="col" style="width:20%">Easy Start</th>
                         <th scope="col" style="width:20%">Essentiel</th>
-                        <th scope="col" style="width:20%">Standard</th>
+                        <th scope="col" style="width:20%">Business</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr>
-                        <td scope="row" class="table-price-title">Création / Modification des collections</th>
-                        <td><i class="fas fa-check"></i> par marque</td>
-                        <td><i class="fas fa-check"></i> par FS</td>
-                        <td><i class="fas fa-check"></i> par FS</td>
+                        <td scope="row" class="table-price-title">Mise en ligne des collections</td>
+                        <td>Par la marque</td>
+                        <td>Par French Select</td>
+                        <td>Par French Select</td>
                     </tr>
                     <tr>
-                        <td scope="row" class="table-price-title">Ajout / Modification d'un produit</th>
-                        <td><i class="fas fa-check"></i> par marque</td>
-                        <td><i class="fas fa-check"></i> par FS</td>
-                        <td><i class="fas fa-check"></i> par FS</td>
-                    </tr>
-                    <tr>
-                        <td scope="row" class="table-price-title">Importation / Exportation de produits</th>
-                        <td><i class="fas fa-check"></i> par marque</td>
-                        <td><i class="fas fa-check"></i> par FS</td>
-                        <td><i class="fas fa-check"></i> par FS</td>
-                    </tr>
-                    <tr>
-                        <td scope="row" class="table-price-title">Validation fiche produit par FS</th>
-                        <td><i class="fas fa-check"></i></td>
-                        <td><i class="fas fa-check"></i></td>
-                        <td><i class="fas fa-check"></i></td>
-                    </tr>
-                    <tr>
-                        <td scope="row" class="table-price-title">Nombre de produits</th>
+                        <td scope="row" class="table-price-title">Nombre de références</td>
                         <td>50</td>
                         <td>50</td>
                         <td>200</td>
-                    </tr><tr>
-                        <td scope="row" class="table-price-title">Contrôle disponibilité référence</th>
+                    </tr>
+                    <tr>
+                        <td scope="row" class="table-price-title">Pack de 100 références supplémentaires</td>
+                        <td>250 €</td>
+                        <td>250 €</td>
+                        <td>250 €</td>
+                    </tr>
+                    <tr>
+                        <td scope="row" class="table-price-title">Ajout / Modification d'un produit</td>
                         <td><i class="fas fa-check"></i></td>
+                        <td><i class="fas fa-check"></i></td>
+                        <td><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                        <td scope="row" class="table-price-title">Importation / Exportation de liste de produits</td>
+                        <td><i class="fas fa-check"></i></td>
+                        <td><i class="fas fa-check"></i></td>
+                        <td><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                        <td scope="row" class="table-price-title">Modifier la disponibilité des produits</td>
+                        <td><i class="fas fa-check"></i></td>
+                        <td><i class="fas fa-check"></i></td>
+                        <td><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                        <td scope="row" class="table-price-title">Définition de produits Coup de coeur</td>
+                        <td><i class="fas fa-times"></i></td>
                         <td><i class="fas fa-check"></i></td>
                         <td><i class="fas fa-check"></i></td>
                     </tr>
@@ -124,14 +197,14 @@
                     <thead>
                     <tr>
                         <th scope="col" style="width:40%" class="table-price-title">Gestion des clients</th>
-                        <th scope="col" style="width:20%">Genèse</th>
+                        <th scope="col" style="width:20%">Easy Start</th>
                         <th scope="col" style="width:20%">Essentiel</th>
-                        <th scope="col" style="width:20%">Standard</th>
+                        <th scope="col" style="width:20%">Business</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr>
-                        <td scope="row" class="table-price-title">Consultation des clients</td>
+                        <td scope="row" class="table-price-title">Consultation des fiches clients</td>
                         <td><i class="fas fa-check"></i></td>
                         <td><i class="fas fa-check"></i></td>
                         <td><i class="fas fa-check"></i></td>
@@ -143,33 +216,380 @@
                         <td><i class="fas fa-check"></i></td>
                     </tr>
                     <tr>
-                        <td scope="row" class="table-price-title">Gestion demandes clients</td>
-                        <td><i class="fas fa-times"></i></td>
-                        <td><i class="fas fa-check"></i></td>
-                        <td><i class="fas fa-check"></i></td>
-                    </tr>
-                    <tr>
                         <td scope="row" class="table-price-title">Importation / Exportation de listing clients</td>
-                        <td><i class="fas fa-check"></i></td>
-                        <td><i class="fas fa-check"></i></td>
-                        <td><i class="fas fa-check"></i></td>
-                    </tr>
-                    <tr>
-                        <td scope="row" class="table-price-title">Nombre de clients</td>
-                        <td>Illimité</td>
-                        <td>Illimité</td>
-                        <td>Illimité</td>
-                    </tr><tr>
-                        <td scope="row" class="table-price-title">Impression listing client</td>
                         <td><i class="fas fa-check"></i></td>
                         <td><i class="fas fa-check"></i></td>
                         <td><i class="fas fa-check"></i></td>
                     </tr>
                     </tbody>
                 </table>
+                <table class="table text-center">
+                    <thead>
+                    <tr>
+                        <th scope="col" style="width:40%" class="table-price-title">Gestion des commerciaux</th>
+                        <th scope="col" style="width:20%">Easy Start</th>
+                        <th scope="col" style="width:20%">Essentiel</th>
+                        <th scope="col" style="width:20%">Business</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td scope="row" class="table-price-title">Consultation des fiches commerciaux</td>
+                        <td><i class="fas fa-times"></i></td>
+                        <td><i class="fas fa-check"></i></td>
+                        <td><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                        <td scope="row" class="table-price-title">Création / Modification d'un commercial</td>
+                        <td><i class="fas fa-times"></i></td>
+                        <td><i class="fas fa-check"></i></td>
+                        <td><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                        <td scope="row" class="table-price-title">Affectation des clients aux commerciaux</td>
+                        <td><i class="fas fa-times"></i></td>
+                        <td><i class="fas fa-check"></i></td>
+                        <td><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                        <td scope="row" class="table-price-title">Suivi des statistiques des commerciaux</td>
+                        <td><i class="fas fa-times"></i></td>
+                        <td><i class="fas fa-check"></i></td>
+                        <td><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                        <td scope="row" class="table-price-title">Rechercher de nouveaux commerciaux</td>
+                        <td>Sur devis</td>
+                        <td>Sur devis</td>
+                        <td>Sur devis</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <table class="table text-center">
+                    <thead>
+                    <tr>
+                        <th scope="col" style="width:40%" class="table-price-title">Gestion des commandes</th>
+                        <th scope="col" style="width:20%">Easy Start</th>
+                        <th scope="col" style="width:20%">Essentiel</th>
+                        <th scope="col" style="width:20%">Business</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td scope="row" class="table-price-title">Consultation des commandes</td>
+                        <td><i class="fas fa-check"></i></td>
+                        <td><i class="fas fa-check"></i></td>
+                        <td><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                        <td scope="row" class="table-price-title">Création / Modification d'une commande</td>
+                        <td><i class="fas fa-check"></i></td>
+                        <td><i class="fas fa-check"></i></td>
+                        <td><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                        <td scope="row" class="table-price-title">Importation / Exportation des commandes</td>
+                        <td><i class="fas fa-check"></i></td>
+                        <td><i class="fas fa-check"></i></td>
+                        <td><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                        <td scope="row" class="table-price-title">Gestion des bons de livraison</td>
+                        <td><i class="fas fa-check"></i></td>
+                        <td><i class="fas fa-check"></i></td>
+                        <td><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                        <td scope="row" class="table-price-title">Gestion des demandes de retour produits</td>
+                        <td><i class="fas fa-times"></i></td>
+                        <td><i class="fas fa-check"></i></td>
+                        <td><i class="fas fa-check"></i></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <table class="table text-center">
+                    <thead>
+                    <tr>
+                        <th scope="col" style="width:40%" class="table-price-title">Gestion des factures</th>
+                        <th scope="col" style="width:20%">Easy Start</th>
+                        <th scope="col" style="width:20%">Essentiel</th>
+                        <th scope="col" style="width:20%">Business</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td scope="row" class="table-price-title">Consultation des factures</td>
+                        <td><i class="fas fa-check"></i></td>
+                        <td><i class="fas fa-check"></i></td>
+                        <td><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                        <td scope="row" class="table-price-title">Création / Modification d'une facture</td>
+                        <td><i class="fas fa-check"></i></td>
+                        <td><i class="fas fa-check"></i></td>
+                        <td><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                        <td scope="row" class="table-price-title">Exportation des factures</td>
+                        <td><i class="fas fa-check"></i></td>
+                        <td><i class="fas fa-check"></i></td>
+                        <td><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                        <td scope="row" class="table-price-title">Suivi des paiements</td>
+                        <td><i class="fas fa-check"></i></td>
+                        <td><i class="fas fa-check"></i></td>
+                        <td><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                        <td scope="row" class="table-price-title">Relance des retards paiements</td>
+                        <td><i class="fas fa-check"></i></td>
+                        <td><i class="fas fa-check"></i></td>
+                        <td><i class="fas fa-check"></i></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <table class="table text-center">
+                    <thead>
+                    <tr>
+                        <th scope="col" style="width:40%" class="table-price-title">Paiement en ligne des boutiques</th>
+                        <th scope="col" style="width:20%">Easy Start</th>
+                        <th scope="col" style="width:20%">Essentiel</th>
+                        <th scope="col" style="width:20%">Business</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td scope="row" class="table-price-title">Paiement par carte VISA / MASTERCARD</td>
+                        <td>À venir</td>
+                        <td>À venir</td>
+                        <td>À venir</td>
+                    </tr>
+                    <tr>
+                        <td scope="row" class="table-price-title">Paiement par virement SEPA</td>
+                        <td>À venir</td>
+                        <td>À venir</td>
+                        <td>À venir</td>
+                    </tr>
+                    <tr>
+                        <td scope="row" class="table-price-title">Paiement par prélèvement SEPA</td>
+                        <td>À venir</td>
+                        <td>À venir</td>
+                        <td>À venir</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <table class="table text-center">
+                    <thead>
+                    <tr>
+                        <th scope="col" style="width:40%" class="table-price-title">Suivi de la performance</th>
+                        <th scope="col" style="width:20%">Easy Start</th>
+                        <th scope="col" style="width:20%">Essentiel</th>
+                        <th scope="col" style="width:20%">Business</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td scope="row" class="table-price-title">Statistiques détaillées en ligne</td>
+                        <td><i class="fas fa-times"></i></td>
+                        <td><i class="fas fa-check"></i></td>
+                        <td><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                        <td scope="row" class="table-price-title">Mise en place d'une stratégie de développement</td>
+                        <td>Sur devis</td>
+                        <td>Sur devis</td>
+                        <td>Sur devis</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <table class="table text-center">
+                    <thead>
+                    <tr>
+                        <th scope="col" style="width:40%" class="table-price-title">Communication auprès des boutiques</th>
+                        <th scope="col" style="width:20%">Easy Start</th>
+                        <th scope="col" style="width:20%">Essentiel</th>
+                        <th scope="col" style="width:20%">Business</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td scope="row" class="table-price-title">Mise en avant dans une newsletter</td>
+                        <td><i class="fas fa-times"></i></td>
+                        <td><i class="fas fa-check"></i></td>
+                        <td><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                        <td scope="row" class="table-price-title">Mise en avant sur le marketplace</td>
+                        <td>Sur devis</td>
+                        <td>Sur devis</td>
+                        <td>Sur devis</td>
+                    </tr>
+                    <tr>
+                        <td scope="row" class="table-price-title">Traduction du catalogue</td>
+                        <td>Sur devis</td>
+                        <td>Sur devis</td>
+                        <td>Sur devis</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <table class="table text-center">
+                    <thead>
+                    <tr>
+                        <th scope="col" style="width:40%" class="table-price-title">Salons régionaux</th>
+                        <th scope="col" style="width:20%">Easy Start</th>
+                        <th scope="col" style="width:20%">Essentiel</th>
+                        <th scope="col" style="width:20%">Business</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td scope="row" class="table-price-title">Stand lors d'un salon régional French Select</td>
+                        <td>Sur devis</td>
+                        <td>Sur devis</td>
+                        <td>Sur devis</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <table class="table text-center">
+                    <thead>
+                    <tr>
+                        <th scope="col" style="width:40%" class="table-price-title">Assistance French Select</th>
+                        <th scope="col" style="width:20%">Easy Start</th>
+                        <th scope="col" style="width:20%">Essentiel</th>
+                        <th scope="col" style="width:20%">Business</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td scope="row" class="table-price-title">Assistance par e-mail</td>
+                        <td><i class="fas fa-check"></i></td>
+                        <td><i class="fas fa-check"></i></td>
+                        <td><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                        <td scope="row" class="table-price-title">Assistance par téléphone</td>
+                        <td><i class="fas fa-times"></i></td>
+                        <td><i class="fas fa-check"></i></td>
+                        <td><i class="fas fa-check"></i></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <table class="table text-center">
+                    <thead>
+                    <tr>
+                        <th scope="col" style="width:40%" class="table-price-title">Support technique</th>
+                        <th scope="col" style="width:20%">Easy Start</th>
+                        <th scope="col" style="width:20%">Essentiel</th>
+                        <th scope="col" style="width:20%">Business</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td scope="row" class="table-price-title">Manuel d'utilisation de la plateforme</td>
+                        <td><i class="fas fa-check"></i></td>
+                        <td><i class="fas fa-check"></i></td>
+                        <td><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                        <td scope="row" class="table-price-title">FAQ</td>
+                        <td><i class="fas fa-check"></i></td>
+                        <td><i class="fas fa-check"></i></td>
+                        <td><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                        <td scope="row" class="table-price-title">Vidéos tutoriels</td>
+                        <td>À venir</td>
+                        <td>À venir</td>
+                        <td>À venir</td>
+                    </tr>
+                    <tr>
+                        <td scope="row" class="table-price-title">Formation sur la plateforme</td>
+                        <td>Sur devis</td>
+                        <td>Sur devis</td>
+                        <td>Sur devis</td>
+                    </tr>
+                    <tr>
+                        <td scope="row" class="table-price-title"></td>
+                        <td><a href="{{ path('contact') }}" class="button-fh p-2">Choisir ce forfait</a></td>
+                        <td><a href="{{ path('contact') }}" class="button-fh p-2">Choisir ce forfait</a></td>
+                        <td><a href="{{ path('contact') }}" class="button-fh p-2">Choisir ce forfait</a></td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
+    <div class="container-fluid container-option home2">
+        <div class="container">
+            <h4>Options et Suppléments</h4>
+            <div class="wrapper-li-opt">
+                <ul class="li-opt">
+                    <li class="opt">
+                        <div class="title">Compte commercial supplémentaire</div>
+                        <div class="dsc">150 € / compte</div>
+                    </li>
+                    <li class="opt">
+                        <div class="title">Pack de produits supplémentaires</div>
+                        <div class="dsc">250 € / 100 références</div>
+                    </li>
+                    <li class="opt">
+                        <div class="title">Gestion des collections</div>
+                        <div class="dsc">Inclus</div>
+                    </li>
+                    <li class="opt">
+                        <div class="title">Gestion des clients</div>
+                        <div class="dsc">Inclus</div>
+                    </li>
+                    <li class="opt">
+                        <div class="title">Gestion des commerciaux</div>
+                        <div class="dsc">Inclus</div>
+                    </li>
+                    <li class="opt">
+                        <div class="title">Gestion des commandes</div>
+                        <div class="dsc">Inclus</div>
+                    </li>
+                    <li class="opt">
+                        <div class="title">Gestion des factures</div>
+                        <div class="dsc">Inclus</div>
+                    </li>
+                    <li class="opt">
+                        <div class="title">Envoi d'une newsletter supplémentaire</div>
+                        <div class="dsc">200 € / Newsletter</div>
+                    </li>
+                    <li class="opt">
+                        <div class="title">Publicité en ligne</div>
+                        <div class="dsc">Sur devis</div>
+                    </li>
+                    <li class="opt">
+                        <div class="title">Stand lors d'un salon régional</div>
+                        <div class="dsc">Sur devis</div>
+                    </li>
+                    <li class="opt">
+                        <div class="title">Paiement en ligne des boutiques</div>
+                        <div class="dsc">À venir</div>
+                    </li>
+                    <li class="opt">
+                        <div class="title">Assistance French Select</div>
+                        <div class="dsc">Inclus</div>
+                    </li>
+                    <li class="opt">
+                        <div class="title">Supports techniques</div>
+                        <div class="dsc">Inclus</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="container-fluid home1">
+        <div class="container">
+            <h4>Avec French Select,<br />
+                <span style="color:#FE5F55;">augmentez votre chiffre d'affaires tout en réduisant vos coûts, développez votre marque avec nous !</span></h4>
+            <div class="container-btn text-center"><a href="{{ path('contact') }}" class="button-fh p-2">Contactez-nous</a></div>
+        </div>
+    </div>
+
 
 
 

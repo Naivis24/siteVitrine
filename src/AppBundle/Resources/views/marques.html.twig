@@ -5,81 +5,59 @@
 {% endblock %}
 
     {% block body %}
-     <div class="container-fluid " id="section-start">
-
+        <div class="container-fluid marquesbg" id="section-start">
         <h1>Liste des Marques</h1>
+            <div class="row p-4">
+                <div class="col-md-3 column-filters p-4">Mes filtres
+                </div>
 
+                <div class="col-md-9">
+                    <div class="row px-4">
+                {% for brand in brands %}
+                     <div class="col-md-3 px-2 py-2">
 
-  {% set cpt = 0 %}
-       <div class="card-deck">
-               {% for brand in brands %}
-
-                {% if cpt !=0 and cpt % 4 == 0 %}
-                    </div>
-                    <div class="card-deck">
-                {% endif %}
-
-                 <div class="card card-marques">
-
-                      <div class="card-img ">
-                           <img class="card-img" src="{{ asset('bundles/app/img/' ~brand.getPicture() ) }}">
-                     </div>
-                     <div class="card-img-overlay info p-t-2">
-                            <img class="img-fluid"src="{{ asset('bundles/app/img/' ~ brand.getLogo())}}" >
-                     </div>
-                     <div class="card-img-overlay hover-info">
-                             {% set targets = brand.getTarget.toArray() %}
-                             {% set styles = brand.getStyle.toArray() %}
-                             {% set categories = brand.getPrimaryCategory().toArray() %}
-
+                    <div class="card-marques shadow-sm">
+                        <img class="img-fluid card-img" src="{{ asset('bundles/app/img/' ~ brand.getPicture() ) }}">
+                        <div class="container-img-brand">
+                            <img src="{{ asset('bundles/app/img/' ~ brand.getLogo()) }}" class="img-fluid">
+                        </div>
+                        <div class="container-hover-info">
+                            {% set targets = brand.getTarget.toArray() %}
+                            {% set styles = brand.getStyle.toArray() %}
+                            {% set categories = brand.getPrimaryCategory().toArray() %}
                             <h5 class="card-title"> {{ brand.getName() }} </h5>
-                             {{ brand.getSlogan() }}
+                            {{ brand.getSlogan() }}
                             <ul>
-                                <li><strong>Pays</strong><br>
-                                    {{ brand.getCountry().getName() }}</li>
-
-                                <li><strong>Catégories</strong><br>
-                                    {% for categorie in categories %}
-                                        {{ categorie.getLabel() }},
-                                    {% endfor %}
+                                <li>PAYS<br>
+                                    <strong>{{ brand.getCountry().getName() }}</strong></li>
+                                <li>CATÉGORIE<br>
+                                    <strong> {% for categorie in categories %}
+                                            {{ categorie.getLabel() }},
+                                        {% endfor %}</strong>
                                 </li>
-
-                                <li>
-                                    <strong>Styles</strong><br>
-                                    {% for style in styles %}
-                                        {{ style.getLabel() }},
-                                    {% endfor %}
+                                <li>STYLE<br>
+                                    <strong>  {% for style in styles %}
+                                            {{ style.getLabel() }},
+                                        {% endfor %}</strong>
                                 </li>
-
-                                <li>
-                                    <strong>Cible</strong><br>
-                                    {% for target in targets %}
-                                        {{ target.getLabel() }},
-                                    {% endfor %}
+                                <li>CIBLE<br>
+                                    <strong> {% for target in targets %}
+                                            {{ target.getLabel() }},
+                                        {% endfor %}</strong>
                                 </li>
-
-                                <li>
-                                    <strong>Gamme de prix</strong><br>
-                                    {{ brand.getPriceRange().getLabel() }}
+                                <li>GAMME DE PRIX<br>
+                                    <strong>{{ brand.getPriceRange().getLabel() }}</strong>
                                 </li>
                             </ul>
-
-
-
-
-
-
-
-
-                              <a href="{{ path('details_marques', {'marque': brand.getName()} ) }}">
-                                  Découvrir la marque </a>
-                     </div>
-
-                 </div>
-                   {% set cpt = cpt + 1 %}
+                        </div>
+                        <div class="button-slide-brands"><a href="{{ path('details_marques', {'marque': brand.getName()} ) }}" class="button-sb p-1">
+                                Découvrir la marque </a>
+                        </div>
+                    </div>
+                </div>
                {% endfor %}
+            </div>
+            </div>
+            </div>
        </div>
-
-       </div>
-
     {% endblock %}
