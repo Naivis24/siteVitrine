@@ -5,8 +5,7 @@
 {% endblock %}
 
     {% block body %}
-        <div class="container-fluid marquesbg" id="section-start">
-
+        <div class="container-fluid marquesbg padding-start" id="section-start">
 
 
         <h1>Liste des Marques</h1>
@@ -43,7 +42,7 @@
                 <div class="col-md-3 column-filters p-4">
                 <div class="container-btn text-center"><a href="#" class="button-fh p-2">Réinitialiser</a></div>
                  <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="cbHomme" onchange="filtre(this, "cible", "homme")">
+                    <input type="checkbox" class="form-check-input" id="cbHomme" onchange="filterCb(this, 'cible', 'homme')">
                     <label class="form-check-label" for="cbHomme">Homme</label>
                   </div>
                   <button class="btn active" onclick="filterSelection('all')"> Show all</button>
