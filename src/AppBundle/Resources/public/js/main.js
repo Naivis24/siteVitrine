@@ -1,4 +1,4 @@
-function filtre(obj,categorie, filtre){
+function filterCb(obj,categorie, filtre){
     var x, i;
     x = document.getElementsByClassName("filter-card");
 
