@@ -1,20 +1,20 @@
-$(document).ready(function () {
-    'use strict';
-    $('#form_titre').autocompleter({
-        url_list: '/search-article',
-        url_get: '/?term='
-    });
+function filtre(obj,categorie, filtre){
+    var x, i;
+    x = document.getElementsByClassName("filter-card");
 
-
-    $("#ui-id-1").click(function(){
-        var id = $("#form_titre").val();
-
-        if(id.toString().length > 0){
-            $(location).attr('href', '/article/'+id.toString());
+    if($(obj).is(":checked")){
+        for (i = 0; i < x.length; i++) {
+            if (x[i].getElementById(categorie).innerHTML.includes(filtre)) addClass(x[i], "show");
         }
-    })
+    }else{
+        for (i = 0; i < x.length; i++) {
+            removeClass(x[i], "show");
+            if (x[i].getElementById(categorie).innerHTML.includes(filtre)) removeClass(x[i], "show");
+        }
 
-});
+    }
+
+}
 
 
 function filterSelection(c) {
