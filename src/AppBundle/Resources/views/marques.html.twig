@@ -25,6 +25,19 @@
 
             </div>
 
+            <script>
+                var xTriggered = 0;
+                $( "#target" ).keyup(function( event ) {
+                    xTriggered++;
+                    var msg = "Handler for .keyup() called " + xTriggered + " time(s).";
+                    alert("loool")
+                }).keydown(function( event ) {
+                    if ( event.which == 13 ) {
+                        event.preventDefault();
+                    }
+                });
+            </script>
+
             <div class="row p-4">
                 <div class="col-md-3 column-filters p-4">
                 <div class="container-btn text-center"><a href="#" class="button-fh p-2">Réinitialiser</a></div>
