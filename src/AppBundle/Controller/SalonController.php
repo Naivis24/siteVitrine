@@ -15,7 +15,7 @@ class SalonController extends Controller
     public function listSalonAction(){
         $em = $this->getDoctrine()->getManager();
 
-        $salons = $em->getRepository('AppBundle:Salon')->findBy(array(), array('dateDebut' => 'ASC'));
+        $salons = $em->getRepository('AppBundle:Salon')->findBy(array(), array('dateDebut' => 'asc'));
 
         return $this->render('AppBundle::salons_boutiques.html.twig', array(
             'salons' => $salons
