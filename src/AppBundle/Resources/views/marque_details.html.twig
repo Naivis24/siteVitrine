@@ -147,23 +147,27 @@
 
                 {% set tabRes = [M1, M2, M3, M4] %}
                 <!-- Fin de l'algorithme -->
-                <div class="card-deck">
+                <div class="row">
 
-                    {% for m in tabRes %}
+                    {% for competitor in tabRes %}
+                        {% set targets = competitor.getTarget.toArray() %}
+                        {% set styles = competitor.getStyle.toArray() %}
+                        {% set categories = competitor.getPrimaryCategory().toArray() %}
+                    <div class="col-md-3">
 
                         <div class="card-marques shadow-sm">
 
-                            <img class="img-fluid card-img" src="{{ asset('bundles/app/img/' ~ brand.getPicture() ) }}">
+                            <img class="img-fluid card-img" src="{{ asset('bundles/app/img/' ~ competitor.getPicture() ) }}">
                             <div class="container-img-brand">
-                                <img src="{{ asset('bundles/app/img/' ~ brand.getLogo()) }}" class="img-fluid">
+                                <img src="{{ asset('bundles/app/img/' ~ competitor.getLogo()) }}" class="img-fluid">
                             </div>
                             <div class="container-hover-info">
 
-                                <h5 class="card-title"> {{ brand.getName() }} </h5>
-                                {{ brand.getSlogan() }}
+                                <h5 class="card-title"> {{ competitor.getName() }} </h5>
+                                {{ competitor.getSlogan() }}
                                 <ul>
                                     <li>PAYS<br>
-                                        <strong>{{ brand.getCountry().getName() }}</strong></li>
+                                        <strong>{{ competitor.getCountry().getName() }}</strong></li>
                                     <li>CATÉGORIE<br>
                                         <strong> {% for categorie in categories %}
                                                 {{ categorie.getLabel() }},
@@ -180,18 +184,19 @@
                                             {% endfor %}</strong>
                                     </li>
                                     <li>GAMME DE PRIX<br>
-                                        <strong>{{ brand.getPriceRange().getLabel() }}</strong>
+                                        <strong>{{ competitor.getPriceRange().getLabel() }}</strong>
                                     </li>
                                 </ul>
                             </div>
-                            <div class="button-slide-brands"><a href="{{ path('details_marques', {'marque': brand.getName()} ) }}" class="button-sb p-1">
+                            <div class="button-slide-brands"><a href="{{ path('details_marques', {'marque': competitor.getName()} ) }}" class="button-sb p-1">
                                     Découvrir la marque </a>
                             </div>
 
                         </div>
-                    {% endfor %}
                 </div>
 
+                    {% endfor %}
+                </div>
             </div>
 
             <div class="container container-brand-detail-2">
