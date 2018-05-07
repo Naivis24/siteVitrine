@@ -212,6 +212,8 @@ class Brand
      */
     private $salon;
 
+
+
     /**
      * Constructor
      */
@@ -513,6 +515,7 @@ class Brand
     }
 
     /**
+     * @return string
      * Get homepageIndex
      *
      * @return integer
