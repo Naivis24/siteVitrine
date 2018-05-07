@@ -41,7 +41,7 @@ twig:
 # Doctrine Configuration
 doctrine:
     dbal:
-        driver: pdo_mysql
+        driver: '%database_driver%'
         host: '%database_host%'
         port: '%database_port%'
         dbname: '%database_name%'
@@ -66,7 +66,6 @@ swiftmailer:
     transport: "%mailer_transport%"
     auth_mode: "%mailer_auth_mode%"
     host:      "%mailer_host%"
-    encryption: "%mailer_encryption%"
     port:      "%mailer_port%"
     username:  "%mailer_user%"
     password:  "%mailer_password%"
