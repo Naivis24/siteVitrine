@@ -1,19 +1,18 @@
-function filterCb(obj,categorie, filtre){
+function filterCb(obj, categorie, filtre) {
     var x, i;
     x = document.getElementsByClassName("filter-card");
 
-    if($(obj).is(":checked")){
+    if ($(obj).is(":checked")) {
         for (i = 0; i < x.length; i++) {
-            if (x[i].getElementById(categorie).innerHTML.includes(filtre)) addClass(x[i], "show");
+            if (x[i].getElementById(categorie).innerHTML.indexOf(filtre) != -1) addClass(x[i], "show");
         }
-    }else{
+    } else {
         for (i = 0; i < x.length; i++) {
             removeClass(x[i], "show");
-            if (x[i].getElementById(categorie).innerHTML.includes(filtre)) removeClass(x[i], "show");
+            if (x[i].getElementById(categorie).innerHTML.indexOf(filtre) != -1) removeClass(x[i], "show");
         }
 
     }
-
 }
 
 
