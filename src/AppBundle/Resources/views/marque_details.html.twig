@@ -6,7 +6,7 @@
 
     {% block body %}
 
-        <div class="container-fluid " id="section-start">
+        <div class="container-fluid padding-start" id="section-start">
 
             <a class="btn" href="{{ app.request.headers.get('referer') }}" role="button">Retour</a>
 
@@ -30,10 +30,10 @@
                     <a href="{{ asset('bundles/app/book/'~brand.getLookBook()) }}" target="_blank">LOOKBOOK</a>
                 {% endif %}
             </div>
-
-            <div id="competing">
-
-                <p> Marques recommandées</p>
+        </div>
+        <div class="container-fluid similar-brands-title">
+            <h2>Marques similaires</h2></div>
+        <div class="container-fluid">
 
                 <!-- Début de l'algorithme -->
                 <!--Initialisation des variables -->
@@ -147,13 +147,13 @@
 
                 {% set tabRes = [M1, M2, M3, M4] %}
                 <!-- Fin de l'algorithme -->
-                <div class="row">
+                <div class="row px-4">
 
                     {% for competitor in tabRes %}
                         {% set targets = competitor.getTarget.toArray() %}
                         {% set styles = competitor.getStyle.toArray() %}
                         {% set categories = competitor.getPrimaryCategory().toArray() %}
-                    <div class="col-md-3">
+                    <div class="col-md-3 px-2 py-2">
 
                         <div class="card-marques shadow-sm">
 
