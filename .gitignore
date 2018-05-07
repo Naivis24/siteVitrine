@@ -26,5 +26,9 @@ src/AppBundle/Resources/public/.DS_Store
 bin/composer.phar
 .idea/siteVitrine.iml
 .idea/siteVitrine.iml
+<<<<<<< HEAD
 src/AppBundle/Entity/Brand.php
 src/AppBundle/Entity/Brand.php
+=======
+
+>>>>>>> deddf413981514d6bdd5c85bdd574347fdc129c9

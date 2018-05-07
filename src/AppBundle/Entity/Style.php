@@ -43,8 +43,11 @@ class Style
         $this->brand = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
+
     /**
-     * @return int
+     * Get id
+     *
+     * @return integer
      */
     public function getId()
     {
@@ -52,14 +55,22 @@ class Style
     }
 
     /**
-     * @param int $id
+     * Set label
+     *
+     * @param string $label
+     *
+     * @return Style
      */
-    public function setId($id)
+    public function setLabel($label)
     {
-        $this->id = $id;
+        $this->label = $label;
+
+        return $this;
     }
 
     /**
+     * Get label
+     *
      * @return string
      */
     public function getLabel()
@@ -68,28 +79,36 @@ class Style
     }
 
     /**
-     * @param string $label
+     * Add brand
+     *
+     * @param \AppBundle\Entity\Brand $brand
+     *
+     * @return Style
      */
-    public function setLabel($label)
+    public function addBrand(\AppBundle\Entity\Brand $brand)
     {
-        $this->label = $label;
+        $this->brand[] = $brand;
+
+        return $this;
     }
 
     /**
+     * Remove brand
+     *
+     * @param \AppBundle\Entity\Brand $brand
+     */
+    public function removeBrand(\AppBundle\Entity\Brand $brand)
+    {
+        $this->brand->removeElement($brand);
+    }
+
+    /**
+     * Get brand
+     *
      * @return \Doctrine\Common\Collections\Collection
      */
     public function getBrand()
     {
         return $this->brand;
     }
-
-    /**
-     * @param \Doctrine\Common\Collections\Collection $brand
-     */
-    public function setBrand($brand)
-    {
-        $this->brand = $brand;
-    }
-
 }
-

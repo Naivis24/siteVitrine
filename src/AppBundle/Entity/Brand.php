@@ -106,6 +106,13 @@ class Brand
     private $homepageIndex = '0';
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="lookbook", type="string", length=255, nullable=true)
+     */
+    private $lookbook;
+
+    /**
      * @var \PriceRange
      *
      * @ORM\ManyToOne(targetEntity="PriceRange")
@@ -205,12 +212,7 @@ class Brand
      */
     private $salon;
 
-    /**      * @var string
-     *
-     *
-     * @ORM\Column(name="lookbook", type="string", length=255, nullable=true)
-     */
-    private $lookbook;
+
 
     /**
      * Constructor
@@ -223,8 +225,11 @@ class Brand
         $this->salon = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
+
     /**
-     * @return int
+     * Get id
+     *
+     * @return integer
      */
     public function getId()
     {
@@ -232,14 +237,22 @@ class Brand
     }
 
     /**
-     * @param int $id
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return Brand
      */
-    public function setId($id)
+    public function setName($name)
     {
-        $this->id = $id;
+        $this->name = $name;
+
+        return $this;
     }
 
     /**
+     * Get name
+     *
      * @return string
      */
     public function getName()
@@ -248,14 +261,22 @@ class Brand
     }
 
     /**
-     * @param string $name
+     * Set competing
+     *
+     * @param string $competing
+     *
+     * @return Brand
      */
-    public function setName($name)
+    public function setCompeting($competing)
     {
-        $this->name = $name;
+        $this->competing = $competing;
+
+        return $this;
     }
 
     /**
+     * Get competing
+     *
      * @return string
      */
     public function getCompeting()
@@ -264,14 +285,22 @@ class Brand
     }
 
     /**
-     * @param string $competing
+     * Set urlwebsite
+     *
+     * @param string $urlwebsite
+     *
+     * @return Brand
      */
-    public function setCompeting($competing)
+    public function setUrlwebsite($urlwebsite)
     {
-        $this->competing = $competing;
+        $this->urlwebsite = $urlwebsite;
+
+        return $this;
     }
 
     /**
+     * Get urlwebsite
+     *
      * @return string
      */
     public function getUrlwebsite()
@@ -280,14 +309,22 @@ class Brand
     }
 
     /**
-     * @param string $urlwebsite
+     * Set slogan
+     *
+     * @param string $slogan
+     *
+     * @return Brand
      */
-    public function setUrlwebsite($urlwebsite)
+    public function setSlogan($slogan)
     {
-        $this->urlwebsite = $urlwebsite;
+        $this->slogan = $slogan;
+
+        return $this;
     }
 
     /**
+     * Get slogan
+     *
      * @return string
      */
     public function getSlogan()
@@ -296,14 +333,22 @@ class Brand
     }
 
     /**
-     * @param string $slogan
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return Brand
      */
-    public function setSlogan($slogan)
+    public function setDescription($description)
     {
-        $this->slogan = $slogan;
+        $this->description = $description;
+
+        return $this;
     }
 
     /**
+     * Get description
+     *
      * @return string
      */
     public function getDescription()
@@ -312,14 +357,22 @@ class Brand
     }
 
     /**
-     * @param string $description
+     * Set urlFac
+     *
+     * @param string $urlFac
+     *
+     * @return Brand
      */
-    public function setDescription($description)
+    public function setUrlFac($urlFac)
     {
-        $this->description = $description;
+        $this->urlFac = $urlFac;
+
+        return $this;
     }
 
     /**
+     * Get urlFac
+     *
      * @return string
      */
     public function getUrlFac()
@@ -328,14 +381,22 @@ class Brand
     }
 
     /**
-     * @param string $urlFac
+     * Set urlInsta
+     *
+     * @param string $urlInsta
+     *
+     * @return Brand
      */
-    public function setUrlFac($urlFac)
+    public function setUrlInsta($urlInsta)
     {
-        $this->urlFac = $urlFac;
+        $this->urlInsta = $urlInsta;
+
+        return $this;
     }
 
     /**
+     * Get urlInsta
+     *
      * @return string
      */
     public function getUrlInsta()
@@ -344,14 +405,22 @@ class Brand
     }
 
     /**
-     * @param string $urlInsta
+     * Set picture
+     *
+     * @param string $picture
+     *
+     * @return Brand
      */
-    public function setUrlInsta($urlInsta)
+    public function setPicture($picture)
     {
-        $this->urlInsta = $urlInsta;
+        $this->picture = $picture;
+
+        return $this;
     }
 
     /**
+     * Get picture
+     *
      * @return string
      */
     public function getPicture()
@@ -360,14 +429,22 @@ class Brand
     }
 
     /**
-     * @param string $picture
+     * Set lifestyle
+     *
+     * @param string $lifestyle
+     *
+     * @return Brand
      */
-    public function setPicture($picture)
+    public function setLifestyle($lifestyle)
     {
-        $this->picture = $picture;
+        $this->lifestyle = $lifestyle;
+
+        return $this;
     }
 
     /**
+     * Get lifestyle
+     *
      * @return string
      */
     public function getLifestyle()
@@ -376,14 +453,22 @@ class Brand
     }
 
     /**
-     * @param string $lifestyle
+     * Set lifestyle2
+     *
+     * @param string $lifestyle2
+     *
+     * @return Brand
      */
-    public function setLifestyle($lifestyle)
+    public function setLifestyle2($lifestyle2)
     {
-        $this->lifestyle = $lifestyle;
+        $this->lifestyle2 = $lifestyle2;
+
+        return $this;
     }
 
     /**
+     * Get lifestyle2
+     *
      * @return string
      */
     public function getLifestyle2()
@@ -392,14 +477,22 @@ class Brand
     }
 
     /**
-     * @param string $lifestyle2
+     * Set logo
+     *
+     * @param string $logo
+     *
+     * @return Brand
      */
-    public function setLifestyle2($lifestyle2)
+    public function setLogo($logo)
     {
-        $this->lifestyle2 = $lifestyle2;
+        $this->logo = $logo;
+
+        return $this;
     }
 
     /**
+     * Get logo
+     *
      * @return string
      */
     public function getLogo()
@@ -408,15 +501,24 @@ class Brand
     }
 
     /**
-     * @param string $logo
+     * Set homepageIndex
+     *
+     * @param integer $homepageIndex
+     *
+     * @return Brand
      */
-    public function setLogo($logo)
+    public function setHomepageIndex($homepageIndex)
     {
-        $this->logo = $logo;
+        $this->homepageIndex = $homepageIndex;
+
+        return $this;
     }
 
     /**
-     * @return int
+     * @return string
+     * Get homepageIndex
+     *
+     * @return integer
      */
     public function getHomepageIndex()
     {
@@ -424,14 +526,22 @@ class Brand
     }
 
     /**
-     * @param int $homepageIndex
+     * Set lookbook
+     *
+     * @param string $lookbook
+     *
+     * @return Brand
      */
-    public function setHomepageIndex($homepageIndex)
+    public function setLookbook($lookbook)
     {
-        $this->homepageIndex = $homepageIndex;
+        $this->lookbook = $lookbook;
+
+        return $this;
     }
 
     /**
+     * Get lookbook
+     *
      * @return string
      */
     public function getLookbook()
@@ -440,15 +550,23 @@ class Brand
     }
 
     /**
-     * @param string $lookbook
+     * Set priceRange
+     *
+     * @param \AppBundle\Entity\PriceRange $priceRange
+     *
+     * @return Brand
      */
-    public function setLookbook($lookbook)
+    public function setPriceRange(\AppBundle\Entity\PriceRange $priceRange = null)
     {
-        $this->lookbook = $lookbook;
+        $this->priceRange = $priceRange;
+
+        return $this;
     }
 
     /**
-     * @return \PriceRange
+     * Get priceRange
+     *
+     * @return \AppBundle\Entity\PriceRange
      */
     public function getPriceRange()
     {
@@ -456,15 +574,23 @@ class Brand
     }
 
     /**
-     * @param \PriceRange $priceRange
+     * Set billingCountry
+     *
+     * @param \AppBundle\Entity\Country $billingCountry
+     *
+     * @return Brand
      */
-    public function setPriceRange($priceRange)
+    public function setBillingCountry(\AppBundle\Entity\Country $billingCountry = null)
     {
-        $this->priceRange = $priceRange;
+        $this->billingCountry = $billingCountry;
+
+        return $this;
     }
 
     /**
-     * @return \Country
+     * Get billingCountry
+     *
+     * @return \AppBundle\Entity\Country
      */
     public function getBillingCountry()
     {
@@ -472,15 +598,23 @@ class Brand
     }
 
     /**
-     * @param \Country $billingCountry
+     * Set manufactureCountry
+     *
+     * @param \AppBundle\Entity\Country $manufactureCountry
+     *
+     * @return Brand
      */
-    public function setBillingCountry($billingCountry)
+    public function setManufactureCountry(\AppBundle\Entity\Country $manufactureCountry = null)
     {
-        $this->billingCountry = $billingCountry;
+        $this->manufactureCountry = $manufactureCountry;
+
+        return $this;
     }
 
     /**
-     * @return \Country
+     * Get manufactureCountry
+     *
+     * @return \AppBundle\Entity\Country
      */
     public function getManufactureCountry()
     {
@@ -488,15 +622,23 @@ class Brand
     }
 
     /**
-     * @param \Country $manufactureCountry
+     * Set country
+     *
+     * @param \AppBundle\Entity\Country $country
+     *
+     * @return Brand
      */
-    public function setManufactureCountry($manufactureCountry)
+    public function setCountry(\AppBundle\Entity\Country $country = null)
     {
-        $this->manufactureCountry = $manufactureCountry;
+        $this->country = $country;
+
+        return $this;
     }
 
     /**
-     * @return \Country
+     * Get country
+     *
+     * @return \AppBundle\Entity\Country
      */
     public function getCountry()
     {
@@ -504,14 +646,32 @@ class Brand
     }
 
     /**
-     * @param \Country $country
+     * Add primaryCategory
+     *
+     * @param \AppBundle\Entity\PrimaryCategory $primaryCategory
+     *
+     * @return Brand
      */
-    public function setCountry($country)
+    public function addPrimaryCategory(\AppBundle\Entity\PrimaryCategory $primaryCategory)
     {
-        $this->country = $country;
+        $this->primaryCategory[] = $primaryCategory;
+
+        return $this;
     }
 
     /**
+     * Remove primaryCategory
+     *
+     * @param \AppBundle\Entity\PrimaryCategory $primaryCategory
+     */
+    public function removePrimaryCategory(\AppBundle\Entity\PrimaryCategory $primaryCategory)
+    {
+        $this->primaryCategory->removeElement($primaryCategory);
+    }
+
+    /**
+     * Get primaryCategory
+     *
      * @return \Doctrine\Common\Collections\Collection
      */
     public function getPrimaryCategory()
@@ -520,14 +680,32 @@ class Brand
     }
 
     /**
-     * @param \Doctrine\Common\Collections\Collection $primaryCategory
+     * Add style
+     *
+     * @param \AppBundle\Entity\Style $style
+     *
+     * @return Brand
      */
-    public function setPrimaryCategory($primaryCategory)
+    public function addStyle(\AppBundle\Entity\Style $style)
     {
-        $this->primaryCategory = $primaryCategory;
+        $this->style[] = $style;
+
+        return $this;
     }
 
     /**
+     * Remove style
+     *
+     * @param \AppBundle\Entity\Style $style
+     */
+    public function removeStyle(\AppBundle\Entity\Style $style)
+    {
+        $this->style->removeElement($style);
+    }
+
+    /**
+     * Get style
+     *
      * @return \Doctrine\Common\Collections\Collection
      */
     public function getStyle()
@@ -536,14 +714,32 @@ class Brand
     }
 
     /**
-     * @param \Doctrine\Common\Collections\Collection $style
+     * Add target
+     *
+     * @param \AppBundle\Entity\Target $target
+     *
+     * @return Brand
      */
-    public function setStyle($style)
+    public function addTarget(\AppBundle\Entity\Target $target)
     {
-        $this->style = $style;
+        $this->target[] = $target;
+
+        return $this;
     }
 
     /**
+     * Remove target
+     *
+     * @param \AppBundle\Entity\Target $target
+     */
+    public function removeTarget(\AppBundle\Entity\Target $target)
+    {
+        $this->target->removeElement($target);
+    }
+
+    /**
+     * Get target
+     *
      * @return \Doctrine\Common\Collections\Collection
      */
     public function getTarget()
@@ -552,29 +748,36 @@ class Brand
     }
 
     /**
-     * @param \Doctrine\Common\Collections\Collection $target
+     * Add salon
+     *
+     * @param \AppBundle\Entity\Salon $salon
+     *
+     * @return Brand
      */
-    public function setTarget($target)
+    public function addSalon(\AppBundle\Entity\Salon $salon)
     {
-        $this->target = $target;
+        $this->salon[] = $salon;
+
+        return $this;
     }
 
     /**
+     * Remove salon
+     *
+     * @param \AppBundle\Entity\Salon $salon
+     */
+    public function removeSalon(\AppBundle\Entity\Salon $salon)
+    {
+        $this->salon->removeElement($salon);
+    }
+
+    /**
+     * Get salon
+     *
      * @return \Doctrine\Common\Collections\Collection
      */
     public function getSalon()
     {
         return $this->salon;
     }
-
-    /**
-     * @param \Doctrine\Common\Collections\Collection $salon
-     */
-    public function setSalon($salon)
-    {
-        $this->salon = $salon;
-    }
-
-
 }
-

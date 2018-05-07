@@ -116,8 +116,11 @@ class Salon
         $this->brand = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
+
     /**
-     * @return int
+     * Get salonId
+     *
+     * @return integer
      */
     public function getSalonId()
     {
@@ -125,14 +128,22 @@ class Salon
     }
 
     /**
-     * @param int $salonId
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return Salon
      */
-    public function setSalonId($salonId)
+    public function setName($name)
     {
-        $this->salonId = $salonId;
+        $this->name = $name;
+
+        return $this;
     }
 
     /**
+     * Get name
+     *
      * @return string
      */
     public function getName()
@@ -141,14 +152,22 @@ class Salon
     }
 
     /**
-     * @param string $name
+     * Set dateDebut
+     *
+     * @param \DateTime $dateDebut
+     *
+     * @return Salon
      */
-    public function setName($name)
+    public function setDateDebut($dateDebut)
     {
-        $this->name = $name;
+        $this->dateDebut = $dateDebut;
+
+        return $this;
     }
 
     /**
+     * Get dateDebut
+     *
      * @return \DateTime
      */
     public function getDateDebut()
@@ -157,14 +176,22 @@ class Salon
     }
 
     /**
-     * @param \DateTime $dateDebut
+     * Set dateFin
+     *
+     * @param \DateTime $dateFin
+     *
+     * @return Salon
      */
-    public function setDateDebut($dateDebut)
+    public function setDateFin($dateFin)
     {
-        $this->dateDebut = $dateDebut;
+        $this->dateFin = $dateFin;
+
+        return $this;
     }
 
     /**
+     * Get dateFin
+     *
      * @return \DateTime
      */
     public function getDateFin()
@@ -173,14 +200,22 @@ class Salon
     }
 
     /**
-     * @param \DateTime $dateFin
+     * Set lieu
+     *
+     * @param string $lieu
+     *
+     * @return Salon
      */
-    public function setDateFin($dateFin)
+    public function setLieu($lieu)
     {
-        $this->dateFin = $dateFin;
+        $this->lieu = $lieu;
+
+        return $this;
     }
 
     /**
+     * Get lieu
+     *
      * @return string
      */
     public function getLieu()
@@ -189,14 +224,22 @@ class Salon
     }
 
     /**
-     * @param string $lieu
+     * Set adresse
+     *
+     * @param string $adresse
+     *
+     * @return Salon
      */
-    public function setLieu($lieu)
+    public function setAdresse($adresse)
     {
-        $this->lieu = $lieu;
+        $this->adresse = $adresse;
+
+        return $this;
     }
 
     /**
+     * Get adresse
+     *
      * @return string
      */
     public function getAdresse()
@@ -205,15 +248,23 @@ class Salon
     }
 
     /**
-     * @param string $adresse
+     * Set zipcode
+     *
+     * @param integer $zipcode
+     *
+     * @return Salon
      */
-    public function setAdresse($adresse)
+    public function setZipcode($zipcode)
     {
-        $this->adresse = $adresse;
+        $this->zipcode = $zipcode;
+
+        return $this;
     }
 
     /**
-     * @return int
+     * Get zipcode
+     *
+     * @return integer
      */
     public function getZipcode()
     {
@@ -221,14 +272,22 @@ class Salon
     }
 
     /**
-     * @param int $zipcode
+     * Set ville
+     *
+     * @param string $ville
+     *
+     * @return Salon
      */
-    public function setZipcode($zipcode)
+    public function setVille($ville)
     {
-        $this->zipcode = $zipcode;
+        $this->ville = $ville;
+
+        return $this;
     }
 
     /**
+     * Get ville
+     *
      * @return string
      */
     public function getVille()
@@ -237,14 +296,22 @@ class Salon
     }
 
     /**
-     * @param string $ville
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return Salon
      */
-    public function setVille($ville)
+    public function setDescription($description)
     {
-        $this->ville = $ville;
+        $this->description = $description;
+
+        return $this;
     }
 
     /**
+     * Get description
+     *
      * @return string
      */
     public function getDescription()
@@ -253,14 +320,22 @@ class Salon
     }
 
     /**
-     * @param string $description
+     * Set gImg
+     *
+     * @param string $gImg
+     *
+     * @return Salon
      */
-    public function setDescription($description)
+    public function setGImg($gImg)
     {
-        $this->description = $description;
+        $this->gImg = $gImg;
+
+        return $this;
     }
 
     /**
+     * Get gImg
+     *
      * @return string
      */
     public function getGImg()
@@ -269,14 +344,22 @@ class Salon
     }
 
     /**
-     * @param string $gImg
+     * Set pImg
+     *
+     * @param string $pImg
+     *
+     * @return Salon
      */
-    public function setGImg($gImg)
+    public function setPImg($pImg)
     {
-        $this->gImg = $gImg;
+        $this->pImg = $pImg;
+
+        return $this;
     }
 
     /**
+     * Get pImg
+     *
      * @return string
      */
     public function getPImg()
@@ -285,15 +368,23 @@ class Salon
     }
 
     /**
-     * @param string $pImg
+     * Set pays
+     *
+     * @param \AppBundle\Entity\Country $pays
+     *
+     * @return Salon
      */
-    public function setPImg($pImg)
+    public function setPays(\AppBundle\Entity\Country $pays = null)
     {
-        $this->pImg = $pImg;
+        $this->pays = $pays;
+
+        return $this;
     }
 
     /**
-     * @return \Country
+     * Get pays
+     *
+     * @return \AppBundle\Entity\Country
      */
     public function getPays()
     {
@@ -301,28 +392,36 @@ class Salon
     }
 
     /**
-     * @param \Country $pays
+     * Add brand
+     *
+     * @param \AppBundle\Entity\Brand $brand
+     *
+     * @return Salon
      */
-    public function setPays($pays)
+    public function addBrand(\AppBundle\Entity\Brand $brand)
     {
-        $this->pays = $pays;
+        $this->brand[] = $brand;
+
+        return $this;
     }
 
     /**
+     * Remove brand
+     *
+     * @param \AppBundle\Entity\Brand $brand
+     */
+    public function removeBrand(\AppBundle\Entity\Brand $brand)
+    {
+        $this->brand->removeElement($brand);
+    }
+
+    /**
+     * Get brand
+     *
      * @return \Doctrine\Common\Collections\Collection
      */
     public function getBrand()
     {
         return $this->brand;
     }
-
-    /**
-     * @param \Doctrine\Common\Collections\Collection $brand
-     */
-    public function setBrand($brand)
-    {
-        $this->brand = $brand;
-    }
-
 }
-
