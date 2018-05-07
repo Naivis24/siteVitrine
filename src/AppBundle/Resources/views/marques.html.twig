@@ -5,6 +5,9 @@
 {% endblock %}
 
     {% block body %}
+    <script>
+    $(document).ready(filterSelection('all'));
+    </script>
         <div class="container-fluid marquesbg" id="section-start">
 
         <h1>Liste des Marques</h1>
@@ -19,17 +22,22 @@
                 <div class="container-btn text-center"><a href="#" class="button-fh p-2">Réinitialiser</a></div>
                 <div id="myBtnContainer">
                   <button class="btn active" onclick="filterSelection('all')"> Show all</button>
-                  <button class="btn" onclick="filterSelection('cars')"> Homme</button>
-                  <button class="btn" onclick="filterSelection('animals')"> Femme</button>
-                  <button class="btn" onclick="filterSelection('fruits')"> Enfant</button>
-                  <button class="btn" onclick="filterSelection('colors')"> Colors</button>
+                  <button class="btn" onclick="filterSelection('Homme')"> Homme</button>
+                  <button class="btn" onclick="filterSelection('Femme')"> Femme</button>
+                  <button class="btn" onclick="filterSelection('Enfant')"> Enfant</button>
                 </div>
                 </div>
 
                   <div class="col-md-9">
                     <div class="row px-4">
                 {% for brand in brands %}
-                     <div class="col-md-3 px-2 py-2">
+                 {% set targets = brand.getTarget.toArray() %}
+                 {% set styles = brand.getStyle.toArray() %}
+                 {% set categories = brand.getPrimaryCategory().toArray() %}
+                     <div class="col-md-3 px-2 py-2 filter-card
+                     {% for target in targets %}
+                     {{ target.getLabel() }}
+                     {% endfor %}">
 
                     <div class="card-marques shadow-sm">
                         <img class="img-fluid card-img" src="{{ asset('bundles/app/img/' ~ brand.getPicture() ) }}">
@@ -37,9 +45,7 @@
                             <img src="{{ asset('bundles/app/img/' ~ brand.getLogo()) }}" class="img-fluid">
                         </div>
                         <div class="container-hover-info">
-                            {% set targets = brand.getTarget.toArray() %}
-                            {% set styles = brand.getStyle.toArray() %}
-                            {% set categories = brand.getPrimaryCategory().toArray() %}
+
                             <h5 class="card-title"> {{ brand.getName() }} </h5>
                             {{ brand.getSlogan() }}
                             <ul>
@@ -56,7 +62,7 @@
                                         {% endfor %}</strong>
                                 </li>
                                 <li>CIBLE<br>
-                                    <strong> {% for target in targets %}
+                                    <strong id="cible"> {% for target in targets %}
                                             {{ target.getLabel() }},
                                         {% endfor %}</strong>
                                 </li>

@@ -27,3 +27,10 @@ bin/composer.phar
 .idea/siteVitrine.iml
 .idea/siteVitrine.iml
 
+src/AppBundle/Entity/Target.php
+src/AppBundle/Entity/Style.php
+src/AppBundle/Entity/Salon.php
+src/AppBundle/Entity/PrimaryCategory.php
+src/AppBundle/Entity/PriceRange.php
+src/AppBundle/Entity/Country.php
+src/AppBundle/Entity/Brand.php
