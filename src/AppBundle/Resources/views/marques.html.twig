@@ -8,10 +8,18 @@
         <div class="container-fluid marquesbg" id="section-start">
         <h1>Liste des Marques</h1>
             <div class="row p-4">
-                <div class="col-md-3 column-filters p-4">Mes filtres
+                <div class="col-md-3 column-filters p-4">
+                <div class="container-btn text-center"><a href="#" class="button-fh p-2">Réinitialiser</a></div>
+                <div id="myBtnContainer">
+                  <button class="btn active" onclick="filterSelection('all')"> Show all</button>
+                  <button class="btn" onclick="filterSelection('cars')"> Homme</button>
+                  <button class="btn" onclick="filterSelection('animals')"> Femme</button>
+                  <button class="btn" onclick="filterSelection('fruits')"> Enfant</button>
+                  <button class="btn" onclick="filterSelection('colors')"> Colors</button>
+                </div>
                 </div>
 
-                <div class="col-md-9">
+                  <div class="col-md-9">
                     <div class="row px-4">
                 {% for brand in brands %}
                      <div class="col-md-3 px-2 py-2">
