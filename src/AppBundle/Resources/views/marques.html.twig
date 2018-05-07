@@ -7,13 +7,14 @@
     {% block body %}
         <div class="container-fluid marquesbg" id="section-start">
         <h1>Liste des Marques</h1>
-            <div class="d-flex flex-row">
+            <div class="row p-4">
+                <div class="col-md-3 column-filters p-4">Mes filtres
+                </div>
 
-                <div class="column-filters p-4">Mes filtres</div>
-
-            <div class="row px-4">
+                <div class="col-md-9">
+                    <div class="row px-4">
                 {% for brand in brands %}
-                <div class="col-md-3 px-2 py-2">
+                     <div class="col-md-3 px-2 py-2">
 
                     <div class="card-marques shadow-sm">
                         <img class="img-fluid card-img" src="{{ asset('bundles/app/img/' ~ brand.getPicture() ) }}">
@@ -55,6 +56,7 @@
                     </div>
                 </div>
                {% endfor %}
+            </div>
             </div>
             </div>
        </div>
