@@ -26,3 +26,5 @@ src/AppBundle/Resources/public/.DS_Store
 bin/composer.phar
 .idea/siteVitrine.iml
 .idea/siteVitrine.iml
+src/AppBundle/Entity/Brand.php
+src/AppBundle/Entity/Brand.php

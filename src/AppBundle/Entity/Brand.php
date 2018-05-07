@@ -205,6 +205,13 @@ class Brand
      */
     private $salon;
 
+    /**      * @var string
+     *
+     *
+     * @ORM\Column(name="lookbook", type="string", length=255, nullable=true)
+     */
+    private $lookbook;
+
     /**
      * Constructor
      */
@@ -425,7 +432,6 @@ class Brand
     }
 
     /**
-<<<<<<< HEAD
      * @return string
      */
     public function getLookbook()
@@ -442,8 +448,6 @@ class Brand
     }
 
     /**
-=======
->>>>>>> 4ef959d6de1a361c89f6629c7252eaa4f5711cd4
      * @return \PriceRange
      */
     public function getPriceRange()
