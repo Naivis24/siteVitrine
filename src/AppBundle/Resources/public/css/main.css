@@ -865,6 +865,14 @@ height:0;
 	color: white;
 }
 
+/* FILTRES */
+
+.column-filters{
+	background-color: white;
+	width:300px;
+}
+
+
 /* FOOTER */
 
 footer > .container-fluid{
