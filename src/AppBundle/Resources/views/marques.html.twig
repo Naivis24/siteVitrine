@@ -5,9 +5,6 @@
 {% endblock %}
 
     {% block body %}
-    <script>
-    $(document).ready(filterSelection('all'));
-    </script>
         <div class="container-fluid marquesbg" id="section-start">
 
         <h1>Liste des Marques</h1>
@@ -20,12 +17,15 @@
             <div class="row p-4">
                 <div class="col-md-3 column-filters p-4">
                 <div class="container-btn text-center"><a href="#" class="button-fh p-2">Réinitialiser</a></div>
-                <div id="myBtnContainer">
+                 <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="cbHomme" onchange="filtre(this, "cible", "homme")">
+                    <label class="form-check-label" for="cbHomme">Homme</label>
+                  </div>
                   <button class="btn active" onclick="filterSelection('all')"> Show all</button>
                   <button class="btn" onclick="filterSelection('Homme')"> Homme</button>
                   <button class="btn" onclick="filterSelection('Femme')"> Femme</button>
                   <button class="btn" onclick="filterSelection('Enfant')"> Enfant</button>
-                </div>
+
                 </div>
 
                   <div class="col-md-9">
@@ -34,10 +34,7 @@
                  {% set targets = brand.getTarget.toArray() %}
                  {% set styles = brand.getStyle.toArray() %}
                  {% set categories = brand.getPrimaryCategory().toArray() %}
-                     <div class="col-md-3 px-2 py-2 filter-card
-                     {% for target in targets %}
-                     {{ target.getLabel() }}
-                     {% endfor %}">
+                     <div class="col-md-3 px-2 py-2 filter-card">
 
                     <div class="card-marques shadow-sm">
                         <img class="img-fluid card-img" src="{{ asset('bundles/app/img/' ~ brand.getPicture() ) }}">
