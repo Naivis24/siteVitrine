@@ -32,16 +32,18 @@ function filter(){
     
     var categories = [], filtres = [];
     var temp;
-    for(i =0; i < temp.length; i++){
+    for(i =0; i < tab.length; i++){
         temp= tab[0].split(":");
         categories.push(temp[0]);
-        filtres.push(temp[0]);
+        filtres.push(temp[1]);
     }
+    console.log(categories);
+    console.log(filtres);
     x = document.getElementsByClassName("filter-card");
     for (i = 0; i < x.length; i++) {
-        if(x[i].getElementsByClassName(categorie)[0].innerHTML.indexOf(filtre) != -1) return;
-
-}}
+      //  if(x[i].getElementsByClassName(categorie)[0].innerHTML.indexOf(filtre) != -1) return;
+    }
+}
 
 function filterSearchBar(){
     var x, i, texte;
