@@ -98,7 +98,7 @@ function reinit(){
         this.checked =false;
     });
 
-    $('#target').val='';
+    $('#target').val("");
 
     filterAll();
 
