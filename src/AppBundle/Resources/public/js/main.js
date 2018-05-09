@@ -6,11 +6,11 @@ function filterCb(obj, categorie, filtre) {
 
     if ($(obj).is(":checked")) {
         for (i = 0; i < x.length; i++) {
-            if (x[i].getElementsByClassName(categorie)[0].innerHTML.indexOf(filtre) != -1) addClass(x[i], "show");
+            if (x[i].getElementsByClassName(categorie)[0].innerHTML.indexOf(filtre) != -1) addClass(x[i], "afficher");
         }
     } else {
         for (i = 0; i < x.length; i++) {
-            if (x[i].getElementsByClassName(categorie)[0].innerHTML.indexOf(filtre) != -1) removeClass(x[i], "show");
+            if (x[i].getElementsByClassName(categorie)[0].innerHTML.indexOf(filtre) != -1) removeClass(x[i], "afficher");
         }
     }
 
@@ -49,7 +49,7 @@ function filter() {
                 temp= (temp && false);
             }
         }
-        if(temp) addClass(x[i], "show");
+        if(temp) addClass(x[i], "afficher");
     }
 }
 
@@ -61,7 +61,7 @@ function filterSearchBar() {
 
     console.log(texte);
     for (i = 0; i < x.length; i++) {
-        if (x[i].getElementById(card - title).innerHTML.indexOf(texte) != -1) addClass(x[i], "show")
+        if (x[i].getElementById(card - title).innerHTML.indexOf(texte) != -1) addClass(x[i], "afficher")
     }
 }
 
@@ -74,7 +74,7 @@ function filterSearchBar(){
     console.log(texte);
     for(i=0; i < x.length; i++){
         if(x[i].getElementsByClassName("card-title")[0].innerHTML.toUpperCase().indexOf(texte) != -1){
-            addClass(x[i], "show");
+            addClass(x[i], "afficher");
         }
     }
 }
@@ -85,7 +85,7 @@ function filterAll() {
     x = document.getElementsByClassName("filter-card");
 
     for (i = 0; i < x.length; i++) {
-        addClass(x[i], "show");
+        addClass(x[i], "afficher");
     }
 }
 
@@ -93,7 +93,7 @@ function filterReset() {
     var x;
     x = document.getElementsByClassName("filter-card");
     for (i = 0; i < x.length; i++) {
-        removeClass(x[i], "show");
+        removeClass(x[i], "afficher");
     }
 }
 
