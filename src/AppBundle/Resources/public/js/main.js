@@ -11,8 +11,18 @@ function filterCb(obj, categorie, filtre) {
             removeClass(x[i], "show");
             if (x[i].getElementById(categorie).innerHTML.indexOf(filtre) != -1) removeClass(x[i], "show");
         }
-
     }
+}
+
+function filterSearchBar(){
+    //var x, i, texte;
+    //x = document.getElementByClassName("filter-card");
+    //texte = document.getElementById(target);
+    alert("truc");
+    //alert(texte.text());
+    //for(i=0; i < x.length; i++){
+       // if(x[i].getElementById(card-title).innerHTML.indexOf(texte) != -1) addClass(x[i], "show");
+  //  }
 }
 
 
