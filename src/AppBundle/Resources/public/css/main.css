@@ -874,6 +874,7 @@ height:0;
 	font-family: "Old Standard TT";
 	font-size: 50px;
 	text-align: center;
+	margin-bottom: 0;
 }
 .bandeau-marque{
 	width: 100%;
@@ -884,7 +885,42 @@ height:0;
 	z-index:1000;
 	color:white;
 	width: 100%;
+	padding:3rem;
+	bottom:0;
+	top:0;
 }
+
+@media screen and (max-width: 992px) {
+	.container-brand-detail-text {
+	position: relative;
+	color:#333745;
+}
+	.mask-brand img {
+		opacity: 1!important;
+	}
+}
+
+.button-backb {
+	border: 2px solid #fff;
+	border-radius: 5px;
+	text-transform: uppercase;
+	font-size: 13px;
+	font-weight: bold;
+	font-family: Lato;
+	line-height: 16px;
+	text-align: center;
+	-webkit-transition: all .5s ease;
+	-moz-transition: all .5s ease;
+	-ms-transition: all .5s ease;
+	-o-transition: all .5s ease;
+	transition: all .5s ease;
+	color: #fff;
+}
+
+.button-backb img {
+	padding-bottom: 4px;
+}
+
 .container-book-detail-text {
 	position: absolute;
 	z-index:1000;
@@ -908,6 +944,25 @@ height:0;
 .mask-book img {
 	opacity: .2;
 }
+
+.icons-network a{
+	display: inline-block;
+	width: 35px;
+	height: 35px;
+	cursor: pointer;
+	background-color: #fff;
+	color: #333745;
+	border-radius: 50%;
+	font-size: 20px;
+	text-align: center;
+	line-height: 35px;
+	margin: 1rem;
+}
+.icons-network a:hover {
+	background-color: #333745;
+	color: #fff;
+}
+
 
 /* FILTRES */
 

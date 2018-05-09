@@ -53,6 +53,7 @@ function filter() {
     }
 }
 
+
 function filterSearchBar() {
     var x, i, texte;
     x = document.getElementsByClassName("filter-card");
@@ -60,7 +61,21 @@ function filterSearchBar() {
 
     console.log(texte);
     for (i = 0; i < x.length; i++) {
-        if (x[i].getElementById(card - title).innerHTML.indexOf(texte) != -1) addClass(x[i], "show");
+        if (x[i].getElementById(card - title).innerHTML.indexOf(texte) != -1) addClass(x[i], "show")
+    }
+}
+
+function filterSearchBar(){
+    filterReset();
+    var x, i, texte;
+    x = document.getElementsByClassName("filter-card");
+    texte=$('#target').val().toUpperCase();
+
+    console.log(texte);
+    for(i=0; i < x.length; i++){
+        if(x[i].getElementsByClassName("card-title")[0].innerHTML.toUpperCase().indexOf(texte) != -1){
+            addClass(x[i], "show");
+        }
     }
 }
 
