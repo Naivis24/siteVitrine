@@ -15,14 +15,14 @@ function filterCb(obj, categorie, filtre) {
 }
 
 function filterSearchBar(){
-    //var x, i, texte;
-    //x = document.getElementByClassName("filter-card");
-    //texte = document.getElementById(target);
-    alert("truc");
-    //alert(texte.text());
-    //for(i=0; i < x.length; i++){
-       // if(x[i].getElementById(card-title).innerHTML.indexOf(texte) != -1) addClass(x[i], "show");
-  //  }
+    var x, i, texte;
+    x = document.getElementsByClassName("filter-card");
+    texte=$('#target').val();
+
+    console.log(texte);
+    for(i=0; i < x.length; i++){
+        if(x[i].getElementById(card-title).innerHTML.indexOf(texte) != -1) addClass(x[i], "show");
+    }
 }
 
 
