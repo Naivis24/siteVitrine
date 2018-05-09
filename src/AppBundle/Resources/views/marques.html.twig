@@ -44,22 +44,22 @@
                     <p> Cible </p>
                     <div class="form-check">
                         <input type="checkbox" class="form-check-input" id="cbAll" onchange="filter()"
-                        value="target:all">
+                        value="cible:all">
                         <label class="form-check-label" for="cbAll">Tout</label>
                     </div>
                     <div class="form-check">
                         <input type="checkbox" class="form-check-input" id="cbHomme" onchange="filter()"
-                        value="target:Homme">
+                        value="cible:Homme">
                         <label class="form-check-label" for="cbHomme">Homme</label>
                      </div>
                     <div class="form-check">
                         <input type="checkbox" class="form-check-input" id="cbFemme" onchange="filter()"
-                        value="target:Femme">
+                        value="cible:Femme">
                         <label class="form-check-label" for="cbFemme">Femme</label>
                     </div>
                     <div class="form-check">
                          <input type="checkbox" class="form-check-input" id="cbEnfant" onchange="filter()"
-                         value="target:Enfant">
+                         value="cible:Enfant">
                          <label class="form-check-label" for="cbEnfant">Enfant</label>
                     </div>
                 </div>
@@ -167,7 +167,7 @@
                                         {% endfor %}</strong>
                                 </li>
                                 <li>CIBLE<br>
-                                    <strong class="target"> {% for target in targets %}
+                                    <strong class="cible"> {% for target in targets %}
                                             {{ target.getLabel() }},
                                         {% endfor %}</strong>
                                 </li>

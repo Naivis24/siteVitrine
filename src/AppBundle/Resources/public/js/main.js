@@ -6,34 +6,33 @@ function filterCb(obj, categorie, filtre) {
 
     if ($(obj).is(":checked")) {
         for (i = 0; i < x.length; i++) {
-            if (x[i].getElementsByClassName(categorie)[0].innerHTML.indexOf(filtre) != -1) addClass(x[i], "show");
+            if (x[i].getElementsByClassName(categorie)[0].innerHTML.indexOf(filtre) != -1) addClass(x[i], "afficher");
         }
     } else {
         for (i = 0; i < x.length; i++) {
-            if (x[i].getElementsByClassName(categorie)[0].innerHTML.indexOf(filtre) != -1) removeClass(x[i], "show");
+            if (x[i].getElementsByClassName(categorie)[0].innerHTML.indexOf(filtre) != -1) removeClass(x[i], "afficher");
         }
     }
 
 }
 
-function filter(){
+function filter() {
     var cb = $("input:checkbox");
     var tab = [];
-    var x,i;
+    var x, i;
 
     filterReset();
 
-    $.each(cb, function(){
-         if(this.checked == true){
-             tab.push(this.value);
-         }
+    $.each(cb, function () {
+        if (this.checked == true) {
+            tab.push(this.value);
+        }
     });
-    console.log(tab);
-    
+
     var categories = [], filtres = [];
     var temp;
-    for(i =0; i < tab.length; i++){
-        temp= tab[0].split(":");
+    for (i = 0; i < tab.length; i++) {
+        temp = tab[i].split(":");
         categories.push(temp[0]);
         filtres.push(temp[1]);
     }
@@ -41,7 +40,28 @@ function filter(){
     console.log(filtres);
     x = document.getElementsByClassName("filter-card");
     for (i = 0; i < x.length; i++) {
-      //  if(x[i].getElementsByClassName(categorie)[0].innerHTML.indexOf(filtre) != -1) return;
+        temp = true;
+        for (j = 0; j < tab.length; j++) {
+            if (x[i].getElementsByClassName(categories[j])[0].innerHTML.indexOf(filtres[j]) != -1) {
+                temp = (temp && true);
+            }
+            else{
+                temp= (temp && false);
+            }
+        }
+        if(temp) addClass(x[i], "afficher");
+    }
+}
+
+
+function filterSearchBar() {
+    var x, i, texte;
+    x = document.getElementsByClassName("filter-card");
+    texte = $('#target').val();
+
+    console.log(texte);
+    for (i = 0; i < x.length; i++) {
+        if (x[i].getElementById(card - title).innerHTML.indexOf(texte) != -1) addClass(x[i], "afficher")
     }
 }
 
@@ -54,25 +74,26 @@ function filterSearchBar(){
     console.log(texte);
     for(i=0; i < x.length; i++){
         if(x[i].getElementsByClassName("card-title")[0].innerHTML.toUpperCase().indexOf(texte) != -1){
-            addClass(x[i], "show");
+            addClass(x[i], "afficher");
         }
     }
 }
+
 
 function filterAll() {
     var x;
     x = document.getElementsByClassName("filter-card");
 
     for (i = 0; i < x.length; i++) {
-        addClass(x[i], "show");
+        addClass(x[i], "afficher");
     }
 }
 
-function filterReset(){
+function filterReset() {
     var x;
     x = document.getElementsByClassName("filter-card");
     for (i = 0; i < x.length; i++) {
-        removeClass(x[i], "show");
+        removeClass(x[i], "afficher");
     }
 }
 
