@@ -29,13 +29,6 @@
                 </form>
             </div>
 
-            <div class="test">
-
-
-
-            </div>
-
-
             <script>
                 /** A externaliser */
                 $( "#target" ).keyup(function( event ) {
@@ -45,14 +38,9 @@
 
             <div class="row p-4">
                 <div class="col-md-3 column-filters p-4">
-                <div class="container-btn text-center"><a href="#" class="button-fh p-2">Réinitialiser</a></div>
+                <div class="container-btn text-center"><a onclick="reinit()" class="button-fh p-2">Réinitialiser</a></div>
                 <div id="cible" style=" padding-bottom: 20px;">
                     <p> Cible </p>
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="cbAll" onchange="filter()"
-                        value="cible:all">
-                        <label class="form-check-label" for="cbAll">Tout</label>
-                    </div>
                     <div class="form-check">
                         <input type="checkbox" class="form-check-input" id="cbHomme" onchange="filter()"
                         value="cible:Homme">
@@ -71,11 +59,6 @@
                 </div>
                 <div id="categorie">
                     <p> Catégories </p>
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="cbAll" onchange="filter()"
-                        value="categorie:all">
-                        <label class="form-check-label" for="cbAll">Tout</label>
-                    </div>
                     <div class="form-check">
                         <input type="checkbox" class="form-check-input" id="cbPAP" onchange="filter()"
                         value="categorie:Prêt-à-porter">

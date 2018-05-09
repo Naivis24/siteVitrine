@@ -1,21 +1,3 @@
-function filterCb(obj, categorie, filtre) {
-    var x, i;
-    x = document.getElementsByClassName("filter-card");
-
-    if (filtre == "all") filtre = "";
-
-    if ($(obj).is(":checked")) {
-        for (i = 0; i < x.length; i++) {
-            if (x[i].getElementsByClassName(categorie)[0].innerHTML.indexOf(filtre) != -1) addClass(x[i], "afficher");
-        }
-    } else {
-        for (i = 0; i < x.length; i++) {
-            if (x[i].getElementsByClassName(categorie)[0].innerHTML.indexOf(filtre) != -1) removeClass(x[i], "afficher");
-        }
-    }
-
-}
-
 function filter() {
     var cb = $("input:checkbox");
     var tab = [];
@@ -53,25 +35,12 @@ function filter() {
     }
 }
 
-
-function filterSearchBar() {
-    var x, i, texte;
-    x = document.getElementsByClassName("filter-card");
-    texte = $('#target').val();
-
-    console.log(texte);
-    for (i = 0; i < x.length; i++) {
-        if (x[i].getElementById(card - title).innerHTML.indexOf(texte) != -1) addClass(x[i], "afficher")
-    }
-}
-
 function filterSearchBar(){
     filterReset();
     var x, i, texte;
     x = document.getElementsByClassName("filter-card");
     texte=$('#target').val().toUpperCase();
 
-    console.log(texte);
     for(i=0; i < x.length; i++){
         if(x[i].getElementsByClassName("card-title")[0].innerHTML.toUpperCase().indexOf(texte) != -1){
             addClass(x[i], "afficher");
@@ -120,5 +89,21 @@ function removeClass(element, name) {
         }
     }
     element.className = arr1.join(" ");
+}
+
+function reinit(){
+    var cb = $("input:checkbox");
+
+    $.each(cb, function () {
+        this.checked =false;
+    });
+
+    $('#target').val='';
+
+    filterAll();
+
+
+
+
 }
 
