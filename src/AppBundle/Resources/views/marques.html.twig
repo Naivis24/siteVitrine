@@ -12,6 +12,12 @@
     </script>
         <div class="container-fluid marquesbg padding-start" id="section-start">
 
+            <script>
+                $( document ).ready(function() {
+                    filterSearchBar();
+                });
+            </script>
+
 
         <h1>Liste des Marques</h1>
 
@@ -35,11 +41,7 @@
                 $( "#target" ).keyup(function( event ) {
                     xTriggered++;
                     var msg = "Handler for .keyup() called " + xTriggered + " time(s).";
-                    alert("loool")
-                }).keydown(function( event ) {
-                    if ( event.which == 13 ) {
-                        event.preventDefault();
-                    }
+                    filterSearchBar();
                 });
             </script>
 

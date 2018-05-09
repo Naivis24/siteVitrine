@@ -39,12 +39,21 @@ function filter(){
     }
     x = document.getElementsByClassName("filter-card");
     for (i = 0; i < x.length; i++) {
-        if(x[i].getElementsByClassName(categorie)[0].innerHTML.indexOf(filtre) != -1)
+        if(x[i].getElementsByClassName(categorie)[0].innerHTML.indexOf(filtre) != -1) return;
+
+}}
+
+function filterSearchBar(){
+    var x, i, texte;
+    x = document.getElementsByClassName("filter-card");
+    texte=$('#target').val();
+
+    console.log(texte);
+    for(i=0; i < x.length; i++){
+        if(x[i].getElementById(card-title).innerHTML.indexOf(texte) != -1) addClass(x[i], "show");
     }
-
-
-
 }
+
 function filterAll() {
     var x;
     x = document.getElementsByClassName("filter-card");

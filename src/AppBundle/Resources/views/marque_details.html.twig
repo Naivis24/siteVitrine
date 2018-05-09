@@ -7,14 +7,13 @@
     {% block body %}
 
         <div class="container-fluid padding-start" id="section-start">
-
-            <a class="btn" href="{{ app.request.headers.get('referer') }}" role="button">Retour</a>
-
-            <div class="container container-brand-detail">
-                <img class="img-fluid bandeau-marque" src="{{ asset('bundles/app/img/'~brand.getLifestyle()) }}">
-                <div class="centered" style="color: #000000"><h1>{{ brand.getName() }}</h1>
-                    <p>{{ brand.getUrlwebsite() }}</p>
-                    <p>{{ brand.getSlogan() }}</p>
+<div class="container">
+    <a href="{{  path('marques')  }}"><span class="button-fc p-2">Retour</span></a></div>
+            <div class="container container-brand-detail-master">
+            <div class="container-brand-detail p-2">
+                <div class="container-brand-detail-text p-4"><h1>{{ brand.getName() }}</h1>
+                    <p style="font-size:15px">{{ brand.getUrlwebsite() }}</p>
+                    <p class="font-weight-bold">{{ brand.getSlogan() }}</p>
                     <p>{{ brand.getDescription() }}</p>
                     {% if brand.getUrlFac() != "" %}
                         <p><a href="{{ brand.getUrlFac() }}" target="_blank"><i class="fab fa-facebook-f"></i></a></p>
@@ -22,7 +21,10 @@
                     {% if brand.getUrlInsta() %}
                     <p><a href="{{ brand.getUrlInsta() }}" target="_blank"><i class="fab fa-instagram"></i></a></p>
                 </div>
+                <div class="mask-brand">
+                    <img class="img-fluid bandeau-marque" src="{{ asset('bundles/app/img/'~brand.getLifestyle()) }}"></div>
                 {% endif %}
+            </div>
             </div>
 
             <div class="container">
@@ -31,9 +33,23 @@
                 {% endif %}
             </div>
         </div>
-        <div class="container-fluid similar-brands-title">
+        <div class="container-fluid sub-title-brands p-4">
+            <h2>Catalogue des produits</h2></div>
+        <div class="container-brand-detail">
+            <div class="container-book-detail-text">
+                <p>Vous souhaitez distribuer cette marque ?</p>
+                <a href="{{ path('contact') }}"><span
+                            class="button-fc p-2">Contactez-nous</span></a>
+            </div>
+
+            <div class="mask-book"><img class="img-fluid bandeau-marque" src="{{ asset('bundles/app/img/'~brand.getLifestyle2()) }}">
+            </div>
+
+        </div>
+
+        <div class="container-fluid sub-title-brands p-4">
             <h2>Marques similaires</h2></div>
-        <div class="container-fluid">
+        <div class="container-fluid mt-4 mb-4">
 
                 <!-- Début de l'algorithme -->
                 <!--Initialisation des variables -->
@@ -198,15 +214,5 @@
                     {% endfor %}
                 </div>
             </div>
-
-            <div class="container container-brand-detail-2">
-                <img class="img-fluid bandeau-marque" src="{{ asset('bundles/app/img/'~brand.getLifestyle2()) }}">
-                <div class="centered"><p style="color: #000000">Vous souhaitez distribuer cette marque ?</p>
-                    <a class="nav-link" href="{{ path('contact') }}"><span
-                                class="button-fc p-2">Contactez-nous</span></a>
-                </div>
-            </div>
-
-
         </div>
     {% endblock %}
