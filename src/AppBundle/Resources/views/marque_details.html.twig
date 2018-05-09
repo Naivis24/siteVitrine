@@ -9,7 +9,7 @@
         <div class="container-fluid padding-start" id="section-start">
 
 
-            <div class="container container-brand-detail-master">
+            <div class="container container-brand-detail-master mt-3">
             <div class="container-brand-detail">
                 <div class="mask-brand">
                     <img class="img-fluid bandeau-marque" src="{{ asset('bundles/app/img/'~brand.getLifestyle()) }}"></div>
@@ -26,15 +26,18 @@
                         {% if brand.getUrlInsta() %}
                         <div class="icons-network"><a href="{{ brand.getUrlInsta() }}" target="_blank"><i class="fab fa-instagram"></i></a></div>
                     </div>
+                    <div>
+                    {% if brand.getLookBook() != "" %}
+                        <a href="{{ asset('bundles/app/book/'~brand.getLookBook()) }}" target="_blank">LOOKBOOK</a>
+                    {% endif %}
+                    </div>
                 </div>
                 {% endif %}
             </div>
             </div>
 
             <div class="container">
-                {% if brand.getLookBook() != "" %}
-                    <a href="{{ asset('bundles/app/book/'~brand.getLookBook()) }}" target="_blank">LOOKBOOK</a>
-                {% endif %}
+
             </div>
         </div>
         <div class="container-fluid sub-title-brands p-4">

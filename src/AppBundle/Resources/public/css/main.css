@@ -445,6 +445,23 @@ p {
 .container-wtx {
 	padding-top: 50px;
 }
+
+input[type=text] {
+	border: none;
+	border-bottom: 2px solid black;
+	background-color: inherit;
+}
+
+input[type=text]:focus {
+	outline: none;
+	border: 1px solid black;
+	border-bottom: 2px solid black;
+}
+
+input[type=text]:focus::placeholder {
+	display: none;
+}
+
 @media (max-width: 992px) {
 	.container-wt {
 		width: 300px;
@@ -453,6 +470,8 @@ p {
 		font-size: 30px;
 	}
 }
+
+
 /* PRICES */
 .pricebg {
 	background: -webkit-gradient(linear, left top, right top, from(#f4efeb), to(#fbf8f6));
@@ -898,6 +917,13 @@ height:0;
 	.mask-brand img {
 		opacity: 1!important;
 	}
+	.button-backb {
+		border: 2px solid #333745!important;
+		color: #333745 !important;
+	}
+	.button-backb img {
+		display: none;
+	}
 }
 
 .button-backb {
@@ -1022,3 +1048,4 @@ height:0;
 	background-color: #333745;
 	color: #fff;
 }
+
