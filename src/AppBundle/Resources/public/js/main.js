@@ -2,37 +2,74 @@ function filterCb(obj, categorie, filtre) {
     var x, i;
     x = document.getElementsByClassName("filter-card");
 
+    if (filtre == "all") filtre = "";
+
     if ($(obj).is(":checked")) {
         for (i = 0; i < x.length; i++) {
-            if (x[i].getElementById(categorie).innerHTML.indexOf(filtre) != -1) addClass(x[i], "show");
+            if (x[i].getElementsByClassName(categorie)[0].innerHTML.indexOf(filtre) != -1) addClass(x[i], "show");
         }
     } else {
         for (i = 0; i < x.length; i++) {
-            removeClass(x[i], "show");
-            if (x[i].getElementById(categorie).innerHTML.indexOf(filtre) != -1) removeClass(x[i], "show");
+            if (x[i].getElementsByClassName(categorie)[0].innerHTML.indexOf(filtre) != -1) removeClass(x[i], "show");
         }
+    }
+
+}
+
+function filter(){
+    var cb = $("input:checkbox");
+    var tab = [];
+    var x,i;
+
+    filterReset();
+
+    $.each(cb, function(){
+         if(this.checked == true){
+             tab.push(this.value);
+         }
+    });
+    console.log(tab);
+    
+    var categories = [], filtres = [];
+    var temp;
+    for(i =0; i < tab.length; i++){
+        temp= tab[0].split(":");
+        categories.push(temp[0]);
+        filtres.push(temp[1]);
+    }
+    console.log(categories);
+    console.log(filtres);
+    x = document.getElementsByClassName("filter-card");
+    for (i = 0; i < x.length; i++) {
+      //  if(x[i].getElementsByClassName(categorie)[0].innerHTML.indexOf(filtre) != -1) return;
     }
 }
 
 function filterSearchBar(){
-    //var x, i, texte;
-    //x = document.getElementByClassName("filter-card");
-    //texte = document.getElementById(target);
-    alert("truc");
-    //alert(texte.text());
-    //for(i=0; i < x.length; i++){
-       // if(x[i].getElementById(card-title).innerHTML.indexOf(texte) != -1) addClass(x[i], "show");
-  //  }
+    var x, i, texte;
+    x = document.getElementsByClassName("filter-card");
+    texte=$('#target').val();
+
+    console.log(texte);
+    for(i=0; i < x.length; i++){
+        if(x[i].getElementById(card-title).innerHTML.indexOf(texte) != -1) addClass(x[i], "show");
+    }
 }
 
-
-function filterSelection(c) {
-    var x, i;
+function filterAll() {
+    var x;
     x = document.getElementsByClassName("filter-card");
-    if (c == "all") c = "";
+
+    for (i = 0; i < x.length; i++) {
+        addClass(x[i], "show");
+    }
+}
+
+function filterReset(){
+    var x;
+    x = document.getElementsByClassName("filter-card");
     for (i = 0; i < x.length; i++) {
         removeClass(x[i], "show");
-        if (x[i].getElementById("cible").innerHTML.includes(c)) addClass(x[i], "show");
     }
 }
 

@@ -5,6 +5,11 @@
 {% endblock %}
 
     {% block body %}
+    <script>
+        $( document ).ready(function() {
+               filterAll();
+            });
+    </script>
         <div class="container-fluid marquesbg padding-start" id="section-start">
 
             <script>
@@ -36,7 +41,6 @@
                 $( "#target" ).keyup(function( event ) {
                     xTriggered++;
                     var msg = "Handler for .keyup() called " + xTriggered + " time(s).";
-                    alert(msg);
                     filterSearchBar();
                 });
             </script>
@@ -44,16 +48,101 @@
             <div class="row p-4">
                 <div class="col-md-3 column-filters p-4">
                 <div class="container-btn text-center"><a href="#" class="button-fh p-2">Réinitialiser</a></div>
-                 <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="cbHomme" onchange="filterCb(this, 'cible', 'homme')">
-                    <label class="form-check-label" for="cbHomme">Homme</label>
-                  </div>
-                  <button class="btn active" onclick="filterSelection('all')"> Show all</button>
-                  <button class="btn" onclick="filterSelection('Homme')"> Homme</button>
-                  <button class="btn" onclick="filterSelection('Femme')"> Femme</button>
-                  <button class="btn" onclick="filterSelection('Enfant')"> Enfant</button>
+                <div id="cible" style=" padding-bottom: 20px;">
+                    <p> Cible </p>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="cbAll" onchange="filter()"
+                        value="target:all">
+                        <label class="form-check-label" for="cbAll">Tout</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="cbHomme" onchange="filter()"
+                        value="target:Homme">
+                        <label class="form-check-label" for="cbHomme">Homme</label>
+                     </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="cbFemme" onchange="filter()"
+                        value="target:Femme">
+                        <label class="form-check-label" for="cbFemme">Femme</label>
+                    </div>
+                    <div class="form-check">
+                         <input type="checkbox" class="form-check-input" id="cbEnfant" onchange="filter()"
+                         value="target:Enfant">
+                         <label class="form-check-label" for="cbEnfant">Enfant</label>
+                    </div>
+                </div>
+                <div id="categorie">
+                    <p> Catégories </p>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="cbAll" onchange="filter()"
+                        value="categorie:all">
+                        <label class="form-check-label" for="cbAll">Tout</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="cbPAP" onchange="filter()"
+                        value="categorie:Prêt-à-porter">
+                        <label class="form-check-label" for="cbPAP">Prêt-à-porter</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="cbAccessoires" onchange="filter()"
+                        value="categorie:Accessoires">
+                        <label class="form-check-label" for="cbAccessoires">Accessoires</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="cbBijoux" onchange="filter()"
+                        value="categorie:Bijoux / Montres">
+                        <label class="form-check-label" for="cbBijoux">Bijoux / Montres</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="cbSacs" onchange="filter()"
+                        value="categorie:Sacs / Maroquinerie">
+                        <label class="form-check-label" for="cbSacs">Sacs / Maroquinerie</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="cbBagages" onchange="filter()"
+                        value="categorie:Bagages">
+                        <label class="form-check-label" for="cbBagages">Bagages</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="cbParapluies" onchange="filter()"
+                        value="categorie:Parapluies">
+                        <label class="form-check-label" for="cbParapluies">Parapluies</label>
+                    </div>
+
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="cbChaussures" onchange="filter()"
+                        value="categorie:Chaussures">
+                        <label class="form-check-label" for="cbChaussures">Chaussures</label>
+                    </div>
+
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="cbInsolite" onchange="filter()"
+                        value="categorie:Insolite">
+                        <label class="form-check-label" for="cbInsolite">Insolite</label>
+                    </div>
+
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="cbDecoration" onchange="filter()"
+                        value="categorie:Décoration">
+                        <label class="form-check-label" for="cbDecoration">Décoration</label>
+                    </div>
+
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="cbSousvetements" onchange="filter()"
+                        value="categorie:Sous-vêtements">
+                        <label class="form-check-label" for="cbSousvetements">Sous-vêtements</label>
+                    </div>
+
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="cbParfum" onchange="filter()"
+                        value="categorie:Parfum">
+                        <label class="form-check-label" for="cbParfum">Parfum</label>
+                    </div>
 
                 </div>
+
+
+             </div>
 
                   <div class="col-md-9">
                     <div class="row px-4">
@@ -76,22 +165,22 @@
                                 <li>PAYS<br>
                                     <strong>{{ brand.getCountry().getName() }}</strong></li>
                                 <li>CATÉGORIE<br>
-                                    <strong> {% for categorie in categories %}
+                                    <strong class="categorie"> {% for categorie in categories %}
                                             {{ categorie.getLabel() }},
                                         {% endfor %}</strong>
                                 </li>
                                 <li>STYLE<br>
-                                    <strong>  {% for style in styles %}
+                                    <strong class="style">  {% for style in styles %}
                                             {{ style.getLabel() }},
                                         {% endfor %}</strong>
                                 </li>
                                 <li>CIBLE<br>
-                                    <strong class="cible"> {% for target in targets %}
+                                    <strong class="target"> {% for target in targets %}
                                             {{ target.getLabel() }},
                                         {% endfor %}</strong>
                                 </li>
                                 <li>GAMME DE PRIX<br>
-                                    <strong>{{ brand.getPriceRange().getLabel() }}</strong>
+                                    <strong class="priceRange">{{ brand.getPriceRange().getLabel() }}</strong>
                                 </li>
                             </ul>
                         </div>
