@@ -898,6 +898,13 @@ height:0;
 	.mask-brand img {
 		opacity: 1!important;
 	}
+	.button-backb {
+		border: 2px solid #333745!important;
+		color: #333745 !important;
+	}
+	.button-backb img {
+		display: none;
+	}
 }
 
 .button-backb {
