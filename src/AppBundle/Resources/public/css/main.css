@@ -466,8 +466,12 @@ input[type=text]:focus::placeholder {
 }
 
 /* OFFRES MARQUES */
+.brand-offers h1{
+	text-align: center;
+}
 .brand-offers h2{
 	font-weight: 300;
+	text-align: center;
 }
 .brand-offers-detail h3{
 	margin-top:10px;
@@ -489,7 +493,16 @@ input[type=text]:focus::placeholder {
 	background-size: 17px;
 	background-position-y: center;
 }
-
+.brand-offers .picto-text {
+	color: #FE5F55;
+	font-family: "Lato";
+	font-size: 20px;
+	margin-top: 10px;
+	font-weight: 700;
+}
+.brand-offers .picto-img {
+	width: 80px;
+}
 
 /* PRICES */
 .pricebg {
