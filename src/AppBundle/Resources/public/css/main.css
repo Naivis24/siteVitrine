@@ -708,6 +708,7 @@ input[type=text]:focus::placeholder {
 .filter-card{
 	display: none;
 }
+
 .afficher {
 	display: flex;
 }
