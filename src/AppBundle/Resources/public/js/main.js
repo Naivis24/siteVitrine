@@ -18,8 +18,6 @@ function filter() {
         categories.push(temp[0]);
         filtres.push(temp[1]);
     }
-    console.log(categories);
-    console.log(filtres);
     x = document.getElementsByClassName("filter-card");
     for (i = 0; i < x.length; i++) {
         temp = true;
@@ -101,9 +99,5 @@ function reinit(){
     $('#target').val("");
 
     filterAll();
-
-
-
-
 }
 
