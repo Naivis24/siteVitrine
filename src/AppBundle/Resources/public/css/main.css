@@ -657,6 +657,7 @@ input[type=text]:focus::placeholder {
 	-ms-transition: all .5s ease;
 	-o-transition: all .5s ease;
 	transition: all .5s ease;
+	display: none;
 }
 .slide-salons:hover {
 	transform: scale(1.025);
@@ -701,6 +702,7 @@ input[type=text]:focus::placeholder {
 .filter-card{
 	display: none;
 }
+
 .afficher {
 	display: flex;
 }

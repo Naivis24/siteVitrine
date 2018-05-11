@@ -12,30 +12,19 @@
     </script>
         <div class="container-fluid marquesbg padding-start" id="section-start">
 
-            <script>
-                $( document ).ready(function() {
-                    filterSearchBar();
-                });
-            </script>
-
 
         <h1>Liste des Marques</h1>
 
 
             <div class="form" id="searchbar">
                 <form method='post' action='#'>
-                    <input type='text' id='target' name='target' placeholder="Nom de marque" align="center">
+                    <input type='text' id='target' name='target' placeholder="Nom de marque" align="center" onkeyup="filterSearchBar()">
                     <i class="fas fa-search"></i>
                 </form>
             </div>
 
 
-            <script>
-                /** A externaliser */
-                $( "#target" ).keyup(function( event ) {
-                    filterSearchBar();
-                });
-            </script>
+           
 
             <div class="row">
                 <div class="col-3 column-filters p-4">
