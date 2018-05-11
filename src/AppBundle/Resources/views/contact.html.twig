@@ -10,13 +10,13 @@
     <div class="container-fluid padding-start" id="section-start">
         <div class="container">
             <h1>Contactez French Select - Le showroom des professionnels 100% Tendance</h1>
-            <form>
+            <form class="form_contact" id="form_contact" name="form_contact" method="post">
                 <div class="form-group">
                     <select class="form-control" id="type">
                         <option>Vous êtes ... ?</option>
                         <option>Une marque</option>
                         <option>Une boutique</option>
-                        <option>Une agent commercial</option>
+                        <option>Un agent commercial</option>
                         <option>Autre</option>
                     </select>
                 </div>
@@ -30,23 +30,23 @@
                     <input type="email" class="form-control" id="email" placeholder="Email">
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" id="Address" placeholder="Adresse">
+                    <input type="text" class="form-control" id="address" placeholder="Adresse">
                 </div>
                 <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <input type="text" class="form-control" id="inputCity" placeholder="Ville">
+                    <div class="form-group col-3">
+                        <input type="text" class="form-control" id="zip" placeholder="Code Postal">
                     </div>
-                    <div class="form-group col-md-4">
-                        <input type="text" class="form-control" id="inputState" placeholder="Pays">
+                    <div class="form-group col-5">
+                        <input type="text" class="form-control" id="city" placeholder="Ville">
                     </div>
-                    <div class="form-group col-md-2">
-                        <input type="text" class="form-control" id="inputZip" placeholder="Code Postal">
+                    <div class="form-group col-4">
+                        <input type="text" class="form-control" id="country" placeholder="Pays">
                     </div>
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" id="message" placeholder="Message">
+                    <textarea type="text" maxlength="300" class="form-control" id="text" placeholder="Message"></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary">Envoyer</button>
+                <div class="text-center"><button type="submit" class="button-fh p-2">Envoyer</button></div>
             </form>
         </div>
     </div>

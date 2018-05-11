@@ -429,6 +429,12 @@ p {
 	padding: 17px 33px;
 	font-size: 16px;
 	cursor: pointer;
+	background: none;
+	-webkit-transition: all .5s ease;
+	-moz-transition: all .5s ease;
+	-ms-transition: all .5s ease;
+	-o-transition: all .5s ease;
+	transition: all .5s ease;
 }
 .button-fh:hover {
 	background-color: #333745;
@@ -444,16 +450,6 @@ p {
 }
 .container-wtx {
 	padding-top: 50px;
-}
-
-input[type=text]:focus {
-	outline: none;
-	border: 1px solid black;
-	border-bottom: 2px solid black;
-}
-
-input[type=text]:focus::placeholder {
-	display: none;
 }
 
 @media (max-width: 992px) {
@@ -1071,6 +1067,88 @@ height:0;
 	text-align: center;
 	margin: 4rem 0 2rem 0;
 }
+
+/* CONTACT */
+.form_contact .form-control{
+border:2px solid rgba(0,0,0,0);
+}
+
+.form_contact{
+	margin:auto;
+}
+
+input:-webkit-autofill{
+	padding-left:10px !important;
+}
+input:autofill{
+	padding-left:10px !important;
+}
+
+select{
+	-webkit-appearance:none;
+	-moz-appearance:none;
+	appearance:none
+}
+#type{
+	width:100%;
+	height:52px;
+	overflow:hidden;
+	background-image:url("../img/arrow.svg");
+	background-size:20px 30px;
+	background-position:98% 6px;
+	background-origin:content-box;
+	background-repeat:no-repeat;
+}
+#name{
+	height:52px;
+	padding:0 2rem 0 4rem;
+	background-image:url("../img/name.svg");
+	background-size:30px 30px;
+	background-position:11px 8px;
+	background-repeat:no-repeat;
+}
+#email{
+	height:52px;
+	padding:0 2rem 0 4rem;
+	background-image:url("../img/email.svg");
+	background-size:30px 30px;
+	background-position:11px 8px;
+	background-repeat:no-repeat}
+#text{
+	height:150px;
+	padding:1rem 2rem 1rem 4rem;
+	line-height:150%;
+	resize:vertical;
+	background-image:url("../img/comment.svg");
+	background-size:30px 30px;
+	background-position:11px 8px;
+	background-repeat:no-repeat;
+}
+#address{
+	height:52px;
+	padding:0 2rem;
+}
+#country{
+	height:52px;
+	padding:0 2rem;
+}
+#zip{
+	height:52px;
+	padding:0 2rem;
+}
+#city{
+	height:52px;
+	padding:0 2rem;
+}
+#tel{
+	height:52px;
+	padding:0 2rem 0 4rem;
+	background-image:url("../img/phone.svg");
+	background-size:30px 30px;
+	background-position:11px 8px;
+	background-repeat:no-repeat;
+}
+
 
 /* FOOTER */
 
