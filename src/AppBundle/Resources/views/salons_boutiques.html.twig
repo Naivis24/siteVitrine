@@ -6,6 +6,12 @@
 
 {% block body %}
 
+    <script>
+        ${document}.ready(function(){
+            filterAll();
+        })
+    </script>
+
     <div class="container-fluid salonsbg" id="section-start">
         <div class="container">
             <h1>Les prochains showrooms</br>
@@ -31,7 +37,7 @@
             <div class="row my-4 px-4">
             {% for salon in salons %}
                 <div class="col-lg-4 px-2 py-2">
-                    <div class="slide-salons my-1 p-2">
+                    <div class="filter-card slide-salons my-1 p-2">
                         <a href="{{ path('details_salons', {'ville': salon.getVille(), 'id': salon.getSalonId()} ) }}">
                             <img class="img-fluid shadow-sm" src="{{ asset('bundles/app/img/anaik_1.jpg') }}">
                             <div class="p-3">
