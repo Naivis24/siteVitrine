@@ -1034,6 +1034,12 @@ height:0;
 }
 
 
+/* BARRE RECHERCHE */
+.form{
+	text-align: center;
+	margin: 4rem 0 2rem 0;
+}
+
 /* FOOTER */
 
 .modal-footer {
