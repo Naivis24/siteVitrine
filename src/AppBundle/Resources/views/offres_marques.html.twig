@@ -9,22 +9,51 @@
 
     <div class="container-fluid brand-offers padding-start" id="section-start">
         <div class="container">
-            <h1>Optimiser vos ventes B2B</h1>
-            <p>French Select développe l’activité commerciale des marques de modes et décoration</p>
-        <h2>Simplifiez la gestion de vos ventes wholesale grâce aux services du showroom French Select !</h2>
-        <p>French select vous propose de nous confier l’ensemble de vos activités commerciales si vous être une marque de mode ou de déco.</p>
-        <p>De l’agence commerciale traditionnelle aux services numériques d’aide à la vente (ERP, marketplace) en passant par l’organisation de salon régionaux, nous mettrons au mieux votre marque.</p>
-        <p>L’expertise de notre équipe nous a permis de crée une offre complète pour vous accompagner dans le développement de votre marque dans les boutiques et sites de vente en ligne.</p>
-        <h2>Gagnez en visibilité et en notoriété auprès des boutiques de modes et de déco !</h2>
-            <p>Avec une interface simple et intuitive, favorisez la prise de commande de vos produits directement par des boutiques.</p>
-            <p>Vous pouvez également faire bénéficier à vos commerciaux de ce B2B pour faciliter leurs prises de commandes et retrouvez ensuite l’ensemble de vos commandes sur votre interface de gestion.</p>
+    <div class="row">
+        <div class="col-lg-6">
+            <h1>Vous êtes une marque ?</h1>
+            <h2>French Select vous aide à optimiser vos <span style="color:#FE5F55;font-weight: bold">ventes
+                wholesales</span> en tout simplicité</h2>
+            <ul>
+                <li>Simplifiez la gestion de vos commandes B2B</li>
+                <li>Gagnez en visilité auprès des boutiques et des sites de ventes en ligne</li>
+            </ul>
+            <div class="container-btn"><a href="{{ path('contact') }}" class="button-fh p-2">Contactez-nous</a>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="row text-center">
+                <div class="col-6 p-4"><img src="{{ asset('bundles/app/img/picto-mode.svg') }}"
+                                               class="picto-img"/>
+                    <div class="picto-text">ERP Simplifié</div>
+                </div>
+                <div class="col-6 p-4"><img src="{{ asset('bundles/app/img/picto-deco.svg') }}"
+                                               class="picto-img"/>
+                    <div class="picto-text">Marketplace B2B</div>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-6 p-4"><img src="{{ asset('bundles/app/img/picto-cosme.svg') }}"
+                                               class="picto-img"/>
+                    <div class="picto-text">Agence commerciale</div>
+                </div>
+                <div class="col-6 p-4"><img src="{{ asset('bundles/app/img/picto-cosme.svg') }}"
+                                            class="picto-img"/>
+                    <div class="picto-text">Salons régionaux</div>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="container-fluid home2">
+        </div>
+    </div>
+    <div class="container-fluid home2 brand-offers-detail">
     <div class="container">
         <div class="row">
             <div class="col-lg-6">
-        <h3>Un outil de gestion simplifié</h3>
+                <div class="text-center pt-4">
+                <img src="{{ asset('bundles/app/img/picto-erp.svg') }}" class="picto-img"/>
+        <h3>Un outil de gestion des commandes wholesale simplifié</h3>
+                </div>
         <p>Le B2B by french Select L’ERP facile et spécialisée pour les marques de modes et de déco.</p>
         <p>Grâce à son interface simple et complète : intégrer et gérer vos collections, vos commerciaux et vos clients sur un même outil.</p>
         <p>Pour plus d’infos (lien vers le B2B)</p>
@@ -38,14 +67,20 @@
                 <img src="{{ asset('bundles/app/img/list-brands.png') }}" alt="brands" class="img-fluid"/>
             </div>
             <div class="col-lg-6">
+                <div class="text-center pt-4">
+                    <img src="{{ asset('bundles/app/img/picto-marketplace.svg') }}" class="picto-img"/>
+                </div>
         <h3>Un Marketplace B2B pour élargir votre clientèle !</h3>
-        <p>Le Marketplace by French Select vous fera bénéficier de la communication du site auprès de nombreuses boutiques membres du site. De plus, Les nombreuses marques de modes et de déco complémentaires à votre marque faciliteront la prise de commande de vos produits.</p>
+        <p>Le Marketplace by Fralign-items-centerench Select vous fera bénéficier de la communication du site auprès de nombreuses boutiques membres du site. De plus, Les nombreuses marques de modes et de déco complémentaires à votre marque faciliteront la prise de commande de vos produits.</p>
         <p>Pour plus d’infos (lien vers le Marketplace)</p>
             </div>
         </div>
         <div class="row">
             <div class="col-lg-6">
+                <div class="text-center pt-4">
+                    <img src="{{ asset('bundles/app/img/picto-salesagent.svg') }}" class="picto-img"/>
         <h3>Des agents commerciaux sur le terrain</h3>
+                </div>
         <p>La relation commerciale ne peut pas être complète si elle n’est que digitale. Le service du Showroom by FRENCH SELECT est d’identifier des agents commerciaux expérimentés et sélectionnés suivant des critères de sensibilité aux marques et d’efficacité.</p>
         <p>Influents et présents dans tous les domaines de la mode (le prêt-à-porter, les chaussures, la maroquinerie, les bijoux, les accessoires...) de la décoration (luminaires, tableaux, petit meubles…) ils présentent les collections en showroom, prospectent de nouveaux magasins, assurent une présence aux salons de mode et fidélisent l’ensemble du réseau de distribution français.</p>
         <p>Pour plus d’infos (lien vers l’agence)</p>
@@ -59,7 +94,10 @@
                 <img src="{{ asset('bundles/app/img/list-brands.png') }}" alt="brands" class="img-fluid"/>
             </div>
             <div class="col-lg-6">
-            <h3>Nos salons régionaux au plus proche des boutiques</h3>
+                <div class="text-center pt-4">
+                    <img src="{{ asset('bundles/app/img/picto-showroom.svg') }}" class="picto-img"/>
+            <h3>Des salons régionaux au plus proche des boutiques</h3>
+                </div>
         <p>Compliquez de vous développer en région ? French Select développe une nouvelle offre de salons régionaux thématiques (). Ces salons se dérouleront dans des lieux orignaux et dans un modèle éphémère afin de mettre votre marque en valeur auprès d’autres produits complémentaires.</p>
         <p>Pour plus d’infos (lien vers les salons)</p>
             </div>
