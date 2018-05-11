@@ -16,9 +16,19 @@ class BrandController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $brands = $em->getRepository('AppBundle:Brand')->findBy(array(), array('name' => 'ASC'));
+        $targets = $em->getRepository('AppBundle:Target')->findAll();
+        $categories = $em->getRepository('AppBundle:PrimaryCategory')->findAll();
+        $styles = $em->getRepository('AppBundle:Style')->findAll();
+        $prices = $em->getRepository('AppBundle:PriceRange')->findAll();
+        $features = $em->getRepository('AppBundle:Feature')->findAll();
 
         return $this->render('AppBundle::marques.html.twig', array(
-            'brands' => $brands
+            'brands' => $brands,
+            'targets' => $targets,
+            'styles' => $styles,
+            'categories' => $categories,
+            'prices' => $prices,
+            'features' => $features
         ));
     }
 }

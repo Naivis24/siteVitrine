@@ -17,99 +17,89 @@
 
 
             <div class="form" id="searchbar">
-                <form method='post' action='#'>
+                <form action='#'>
                     <input type='text' id='target' name='target' placeholder="Nom de marque" align="center" onkeyup="filterSearchBar()">
                     <i class="fas fa-search"></i>
                 </form>
             </div>
 
 
-           
-
             <div class="row">
                 <div class="col-3 column-filters p-4">
                 <div class="container-btn text-center"><a onclick="reinit()" class="button-fh p-2">Réinitialiser</a></div>
+
                 <div id="cible" style=" padding-bottom: 20px;">
                     <p> Cible </p>
+                    {% for target in targets %}
+                    {% set marques = target.getBrand.toArray() %}
+                    {% if marques is not empty %}
                     <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="cbHomme" onchange="filter()"
-                        value="cible:Homme">
-                        <label class="form-check-label" for="cbHomme">Homme</label>
+                        <input type="checkbox" class="form-check-input" id="cb{{target.getLabel()}}" onchange="filter()"
+                        value="cible:{{target.getLabel()}}">
+                        <label class="form-check-label" for="cb{{target.getLabel()}}">{{target.getLabel()}}</label>
                      </div>
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="cbFemme" onchange="filter()"
-                        value="cible:Femme">
-                        <label class="form-check-label" for="cbFemme">Femme</label>
-                    </div>
-                    <div class="form-check">
-                         <input type="checkbox" class="form-check-input" id="cbEnfant" onchange="filter()"
-                         value="cible:Enfant">
-                         <label class="form-check-label" for="cbEnfant">Enfant</label>
-                    </div>
+                     {% endif %}
+                    {% endfor %}
                 </div>
-                <div id="categorie">
+
+                <div id="categorie" style=" padding-bottom: 20px;">
                     <p> Catégories </p>
+                    {% for categorie in categories %}
+                    {% set marques = categorie.getBrand.toArray() %}
+                    {% if marques is not empty %}
                     <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="cbPAP" onchange="filter()"
-                        value="categorie:Prêt-à-porter">
-                        <label class="form-check-label" for="cbPAP">Prêt-à-porter</label>
+                        <input type="checkbox" class="form-check-input" id="cb{{categorie.getLabel()}}" onchange="filter()"
+                        value="categorie:{{categorie.getLabel()}}">
+                        <label class="form-check-label" for="cb{{categorie.getLabel()}}">{{categorie.getLabel()}}</label>
                     </div>
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="cbAccessoires" onchange="filter()"
-                        value="categorie:Accessoires">
-                        <label class="form-check-label" for="cbAccessoires">Accessoires</label>
-                    </div>
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="cbBijoux" onchange="filter()"
-                        value="categorie:Bijoux / Montres">
-                        <label class="form-check-label" for="cbBijoux">Bijoux / Montres</label>
-                    </div>
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="cbSacs" onchange="filter()"
-                        value="categorie:Sacs / Maroquinerie">
-                        <label class="form-check-label" for="cbSacs">Sacs / Maroquinerie</label>
-                    </div>
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="cbBagages" onchange="filter()"
-                        value="categorie:Bagages">
-                        <label class="form-check-label" for="cbBagages">Bagages</label>
-                    </div>
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="cbParapluies" onchange="filter()"
-                        value="categorie:Parapluies">
-                        <label class="form-check-label" for="cbParapluies">Parapluies</label>
-                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
 
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="cbChaussures" onchange="filter()"
-                        value="categorie:Chaussures">
-                        <label class="form-check-label" for="cbChaussures">Chaussures</label>
-                    </div>
 
+                <div id="style" style=" padding-bottom: 20px;">
+                    <p> Style </p>
+                    {% for style in styles %}
+                    {% set marques = style.getBrand.toArray() %}
+                    {% if marques is not empty %}
                     <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="cbInsolite" onchange="filter()"
-                        value="categorie:Insolite">
-                        <label class="form-check-label" for="cbInsolite">Insolite</label>
+                        <input type="checkbox" class="form-check-input" id="cb{{style.getLabel()}}" onchange="filter()"
+                        value="style:{{style.getLabel()}}">
+                        <label class="form-check-label" for="cb{{style.getLabel()}}">{{style.getLabel()}}</label>
                     </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
 
+                <div id="price" style=" padding-bottom: 20px;">
+                    <p> Gamme de prix </p>
+                    {% for price in prices %}
+                    {% set bool = false %}
+                    {% for brand in brands %}
+                    {% if brand.getPriceRange() == price %} {% set bool = true %} {% endif %}
+                    {% endfor %}
+                    {% if bool %}
                     <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="cbDecoration" onchange="filter()"
-                        value="categorie:Décoration">
-                        <label class="form-check-label" for="cbDecoration">Décoration</label>
+                        <input type="checkbox" class="form-check-input" id="cb{{price.getLabel()}}" onchange="filter()"
+                        value="priceRange:{{price.getLabel()}}">
+                        <label class="form-check-label" for="cb{{price.getLabel()}}">{{price.getLabel()}}</label>
                     </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
 
+                <div id="feature" style=" padding-bottom: 20px;">
+                    <p> Particularité </p>
+                    {% for feature in features %}
+                     {% set marques = feature.getBrand.toArray() %}
+                     {% if marques is not empty %}
                     <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="cbSousvetements" onchange="filter()"
-                        value="categorie:Sous-vêtements">
-                        <label class="form-check-label" for="cbSousvetements">Sous-vêtements</label>
+                        <input type="checkbox" class="form-check-input" id="cb{{feature.getLabel()}}" onchange="filter()"
+                        value="feature:{{feature.getLabel()}}">
+                        <label class="form-check-label" for="cb{{feature.getLabel()}}">{{feature.getLabel()}}</label>
                     </div>
-
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="cbParfum" onchange="filter()"
-                        value="categorie:Parfum">
-                        <label class="form-check-label" for="cbParfum">Parfum</label>
-                    </div>
-
+                    {% endif %}
+                    {% endfor %}
                 </div>
 
 
@@ -121,6 +111,7 @@
                  {% set targets = brand.getTarget.toArray() %}
                  {% set styles = brand.getStyle.toArray() %}
                  {% set categories = brand.getPrimaryCategory().toArray() %}
+                 {% set features = brand.getFeature() %}
                      <div class="col-md-3 px-2 py-2 filter-card">
 
                     <div class="card-marques shadow-sm">
@@ -137,21 +128,21 @@
                                     <strong>{{ brand.getCountry().getName() }}</strong></li>
                                 <li>CATÉGORIE<br>
                                     <strong class="categorie"> {% for categorie in categories %}
-                                            {{ categorie.getLabel() }},
+                                            {{ categorie.getLabel() }}{% if not loop.last %},{% endif %}
                                         {% endfor %}</strong>
                                 </li>
                                 <li>STYLE<br>
                                     <strong class="style">  {% for style in styles %}
-                                            {{ style.getLabel() }},
-                                        {% endfor %}</strong>
-                                </li>
-                                <li>CIBLE<br>
-                                    <strong class="cible"> {% for target in targets %}
-                                            {{ target.getLabel() }},
+                                            {{ style.getLabel() }}{% if not loop.last %},{% endif %}
                                         {% endfor %}</strong>
                                 </li>
                                 <li>GAMME DE PRIX<br>
                                     <strong class="priceRange">{{ brand.getPriceRange().getLabel() }}</strong>
+                                </li>
+                                <li>PARTICULARITÉ<br>
+                                    <strong class="feature"> {% for feature in features %}
+                                            {{ feature.getLabel() }}{% if not loop.last %},{% endif %}
+                                        {% endfor %}</strong>
                                 </li>
                             </ul>
                         </div>

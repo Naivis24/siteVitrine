@@ -34,17 +34,20 @@ function filter() {
 }
 
 function filterSearchBar(){
-    filterReset();
-    var x, i, texte;
-    x = document.getElementsByClassName("filter-card");
+
+    filter();
+    var x, texte;
+    x = document.getElementsByClassName("afficher");
     texte=$('#target').val().toUpperCase();
 
-    for(i=0; i < x.length; i++){
-        if(x[i].getElementsByClassName("card-title")[0].innerHTML.toUpperCase().indexOf(texte) != -1){
-            addClass(x[i], "afficher");
+    for(var i=x.length -1; i >= 0; i--){
+        if(x[i].getElementsByClassName("card-title")[0].innerHTML.toUpperCase().indexOf(texte) == -1){
+            removeClass(x[i], "afficher");
         }
     }
 }
+
+
 
 
 function filterAll() {
@@ -78,15 +81,7 @@ function addClass(element, name) {
 
 
 function removeClass(element, name) {
-    var i, arr1, arr2;
-    arr1 = element.className.split(" ");
-    arr2 = name.split(" ");
-    for (i = 0; i < arr2.length; i++) {
-        while (arr1.indexOf(arr2[i]) > -1) {
-            arr1.splice(arr1.indexOf(arr2[i]), 1);
-        }
-    }
-    element.className = arr1.join(" ");
+   element.classList.remove(name);
 }
 
 function reinit(){
