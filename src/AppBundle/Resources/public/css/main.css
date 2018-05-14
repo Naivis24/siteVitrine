@@ -677,17 +677,18 @@ p {
 	width: 70%;
 	padding: 10px 20px;
 	border: none;
-	border-bottom: 2px solid #333745;
+	border-bottom: 1px solid #333745;
 	background-image:url("../img/search.svg");
 	background-size:25px 25px;
 	background-position:95% 50%;
 	background-repeat:no-repeat;
+	background-color:transparent;
 }
 
 #searchbar {
 	color:#333745;
 	margin: 0;
-	background-color:white;
+	background:none;
 }
 
 #searchbar ::placeholder {
@@ -697,7 +698,6 @@ p {
 }
 
 #searchbar :focus {
-	background-color: #FE5F55;
 	color: white;
 }
 
@@ -705,6 +705,23 @@ p {
 	color: white;
 }
 
+.nav-tabs{
+	border: none;
+}
+.nav-filter-brands .nav-item{
+	text-transform: uppercase;
+	margin: 0 2rem;
+
+}
+.nav-filter-brands .nav-item.show .nav-link, .nav-tabs .nav-link.active{
+	background: none;
+	border: none;
+	color: #FE5F55;
+	text-transform: uppercase;
+	font-weight: 700;
+	border-bottom: 2px solid #FE5F55;
+
+}
 /* SALONS */
 
 .salonsbg {
