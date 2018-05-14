@@ -519,7 +519,7 @@ p {
 }
 .card-price h2 {
 	margin-top: 0;
-	margin-bottom: 2rem;
+	margin-bottom: 1rem;
 	font-size: 17px;
 	font-weight: 700;
 	text-transform: uppercase;
@@ -531,12 +531,14 @@ p {
 	display: inline-block;
 	vertical-align: bottom;
 	margin-right: 4px;
-	margin-top: 15px;
 	font-weight: 700;
 }
 .card-text {
-	margin-top: 2rem;
+	font-size: 14px;
 	color: #333745;
+}
+.card-price-list{
+	margin-top: 2rem;
 }
 .scale-best{
 	transform: scale(1.05);
