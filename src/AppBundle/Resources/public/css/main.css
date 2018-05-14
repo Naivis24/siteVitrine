@@ -519,7 +519,7 @@ p {
 }
 .card-price h2 {
 	margin-top: 0;
-	margin-bottom: 2rem;
+	margin-bottom: 1rem;
 	font-size: 17px;
 	font-weight: 700;
 	text-transform: uppercase;
@@ -531,12 +531,14 @@ p {
 	display: inline-block;
 	vertical-align: bottom;
 	margin-right: 4px;
-	margin-top: 15px;
 	font-weight: 700;
 }
 .card-text {
-	margin-top: 2rem;
+	font-size: 14px;
 	color: #333745;
+}
+.card-price-list{
+	margin-top: 2rem;
 }
 .scale-best{
 	transform: scale(1.05);
@@ -669,6 +671,38 @@ p {
 
 .card-deck{
  margin-bottom: 35px;
+}
+
+#searchbar input[type=text]{
+	width: 70%;
+	padding: 10px 20px;
+	border: none;
+	border-bottom: 2px solid #333745;
+	background-image:url("../img/search.svg");
+	background-size:25px 25px;
+	background-position:95% 50%;
+	background-repeat:no-repeat;
+}
+
+#searchbar {
+	color:#333745;
+	margin: 0;
+	background-color:white;
+}
+
+#searchbar ::placeholder {
+	text-align: center;
+	color:#333745;
+	font-style: italic;
+}
+
+#searchbar :focus {
+	background-color: #FE5F55;
+	color: white;
+}
+
+#searchbar :focus::placeholder {
+	color: white;
 }
 
 /* SALONS */
