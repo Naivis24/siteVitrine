@@ -22,11 +22,29 @@ function filter() {
         }
         x = document.getElementsByClassName("filter-card");
         for (i = 0; i < x.length; i++) {
+            var boolean = [];
+            temp = false;
+            currentCategorie = categories[0];
             for (j = 0; j < tab.length; j++) {
+                if (categories[j] != currentCategorie) {
+                    currentCategorie = categories[j];
+                    boolean.push(temp);
+                    temp = false;
+                }
                 if (x[i].getElementsByClassName(categories[j])[0].innerHTML.indexOf(filtres[j]) != -1) {
-                    addClass(x[i], "afficher");
+                    temp = true;
                 }
 
+            }
+            boolean.push(temp);
+            console.log(boolean);
+            temp = boolean[0];
+            for ( var k = 1; k<boolean.length; k++) {
+                temp = temp && boolean[k];
+            }
+            console.log(temp);
+            if (temp) {
+                addClass(x[i], "afficher");
             }
 
         }
