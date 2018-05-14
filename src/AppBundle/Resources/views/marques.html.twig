@@ -111,7 +111,7 @@
                  {% set targets = brand.getTarget.toArray() %}
                  {% set styles = brand.getStyle.toArray() %}
                  {% set categories = brand.getPrimaryCategory().toArray() %}
-                 {% set features = brand.getFeature() %}
+                 {% set features = brand.getFeature().toArray() %}
                      <div class="col-md-3 px-2 py-2 filter-card">
 
                     <div class="card-marques shadow-sm">
@@ -139,11 +139,13 @@
                                 <li>GAMME DE PRIX<br>
                                     <strong class="priceRange">{{ brand.getPriceRange().getLabel() }}</strong>
                                 </li>
+                                {% if features is not empty %}
                                 <li>PARTICULARITÉ<br>
                                     <strong class="feature"> {% for feature in features %}
                                             {{ feature.getLabel() }}{% if not loop.last %},{% endif %}
                                         {% endfor %}</strong>
                                 </li>
+                                {% endif %}
                             </ul>
                         </div>
                         <div class="button-slide-brands"><a href="{{ path('details_marques', {'marque': brand.getName()} ) }}" class="button-sb p-1">
