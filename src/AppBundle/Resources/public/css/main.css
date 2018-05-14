@@ -705,7 +705,6 @@ p {
 }
 
 #searchbar :focus {
-	color: white;
 	background-color: #f4efeb;
 	border:0px;
 	border-radius: 5px;
