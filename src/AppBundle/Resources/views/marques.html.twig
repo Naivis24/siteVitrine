@@ -13,7 +13,7 @@
         <div class="container-fluid marquesbg padding-start" id="section-start">
 
 
-        <h1>Liste des Marques</h1>
+        <h1>Découvrez les marques de French Select</h1>
             <ul class="nav nav-tabs justify-content-center nav-filter-brands" id="myTab" role="tablist">
                 <li class="nav-item">
                     <a class="nav-link active" id="homme-tab" data-toggle="tab" href="#homme" role="tab"
@@ -28,11 +28,11 @@
                        aria-controls="enfant" aria-selected="false">Enfant</a>
                 </li>
             </ul>
-            <div class="container">
+            <div class="container bg-searchbar">
             <div class="form" id="searchbar">
                 <form action='#'>
                     <input type='text' id='target' name='target'
-                    placeholder="Nom d'une marque ou type de produit" align="center" onkeyup="filterSearchBar()">
+                    placeholder="Nom d'une marque ou type de produit" align="center" onkeyup="filterSearchBar()" onfocus="this.placeholder=''" onblur="this.placeholder='Nom d\'une marque ou type de produit'">
                 </form>
             </div>
         </div>
