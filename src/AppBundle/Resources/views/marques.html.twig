@@ -23,8 +23,21 @@
             </div>
         </div>
 
-
-            <div class="row">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="homme-tab" data-toggle="tab" href="#homme" role="tab"
+                       aria-controls="homme" aria-selected="true">Homme</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="femme-tab" data-toggle="tab" href="#femme" role="tab"
+                       aria-controls="femme" aria-selected="false">Femme</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="enfant-tab" data-toggle="tab" href="#enfant" role="tab"
+                       aria-controls="enfant" aria-selected="false">Enfant</a>
+                </li>
+            </ul>
+                <div class="row tab-content" id="myTabContent">
                 <div class="col-3 column-filters p-4">
                     <div class="container-btn text-center"><a onclick="reinit()" class="button-fh p-2">Réinitialiser</a>
                     </div>
@@ -44,8 +57,6 @@
                             {% endif %}
                         {% endfor %}
                     </div>
-
-
                     <div id="style" style=" padding-bottom: 20px;">
                         <p> Style </p>
                         {% for style in styles %}
@@ -61,7 +72,6 @@
                             {% endif %}
                         {% endfor %}
                     </div>
-
                     <div id="price" style=" padding-bottom: 20px;">
                         <p> Gamme de prix </p>
                         {% for price in prices %}
@@ -80,7 +90,6 @@
                             {% endif %}
                         {% endfor %}
                     </div>
-
                     <div id="feature" style=" padding-bottom: 20px;">
                         <p> Particularité </p>
                         {% for feature in features %}
@@ -96,28 +105,8 @@
                             {% endif %}
                         {% endfor %}
                     </div>
-
-
                 </div>
-
-
-                <ul class="nav nav-tabs" id="myTab" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link active" id="homme-tab" data-toggle="tab" href="#homme" role="tab"
-                           aria-controls="homme" aria-selected="true">Homme</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="femme-tab" data-toggle="tab" href="#femme" role="tab"
-                           aria-controls="femme" aria-selected="false">Femme</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="enfant-tab" data-toggle="tab" href="#enfant" role="tab"
-                           aria-controls="enfant" aria-selected="false">Enfant</a>
-                    </li>
-                </ul>
-                <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade show active" id="homme" role="tabpanel" aria-labelledby="home-tab">
-                        <div class="col-9">
+                    <div class="col-9 tab-pane fade show active" id="homme" role="tabpanel" aria-labelledby="home-tab">
                             <div class="row px-4">
                                 {% for brand in brands %}
                                     {% set cibles = brand.getTarget.toArray() %}
@@ -179,9 +168,8 @@
                                 {% endfor %}
                             </div>
                         </div>
-                    </div>{# FIN TAB HOMME #}
-                    <div class="tab-pane fade" id="femme" role="tabpanel" aria-labelledby="profile-tab">
-                        <div class="col-9">
+                    {# FIN TAB HOMME #}
+                        <div class="col-9 tab-pane fade" id="femme" role="tabpanel" aria-labelledby="profile-tab">
                             <div class="row px-4">
                                 {% for brand in brands %}
                                     {% set cibles = brand.getTarget.toArray() %}
@@ -194,7 +182,6 @@
                                         {% set categories = brand.getPrimaryCategory().toArray() %}
                                         {% set features = brand.getFeature().toArray() %}
                                         <div class="col-md-3 px-2 py-2 filter-card">
-
                                             <div class="card-marques shadow-sm">
                                                 <img class="img-fluid card-img"
                                                      src="{{ asset('bundles/app/img/' ~ brand.getPicture() ) }}">
@@ -243,9 +230,8 @@
                                 {% endfor %}
                             </div>
                         </div>
-                    </div>{# FIN TAB FEMME #}
-                    <div class="tab-pane fade" id="enfant" role="tabpanel" aria-labelledby="contact-tab">
-                        <div class="col-9">
+                    {# FIN TAB FEMME #}
+                    <div class="col-9 tab-pane fade" id="enfant" role="tabpanel" aria-labelledby="contact-tab">
                             <div class="row px-4">
                                 {% for brand in brands %}
                                     {% set cibles = brand.getTarget.toArray() %}
@@ -307,10 +293,7 @@
                                 {% endfor %}
                             </div>
                         </div>
-                    </div> {# FIN TAB ENFANT#}
+                     {# FIN TAB ENFANT#}
                 </div>{# FIN TABCONTENT #}
-
-
-            </div>{# FIN ROW #}
         </div> {# FIN CONTAINER FLUID #}
     {% endblock %}
