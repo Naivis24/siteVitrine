@@ -155,6 +155,21 @@ class Brand
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
+     * @ORM\ManyToMany(targetEntity="Feature", inversedBy="brand")
+     * @ORM\JoinTable(name="brand_feature",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="brand_id", referencedColumnName="id")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="feature_id", referencedColumnName="id")
+     *   }
+     * )
+     */
+    private $feature;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
      * @ORM\ManyToMany(targetEntity="PrimaryCategory", inversedBy="brand")
      * @ORM\JoinTable(name="brand_primary_category",
      *   joinColumns={
@@ -217,6 +232,7 @@ class Brand
      */
     public function __construct()
     {
+        $this->feature = new \Doctrine\Common\Collections\ArrayCollection();
         $this->primaryCategory = new \Doctrine\Common\Collections\ArrayCollection();
         $this->style = new \Doctrine\Common\Collections\ArrayCollection();
         $this->target = new \Doctrine\Common\Collections\ArrayCollection();

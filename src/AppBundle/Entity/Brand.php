@@ -155,6 +155,21 @@ class Brand
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
+     * @ORM\ManyToMany(targetEntity="Feature", inversedBy="brand")
+     * @ORM\JoinTable(name="brand_feature",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="brand_id", referencedColumnName="id")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="feature_id", referencedColumnName="id")
+     *   }
+     * )
+     */
+    private $feature;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
      * @ORM\ManyToMany(targetEntity="PrimaryCategory", inversedBy="brand")
      * @ORM\JoinTable(name="brand_primary_category",
      *   joinColumns={
@@ -212,13 +227,12 @@ class Brand
      */
     private $salon;
 
-
-
     /**
      * Constructor
      */
     public function __construct()
     {
+        $this->feature = new \Doctrine\Common\Collections\ArrayCollection();
         $this->primaryCategory = new \Doctrine\Common\Collections\ArrayCollection();
         $this->style = new \Doctrine\Common\Collections\ArrayCollection();
         $this->target = new \Doctrine\Common\Collections\ArrayCollection();
@@ -515,7 +529,6 @@ class Brand
     }
 
     /**
-     * @return string
      * Get homepageIndex
      *
      * @return integer
@@ -643,6 +656,40 @@ class Brand
     public function getCountry()
     {
         return $this->country;
+    }
+
+    /**
+     * Add feature
+     *
+     * @param \AppBundle\Entity\Feature $feature
+     *
+     * @return Brand
+     */
+    public function addFeature(\AppBundle\Entity\Feature $feature)
+    {
+        $this->feature[] = $feature;
+
+        return $this;
+    }
+
+    /**
+     * Remove feature
+     *
+     * @param \AppBundle\Entity\Feature $feature
+     */
+    public function removeFeature(\AppBundle\Entity\Feature $feature)
+    {
+        $this->feature->removeElement($feature);
+    }
+
+    /**
+     * Get feature
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getFeature()
+    {
+        return $this->feature;
     }
 
     /**
