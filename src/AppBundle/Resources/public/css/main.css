@@ -77,6 +77,36 @@ h6 {
 p {
 	line-height: 27px;
 }
+input[type=checkbox] {
+	-webkit-appearance: none!important;
+	-moz-appearance: none!important;
+	-ms-appearance: none!important;
+}
+input[type=checkbox] {
+	border-radius: 2px;
+	height: 15px;
+	width: 15px;
+	background: #fff;
+	border: 1px solid #333745;
+}
+
+input[type="checkbox"]:checked {
+	background: #FE5F55;
+	border:none;
+&:before {
+	 font-family: FontAwesome;
+	 content: '\f00c';
+	 display: block;
+	 color: #333745;
+	 font-size: 13px;
+	 position: absolute;
+ }
+}
+
+.form-check-input{
+	margin-left:-1.5rem;
+}
+
 
 /* HEADER */
 .logo img {
