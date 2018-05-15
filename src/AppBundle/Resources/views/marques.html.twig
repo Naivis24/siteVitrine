@@ -111,7 +111,7 @@
                             <div class="row px-4">
                                 {% for brand in brands %}
                                     {% set cibles = brand.getTarget.toArray() %}
-                                    {% set temp = [] %}
+                                    {% set temp = [brand.getPrimarytarget().getLabel()] %}
                                     {% for c in cibles %} {% set temp = temp|merge([c.getLabel()]) %} {% endfor %}
                                     {% if "Homme" in temp %}
 
@@ -174,7 +174,7 @@
                             <div class="row px-4">
                                 {% for brand in brands %}
                                     {% set cibles = brand.getTarget.toArray() %}
-                                    {% set temp = [] %}
+                                    {% set temp = [brand.getPrimarytarget().getLabel()] %}
                                     {% for c in cibles %} {% set temp = temp|merge([c.getLabel()]) %} {% endfor %}
                                     {% if "Femme" in temp %}
 
@@ -235,7 +235,10 @@
                     <div class="col-9 tab-pane fade" id="enfant" role="tabpanel" aria-labelledby="contact-tab">
                             <div class="row px-4">
                                 {% for brand in brands %}
-                                    {% if brand.getPrimaryTarget().getLabel() == "Enfant" %}
+                                    {% set cibles = brand.getTarget.toArray() %}
+                                    {% set temp = [brand.getPrimarytarget().getLabel()] %}
+                                    {% for c in cibles %} {% set temp = temp|merge([c.getLabel()]) %} {% endfor %}
+                                    {% if "Enfant" in temp %}
 
                                         {% set styles = brand.getStyle.toArray() %}
                                         {% set categories = brand.getPrimaryCategory().toArray() %}
