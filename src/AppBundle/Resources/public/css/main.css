@@ -93,15 +93,7 @@ input[type=checkbox] {
 input[type="checkbox"]:checked {
 	background: #FE5F55;
 	border:none;
-&:before {
-	 font-family: FontAwesome;
-	 content: '\f00c';
-	 display: block;
-	 color: #333745;
-	 font-size: 13px;
-	 position: absolute;
  }
-}
 
 .form-check-input{
 	margin-left:-1.5rem;
@@ -704,6 +696,10 @@ input[type="checkbox"]:checked {
  margin-bottom: 35px;
 }
 
+.container-list-brand{
+	margin:0 4rem;
+}
+
 /* SALONS */
 
 .salonsbg {
@@ -1101,7 +1097,7 @@ height:0;
 	background-color: #FFF;
 	font-family: "Old Standard TT";
 	font-size: 20px;
-	margin-left:2rem;
+	margin-left:1.2rem;
 }
 
 .container-btn-filters{
@@ -1109,7 +1105,11 @@ height:0;
 }
 
 .container-filters{
-	margin-left:1rem;
+	margin-left:2rem;
+}
+
+a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover{
+	color: #FFF;
 }
 
 .button-fb {
@@ -1190,7 +1190,7 @@ height:0;
 .nav-filter-brands .nav-item{
 	text-transform: uppercase;
 	margin: 0 2rem;
-	font-size:24px;
+	font-size:20px;
 }
 
 .nav-filter-brands .nav-link{
