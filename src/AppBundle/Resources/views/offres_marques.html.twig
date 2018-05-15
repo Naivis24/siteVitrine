@@ -7,71 +7,73 @@
 
 {% block body %}
 
-    <div class="container-fluid brand-offers padding-start bg1" id="section-start">
+    <div class="container-fluid brand-offers padding-start bg2" id="section-start">
         <div class="container">
             <h1>Vous êtes une marque de mode ?</h1>
             <h2>French Select vous aide à optimiser vos <span style="color:#FE5F55;font-weight: bold">ventes
                 wholesales</span> en tout simplicité</h2>
-            <div class="container">
+            <div class="container mt-4 mb-4">
             <div class="row text-center">
-                <div class="col-3 p-4"><img src="{{ asset('bundles/app/img/picto-crm.svg') }}" class="picto-img"/>
-                    <div class="picto-text">CRM Online</div></div>
+                <div class="col-3 p-4"><a href="#section-crm" title="CRM Online"><img src="{{ asset('bundles/app/img/picto-crm.svg') }}" class="picto-img"/>
+                        <div class="picto-text">CRM Online</div></a></div>
 
-                <div class="col-3 p-4"><img src="{{ asset('bundles/app/img/picto-marketplace.svg') }}" class="picto-img"/>
-                    <div class="picto-text">Marketplace B2B</div>
-
-                </div>
-                <div class="col-3 p-4"><img src="{{ asset('bundles/app/img/picto-salesagent.svg') }}" class="picto-img"/>
-                    <div class="picto-text">Équipe commerciale</div>
+                <div class="col-3 p-4"><a href="#section-marketplace" title="Marketplace B2B"><img src="{{ asset('bundles/app/img/picto-marketplace.svg') }}" class="picto-img"/>
+                        <div class="picto-text">Marketplace B2B</div></a>
 
                 </div>
-                <div class="col-3 p-4"><img src="{{ asset('bundles/app/img/picto-showroom.svg') }}" class="picto-img"/>
-                    <div class="picto-text">Salons régionaux</div>
+                <div class="col-3 p-4"><a href="#section-equipe" title="Équipe commerciale"><img src="{{ asset('bundles/app/img/picto-salesagent.svg') }}" class="picto-img"/>
+                        <div class="picto-text">Équipe commerciale</div></a>
+
+                </div>
+                <div class="col-3 p-4"><a href="#section-salons" title="Salons régionaux"><img src="{{ asset('bundles/app/img/picto-showroom.svg') }}" class="picto-img"/>
+                        <div class="picto-text">Salons régionaux</div></a>
 
                 </div>
             </div>
             </div>
-            <div class="container-btn text-center"><a href="{{ path('contact') }}" class="button-fh p-2">Contactez-nous</a>
-            </div>
+            <div class="container-next"><a href="#section-offers" title="Suivant"><img src=" {{ asset('bundles/app/img/angle-down.svg')}}" /></a></div>
         </div>
     </div>
-    <div class="container-fluid home2">
+    <div class="container-fluid" id="section-offers">
         <div class="container">
-            <h1>Pour toutes les marques</h1>
+            <h3>Des offres adaptées à toutes les marques</h3>
             <div class="card-deck">
                 <div class="card shadow-sm">
                     <div class="card-body text-center card-price"> <img class="card-img-price" src="{{ asset('bundles/app/img/picto-first.svg') }}">
                         <h2 class="card-title offer-first">Easy Start</h2>
-                        <p class="card-text">Grâce à notre outil en ligne gérer facilement les commandes de vos clients professionnels.</p>
+                        <p class="card-text font-weight-bold">Indispensable pour démarrer</p>
+                        <p class="card-text">Grâce à l'outil CRM en ligne, gérez facilement les commandes de vos clients professionnels.</p>
                     </div>
-                    <div class="card-footer text-center"><a href="{{ path('contact') }}" class="button-fh p-2">Détails et tarifs</a></div>
+                    <div class="card-footer text-center"><a href="{{ path('tarifs_marques') }}" class="button-fh p-2">Détails et tarifs</a></div>
                 </div>
                 <div class="card shadow-sm">
                     <div class="card-body text-center card-price"> <img class="card-img-price" src="{{ asset('bundles/app/img/picto-second.svg') }}">
                         <h2 class="card-title offer-second">Essentiel</h2>
-                        <p class="card-text">Bénéficiez du Marketplace et de notre outil en ligne.</p>
+                        <p class="card-text font-weight-bold">Idéal pour se développer</p>
+                        <p class="card-text">En plus du CRM, profitez du Marketplace B2B pour augmenter votre visibilité.</p>
                     </div>
-                    <div class="card-footer text-center"><a href="{{ path('contact') }}" class="button-fh p-2">Détails et tarifs</a></div>
+                    <div class="card-footer text-center"><a href="{{ path('tarifs_marques') }}" class="button-fh p-2">Détails et tarifs</a></div>
                 </div>
                 <div class="card shadow-sm">
                     <div class="card-body text-center card-price"> <img class="card-img-price" src="{{ asset('bundles/app/img/picto-third.svg') }}">
                         <h2 class="card-title offer-third">Business</h2>
-                        <p class="card-text">Bénéficier de l’ensemble des services numériques pour vous et votre équipe commerciale.</p>
+                        <p class="card-text font-weight-bold">Parfait pour décoller</p>
+                        <p class="card-text">Utilisez l’ensemble des services de French Select pour développer votre activité.</p>
                     </div>
-                    <div class="card-footer text-center"><a href="{{ path('contact') }}" class="button-fh p-2">Détails et tarifs</a></div>
+                    <div class="card-footer text-center"><a href="{{ path('tarifs_marques') }}" class="button-fh p-2">Détails et tarifs</a></div>
                 </div>
                 <div class="card shadow-sm">
                     <div class="card-body text-center card-price"> <img class="card-img-price" src="{{ asset('bundles/app/img/picto-four.svg') }}">
                         <h2 class="card-title offer-four">Premium</h2>
-                        <p class="card-text">Bénéficez d'une offre sur mesure adapté à vos besoins d'aujourd'hui et de demain.</p>
+                        <p class="card-text">Bénéficez d'une <b>offre sur mesure</b> adaptée à vos besoins d'aujourd'hui et de demain.</p>
                     </div>
                     <div class="card-footer text-center"><a href="{{ path('contact') }}" class="button-fh p-2">Nous contacter</a></div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="container-fluid home2 brand-offers-detail">
-    <div class="container">
+    <div class="container-fluid brand-offers-detail">
+    <div class="container" id="section-crm">
         <div class="row">
             <div class="col-lg-6">
                 <div class="text-center pt-4">
@@ -86,6 +88,8 @@
                 Image d'illustration
             </div>
         </div>
+    </div>
+        <div class="container" id="section-marketplace">
         <div class="row">
             <div class="col-lg-6 align-self-center text-center">
                 Image d'illustration
@@ -99,6 +103,8 @@
         <p>Pour plus d’infos (lien vers le Marketplace)</p>
             </div>
         </div>
+        </div>
+        <div class="container" id="section-equipe">
         <div class="row">
             <div class="col-lg-6">
                 <div class="text-center pt-4">
@@ -113,6 +119,8 @@
                 Image d'illustration
             </div>
         </div>
+        </div>
+        <div class="container" id="section-salons">
         <div class="row">
             <div class="col-lg-6 align-self-center text-center">
                 Image d'illustration
@@ -125,6 +133,7 @@
         <p>Compliquez de vous développer en région ? French Select développe une nouvelle offre de salons régionaux thématiques (). Ces salons se dérouleront dans des lieux orignaux et dans un modèle éphémère afin de mettre votre marque en valeur auprès d’autres produits complémentaires.</p>
         <p>Pour plus d’infos (lien vers les salons)</p>
             </div>
+        </div>
         </div>
     </div>
     </div>
