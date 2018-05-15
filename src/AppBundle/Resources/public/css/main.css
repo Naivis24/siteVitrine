@@ -704,6 +704,10 @@ input[type="checkbox"]:checked {
  margin-bottom: 35px;
 }
 
+.container-list-brand{
+	margin:0 4rem;
+}
+
 /* SALONS */
 
 .salonsbg {
@@ -1101,7 +1105,7 @@ height:0;
 	background-color: #FFF;
 	font-family: "Old Standard TT";
 	font-size: 20px;
-	margin-left:2rem;
+	margin-left:1.2rem;
 }
 
 .container-btn-filters{
@@ -1109,7 +1113,11 @@ height:0;
 }
 
 .container-filters{
-	margin-left:1rem;
+	margin-left:2rem;
+}
+
+a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover{
+	color: #FFF;
 }
 
 .button-fb {
