@@ -99,6 +99,11 @@ input[type="checkbox"]:checked {
 	margin-left:-1.5rem;
 }
 
+input:focus, textarea:focus, select:focus {
+	outline-offset: 0px !important;
+	outline: none !important;
+}
+
 
 /* HEADER */
 .logo img {
@@ -803,7 +808,7 @@ input[type="checkbox"]:checked {
 }
 
 .container-list-brand{
-	margin:0 4rem;
+	margin:0 2rem;
 }
 
 /* SALONS */
@@ -1276,11 +1281,11 @@ a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover{
 	font-style: italic;
 	font-size: 16px;
 	font-weight: 300;
-	line-height: 28px;
+	line-height: 35px;
 }
 
 #searchbar :focus {
-	border:0px;
+	border:none !important;
 }
 
 #searchbar :focus::placeholder {
