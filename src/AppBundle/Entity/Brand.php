@@ -184,6 +184,8 @@ class Brand
      */
     private $feature;
 
+
+
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
@@ -700,30 +702,7 @@ class Brand
     }
 
     /**
-     * Set primarytarget
-     *
-     * @param \AppBundle\Entity\Target $primarytarget
-     *
-     * @return Brand
-     */
-    public function setPrimarytarget(\AppBundle\Entity\Target $primarytarget = null)
-    {
-        $this->primarytarget = $primarytarget;
-
-        return $this;
-    }
-
-    /**
-     * Get primarytarget
-     *
-     * @return \AppBundle\Entity\Target
-     */
-    public function getPrimarytarget()
-    {
-        return $this->primarytarget;
-    }
-
-    /**
+<<<<<<< HEAD
      * Add feature
      *
      * @param \AppBundle\Entity\Feature $feature
@@ -756,6 +735,35 @@ class Brand
     {
         return $this->feature;
     }
+
+    /**
+     * Add primaryCategory
+     * Set primarytarget
+     *
+     * @param \AppBundle\Entity\Target $primarytarget
+     *
+     * @return Brand
+     */
+    public function setPrimarytarget(\AppBundle\Entity\Target $primarytarget = null)
+    {
+        $this->primarytarget = $primarytarget;
+
+        return $this;
+    }
+
+    /**
+     * Get primarytarget
+     *
+     * @return \AppBundle\Entity\Target
+     */
+    public function getPrimarytarget()
+    {
+        return $this->primarytarget;
+    }
+
+
+
+
 
     /**
      * Add primaryCategory

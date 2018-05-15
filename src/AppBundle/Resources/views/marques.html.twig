@@ -37,12 +37,12 @@
             </div>
         </div>
                 <div class="row tab-content" id="myTabContent">
-                <div class="col-3 column-filters p-4">
-                    <div class="container-btn text-center"><a onclick="reinit()" class="button-fh p-2">Réinitialiser</a>
+                <div class="col-3 column-filters p-4 shadow-sm">
+                    <div class="container-btn-filters text-center"><a onclick="reinit()" class="button-fb p-2">Réinitialiser</a>
                     </div>
-
-                    <div id="categorie" style=" padding-bottom: 20px;">
-                        <p> Catégories </p>
+                    <div class="container-filters">
+                    <div id="categorie">
+                        <h2>Catégories</h2>
                         {% for categorie in categories %}
                             {% set marques = categorie.getBrand.toArray() %}
                             {% if marques is not empty %}
@@ -56,8 +56,8 @@
                             {% endif %}
                         {% endfor %}
                     </div>
-                    <div id="style" style=" padding-bottom: 20px;">
-                        <p> Style </p>
+                    <div id="style">
+                        <h2>Univers</h2>
                         {% for style in styles %}
                             {% set marques = style.getBrand.toArray() %}
                             {% if marques is not empty %}
@@ -71,8 +71,8 @@
                             {% endif %}
                         {% endfor %}
                     </div>
-                    <div id="price" style=" padding-bottom: 20px;">
-                        <p> Gamme de prix </p>
+                    <div id="price">
+                        <h2>Gamme de prix</h2>
                         {% for price in prices %}
                             {% set bool = false %}
                             {% for brand in brands %}
@@ -89,8 +89,8 @@
                             {% endif %}
                         {% endfor %}
                     </div>
-                    <div id="feature" style=" padding-bottom: 20px;">
-                        <p> Particularité </p>
+                    <div id="feature">
+                        <h2>Particularité</h2>
                         {% for feature in features %}
                             {% set marques = feature.getBrand.toArray() %}
                             {% if marques is not empty %}
@@ -103,6 +103,7 @@
                                 </div>
                             {% endif %}
                         {% endfor %}
+                    </div>
                     </div>
                 </div>
                     <div class="col-9 tab-pane fade show active" id="homme" role="tabpanel" aria-labelledby="home-tab">
