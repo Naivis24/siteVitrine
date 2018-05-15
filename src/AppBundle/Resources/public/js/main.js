@@ -20,11 +20,12 @@ function filter() {
             categories.push(temp[0]);
             filtres.push(temp[1]);
         }
+        console.log(categories);
         x = document.getElementsByClassName("filter-card");
         for (i = 0; i < x.length; i++) {
             var boolean = [];
             temp = false;
-            currentCategorie = categories[0];
+            var currentCategorie = categories[0];
             for (j = 0; j < tab.length; j++) {
                 if (categories[j] != currentCategorie) {
                     currentCategorie = categories[j];
@@ -37,12 +38,10 @@ function filter() {
 
             }
             boolean.push(temp);
-            console.log(boolean);
             temp = boolean[0];
             for ( var k = 1; k<boolean.length; k++) {
                 temp = temp && boolean[k];
             }
-            console.log(temp);
             if (temp) {
                 addClass(x[i], "afficher");
             }

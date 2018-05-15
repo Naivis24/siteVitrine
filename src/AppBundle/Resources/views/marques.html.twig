@@ -31,7 +31,7 @@
             <div class="form" id="searchbar">
                 <form>
                     <input type='text' id='target' name='target'
-                    placeholder="Nom d'une marque ou type de produit" align="center" onkeyup="filterSearchBar()" onfocus="this.placeholder=''" onblur="this.placeholder='Nom d\'une marque ou type de produit'">
+                    placeholder="Nom d'une marque ou type de produit" align="center" onkeyup="filterSearchBar()" onfocus="this.placeholder=''" onblur="this.placeholder='Nom d\'une marque ou type de produit'" class="shadow-sm">
                 </form>
             </div>
         </div>
@@ -124,7 +124,7 @@
 
                                             <div class="card-marques shadow-sm">
                                                 <img class="img-fluid card-img"
-                                                     src="{{ asset('bundles/app/img/' ~ brand.getPicture() ) }}">
+                                                     src="{{ asset('bundles/app/img/' ~ brand.getPictureHomme() ) }}">
                                                 <div class="container-img-brand">
                                                     <img src="{{ asset('bundles/app/img/' ~ brand.getLogo()) }}"
                                                          class="img-fluid">
@@ -149,13 +149,11 @@
                                                         <li>GAMME DE PRIX<br>
                                                             <strong class="priceRange">{{ brand.getPriceRange().getLabel() }}</strong>
                                                         </li>
-                                                        {% if features is not empty %}
-                                                            <li>PARTICULARITÉ<br>
-                                                                <strong class="feature"> {% for feature in features %}
-                                                                        {{ feature.getLabel() }}{% if not loop.last %},{% endif %}
-                                                                    {% endfor %}</strong>
-                                                            </li>
-                                                        {% endif %}
+                                                        <li> {% if features is not empty %}PARTICULARITÉ<br>{% endif %}
+                                                                                                                       <strong class="feature"> {% for feature in features %}
+                                                                                                                               {{ feature.getLabel() }}{% if not loop.last %},{% endif %}
+                                                                                                                           {% endfor %}</strong>
+                                                                                                                   </li>
                                                     </ul>
                                                 </div>
                                                 <div class="button-slide-brands"><a
@@ -188,7 +186,7 @@
                                         <div class="col-md-3 px-2 py-2 filter-card">
                                             <div class="card-marques shadow-sm">
                                                 <img class="img-fluid card-img"
-                                                     src="{{ asset('bundles/app/img/' ~ brand.getPicture() ) }}">
+                                                     src="{{ asset('bundles/app/img/' ~ brand.getPictureFemme() ) }}">
                                                 <div class="container-img-brand">
                                                     <img src="{{ asset('bundles/app/img/' ~ brand.getLogo()) }}"
                                                          class="img-fluid">
@@ -213,13 +211,11 @@
                                                         <li>GAMME DE PRIX<br>
                                                             <strong class="priceRange">{{ brand.getPriceRange().getLabel() }}</strong>
                                                         </li>
-                                                        {% if features is not empty %}
-                                                            <li>PARTICULARITÉ<br>
-                                                                <strong class="feature"> {% for feature in features %}
-                                                                        {{ feature.getLabel() }}{% if not loop.last %},{% endif %}
-                                                                    {% endfor %}</strong>
-                                                            </li>
-                                                        {% endif %}
+                                                         <li> {% if features is not empty %}PARTICULARITÉ<br>{% endif %}
+                                                                                                                        <strong class="feature"> {% for feature in features %}
+                                                                                                                                {{ feature.getLabel() }}{% if not loop.last %},{% endif %}
+                                                                                                                            {% endfor %}</strong>
+                                                                                                                    </li>
                                                     </ul>
                                                 </div>
                                                 <div class="button-slide-brands"><a
@@ -253,7 +249,7 @@
 
                                             <div class="card-marques shadow-sm">
                                                 <img class="img-fluid card-img"
-                                                     src="{{ asset('bundles/app/img/' ~ brand.getPicture() ) }}">
+                                                     src="{{ asset('bundles/app/img/' ~ brand.getPictureEnfant() ) }}">
                                                 <div class="container-img-brand">
                                                     <img src="{{ asset('bundles/app/img/' ~ brand.getLogo()) }}"
                                                          class="img-fluid">
@@ -278,13 +274,13 @@
                                                         <li>GAMME DE PRIX<br>
                                                             <strong class="priceRange">{{ brand.getPriceRange().getLabel() }}</strong>
                                                         </li>
-                                                        {% if features is not empty %}
-                                                            <li>PARTICULARITÉ<br>
+
+                                                            <li> {% if features is not empty %}PARTICULARITÉ<br>{% endif %}
                                                                 <strong class="feature"> {% for feature in features %}
                                                                         {{ feature.getLabel() }}{% if not loop.last %},{% endif %}
                                                                     {% endfor %}</strong>
                                                             </li>
-                                                        {% endif %}
+
                                                     </ul>
                                                 </div>
                                                 <div class="button-slide-brands"><a
