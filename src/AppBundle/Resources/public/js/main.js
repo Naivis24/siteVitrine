@@ -61,7 +61,7 @@ function filterSearchBar() {
     texte = $('#target').val().toUpperCase();
 
     for (var i = x.length - 1; i >= 0; i--) {
-        if (x[i].getElementsByClassName("card-title")[0].innerHTML.toUpperCase().indexOf(texte) == -1) {
+        if (x[i].getElementsByClassName("card-title")[0].innerHTML.toUpperCase().indexOf(texte) == -1 && x[i].getElementsByClassName("categorie")[0].innerHTML.toUpperCase().indexOf(texte) == -1) {
             removeClass(x[i], "afficher");
         }
     }
