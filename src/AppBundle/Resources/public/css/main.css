@@ -851,6 +851,12 @@ input:focus, textarea:focus, select:focus {
 	margin:0 2rem;
 }
 
+.text-search-null{
+	padding-left:2rem;
+	padding-top:2rem;
+	font-weight: 700;
+}
+
 /* SALONS */
 
 .salonsbg {
