@@ -607,6 +607,35 @@ input:focus, textarea:focus, select:focus {
 	margin-top:4rem;
 }
 
+.brand-offers-detail ul{
+	list-style:none;
+	padding-left:0;
+}
+
+.container-picto-offers{
+	height: 120px;
+	width: 120px;
+	border: 3px solid #FE5F55;
+	border-radius: 50%;
+	padding:10px;
+}
+
+.container-picto-offers img{
+	height: 100%;
+	width: 100%;
+}
+
+.brand-offers-detail li{
+	text-align:left;
+	margin-top:10px;
+	font-size:17px;
+	background-image: url('../img/checked.svg');
+	background-repeat: no-repeat;
+	padding-left: 1.4em;
+	background-size: 10px;
+	background-position-y: center;
+}
+
 .brand-offers ul{
 	list-style:none;
 	padding-left:0;
@@ -632,6 +661,17 @@ input:focus, textarea:focus, select:focus {
 
 .brand-offers .picto-img {
 	width: 80px;
+}
+
+.picto-offers {
+	-webkit-transition: all .5s ease;
+	-moz-transition: all .5s ease;
+	-ms-transition: all .5s ease;
+	-o-transition: all .5s ease;
+	transition: all .5s ease;
+}
+.picto-offers:hover {
+	transform: scale(1.025);
 }
 
 /* PRICES */
@@ -835,6 +875,7 @@ input:focus, textarea:focus, select:focus {
 .slide-salons:hover {
 	transform: scale(1.025);
 }
+
 .slide-salons h6{
 	margin: 0;
 }
