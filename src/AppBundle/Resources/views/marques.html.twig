@@ -29,7 +29,7 @@
             </ul>
             <div class="container bg-searchbar">
             <div class="form" id="searchbar">
-                <form action='#'>
+                <form>
                     <input type='text' id='target' name='target'
                     placeholder="Nom d'une marque ou type de produit" align="center" onkeyup="filterSearchBar()" onfocus="this.placeholder=''" onblur="this.placeholder='Nom d\'une marque ou type de produit'">
                 </form>
@@ -106,6 +106,8 @@
                     </div>
                     </div>
                 </div>
+                    <div class="affichageVide">
+                    </div>
                     <div class="col-9 tab-pane fade show active" id="homme" role="tabpanel" aria-labelledby="home-tab">
                             <div class="row px-4">
                                 {% for brand in brands %}
@@ -169,6 +171,8 @@
                             </div>
                         </div>
                     {# FIN TAB HOMME #}
+                    <div class="affichageVide">
+                    </div>
                         <div class="col-9 tab-pane fade" id="femme" role="tabpanel" aria-labelledby="profile-tab">
                             <div class="row px-4">
                                 {% for brand in brands %}
@@ -231,6 +235,9 @@
                             </div>
                         </div>
                     {# FIN TAB FEMME #}
+                    <div class="affichageVide">
+
+                    </div>
                     <div class="col-9 tab-pane fade" id="enfant" role="tabpanel" aria-labelledby="contact-tab">
                             <div class="row px-4">
                                 {% for brand in brands %}

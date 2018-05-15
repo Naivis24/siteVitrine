@@ -66,6 +66,8 @@ function filterSearchBar() {
             removeClass(x[i], "afficher");
         }
     }
+
+    affichageVide();
 }
 
 
@@ -108,3 +110,14 @@ function reinit() {
     filterAll();
 }
 
+function affichageVide(){
+    var x;
+    x = document.getElementsByClassName("afficher");
+
+    if(x.length == 0){
+        document.getElementsByClassName("affichageVide")[0].innerHTML = "<p> Pas de marques correspondant à votre recherche </p>";
+    }
+    else{
+        document.getElementsByClassName("affichageVide")[0].innerHTML = "";
+    }
+}
