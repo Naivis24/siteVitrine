@@ -35,3 +35,4 @@ src/AppBundle/Entity/PrimaryCategory.php
 src/AppBundle/Entity/PriceRange.php
 src/AppBundle/Entity/Country.php
 src/AppBundle/Entity/Style.php
+src/AppBundle/Entity/Feature.php
