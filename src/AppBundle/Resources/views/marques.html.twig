@@ -271,13 +271,13 @@
                                                         <li>GAMME DE PRIX<br>
                                                             <strong class="priceRange">{{ brand.getPriceRange().getLabel() }}</strong>
                                                         </li>
-                                                        {% if features is not empty %}
-                                                            <li>PARTICULARITÉ<br>
+
+                                                            <li> {% if features is not empty %}PARTICULARITÉ<br>{% endif %}
                                                                 <strong class="feature"> {% for feature in features %}
                                                                         {{ feature.getLabel() }}{% if not loop.last %},{% endif %}
                                                                     {% endfor %}</strong>
                                                             </li>
-                                                        {% endif %}
+
                                                     </ul>
                                                 </div>
                                                 <div class="button-slide-brands"><a

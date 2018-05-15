@@ -15,7 +15,7 @@ class BrandController extends Controller
     public function listBrandAction(){
         $em = $this->getDoctrine()->getManager();
 
-        $brands = $em->getRepository('AppBundle:Brand')->findBy(array(), array('name' => 'ASC'));
+        $brands = $em->getRepository('AppBundle:Brand')->findBy(array('activated' => '1'), array('name' => 'ASC'));
         $targets = $em->getRepository('AppBundle:Target')->findAll();
         $categories = $em->getRepository('AppBundle:PrimaryCategory')->findAll();
         $styles = $em->getRepository('AppBundle:Style')->findAll();
