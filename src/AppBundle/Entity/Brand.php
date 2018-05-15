@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Brand
  *
- * @ORM\Table(name="brand", uniqueConstraints={@ORM\UniqueConstraint(name="pict", columns={"picture"})}, indexes={@ORM\Index(name="IDX_1C52F958F92F3E70", columns={"country_id"}), @ORM\Index(name="IDX_1C52F958E052B35C", columns={"manufacture_country_id"}), @ORM\Index(name="IDX_1C52F9584834EBA6", columns={"price_range_id"}), @ORM\Index(name="IDX_1C52F958754851E1", columns={"billing_country_id"})})
+ * @ORM\Table(name="brand", uniqueConstraints={@ORM\UniqueConstraint(name="pict", columns={"picture"})}, indexes={@ORM\Index(name="IDX_1C52F958F92F3E70", columns={"country_id"}), @ORM\Index(name="IDX_1C52F958E052B35C", columns={"manufacture_country_id"}), @ORM\Index(name="IDX_1C52F9584834EBA6", columns={"price_range_id"}), @ORM\Index(name="IDX_1C52F958754851E1", columns={"billing_country_id"}), @ORM\Index(name="primaryTarget", columns={"primaryTarget"})})
  * @ORM\Entity
  */
 class Brand
@@ -153,6 +153,33 @@ class Brand
     private $country;
 
     /**
+     * @var \Target
+     *
+     * @ORM\ManyToOne(targetEntity="Target")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="primaryTarget", referencedColumnName="id")
+     * })
+     */
+    private $primarytarget;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Feature", inversedBy="brand")
+     * @ORM\JoinTable(name="brand_feature",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="brand_id", referencedColumnName="id")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="feature_id", referencedColumnName="id")
+     *   }
+     * )
+     */
+    private $feature;
+
+
+
+    /**
      * @var \Doctrine\Common\Collections\Collection
      *
      * @ORM\ManyToMany(targetEntity="PrimaryCategory", inversedBy="brand")
@@ -166,6 +193,21 @@ class Brand
      * )
      */
     private $primaryCategory;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Target", inversedBy="brand")
+     * @ORM\JoinTable(name="brand_secondary_target",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="brand_id", referencedColumnName="id")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="target_id", referencedColumnName="id")
+     *   }
+     * )
+     */
+    private $target;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
@@ -185,21 +227,6 @@ class Brand
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToMany(targetEntity="Target", inversedBy="brand")
-     * @ORM\JoinTable(name="brand_target",
-     *   joinColumns={
-     *     @ORM\JoinColumn(name="brand_id", referencedColumnName="id")
-     *   },
-     *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="target_id", referencedColumnName="id")
-     *   }
-     * )
-     */
-    private $target;
-
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
      * @ORM\ManyToMany(targetEntity="Salon", inversedBy="brand")
      * @ORM\JoinTable(name="participe_salon",
      *   joinColumns={
@@ -212,16 +239,15 @@ class Brand
      */
     private $salon;
 
-
-
     /**
      * Constructor
      */
     public function __construct()
     {
+        $this->feature = new \Doctrine\Common\Collections\ArrayCollection();
         $this->primaryCategory = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->style = new \Doctrine\Common\Collections\ArrayCollection();
         $this->target = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->style = new \Doctrine\Common\Collections\ArrayCollection();
         $this->salon = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
@@ -515,7 +541,6 @@ class Brand
     }
 
     /**
-     * @return string
      * Get homepageIndex
      *
      * @return integer
@@ -646,6 +671,70 @@ class Brand
     }
 
     /**
+<<<<<<< HEAD
+     * Add feature
+     *
+     * @param \AppBundle\Entity\Feature $feature
+     *
+     * @return Brand
+     */
+    public function addFeature(\AppBundle\Entity\Feature $feature)
+    {
+        $this->feature[] = $feature;
+
+        return $this;
+    }
+
+    /**
+     * Remove feature
+     *
+     * @param \AppBundle\Entity\Feature $feature
+     */
+    public function removeFeature(\AppBundle\Entity\Feature $feature)
+    {
+        $this->feature->removeElement($feature);
+    }
+
+    /**
+     * Get feature
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getFeature()
+    {
+        return $this->feature;
+    }
+
+    /**
+     * Add primaryCategory
+     * Set primarytarget
+     *
+     * @param \AppBundle\Entity\Target $primarytarget
+     *
+     * @return Brand
+     */
+    public function setPrimarytarget(\AppBundle\Entity\Target $primarytarget = null)
+    {
+        $this->primarytarget = $primarytarget;
+
+        return $this;
+    }
+
+    /**
+     * Get primarytarget
+     *
+     * @return \AppBundle\Entity\Target
+     */
+    public function getPrimarytarget()
+    {
+        return $this->primarytarget;
+    }
+
+
+
+
+
+    /**
      * Add primaryCategory
      *
      * @param \AppBundle\Entity\PrimaryCategory $primaryCategory
@@ -680,40 +769,6 @@ class Brand
     }
 
     /**
-     * Add style
-     *
-     * @param \AppBundle\Entity\Style $style
-     *
-     * @return Brand
-     */
-    public function addStyle(\AppBundle\Entity\Style $style)
-    {
-        $this->style[] = $style;
-
-        return $this;
-    }
-
-    /**
-     * Remove style
-     *
-     * @param \AppBundle\Entity\Style $style
-     */
-    public function removeStyle(\AppBundle\Entity\Style $style)
-    {
-        $this->style->removeElement($style);
-    }
-
-    /**
-     * Get style
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getStyle()
-    {
-        return $this->style;
-    }
-
-    /**
      * Add target
      *
      * @param \AppBundle\Entity\Target $target
@@ -745,6 +800,40 @@ class Brand
     public function getTarget()
     {
         return $this->target;
+    }
+
+    /**
+     * Add style
+     *
+     * @param \AppBundle\Entity\Style $style
+     *
+     * @return Brand
+     */
+    public function addStyle(\AppBundle\Entity\Style $style)
+    {
+        $this->style[] = $style;
+
+        return $this;
+    }
+
+    /**
+     * Remove style
+     *
+     * @param \AppBundle\Entity\Style $style
+     */
+    public function removeStyle(\AppBundle\Entity\Style $style)
+    {
+        $this->style->removeElement($style);
+    }
+
+    /**
+     * Get style
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getStyle()
+    {
+        return $this->style;
     }
 
     /**

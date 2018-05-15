@@ -57,13 +57,14 @@
 
         <div class="container-fluid brands-competitor p-4">
 
-            <h2>Marques similaires</h2>
+            <h2>Marques complémentaires</h2>
 
                 <!-- Début de l'algorithme -->
                 <!--Initialisation des variables -->
                 {% set styleBrand = brand.getStyle.toArray() %}
-                {% set targetBrand = brand.getTarget.toArray() %}
                 {% set categoryBrand = brand.getPrimaryCategory().toArray() %}
+                {% set particularityBrand = brand.getFeature().toArray() %}
+                {% set StargetBrand = brand.getTarget().toArray() %}
                 {% set tab1 = [] %}
                 {% set tab2 = [] %}
                 {% set tab3 = [] %}
@@ -78,9 +79,29 @@
                 {% set M4 = "" %}
                 {% for currentBrand in brands %}
                     {% set styleComp = currentBrand.getStyle.toArray() %}
-                    {% set targetComp = currentBrand.getTarget.toArray() %}
                     {% set categoryComp = currentBrand.getPrimaryCategory().toArray() %}
+                    {% set particularityComp = currentBrand.getFeature().toArray() %}
+                    {% set StargetComp = currentBrand.getTarget().toArray() %}
                     {% set CurrentRes = 0 %}
+                    {% set bool = true  %}
+
+
+                    <!-- Comparaison des paricularités -->
+
+                    {% for particularityC in particularityComp %}
+                        {% for particularityB in particularityBrand %}
+                            {% if particularityB.getLabel() == particularityC.getLabel() %}
+                                {% if brand.getName() != currentBrand.getName() %}
+                                    {% set CurrentRes = CurrentRes + 6 %}
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                    {% endfor %}
+
+                    <!-- Comparaison des cibles -->
+                    {% if brand.getPrimarytarget() == currentBrand.getPrimarytarget() %}
+                        {% set CurrentRes = CurrentRes + 5 %}
+                    {% endif %}
 
                     <!-- Comparaison des styles -->
 
@@ -88,40 +109,7 @@
                         {% for styleB in styleBrand %}
                             {% if styleB.getLabel() == styleC.getLabel() %}
                                 {% if brand.getName() != currentBrand.getName() %}
-                                    {% set CurrentRes = CurrentRes + 3 %}
-                                    {% if currentBrand.getName() not in tab1 %}
-                                        {% set tab1 = tab1|merge([''~currentBrand.getName()]) %}
-                                    {% endif %}
-                                {% endif %}
-                            {% endif %}
-                        {% endfor %}
-                    {% endfor %}
-
-                    <!-- Comparaison des cibles -->
-
-                    {% for targetC in targetComp %}
-                        {% for targetB in targetBrand %}
-                            {% if targetB.getLabel() == targetC.getLabel() %}
-                                {% if brand.getName() != currentBrand.getName() %}
                                     {% set CurrentRes = CurrentRes + 4 %}
-                                    {% if currentBrand.getName() not in tab2 %}
-                                        {% set tab2 = tab2|merge([''~currentBrand.getName()]) %}
-                                    {% endif %}
-                                {% endif %}
-                            {% endif %}
-                        {% endfor %}
-                    {% endfor %}
-
-                    <!-- Comparaison des catégories -->
-
-                    {% for categoryC in categoryComp %}
-                        {% for categoryB in categoryBrand %}
-                            {% if categoryB.getLabel() == categoryC.getLabel() %}
-                                {% if brand.getName() != currentBrand.getName() %}
-                                    {% set CurrentRes = CurrentRes + 1 %}
-                                    {% if currentBrand.getName() not in tab3 %}
-                                        {% set tab3 = tab3|merge([''~currentBrand.getName()]) %}
-                                    {% endif %}
                                 {% endif %}
                             {% endif %}
                         {% endfor %}
@@ -130,13 +118,32 @@
                     <!-- Comparaison de la gamme de prix -->
 
                     {% if brand.getPriceRange == currentBrand.getPriceRange %}
-                        {% set CurrentRes = CurrentRes + 2 %}
-                        {% if currentBrand.getName() not in tab4 %}
-                            {% set tab4 = tab4|merge([''~currentBrand.getName()]) %}
-                        {% endif %}
+                        {% set CurrentRes = CurrentRes + 3 %}
                     {% endif %}
 
+                    <!-- Comparaison des catégories -->
 
+                    {% for categoryC in categoryComp %}
+                        {% for categoryB in categoryBrand %}
+                            {% if categoryB.getLabel() == categoryC.getLabel() %}
+                                {% if brand.getName() != currentBrand.getName() %}
+                                    {% set CurrentRes = CurrentRes + 2 %}
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                    {% endfor %}
+
+                    <!--Comparaison des cicles secondaires -->
+
+                    {% for StargetC in StargetComp %}
+                        {% for StargetB in StargetBrand %}
+                            {% if StargetB.getLabel() == StargetC.getLabel() %}
+                                {% if brand.getName() != currentBrand.getName() %}
+                                    {% set CurrentRes = CurrentRes + 1 %}
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                    {% endfor %}
 
                     <!-- On compte les points -->
                     {% if CurrentRes > res1 %}
@@ -170,6 +177,10 @@
                 <!-- Affichage des résultats -->
 
                 {% set tabRes = [M1, M2, M3, M4] %}
+                {{ res1 }}
+                {{ res2 }}
+                {{ res3 }}
+                {{ res4 }}
                 <!-- Fin de l'algorithme -->
                 <div class="row px-4">
 
