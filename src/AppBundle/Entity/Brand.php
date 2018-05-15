@@ -113,6 +113,13 @@ class Brand
     private $lookbook;
 
     /**
+     * @var boolean
+     *
+     * @ORM\Column(name="est_Sponso", type="boolean", nullable=false)
+     */
+    private $estSponso = '0';
+
+    /**
      * @var \PriceRange
      *
      * @ORM\ManyToOne(targetEntity="PriceRange")
@@ -570,6 +577,30 @@ class Brand
     public function getLookbook()
     {
         return $this->lookbook;
+    }
+
+    /**
+     * Set estSponso
+     *
+     * @param boolean $estSponso
+     *
+     * @return Brand
+     */
+    public function setEstSponso($estSponso)
+    {
+        $this->estSponso = $estSponso;
+
+        return $this;
+    }
+
+    /**
+     * Get estSponso
+     *
+     * @return boolean
+     */
+    public function getEstSponso()
+    {
+        return $this->estSponso;
     }
 
     /**
