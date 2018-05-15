@@ -145,6 +145,11 @@
                         {% endfor %}
                     {% endfor %}
 
+                    <!-- Test Sponso -->
+                    {% if currentBrand.getEstSponso() == 1 %}
+                        {% set CurrentRes = CurrentRes * 1.25 %}
+                    {% endif %}
+
                     <!-- On compte les points -->
                     {% if CurrentRes > res1 %}
                         {% set res4 = res3 %}

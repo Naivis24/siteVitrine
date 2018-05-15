@@ -113,6 +113,13 @@ class Brand
     private $lookbook;
 
     /**
+     * @var boolean
+     *
+     * @ORM\Column(name="est_Sponso", type="boolean", nullable=false)
+     */
+    private $estSponso = '0';
+
+    /**
      * @var \PriceRange
      *
      * @ORM\ManyToOne(targetEntity="PriceRange")

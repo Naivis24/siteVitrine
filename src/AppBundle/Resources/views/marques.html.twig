@@ -235,12 +235,8 @@
                     <div class="col-9 tab-pane fade" id="enfant" role="tabpanel" aria-labelledby="contact-tab">
                             <div class="row px-4">
                                 {% for brand in brands %}
-                                    {% set cibles = brand.getTarget.toArray() %}
-                                    {% set temp = [] %}
-                                    {% for c in cibles %} {% set temp = temp|merge([c.getLabel()]) %} {% endfor %}
-                                    {% if "Enfant" in temp %}
+                                    {% if brand.getPrimaryTarget().getLabel() == "Enfant" %}
 
-                                        {% set targets = brand.getTarget.toArray() %}
                                         {% set styles = brand.getStyle.toArray() %}
                                         {% set categories = brand.getPrimaryCategory().toArray() %}
                                         {% set features = brand.getFeature().toArray() %}
