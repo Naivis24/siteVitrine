@@ -11,7 +11,7 @@
         <div class="container">
             <h1>Vous êtes une marque de mode ?</h1>
             <h2>French Select vous aide à optimiser vos <span style="color:#FE5F55;font-weight: bold">ventes
-                wholesales</span></br>et à gagner en visibilité en tout simplicité !</h2>
+                wholesales</span><br>et à gagner en visibilité en tout simplicité !</h2>
             <div class="container mt-4 mb-4">
             <div class="row text-center">
                 <div class="col-3 p-4 picto-offers"><a href="#section-crm" title="CRM Online"><img src="{{ asset('bundles/app/img/picto-crm.svg') }}" class="picto-img"/>
@@ -39,31 +39,36 @@
             <h3>Des offres adaptées à toutes les marques</h3>
             <div class="card-deck">
                 <div class="card shadow-sm">
-                    <div class="card-body text-center card-price"> <img class="card-img-price" src="{{ asset('bundles/app/img/picto-first.svg') }}">
+                    <div class="card-body text-center card-price">
+                        <h4>L'indispensable pour démarrer</h4>
+                        <img class="card-img-price" src="{{ asset('bundles/app/img/picto-first.svg') }}">
                         <h2 class="card-title offer-first">Easy Start</h2>
-                        <p class="card-text font-weight-bold">Indispensable pour démarrer</p>
                         <p class="card-text">Grâce à l'outil CRM en ligne, gérez facilement les commandes de vos clients professionnels.</p>
                     </div>
                     <div class="card-footer text-center"><a href="{{ path('tarifs_marques') }}" class="button-fh p-2">Détails et tarifs</a></div>
                 </div>
                 <div class="card shadow-sm">
-                    <div class="card-body text-center card-price"> <img class="card-img-price" src="{{ asset('bundles/app/img/picto-second.svg') }}">
+                    <div class="card-body text-center card-price">
+                        <h4>L'idéal pour se développer</h4>
+                        <img class="card-img-price" src="{{ asset('bundles/app/img/picto-second.svg') }}">
                         <h2 class="card-title offer-second">Essentiel</h2>
-                        <p class="card-text font-weight-bold">Idéal pour se développer</p>
                         <p class="card-text">En plus du CRM, profitez du Marketplace B2B pour augmenter votre visibilité.</p>
                     </div>
                     <div class="card-footer text-center"><a href="{{ path('tarifs_marques') }}" class="button-fh p-2">Détails et tarifs</a></div>
                 </div>
                 <div class="card shadow-sm">
-                    <div class="card-body text-center card-price"> <img class="card-img-price" src="{{ asset('bundles/app/img/picto-third.svg') }}">
+                    <div class="card-body text-center card-price">
+                        <h4>L'offre parfaite pour décoller</h4>
+                        <img class="card-img-price" src="{{ asset('bundles/app/img/picto-third.svg') }}">
                         <h2 class="card-title offer-third">Business</h2>
-                        <p class="card-text font-weight-bold">Parfait pour décoller</p>
                         <p class="card-text">Utilisez l’ensemble des services de French Select pour développer votre activité.</p>
                     </div>
                     <div class="card-footer text-center"><a href="{{ path('tarifs_marques') }}" class="button-fh p-2">Détails et tarifs</a></div>
                 </div>
                 <div class="card shadow-sm">
-                    <div class="card-body text-center card-price"> <img class="card-img-price" src="{{ asset('bundles/app/img/picto-four.svg') }}">
+                    <div class="card-body text-center card-price">
+                        <h4>Le sur-mesure</h4>
+                        <img class="card-img-price" src="{{ asset('bundles/app/img/picto-four.svg') }}">
                         <h2 class="card-title offer-four">Premium</h2>
                         <p class="card-text">Bénéficez d'une <b>offre sur mesure</b> adaptée à vos besoins d'aujourd'hui et de demain.</p>
                     </div>
@@ -78,16 +83,17 @@
             <div class="col-lg-6">
                 <div class="text-center pt-4">
                 <img src="{{ asset('bundles/app/img/picto-crm.svg') }}" class="picto-img"/>
-        <h3>Votre gestion des commandes Wholesales simplifiée</h3>
+        <h3>Votre gestion des commandes de wholesale simplifiée</h3>
                 </div>
                 <ul>
                     <li>Un CRM adapté aux <b>marques de modes</b>, de <b>déco</b> et de <b>cosmétique</b></li>
                     <li>Un <b>outil de gestion commerciale</b> complet, simple et intuitif</li>
                     <li>Un gain de temps dans l'<b>enregistrement de vos commandes</b></li>
                     <li>Un suivi des <b>ventes B2B</b> en temps réel</li>
-                    <li>Une <b>assistance French Select</b> rapide et un support technique</li>
+                    <li>Des relances automatiques des <b>boutiques</b> pour les retards de paiements</li>
+                    <li>Une <b>assistance French Select</b> rapide et un <b>support technique</b></li>
                 </ul>
-        <p class="text-center">Pour plus d’infos (lien vers le B2B)</p>
+        <p class="text-center mt-5"><a href="{{ path('contact') }}" class="button-fbd">En savoir plus</a></p>
             </div>
             <div class="col-lg-6 align-self-center text-center">
                 Image d'illustration
@@ -102,10 +108,16 @@
             <div class="col-lg-6">
                 <div class="text-center pt-4">
                     <img src="{{ asset('bundles/app/img/picto-marketplace.svg') }}" class="picto-img"/>
-                </div>
         <h3>Un Marketplace B2B pour élargir votre clientèle !</h3>
-        <p>Le Marketplace by Fralign-items-centerench Select vous fera bénéficier de la communication du site auprès de nombreuses boutiques membres du site. De plus, Les nombreuses marques de modes et de déco complémentaires à votre marque faciliteront la prise de commande de vos produits.</p>
-        <p>Pour plus d’infos (lien vers le Marketplace)</p>
+                </div>
+                <ul>
+                    <li>Une <b>plateforme en ligne disponible 24/7</b> pour les boutiques</li>
+                    <li>Une mise en avant de votre <b>marque</b> pour les <b>boutiques</b> adaptées à votre image</li>
+                    <li>Une interface claire de <b>prise de commande</b> pour vos <b>revendeurs</b> et vos <b>commerciaux</b></li>
+                    <li>Un accompagnement des <b>boutiques</b> dans la sélection de vos <b>produits</b></li>
+                    <li>Un historique complet des <b>commandes</b>, <b>factures</b> et <b>bons de livraison</b> pour vos <b>clients</b></li>
+                </ul>
+                    <p class="text-center mt-5"><a href="{{ path('contact') }}" class="button-fbd">En savoir plus</a></p>
             </div>
         </div>
         </div>
@@ -115,10 +127,16 @@
                 <div class="text-center pt-4">
                     <img src="{{ asset('bundles/app/img/picto-salesagent.svg') }}" class="picto-img"/>
         <h3>Des agents commerciaux sur le terrain</h3>
+                <p>Vous n'avez pas de <b>commerciaux</b> ?<br>Externalisez votre <b>force de vente</b> avec <b>French Select</b></p>
                 </div>
-        <p>La relation commerciale ne peut pas être complète si elle n’est que digitale. Le service du Showroom by FRENCH SELECT est d’identifier des agents commerciaux expérimentés et sélectionnés suivant des critères de sensibilité aux marques et d’efficacité.</p>
-        <p>Influents et présents dans tous les domaines de la mode (le prêt-à-porter, les chaussures, la maroquinerie, les bijoux, les accessoires...) de la décoration (luminaires, tableaux, petit meubles…) ils présentent les collections en showroom, prospectent de nouveaux magasins, assurent une présence aux salons de mode et fidélisent l’ensemble du réseau de distribution français.</p>
-        <p>Pour plus d’infos (lien vers l’agence)</p>
+                <ul>
+                    <li>Recherche et constitution d'une <b>équipe commerciale</b> adaptée</li>
+                    <li>Accompagnement et management de la <b>force de vente</b></li>
+                    <li>Présentation de vos <b>produits</b> aux <b>boutiques de mode</b></li>
+                    <li>Prospection de nouveaux <b>clients</b> sur toute la France</li>
+                    <li>Suivi continu de vos ventes à vos <b>revendeurs professionnels</b></li>
+                </ul>
+                <p class="text-center mt-5"><a href="{{ path('contact') }}" class="button-fbd">En savoir plus</a></p>
             </div>
             <div class="col-lg-6 align-self-center text-center">
                 Image d'illustration
@@ -135,24 +153,34 @@
                     <img src="{{ asset('bundles/app/img/picto-showroom.svg') }}" class="picto-img"/>
             <h3>Des salons régionaux au plus proche des boutiques</h3>
                 </div>
-        <p>Compliquez de vous développer en région ? French Select développe une nouvelle offre de salons régionaux thématiques (). Ces salons se dérouleront dans des lieux orignaux et dans un modèle éphémère afin de mettre votre marque en valeur auprès d’autres produits complémentaires.</p>
-        <p>Pour plus d’infos (lien vers les salons)</p>
+                <ul>
+                    <li>Des <b>salons professionnels de mode</b> dans les grandes villes de France</li>
+                    <li>Une <b>proxitimé</b> nécessaire pour faire découvrir vos <b>produits</b></li>
+                    <li>Des salons thématiques pour cibler votre <b>clientèle</b></li>
+                    <li>Un accompagnement personnalisé dans la <b>prise des commandes</b> des <b>boutiques</b></li>
+                </ul>
+                <p class="text-center mt-5"><a href="{{ path('contact') }}" class="button-fbd">En savoir plus</a></p>
             </div>
         </div>
         </div>
     </div>
     </div>
     <div class="container-fluid home1">
-    <div class="container">
-        <h4>Pourquoi confier vos ventes B2B à French Select ?</h4>
-        <ul><li>1 - Une équipe familière du monde de la mode et de la déco</li>
-            <li>2 – Des services répondant à chaque moment de la vie de votre marque</li>
-            <li>3 - Des offres claires et à la carte</li>
-            <li>4 – Une gestion intuitive de vos relations commerciales</li>
-            <li>5 – Une offre pour votre développement commercial complète</li>
-            <li>6 – Un service à l’écoute de vos besoins</li>
-        </ul>
-    </div>
+        <div class="container">
+                        <h4>Pourquoi confier vos ventes B2B à French Select ?</h4>
+                            <h3><span style="font-size:40px;padding-right:20px">01</span> Des services pensés pour les marques mode</h3>
+            <p>Grâce à une <b>experience du terrain</b>, l'équipe <b>French Select</b> a su développé des services parfaitement adaptés au <b>milieu de la mode</b>. Les <b>outils intuitifs</b> et <b>faciles d'utilisation</b> répondent à toutes les problèmatiques du secteur.</p>
+                            <h3><span style="font-size:40px;padding-right:20px">02</span> Développement du nombre de points de vente</h3>
+                            <p>blabla</p>
+                            <h3><span style="font-size:40px;padding-right:20px">03</span> Un outil 100% français</h3>
+            <p>L'ensemble des outils et des services fournis par <b>French Select</b> sont en <b>français</b> et réalisés par une <b>équipe sur toute la France</b>.</p>
+                            <h3><span style="font-size:40px;padding-right:20px">04</span> Une proximité avec les boutiques</h3>
+                            <p>blabla</p>
+                            <h3><span style="font-size:40px;padding-right:20px">05</span> Offre accessible / claire / à la carte / à destination de tous</h3>
+                            <p>blabla</p>
+                            <h3><span style="font-size:40px;padding-right:20px">06</span> Améliorer la communication auprès des revendeurs</h3>
+                            <p>blabla</p>
+        </div>
     </div>
 
 
