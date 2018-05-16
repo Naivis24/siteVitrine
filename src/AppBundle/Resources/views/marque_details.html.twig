@@ -196,8 +196,14 @@
                     <div class="col-md-3 px-2 py-2">
 
                         <div class="card-marques shadow-sm">
-
-                            <img class="img-fluid card-img" src="{{ asset('bundles/app/img/' ~ competitor.getPictureHomme   () ) }}">
+                            {% set var = competitor.getPrimarytarget().getLabel() %}
+                            {% if var == "Homme" %}
+                                <img class="img-fluid card-img" src="{{ asset('bundles/app/img/' ~ competitor.getPictureHomme() ) }}">
+                            {% elseif var == "Femme" %}
+                                <img class="img-fluid card-img" src="{{ asset('bundles/app/img/' ~ competitor.getPictureFemme() ) }}">
+                            {% else %}
+                                <img class="img-fluid card-img" src="{{ asset('bundles/app/img/' ~ competitor.getPictureEnfant() ) }}">
+                            {% endif %}
                             <div class="container-img-brand">
                                 <img src="{{ asset('bundles/app/img/' ~ competitor.getLogo()) }}" class="img-fluid">
                             </div>
