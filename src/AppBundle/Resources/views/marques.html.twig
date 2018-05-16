@@ -7,9 +7,10 @@
     {% block body %}
         <script>
             $(document).ready(function () {
-                filterAll();
+                onStart();
             });
-        </script>
+
+         </script>
         <div class="container-fluid marquesbg padding-start" id="section-start">
         <h1>Découvrez les marques de </br>
             <span style="color:#FE5F55;">French Select</span></h1>
@@ -29,9 +30,9 @@
             </ul>
             <div class="container bg-searchbar">
             <div class="form" id="searchbar">
-                <form>
+                <form  autocomplete="off">
                     <input type='text' id='target' name='target'
-                    placeholder="Nom d'une marque ou type de produit" align="center" onkeyup="filterSearchBar()" onfocus="this.placeholder=''" onblur="this.placeholder='Nom d\'une marque ou type de produit'" class="shadow-sm">
+                    placeholder="Nom d'une marque ou type de produit" align="center" onkeyup="filterSearchBar(this.value)" onfocus="this.placeholder=''" onblur="this.placeholder='Nom d\'une marque ou type de produit'" class="shadow-sm">
                 </form>
             </div>
         </div>

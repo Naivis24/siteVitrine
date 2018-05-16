@@ -1,3 +1,32 @@
+function onStart() {
+    filterAll();
+    initSuggestion();
+    var x = document.getElementById("homme-tab");
+    x.addEventListener("mouseup", initSuggestion );
+    x = document.getElementById("femme-tab");
+    x.addEventListener("mouseup", initSuggestion );
+    x = document.getElementById("enfant-tab");
+    x.addEventListener("mouseup", initSuggestion );
+
+
+}
+
+function initSuggestion() {
+    console.log("debut initSuggestion");
+    console.log(document.getElementsByClassName("col-9 tab-pane fade show active")[0]);
+    var x = document.getElementsByClassName("col-9 tab-pane fade show active")[0].getElementsByClassName("row")[0].getElementsByClassName("afficher");
+    var brandsArray = [];
+    for (var i = 0; i < x.length; i++) {
+        var temp = x[i].getElementsByClassName("card-title")[0].innerHTML;
+        temp = temp.substring(1);
+        temp = temp.substring(0, temp.length - 1);
+        brandsArray.push(temp);
+    }
+    console.log(brandsArray);
+    autocomplete(document.getElementById("target"), brandsArray);
+    console.log("fin initSuggestion");
+}
+
 function filter() {
     var cb = $("input:checkbox");
     var tab = [];
@@ -20,7 +49,6 @@ function filter() {
             categories.push(temp[0]);
             filtres.push(temp[1]);
         }
-        console.log(categories);
         x = document.getElementsByClassName("filter-card");
         for (i = 0; i < x.length; i++) {
             var boolean = [];
@@ -39,7 +67,7 @@ function filter() {
             }
             boolean.push(temp);
             temp = boolean[0];
-            for ( var k = 1; k<boolean.length; k++) {
+            for (var k = 1; k < boolean.length; k++) {
                 temp = temp && boolean[k];
             }
             if (temp) {
@@ -53,12 +81,12 @@ function filter() {
     }
 }
 
-function filterSearchBar() {
+function filterSearchBar(str) {
 
     filter();
     var x, texte;
     x = document.getElementsByClassName("afficher");
-    texte = $('#target').val().toUpperCase();
+    texte = str.toUpperCase();
 
     for (var i = x.length - 1; i >= 0; i--) {
         if (x[i].getElementsByClassName("card-title")[0].innerHTML.toUpperCase().indexOf(texte) == -1 && x[i].getElementsByClassName("categorie")[0].innerHTML.toUpperCase().indexOf(texte) == -1) {
@@ -71,18 +99,18 @@ function filterSearchBar() {
 
 
 function filterAll() {
-    var x;
+    var x, y;
     x = document.getElementsByClassName("filter-card");
-
-    for (i = 0; i < x.length; i++) {
+    for (var i = 0; i < x.length; i++) {
         addClass(x[i], "afficher");
     }
+
 }
 
 function filterReset() {
     var x;
     x = document.getElementsByClassName("filter-card");
-    for (i = 0; i < x.length; i++) {
+    for (var i = 0; i < x.length; i++) {
         removeClass(x[i], "afficher");
     }
 }
@@ -109,14 +137,130 @@ function reinit() {
     filterAll();
 }
 
-function affichageVide(){
+function affichageVide() {
     var x;
     x = document.getElementsByClassName("afficher");
 
-    if(x.length == 0){
+    if (x.length == 0) {
         document.getElementsByClassName("affichageVide")[0].innerHTML = "<p> Pas de marques correspondant à votre recherche </p>";
     }
-    else{
+    else {
         document.getElementsByClassName("affichageVide")[0].innerHTML = "";
     }
+}
+
+function autocomplete(inp, arr) {
+
+    inp.removeEventListener("input", eventInput);
+    inp.removeEventListener("keydown", eventKeydown);
+    document.removeEventListener("click", eventCloseLists);
+
+    var currentFocus;
+    inp.addEventListener("input", eventInput);
+    inp.addEventListener("keydown", eventKeydown);
+
+    document.addEventListener("click", eventCloseLists);
+
+    function eventCloseLists(e){
+        closeAllLists(e.target);
+    }
+
+    function eventInput(e) {
+
+        var a, b, i, val = this.value;
+        /*close any already open lists of autocompleted values*/
+        closeAllLists();
+        if (!val) {
+            return false;
+        }
+        currentFocus = -1;
+        /*create a DIV element that will contain the items (values):*/
+        a = document.createElement("DIV");
+        a.setAttribute("id", this.id + "autocomplete-list");
+        a.setAttribute("class", "autocomplete-items");
+        /*append the DIV element as a child of the autocomplete container:*/
+        this.parentNode.appendChild(a);
+        /*for each item in the array...*/
+        for (i = 0; i < arr.length; i++) {
+            /*check if the item starts with the same letters as the text field value:*/
+            if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+                /*create a DIV element for each matching element:*/
+                b = document.createElement("DIV");
+                /*make the matching letters bold:*/
+                b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+                b.innerHTML += arr[i].substr(val.length);
+                /*insert a input field that will hold the current array item's value:*/
+                b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+                /*execute a function when someone clicks on the item value (DIV element):*/
+                b.addEventListener("click", function (e) {
+                    /*insert the value for the autocomplete text field:*/
+                    inp.value = this.getElementsByTagName("input")[0].value;
+                    filterSearchBar(inp.value);
+                    /*close the list of autocompleted values,
+                    (or any other open lists of autocompleted values:*/
+                    closeAllLists();
+                });
+                a.appendChild(b);
+            }
+        }
+
+    }
+
+    function eventKeydown(e) {
+
+        var x = document.getElementById(this.id + "autocomplete-list");
+        if (x) x = x.getElementsByTagName("div");
+        if (e.keyCode == 40) {
+            /*If the arrow DOWN key is pressed,
+            increase the currentFocus variable:*/
+            currentFocus++;
+            /*and and make the current item more visible:*/
+            addActive(x);
+        } else if (e.keyCode == 38) { //up
+            /*If the arrow UP key is pressed,
+            decrease the currentFocus variable:*/
+            currentFocus--;
+            /*and and make the current item more visible:*/
+            addActive(x);
+        } else if (e.keyCode == 13) {
+            /*If the ENTER key is pressed, prevent the form from being submitted,*/
+            e.preventDefault();
+            if (currentFocus > -1) {
+                /*and simulate a click on the "active" item:*/
+                if (x) x[currentFocus].click();
+            }
+        }
+    }
+
+    function addActive(x) {
+        /*a function to classify an item as "active":*/
+        if (!x) return false;
+        /*start by removing the "active" class on all items:*/
+        removeActive(x);
+        if (currentFocus >= x.length) currentFocus = 0;
+        if (currentFocus < 0) currentFocus = (x.length - 1);
+        /*add class "autocomplete-active":*/
+        x[currentFocus].classList.add("autocomplete-active");
+    }
+
+    function removeActive(x) {
+        /*a function to remove the "active" class from all autocomplete items:*/
+        for (var i = 0; i < x.length; i++) {
+            x[i].classList.remove("autocomplete-active");
+        }
+    }
+
+    function closeAllLists(elmnt) {
+        /*close all autocomplete lists in the document,
+        except the one passed as an argument:*/
+        var x = document.getElementsByClassName("autocomplete-items");
+        for (var i = 0; i < x.length; i++) {
+            if (elmnt != x[i] && elmnt != inp) {
+                x[i].parentNode.removeChild(x[i]);
+            }
+        }
+    }
+
+
+
 }
