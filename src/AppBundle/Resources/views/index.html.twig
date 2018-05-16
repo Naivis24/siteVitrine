@@ -7,21 +7,26 @@
 {% block body %}
 
     <div class="container-fluid bg1" id="section-start">
-        <div class="container">
+        <div class="container slide-home">
             <div class="row">
                 <div class="col-lg-6">
                     <h1>Le showroom des professionnels<br/>
                         <span style="color:#FE5F55;">100% tendance</span></h1>
-                    <p style="font-size:20px">Découvrez de nouvelles <strong>marques</strong> pour votre <strong>boutique</strong>
-                        et centralisez l'ensemble de vos achats avec le <strong>showroom French Select</strong>.</p>
-                    <p style="font-size:20px">Exclusivement réservé aux <strong>professionnels</strong>. Le <strong>showroom
-                            digital</strong> sera bientôt <span
-                                style="color:#FE5F55;"><strong>disponible</strong></span>!</p>
+                    <ul>
+                        <li>Découvrez de nouvelles <b>marques de mode</b> pour votre <b>boutique</b></li>
+                        <li>Centralisez les <b>achats de vos produits</b> grâce à <b>French Select</b></li>
+                        <li>Exclusivement réservé aux <b>professionnels</b></li>
+                    </ul>
                     <div class="container-btn"><a href="{{ path('contact') }}" class="button-fh p-2">Contactez-nous</a>
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <div class="row text-center align-items-end mt-4 p-4">
+                    <div class="row text-center align-items-end mt-5 pt-4">
+                        <div class="col title-home-picto">
+                            <h5>Pour votre boutique<br>ou votre site de vente en ligne !</h5>
+                        </div>
+                    </div>
+                    <div class="row text-center align-items-end pl-4 pr-4">
                         <div class="col-lg-4 p-4"><img src="{{ asset('bundles/app/img/picto-mode.svg') }}"
                                                        class="picto-img"/>
                             <div class="picto-text">Mode</div>
@@ -35,17 +40,12 @@
                             <div class="picto-text">Cosmétique</div>
                         </div>
                     </div>
-                    <div class="row text-center align-items-end p-4">
-                        <div class="col title-home-picto">
-                            <h5>Pour votre boutique !</h5>
-                        </div>
-                    </div>
                 </div>
             </div>
-            <div class="container-next"><a href="#section-services" title="Suivant"><img src=" {{ asset('bundles/app/img/angle-down.svg')}}" /></a></div>
+            <div class="container-next pt-5"><a href="#section-services" title="Suivant"><img src=" {{ asset('bundles/app/img/angle-down.svg')}}" /></a></div>
         </div>
     </div>
-    <div class="container-fluid home2" id="section-services">
+    <div class="container-fluid home1" id="section-services">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
@@ -62,13 +62,15 @@
                     <p>Retrouvez ces <strong>marques</strong> chez vous grâce à notre <strong>marketplace</strong> mais
                         aussi à nos <strong>commerciaux</strong> et dans nos <strong>showrooms régionaux</strong>.</p>
                 </div>
-                <div class="col-lg-6 p-4 text-center"><img
-                            src="{{ asset('bundles/app/img/list-brands.png') }}" alt="brands" class="img-fluid"/></div>
+                <div class="col-lg-6 p-4 text-center">
+                    Image d'illustration
+                </div>
             </div>
             <div class="mt-4 mb-4"></div>
             <div class="row">
-                <div class="col-lg-6 p-4 text-center"><img src="{{ asset('bundles/app/img/list-brands.png') }}"
-                                                           alt="brands" class="img-fluid"/></div>
+                <div class="col-lg-6 p-4 text-center">
+                    Image d'illustration
+                </div>
                 <div class="col-lg-6">
                     <h2>Simplifiez-vous la vie, commandez facilement et à tout moment</h2>
                     <h3>Centralisation des commandes</h3>
@@ -82,7 +84,7 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid home3">
+    <div class="container-fluid home2">
         <div class="container">
             <h4>Un site d'achat professionnel</br>
                 <span style="color:#FE5F55;">pensé pour vous</span></h4>
@@ -130,7 +132,7 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid home2 container-slide-brands">
+    <div class="container-fluid home1 container-slide-brands">
         <div class="container">
             <h4>Quelques marques <span style="color:#FE5F55;">partenaires</span></h4>
 
@@ -146,7 +148,15 @@
                         {% set idx = idx + 1 %}
                         <div class="col-lg-4">
                             <div class="card-marques shadow-sm">
-                                    <img class="img-fluid card-img" src="{{ asset('bundles/app/img/' ~ brand.getPicture() ) }}">
+                                    {% set var = brand.getPrimarytarget().getLabel() %}
+                                    {% if var == "Homme" %}
+                                        <img class="img-fluid card-img" src="{{ asset('bundles/app/img/' ~ brand.getPictureHomme() ) }}">
+                                    {% elseif var == "Femme" %}
+                                        <img class="img-fluid card-img" src="{{ asset('bundles/app/img/' ~ brand.getPictureFemme() ) }}">
+                                    {% else %}
+                                        <img class="img-fluid card-img" src="{{ asset('bundles/app/img/' ~ brand.getPictureEnfant() ) }}">
+                                    {% endif %}
+
                                 <div class="container-img-brand">
                                     <img src="{{ asset('bundles/app/img/' ~ brand.getLogo()) }}" class="img-fluid">
                                 </div>
@@ -194,8 +204,39 @@
             <div class="container-btn text-center"><a href="{{ path('marques') }}" class="button-fh p-2">Découvrez toutes nos marques</a></div>
         </div>
     </div>
+    <div class="container-fluid home2">
+        <div class="container">
+            <div class="row mx-2 my-2 py-4 px-1">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-10">
+                    <div class="row home-box mx-2 my-2 py-4 px-4">
+                        <div class="container-wt">
+                            <h4>Comment ça marche ?</h4>
+                        </div>
+                        <div class="col-lg-1"> </div>
+                        <div class="col-lg-10 container-wtx">
+                            <h3><span style="font-size:40px;padding-right:20px">01</span> Inscrivez-vous</h3>
+                            <p>Gratuitement et en 80 secondes !</p>
+                            <h3><span style="font-size:40px;padding-right:20px">02</span> Explorez notre marketplace</h3>
+                            <p>Toute l’année, de marques en marques et découvrez celles que vous recherchiez à l’aide d’outils de recherche et de filtres avancés.</p>
+                            <h3><span style="font-size:40px;padding-right:20px">03</span> Commandez</h3>
+                            <p>En 3 clics, des articles des collections actuelles et à venir. En cas de besoin, des conseils de sélection de produits et une assistance vous sera proposée.</p>
+                            <h3><span style="font-size:40px;padding-right:20px">04</span> Gérez votre back office</h3>
+                            <p>En temps réel grâce à des tableaux de bord complet, accédez et imprimez l’ensemble des documents dont vous avez besoin : commandes, factures, bons de livraison.</p>
+                            <h3><span style="font-size:40px;padding-right:20px">05</span> Faites-vous assister</h3>
+                            <p>Par l'accompagnement personnalisé de nos équipes.</p>
+                            <h3><span style="font-size:40px;padding-right:20px">06</span> Faites vos achats lors de nos showrooms régionaux</h3>
+                            <p>Où vous retrouverez une sélection de marques présentes sur notre marketplace.</p>
+                        </div>
+                        <div class="col-lg-1"></div>
+                    </div>
+                </div>
+                <div class="col-lg-1"></div>
+            </div>
+        </div>
+    </div>
 
-    <div class="container-fluid home3">
+    <div class="container-fluid home1">
         <div class="container">
             <h4>Les prochains showrooms</br>
                 <span style="color:#FE5F55;">French Select</span></h4>
@@ -229,37 +270,6 @@
             </div>
 
             <div class="container-btn text-center"><a href="{{ path('salons_boutiques') }}" class="button-fh p-2">Voir plus de salons</a></div>
-        </div>
-    </div>
-    <div class="container-fluid home2">
-        <div class="container">
-            <div class="row mx-2 my-2 py-4 px-1">
-                <div class="col-lg-1"></div>
-                <div class="col-lg-10">
-                    <div class="row home-box mx-2 my-2 py-4 px-4">
-                        <div class="container-wt">
-                            <h4>Comment ça marche ?</h4>
-                        </div>
-                        <div class="col-lg-1"> </div>
-                        <div class="col-lg-10 container-wtx">
-                            <h3><span style="font-size:40px;padding-right:20px">01</span> Inscrivez-vous</h3>
-                            <p>Gratuitement et en 80 secondes !</p>
-                            <h3><span style="font-size:40px;padding-right:20px">02</span> Explorez notre marketplace</h3>
-                            <p>Toute l’année, de marques en marques et découvrez celles que vous recherchiez à l’aide d’outils de recherche et de filtres avancés.</p>
-                            <h3><span style="font-size:40px;padding-right:20px">03</span> Commandez</h3>
-                            <p>En 3 clics, des articles des collections actuelles et à venir. En cas de besoin, des conseils de sélection de produits et une assistance vous sera proposée.</p>
-                            <h3><span style="font-size:40px;padding-right:20px">04</span> Gérez votre back office</h3>
-                            <p>En temps réel grâce à des tableaux de bord complet, accédez et imprimez l’ensemble des documents dont vous avez besoin : commandes, factures, bons de livraison.</p>
-                            <h3><span style="font-size:40px;padding-right:20px">05</span> Faites-vous assister</h3>
-                            <p>Par l'accompagnement personnalisé de nos équipes.</p>
-                            <h3><span style="font-size:40px;padding-right:20px">06</span> Faites vos achats lors de nos showrooms régionaux</h3>
-                            <p>Où vous retrouverez une sélection de marques présentes sur notre marketplace.</p>
-                        </div>
-                        <div class="col-lg-1"></div>
-                    </div>
-                </div>
-                <div class="col-lg-1"></div>
-            </div>
         </div>
     </div>
 

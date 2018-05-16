@@ -141,8 +141,9 @@ function affichageVide() {
     var x;
     x = document.getElementsByClassName("afficher");
 
-    if (x.length == 0) {
-        document.getElementsByClassName("affichageVide")[0].innerHTML = "<p> Pas de marques correspondant à votre recherche </p>";
+
+    if(x.length == 0){
+        document.getElementsByClassName("affichageVide")[0].innerHTML = "<p class='text-search-null'>Nous sommes désolés, votre recherche n'a donné aucun résultat.</p>";
     }
     else {
         document.getElementsByClassName("affichageVide")[0].innerHTML = "";

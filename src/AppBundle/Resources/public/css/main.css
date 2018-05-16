@@ -387,7 +387,7 @@ input:focus, textarea:focus, select:focus {
 	background-image: url("../img/background_1.jpg");
 	background-size: cover;
 	padding-top: 8rem;
-	padding-bottom: 4rem;
+	padding-bottom: 6rem;
 }
 .bg2 {
 	background-image: url("../img/background_2.jpg");
@@ -405,14 +405,6 @@ input:focus, textarea:focus, select:focus {
 }
 .home2 {
 	background-color: #fff;
-	padding-top: 3rem;
-	padding-bottom: 3rem;
-}
-.home3 {
-	background: -webkit-gradient(linear, left top, right top, from(#f4efeb), to(#fbf8f6));
-	background: -webkit-linear-gradient(left, #f4efeb 0%, #fbf8f6 100%);
-	background: -o-linear-gradient(left, #f4efeb 0%, #fbf8f6 100%);
-	background: linear-gradient(to right, #f4efeb 0%, #fbf8f6 100%);
 	padding-top: 3rem;
 	padding-bottom: 3rem;
 }
@@ -488,6 +480,23 @@ input:focus, textarea:focus, select:focus {
 .container-next img{
 	height:30px;
 }
+
+.slide-home ul{
+	list-style:none;
+	padding-left:0;
+}
+
+.slide-home li{
+	text-align:left;
+	margin-top:10px;
+	font-size:18px;
+	background-image: url('../img/checked.svg');
+	background-repeat: no-repeat;
+	padding-left: 1.8em;
+	background-size: 17px;
+	background-position: 0 6px;
+}
+
 .picto-text {
 	color: #FE5F55;
 	font-family: "Old Standard TT";
@@ -499,7 +508,7 @@ input:focus, textarea:focus, select:focus {
 }
 .title-home-picto h5 {
 	margin-left: 0;
-	font-size: 35px;
+	font-size: 30px;
 }
 .big-icon {
 	color: #FE5F55;
@@ -568,11 +577,18 @@ input:focus, textarea:focus, select:focus {
 }
 
 #section-offers h3{
-	font-family: "Old Standard TT";
+	font-family: 'Old Standard TT';
 	font-size: 35px;
 	text-align: center;
 	color: #333745;
 	margin-bottom: 3rem;
+}
+
+#section-offers h4{
+	font-size:18px;
+	margin:0.5rem;
+	line-height: normal;
+	font-weight: 700;
 }
 
 #section-offers .card{
@@ -595,16 +611,42 @@ input:focus, textarea:focus, select:focus {
 	text-align: center;
 }
 
-.brand-offers-detail{
-	background-color:#fff ;
-}
 .brand-offers-detail h3{
 	margin-top:10px;
 	margin-bottom: 30px;
 }
 
 .brand-offers-detail .row{
-	margin-top:4rem;
+	margin-top:3rem;
+}
+
+.brand-offers-detail ul{
+	list-style:none;
+	padding-left:0;
+}
+
+.container-picto-offers{
+	height: 120px;
+	width: 120px;
+	border: 3px solid #FE5F55;
+	border-radius: 50%;
+	padding:10px;
+}
+
+.container-picto-offers img{
+	height: 100%;
+	width: 100%;
+}
+
+.brand-offers-detail li{
+	text-align:left;
+	margin-top:10px;
+	font-size:17px;
+	background-image: url('../img/checked.svg');
+	background-repeat: no-repeat;
+	padding-left: 1.4em;
+	background-size: 10px;
+	background-position: 0 10px;
 }
 
 .brand-offers ul{
@@ -634,6 +676,41 @@ input:focus, textarea:focus, select:focus {
 	width: 80px;
 }
 
+.picto-offers {
+	-webkit-transition: all .5s ease;
+	-moz-transition: all .5s ease;
+	-ms-transition: all .5s ease;
+	-o-transition: all .5s ease;
+	transition: all .5s ease;
+}
+.picto-offers:hover {
+	transform: scale(1.025);
+}
+
+.button-fbd {
+	border: 2px solid #333745;
+	border-radius: 5px;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-family: 'Lato';
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	vertical-align: top;
+	padding: 10px 45px;
+	font-size: 16px;
+	cursor: pointer;
+	background: none;
+	-webkit-transition: all .5s ease;
+	-moz-transition: all .5s ease;
+	-ms-transition: all .5s ease;
+	-o-transition: all .5s ease;
+	transition: all .5s ease;
+}
+.button-fbd:hover {
+	background-color: #333745;
+	color: #FFF;
+}
 /* PRICES */
 .pricebg {
 	background: -webkit-gradient(linear, left top, right top, from(#f4efeb), to(#fbf8f6));
@@ -811,6 +888,12 @@ input:focus, textarea:focus, select:focus {
 	margin:0 2rem;
 }
 
+.text-search-null{
+	padding-left:2rem;
+	padding-top:2rem;
+	font-weight: 700;
+}
+
 /* SALONS */
 
 .salonsbg {
@@ -835,6 +918,7 @@ input:focus, textarea:focus, select:focus {
 .slide-salons:hover {
 	transform: scale(1.025);
 }
+
 .slide-salons h6{
 	margin: 0;
 }
