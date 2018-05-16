@@ -568,11 +568,18 @@ input:focus, textarea:focus, select:focus {
 }
 
 #section-offers h3{
-	font-family: "Old Standard TT";
+	font-family: 'Old Standard TT';
 	font-size: 35px;
 	text-align: center;
 	color: #333745;
 	margin-bottom: 3rem;
+}
+
+#section-offers h4{
+	font-size:18px;
+	margin:0.5rem;
+	line-height: normal;
+	font-weight: 700;
 }
 
 #section-offers .card{
@@ -633,7 +640,7 @@ input:focus, textarea:focus, select:focus {
 	background-repeat: no-repeat;
 	padding-left: 1.4em;
 	background-size: 10px;
-	background-position-y: center;
+	background-position: 0 10px;
 }
 
 .brand-offers ul{
@@ -674,6 +681,30 @@ input:focus, textarea:focus, select:focus {
 	transform: scale(1.025);
 }
 
+.button-fbd {
+	border: 2px solid #333745;
+	border-radius: 5px;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-family: 'Lato';
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	vertical-align: top;
+	padding: 10px 45px;
+	font-size: 16px;
+	cursor: pointer;
+	background: none;
+	-webkit-transition: all .5s ease;
+	-moz-transition: all .5s ease;
+	-ms-transition: all .5s ease;
+	-o-transition: all .5s ease;
+	transition: all .5s ease;
+}
+.button-fbd:hover {
+	background-color: #333745;
+	color: #FFF;
+}
 /* PRICES */
 .pricebg {
 	background: -webkit-gradient(linear, left top, right top, from(#f4efeb), to(#fbf8f6));
