@@ -79,6 +79,8 @@ function filter() {
     else {
         filterAll();
     }
+
+    affichageVide();
 }
 
 function filterSearchBar(str) {
@@ -104,7 +106,6 @@ function filterAll() {
     for (var i = 0; i < x.length; i++) {
         addClass(x[i], "afficher");
     }
-
 }
 
 function filterReset() {
