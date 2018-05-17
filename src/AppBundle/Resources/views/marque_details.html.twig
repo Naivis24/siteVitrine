@@ -187,6 +187,9 @@
 
                 {% set tabRes = [M1, M2, M3, M4] %}
                 <!-- Fin de l'algorithme -->
+
+                {% set var1 = competing() %}
+                {{ var1 }}
                 <div class="row px-4">
 
                     {% for competitor in tabRes %}
