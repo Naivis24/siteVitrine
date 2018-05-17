@@ -6,7 +6,7 @@
 
     {% block body %}
 
-        <div class="container-fluid padding-start" id="section-start">
+        <section class="container-fluid padding-start" id="section-start">
 
 
             <div class="container container-brand-detail-master mt-3">
@@ -35,13 +35,9 @@
                 </div>
             </div>
             </div>
-
-            <div class="container">
-
-            </div>
-        </div>
-        <div class="container-fluid sub-title-brands p-2">
-            <h2>Catalogue des produits</h2></div>
+        </section>
+        <section class="container-fluid sub-title-brands p-2">
+            <h2>Catalogue des produits</h2>
         <div class="container-book-detail">
             <div class="container-book-detail-text">
                 <h1>Demandez l'accès</h1>
@@ -52,10 +48,10 @@
 
             <div class="mask-book"><img class="img-fluid bandeau-marque" src="{{ asset('bundles/app/img/'~brand.getLifestyle2()) }}">
             </div>
-
         </div>
+        </section>
 
-        <div class="container-fluid brands-competitor p-4">
+        <section class="container-fluid brands-competitor p-4">
 
             <h2>Marques complémentaires</h2>
 
@@ -247,7 +243,6 @@
                     {% endfor %}
                 </div>
             <div class="container-btn text-center"><a href="{{ path('marques') }}" class="button-fh p-2">Découvrez toutes nos marques</a></div>
-            </div>
-        </div>
+            </section>
 
     {% endblock %}
