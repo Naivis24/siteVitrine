@@ -5,7 +5,7 @@
 {% endblock %}
 
     {% block body %}
-        <div class="container-fluid padding-start" id="section-start">
+        <section class="container-fluid padding-start" id="section-start">
 
             <a class="btn" href="{{ app.request.headers.get('referer') }}" role="button">Retour</a>
 
@@ -119,5 +119,5 @@
     &q=~{{ salon.getAdresse() }},Bordeaux+France" allowfullscreen>
                 </iframe>
             </div>
-        </div>
+        </section>
     {% endblock %}

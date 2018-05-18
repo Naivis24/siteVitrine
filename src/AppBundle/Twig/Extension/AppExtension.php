@@ -13,16 +13,16 @@ class AppExtension extends \Twig_Extension
         return 'twigext';
     }
 
-    /*public function getFunctions()
+    public function getFunctions()
     {
         return array(
-            'competing' => new \Twig_SimpleFunction('competing', []),
+            'competing' => new \Twig_SimpleFunction('competing', array($this, 'competing')),
         );
     }
 
     public function competing()
     {
-        echo "lol";
+        echo "";
     }
-*/
+
 }
