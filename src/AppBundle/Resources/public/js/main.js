@@ -2,29 +2,34 @@ function onStart() {
     filterAll();
     initSuggestion();
     var x = document.getElementById("homme-tab");
-    x.addEventListener("mouseup", initSuggestion );
+    x.addEventListener("click", initSuggestion);
     x = document.getElementById("femme-tab");
-    x.addEventListener("mouseup", initSuggestion );
+    x.addEventListener("click", initSuggestion);
     x = document.getElementById("enfant-tab");
-    x.addEventListener("mouseup", initSuggestion );
+    x.addEventListener("click", initSuggestion);
 
 
 }
 
+
 function initSuggestion() {
-    console.log("debut initSuggestion");
-    console.log(document.getElementsByClassName("col-9 tab-pane fade show active")[0]);
-    var x = document.getElementsByClassName("col-9 tab-pane fade show active")[0].getElementsByClassName("row")[0].getElementsByClassName("afficher");
-    var brandsArray = [];
-    for (var i = 0; i < x.length; i++) {
-        var temp = x[i].getElementsByClassName("card-title")[0].innerHTML;
-        temp = temp.substring(1);
-        temp = temp.substring(0, temp.length - 1);
-        brandsArray.push(temp);
-    }
-    console.log(brandsArray);
-    autocomplete(document.getElementById("target"), brandsArray);
-    console.log("fin initSuggestion");
+    setTimeout(function () {
+        var x = document.getElementsByClassName("col-9 tab-pane fade show active")[0].getElementsByClassName("row")[0].getElementsByClassName("afficher");
+        var brandsArray = [], filtersArray = [];
+        for (var i = 0; i < x.length; i++) {
+            var temp = x[i].getElementsByClassName("card-title")[0].innerHTML;
+            temp = temp.substring(1);
+            temp = temp.substring(0, temp.length - 1);
+            brandsArray.push(temp);
+        }
+        var cb = $("input:checkbox");
+        $.each(cb, function () {
+            filtersArray.push(this.value.split(":")[1]);
+        });
+        autocomplete(document.getElementById("target"), brandsArray, filtersArray);
+    }, 100);
+
+
 }
 
 function filter() {
@@ -37,6 +42,7 @@ function filter() {
     $.each(cb, function () {
         if (this.checked == true) {
             tab.push(this.value);
+
         }
     });
 
@@ -79,6 +85,7 @@ function filter() {
     else {
         filterAll();
     }
+    initSuggestion();
 }
 
 function filterSearchBar(str) {
@@ -87,9 +94,19 @@ function filterSearchBar(str) {
     var x, texte;
     x = document.getElementsByClassName("afficher");
     texte = str.toUpperCase();
-
     for (var i = x.length - 1; i >= 0; i--) {
-        if (x[i].getElementsByClassName("card-title")[0].innerHTML.toUpperCase().indexOf(texte) == -1 && x[i].getElementsByClassName("categorie")[0].innerHTML.toUpperCase().indexOf(texte) == -1) {
+        var aGarder = false;
+        var categories = x[i].getElementsByClassName("categorie")[0].innerHTML.toUpperCase().split(",");
+        var indexDebutTitle = x[i].getElementsByClassName("card-title")[0].innerHTML.toUpperCase().search("[A-Z]")
+        for (var j = 0; j < categories.length; j++) {
+
+            var indexDebutCat = categories[j].search("[A-Z]");
+            if (x[i].getElementsByClassName("card-title")[0].innerHTML.toUpperCase().substring(indexDebutTitle, indexDebutTitle + texte.length) == texte
+                || categories[j].substring(indexDebutCat, indexDebutCat + texte.length) == texte) {
+                aGarder = true; break;
+            }
+        }
+        if (!aGarder) {
             removeClass(x[i], "afficher");
         }
     }
@@ -99,7 +116,7 @@ function filterSearchBar(str) {
 
 
 function filterAll() {
-    var x, y;
+    var x, y
     x = document.getElementsByClassName("filter-card");
     for (var i = 0; i < x.length; i++) {
         addClass(x[i], "afficher");
@@ -142,7 +159,7 @@ function affichageVide() {
     x = document.getElementsByClassName("afficher");
 
 
-    if(x.length == 0){
+    if (x.length == 0) {
         document.getElementsByClassName("affichageVide")[0].innerHTML = "<p class='text-search-null'>Nous sommes désolés, votre recherche n'a donné aucun résultat.</p>";
     }
     else {
@@ -150,7 +167,7 @@ function affichageVide() {
     }
 }
 
-function autocomplete(inp, arr) {
+function autocomplete(inp, arrBrands, arrFilters) {
 
     inp.removeEventListener("input", eventInput);
     inp.removeEventListener("keydown", eventKeydown);
@@ -162,7 +179,7 @@ function autocomplete(inp, arr) {
 
     document.addEventListener("click", eventCloseLists);
 
-    function eventCloseLists(e){
+    function eventCloseLists(e) {
         closeAllLists(e.target);
     }
 
@@ -182,23 +199,36 @@ function autocomplete(inp, arr) {
         /*append the DIV element as a child of the autocomplete container:*/
         this.parentNode.appendChild(a);
         /*for each item in the array...*/
-        for (i = 0; i < arr.length; i++) {
+        for (i = 0; i < arrBrands.length; i++) {
             /*check if the item starts with the same letters as the text field value:*/
-            if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+            if (arrBrands[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
                 /*create a DIV element for each matching element:*/
                 b = document.createElement("DIV");
-                /*make the matching letters bold:*/
-                b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
-                b.innerHTML += arr[i].substr(val.length);
+                b.innerHTML = "<strong>" + arrBrands[i].substr(0, val.length) + "</strong>";
+                b.innerHTML += arrBrands[i].substr(val.length);
                 /*insert a input field that will hold the current array item's value:*/
-                b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
-                /*execute a function when someone clicks on the item value (DIV element):*/
+                b.innerHTML += "<input type='hidden' value='" + arrBrands[i] + "'>";
                 b.addEventListener("click", function (e) {
-                    /*insert the value for the autocomplete text field:*/
                     inp.value = this.getElementsByTagName("input")[0].value;
                     filterSearchBar(inp.value);
-                    /*close the list of autocompleted values,
-                    (or any other open lists of autocompleted values:*/
+                    closeAllLists();
+                });
+                a.appendChild(b);
+            }
+        }
+
+        for (i = 0; i < arrFilters.length; i++) {
+            /*check if the item starts with the same letters as the text field value:*/
+            if (arrFilters[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+                /*create a DIV element for each matching element:*/
+                b = document.createElement("DIV");
+                b.innerHTML = "<strong>" + arrFilters[i].substr(0, val.length) + "</strong>";
+                b.innerHTML += arrFilters[i].substr(val.length);
+                /*insert a input field that will hold the current array item's value:*/
+                b.innerHTML += "<input type='hidden' value='" + arrFilters[i] + "'>";
+                b.addEventListener("click", function (e) {
+                    inp.value = this.getElementsByTagName("input")[0].value;
+                    filterSearchBar(inp.value);
                     closeAllLists();
                 });
                 a.appendChild(b);
@@ -262,6 +292,27 @@ function autocomplete(inp, arr) {
         }
     }
 
+} // FIN AUTOCOMPLETE
 
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    var expires = "expires=" + d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
 
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
 }
