@@ -1,10 +1,10 @@
 marques:
-    path:    /marketplace-b2b-marques
+    path:    /marketplace-marques-mode
     defaults:
         _controller: AppBundle:Brand:listBrand
 
 salons_boutiques:
-    path:    /salons-mode
+    path:    /salons-marques-mode
     defaults:
         _controller: AppBundle:Salon:listSalon
 

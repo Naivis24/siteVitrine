@@ -1,6 +1,17 @@
 function onStart() {
     filterAll();
     initSuggestion();
+    var cookies = getCookie("filters");
+    if(cookies != ""){
+        var cb = $("input:checkbox");
+        $.each(cb, function () {
+            if(cookies.includes(this.value)){
+                this.checked=true;
+            }
+        });
+        filter();
+    }
+
     var x = document.getElementById("homme-tab");
     x.addEventListener("click", initSuggestion);
     x = document.getElementById("femme-tab");
@@ -8,13 +19,14 @@ function onStart() {
     x = document.getElementById("enfant-tab");
     x.addEventListener("click", initSuggestion);
 
-
 }
 
 
 function initSuggestion() {
+    console.log("call initsuggfestion");
     setTimeout(function () {
         var x = document.getElementsByClassName("col-9 tab-pane fade show active")[0].getElementsByClassName("row")[0].getElementsByClassName("afficher");
+        console.log(document.getElementsByClassName("col-9 tab-pane fade show active")[0].id);
         var brandsArray = [], filtersArray = [];
         for (var i = 0; i < x.length; i++) {
             var temp = x[i].getElementsByClassName("card-title")[0].innerHTML;
@@ -27,8 +39,7 @@ function initSuggestion() {
             filtersArray.push(this.value.split(":")[1]);
         });
         autocomplete(document.getElementById("target"), brandsArray, filtersArray);
-    }, 100);
-
+    }, 0);
 
 }
 
@@ -42,19 +53,20 @@ function filter() {
     $.each(cb, function () {
         if (this.checked == true) {
             tab.push(this.value);
-
         }
     });
 
     if (tab.length != 0) {
 
         var categories = [], filtres = [];
-        var temp;
+        var temp, cookie="";
         for (i = 0; i < tab.length; i++) {
+            cookie =  cookie + "|" + tab[i];
             temp = tab[i].split(":");
             categories.push(temp[0]);
             filtres.push(temp[1]);
         }
+        setCookie("filters", cookie);
         x = document.getElementsByClassName("filter-card");
         for (i = 0; i < x.length; i++) {
             var boolean = [];
@@ -85,7 +97,6 @@ function filter() {
     else {
         filterAll();
     }
-    initSuggestion();
 }
 
 function filterSearchBar(str) {
@@ -116,11 +127,12 @@ function filterSearchBar(str) {
 
 
 function filterAll() {
-    var x, y
+    var x;
     x = document.getElementsByClassName("filter-card");
     for (var i = 0; i < x.length; i++) {
         addClass(x[i], "afficher");
     }
+
 
 }
 
@@ -130,6 +142,8 @@ function filterReset() {
     for (var i = 0; i < x.length; i++) {
         removeClass(x[i], "afficher");
     }
+    delete_cookie("filters");
+
 }
 
 
@@ -294,11 +308,8 @@ function autocomplete(inp, arrBrands, arrFilters) {
 
 } // FIN AUTOCOMPLETE
 
-function setCookie(cname, cvalue, exdays) {
-    var d = new Date();
-    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-    var expires = "expires=" + d.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+function setCookie(cname, cvalue) {
+    document.cookie = cname + "=" + cvalue + ";"
 }
 
 function getCookie(cname) {
@@ -315,4 +326,8 @@ function getCookie(cname) {
         }
     }
     return "";
+}
+
+function delete_cookie( name ) {
+    document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
 }
