@@ -157,6 +157,7 @@ function autocomplete(inp, arr) {
     inp.removeEventListener("keydown", eventKeydown);
     document.removeEventListener("click", eventCloseLists);
 
+
     var currentFocus;
     inp.addEventListener("input", eventInput);
     inp.addEventListener("keydown", eventKeydown);
