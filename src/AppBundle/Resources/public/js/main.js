@@ -22,15 +22,14 @@ function onStart() {
 }
 
 function newTab() {
-    filter();
-    initSuggestion();
+   setTimeout(function() {
+       filter();
+   },1000);
 }
 
 function initSuggestion() {
-    console.log("call initsuggfestion");
     setTimeout(function () {
         var x = document.getElementsByClassName("col-9 tab-pane fade show active")[0].getElementsByClassName("row")[0].getElementsByClassName("afficher");
-        console.log(document.getElementsByClassName("col-9 tab-pane fade show active")[0].id);
         var brandsArray = [], filtersArray = [];
         for (var i = 0; i < x.length; i++) {
             var temp = x[i].getElementsByClassName("card-title")[0].innerHTML;
@@ -45,7 +44,7 @@ function initSuggestion() {
             }
         });
         autocomplete(document.getElementById("target"), brandsArray, filtersArray);
-    }, 0);
+    }, 1000);
 
 }
 
@@ -103,6 +102,7 @@ function filter() {
     else {
         filterAll();
     }
+    initSuggestion();
     affichageVide();
 }
 
@@ -150,8 +150,6 @@ function filterReset() {
     for (var i = 0; i < x.length; i++) {
         removeClass(x[i], "afficher");
     }
-    delete_cookie("filters");
-
 }
 
 
@@ -165,6 +163,7 @@ function removeClass(element, name) {
 }
 
 function reinit() {
+    delete_cookie("filters");
     var cb = $("input:checkbox");
 
     $.each(cb, function () {
@@ -180,7 +179,7 @@ function affichageVide() {
     var x = document.getElementsByClassName("col-9 tab-pane fade show active")[0].getElementsByClassName("row")[0].getElementsByClassName("afficher");
 
 
-    if (x.length == 0) {
+    if (x.length == 0) {ookie("filters");
         document.getElementsByClassName("affichageVide")[0].innerHTML = "<p class='text-search-null'>Nous sommes désolés, votre recherche n'a donné aucun résultat.</p>";
     }
     else {
