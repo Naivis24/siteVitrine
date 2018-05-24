@@ -2,15 +2,19 @@ function onStart() {
     filterAll();
     initSuggestion();
     var x = document.getElementById("homme-tab");
-    x.addEventListener("click", initSuggestion);
+    x.addEventListener("click", newTab);
     x = document.getElementById("femme-tab");
-    x.addEventListener("click", initSuggestion);
+    x.addEventListener("click", newTab);
     x = document.getElementById("enfant-tab");
-    x.addEventListener("click", initSuggestion);
+    x.addEventListener("click", newTab);
 
 
 }
 
+function newTab() {
+    filter();
+    initSuggestion();
+}
 
 function initSuggestion() {
     setTimeout(function () {
@@ -24,7 +28,9 @@ function initSuggestion() {
         }
         var cb = $("input:checkbox");
         $.each(cb, function () {
-            filtersArray.push(this.value.split(":")[1]);
+            if (this.value.split(":")[0] == "categorie") {
+                filtersArray.push(this.value.split(":")[1]);
+            }
         });
         autocomplete(document.getElementById("target"), brandsArray, filtersArray);
     }, 100);
@@ -86,32 +92,36 @@ function filter() {
         filterAll();
     }
     initSuggestion();
+    affichageVide();
 }
 
 function filterSearchBar(str) {
 
     filter();
-    var x, texte;
-    x = document.getElementsByClassName("afficher");
-    texte = str.toUpperCase();
-    for (var i = x.length - 1; i >= 0; i--) {
-        var aGarder = false;
-        var categories = x[i].getElementsByClassName("categorie")[0].innerHTML.toUpperCase().split(",");
-        var indexDebutTitle = x[i].getElementsByClassName("card-title")[0].innerHTML.toUpperCase().search("[A-Z]")
-        for (var j = 0; j < categories.length; j++) {
+    if (str.length != 0) {
+        var x, texte;
+        x = document.getElementsByClassName("afficher");
+        texte = str.toUpperCase();
+        for (var i = x.length - 1; i >= 0; i--) {
+            var aGarder = false;
+            var categories = x[i].getElementsByClassName("categorie")[0].innerHTML.toUpperCase().split(",");
+            var indexDebutTitle = x[i].getElementsByClassName("card-title")[0].innerHTML.toUpperCase().search("[A-Z]")
+            for (var j = 0; j < categories.length; j++) {
 
-            var indexDebutCat = categories[j].search("[A-Z]");
-            if (x[i].getElementsByClassName("card-title")[0].innerHTML.toUpperCase().substring(indexDebutTitle, indexDebutTitle + texte.length) == texte
-                || categories[j].substring(indexDebutCat, indexDebutCat + texte.length) == texte) {
-                aGarder = true; break;
+                var indexDebutCat = categories[j].search("[A-Z]");
+                if (x[i].getElementsByClassName("card-title")[0].innerHTML.toUpperCase().substring(indexDebutTitle, indexDebutTitle + texte.length) == texte
+                    || categories[j].substring(indexDebutCat, indexDebutCat + texte.length) == texte) {
+                    aGarder = true;
+                    break;
+                }
+            }
+            if (!aGarder) {
+                removeClass(x[i], "afficher");
             }
         }
-        if (!aGarder) {
-            removeClass(x[i], "afficher");
-        }
-    }
 
-    affichageVide();
+        affichageVide();
+    }
 }
 
 
@@ -155,8 +165,7 @@ function reinit() {
 }
 
 function affichageVide() {
-    var x;
-    x = document.getElementsByClassName("afficher");
+    var x = document.getElementsByClassName("col-9 tab-pane fade show active")[0].getElementsByClassName("row")[0].getElementsByClassName("afficher");
 
 
     if (x.length == 0) {
@@ -184,6 +193,7 @@ function autocomplete(inp, arrBrands, arrFilters) {
     }
 
     function eventInput(e) {
+        console.log("input");
 
         var a, b, i, val = this.value;
         /*close any already open lists of autocompleted values*/
@@ -238,6 +248,7 @@ function autocomplete(inp, arrBrands, arrFilters) {
     }
 
     function eventKeydown(e) {
+        console.log("keydown");
 
         var x = document.getElementById(this.id + "autocomplete-list");
         if (x) x = x.getElementsByTagName("div");
