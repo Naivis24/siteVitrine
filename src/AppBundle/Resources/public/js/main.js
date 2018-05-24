@@ -22,13 +22,17 @@ function onStart() {
 }
 
 function newTab() {
+
    setTimeout(function() {
        filter();
-   },1000);
+   },500);
+
 }
 
 function initSuggestion() {
+
     setTimeout(function () {
+
         var x = document.getElementsByClassName("col-9 tab-pane fade show active")[0].getElementsByClassName("row")[0].getElementsByClassName("afficher");
         var brandsArray = [], filtersArray = [];
         for (var i = 0; i < x.length; i++) {
@@ -44,11 +48,12 @@ function initSuggestion() {
             }
         });
         autocomplete(document.getElementById("target"), brandsArray, filtersArray);
-    }, 1000);
+    }, 500);
 
 }
 
 function filter() {
+
     var cb = $("input:checkbox");
     var tab = [];
     var x, i;
@@ -179,7 +184,7 @@ function affichageVide() {
     var x = document.getElementsByClassName("col-9 tab-pane fade show active")[0].getElementsByClassName("row")[0].getElementsByClassName("afficher");
 
 
-    if (x.length == 0) {ookie("filters");
+    if (x.length == 0) {
         document.getElementsByClassName("affichageVide")[0].innerHTML = "<p class='text-search-null'>Nous sommes désolés, votre recherche n'a donné aucun résultat.</p>";
     }
     else {
@@ -205,8 +210,6 @@ function autocomplete(inp, arrBrands, arrFilters) {
     }
 
     function eventInput(e) {
-        console.log("input");
-
         var a, b, i, val = this.value;
         /*close any already open lists of autocompleted values*/
         closeAllLists();
@@ -260,7 +263,6 @@ function autocomplete(inp, arrBrands, arrFilters) {
     }
 
     function eventKeydown(e) {
-        console.log("keydown");
 
         var x = document.getElementById(this.id + "autocomplete-list");
         if (x) x = x.getElementsByTagName("div");
