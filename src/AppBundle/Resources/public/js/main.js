@@ -26,6 +26,9 @@ function newTab() {
    setTimeout(function() {
        filter();
    },500);
+   setTimeout(function(){
+       setCookie("target", document.getElementsByClassName("col-9 tab-pane fade show active")[0].id);
+   },500);
 
 }
 
