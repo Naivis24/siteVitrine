@@ -30,5 +30,13 @@ class BrandDetailsController extends Controller
         ));
     }
 
+    public function setBrandCompeting(){
+        $em = $this->getDoctrine()->getManager();
+
+
+        $em->persist();
+        $em->flush();
+    }
+
 
 }

@@ -26,6 +26,7 @@ boutiques_index:
 
 legal_index:
     resource: "@AppBundle/Resources/config/routing/legal.yml"
+    prefix:    /legal
 
 info_index:
     resource: "@AppBundle/Resources/config/routing/info.yml"

@@ -22,6 +22,12 @@ class DefaultController extends Controller
 
     }
 
+    public function crmAction(){
+        $content = $this->get('templating')->render('AppBundle::crm.html.twig');
+
+        return new Response($content);
+
+    }
 
     public function marquesAction(){
         $content = $this->get('templating')->render('AppBundle::marques.html.twig');
