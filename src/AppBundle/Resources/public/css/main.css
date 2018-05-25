@@ -1282,8 +1282,18 @@ height:0;
 
 /* FILTRES */
 
+@media (max-width: 1024px){
+.container-list-brand .col-3 {
+		-ms-flex: 0 0 100%;
+		flex: 0 0 100%;
+		max-width: 100%;
+	}
+}
+.container-list-brand .row {
+}
 .column-filters{
 	background-color: #FFF;
+	min-width: 300px;
 }
 
 .column-filters h2{

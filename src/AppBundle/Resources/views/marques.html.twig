@@ -116,7 +116,7 @@
                     <div class="affichageVide">
                     </div>
                     <div class="col-9 tab-pane fade show active" id="homme" role="tabpanel" aria-labelledby="home-tab">
-                        <div class="row px-4">
+                        <div class="row px-3">
                             {% for brand in brands %}
                                 {% set cibles = brand.getTarget.toArray() %}
                                 {% set temp = [brand.getPrimarytarget().getLabel()] %}
@@ -179,7 +179,7 @@
                     <div class="affichageVide">
                     </div>
                     <div class="col-9 tab-pane fade" id="femme" role="tabpanel" aria-labelledby="profile-tab">
-                        <div class="row px-4">
+                        <div class="row px-3">
                             {% for brand in brands %}
                                 {% set cibles = brand.getTarget.toArray() %}
                                 {% set temp = [brand.getPrimarytarget().getLabel()] %}
@@ -242,7 +242,7 @@
 
                     </div>
                     <div class="col-9 tab-pane fade" id="enfant" role="tabpanel" aria-labelledby="contact-tab">
-                        <div class="row px-4">
+                        <div class="row px-3">
                             {% for brand in brands %}
                                 {% set cibles = brand.getTarget.toArray() %}
                                 {% set temp = [brand.getPrimarytarget().getLabel()] %}
