@@ -6,6 +6,7 @@ use AppBundle\AppBundle;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use AppBundle\Entity\Brand;
+use AppBundle\Entity\BrandRecommande;
 
 
 
@@ -23,19 +24,37 @@ class BrandDetailsController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $brand = $em->getRepository('AppBundle:Brand')->findOneByName($marque);
-        $brands = $em->getRepository('AppBundle:Brand')->findAll();
 
         return $this->render('AppBundle::marque_details.html.twig', array(
-            'brand' => $brand, 'brands' => $brands,
+            'brand' => $brand,
         ));
     }
 
-    public function setBrandCompeting(){
+    public function setBrandCompeting($idBrand, $idRecommande){
         $em = $this->getDoctrine()->getManager();
+        $brand = $em->getRepository('AppBundle:Brand')->find($idBrand);
+        $brandrec = $em->getRepository('AppBundle:Brand')->find($idRecommande);
 
+        $brand->addIdrecommande($brandrec);
 
-        $em->persist();
+        $em->persist($brand);
+    }
+
+    public function triTableau($tabB, $tabR){
+        $em = $this->getDoctrine()->getManager();
+        $x = count($tabB);
+
+        for($i=0; $i<$x; $i++){
+            $this->setBrandCompeting($tabB[$i], $tabR[$i]);
+        }
+
         $em->flush();
+
+        return $this->render('AppBundle::crm.html.twig', array(
+            'x' => $x,
+        ));
+
+
     }
 
 

@@ -24,6 +24,7 @@ class BrandController extends Controller
 
         return $this->render('AppBundle::marques.html.twig', array(
             'brands' => $brands,
+            'brands2' =>$brands,
             'targets' => $targets,
             'styles' => $styles,
             'categories' => $categories,
