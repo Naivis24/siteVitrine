@@ -138,7 +138,6 @@ function filterSearchBar(str) {
                 removeClass(x[i], "afficher");
             }
         }
-
         affichageVide();
     }
 }
