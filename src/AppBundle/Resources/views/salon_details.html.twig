@@ -15,7 +15,6 @@
             </div>
 
 
-
             <div class="container">
                 {% set month = {01: 'Janvier', 02: 'Février', 03: 'Mars', 04: 'Avril',
                 05: 'Mai', 06: 'Juin', 07: 'Juillet', 08: 'Août', 09: 'Septembre',
@@ -37,78 +36,15 @@
             <div class="container">
 
                 <h2>Marques participantes</h2>
-                {% set cpt=0 %}
+
                 {% set participants = salon.getBrand.toArray() %}
-                <div class="card-deck">
-                    {% for participant in participants %}
-
-                    {% if cpt !=0 and cpt % 4 == 0 %}
-                </div>
-                <div class="card-deck">
-                    {% endif %}
-
-                    <div class="card card-marques">
-
-                        <div class="card-img ">
-                            <img class="card-img" src="{{ asset('bundles/app/img/' ~participant.getPictureFemme() ) }}">
-                        </div>
-                        <div class="card-img-overlay info p-t-2">
-                            <img class="img-fluid" src="{{ asset('bundles/app/img/' ~ participant.getLogo()) }}">
-                        </div>
-                        <div class="card-img-overlay hover-info">
-                            {% set targets = participant.getTarget.toArray() %}
-                            {% set styles = participant.getStyle.toArray() %}
-                            {% set categories = participant.getPrimaryCategory().toArray() %}
-
-                            <h5 class="card-title"> {{ participant.getName() }} </h5>
-                            {{ participant.getSlogan() }}
-                            <ul>
-                                <li><strong>Pays</strong><br>
-                                    {{ participant.getCountry().getName() }}</li>
-
-                                <li><strong>Catégories</strong><br>
-                                    {% for categorie in categories %}
-                                        {{ categorie.getLabel() }},
-                                    {% endfor %}
-                                </li>
-
-                                <li>
-                                    <strong>Styles</strong><br>
-                                    {% for style in styles %}
-                                        {{ style.getLabel() }},
-                                    {% endfor %}
-                                </li>
-
-                                <li>
-                                    <strong>Cible</strong><br>
-                                    {% for target in targets %}
-                                        {{ target.getLabel() }},
-                                    {% endfor %}
-                                </li>
-
-                                <li>
-                                    <strong>Gamme de prix</strong><br>
-                                    {{ participant.getPriceRange().getLabel() }}
-                                </li>
-                            </ul>
-
-
-                            <a href="{{ path('details_marques', {'marque': participant.getName()} ) }}">
-                                Découvrir la marque </a>
-                        </div>
-
-
-                    </div>
-                    {% set cpt = cpt + 1 %}
-                    {% endfor %}
-                </div>
-            </div>
-
-            <div class="container">
+                {{ render(controller(
+                'AppBundle\\Controller\\BrandController::cardsBrandsAction',
+                { 'brands' : participants }
+                )) }}
 
 
             </div>
-
 
             <div class="map-responsive">
                 <iframe

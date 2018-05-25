@@ -1,16 +1,24 @@
 function onStart() {
-    filterAll();
-    initSuggestion();
-    var cookies = getCookie("filters");
-    if(cookies != ""){
+
+    var cookiesFiltres = getCookie("filters");
+    var cookiesTarget = getCookie("target");
+    if (cookiesFiltres != "") {
         var cb = $("input:checkbox");
         $.each(cb, function () {
-            if(cookies.includes(this.value)){
-                this.checked=true;
+            if (cookiesFiltres.includes(this.value)) {
+                this.checked = true;
             }
         });
         filter();
     }
+    if (cookiesTarget != "") {
+       var x = document.getElementById(cookiesTarget+"-tab");
+       x.click();
+    }
+
+    filterAll();
+    initSuggestion();
+
 
     var x = document.getElementById("homme-tab");
     x.addEventListener("click", newTab);
@@ -23,12 +31,12 @@ function onStart() {
 
 function newTab() {
 
-   setTimeout(function() {
-       filter();
-   },500);
-   setTimeout(function(){
-       setCookie("target", document.getElementsByClassName("col-9 tab-pane fade show active")[0].id);
-   },500);
+    setTimeout(function () {
+        filter();
+    }, 500);
+    setTimeout(function () {
+        setCookie("target", document.getElementsByClassName("col-9 tab-pane fade show active")[0].id);
+    }, 500);
 
 }
 
@@ -42,12 +50,12 @@ function initSuggestion() {
             var temp = x[i].getElementsByClassName("card-title")[0].innerHTML;
             temp = temp.substring(1);
             temp = temp.substring(0, temp.length - 1);
-            brandsArray.push(temp);
+            brandsArray.push(temp + " - Marque");
         }
         var cb = $("input:checkbox");
         $.each(cb, function () {
             if (this.value.split(":")[0] == "categorie") {
-                filtersArray.push(this.value.split(":")[1]);
+                filtersArray.push(this.value.split(":")[1] + " - Categorie");
             }
         });
         autocomplete(document.getElementById("target"), brandsArray, filtersArray);
@@ -72,9 +80,9 @@ function filter() {
     if (tab.length != 0) {
 
         var categories = [], filtres = [];
-        var temp, cookie="";
+        var temp, cookie = "";
         for (i = 0; i < tab.length; i++) {
-            cookie =  cookie + "|" + tab[i];
+            cookie = cookie + "|" + tab[i];
             temp = tab[i].split(":");
             categories.push(temp[0]);
             filtres.push(temp[1]);
@@ -341,6 +349,6 @@ function getCookie(cname) {
     return "";
 }
 
-function delete_cookie( name ) {
+function delete_cookie(name) {
     document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
 }
