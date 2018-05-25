@@ -32,4 +32,10 @@ class BrandController extends Controller
             'features' => $features
         ));
     }
+
+    public function cardsBrandsAction($brands){
+        return $this->render('AppBundle::cardmarque.html.twig', array(
+            'brands'=> $brands
+        ));
+    }
 }

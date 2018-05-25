@@ -1,0 +1,60 @@
+<div class="row px-4">
+
+    {% for brand in brands %}
+        {% set targets = brand.getTarget.toArray() %}
+        {% set styles = brand.getStyle.toArray() %}
+        {% set categories = brand.getPrimaryCategory().toArray() %}
+        <div class="col-md-3 px-2 py-2">
+
+            <div class="card-marques shadow-sm">
+                {% set var = brand.getPrimarytarget().getLabel() %}
+                {% if var == "Homme" %}
+                    <img class="img-fluid card-img"
+                         src="{{ asset('bundles/app/img/' ~ brand.getPictureHomme() ) }}">
+                {% elseif var == "Femme" %}
+                    <img class="img-fluid card-img"
+                         src="{{ asset('bundles/app/img/' ~ brand.getPictureFemme() ) }}">
+                {% else %}
+                    <img class="img-fluid card-img"
+                         src="{{ asset('bundles/app/img/' ~ brand.getPictureEnfant() ) }}">
+                {% endif %}
+                <div class="container-img-brand">
+                    <img src="{{ asset('bundles/app/img/' ~ brand.getLogo()) }}" class="img-fluid">
+                </div>
+                <div class="container-hover-info">
+
+                    <h5 class="card-title"> {{ brand.getName() }} </h5>
+                    {{ brand.getSlogan() }}
+                    <ul>
+                        <li>PAYS<br>
+                            <strong>{{ brand.getCountry().getName() }}</strong></li>
+                        <li>CATÉGORIE<br>
+                            <strong> {% for categorie in categories %}
+                                    {{ categorie.getLabel() }},
+                                {% endfor %}</strong>
+                        </li>
+                        <li>STYLE<br>
+                            <strong>  {% for style in styles %}
+                                    {{ style.getLabel() }},
+                                {% endfor %}</strong>
+                        </li>
+                        <li>CIBLE<br>
+                            <strong id="cible"> {% for target in targets %}
+                                    {{ target.getLabel() }},
+                                {% endfor %}</strong>
+                        </li>
+                        <li>GAMME DE PRIX<br>
+                            <strong>{{ brand.getPriceRange().getLabel() }}</strong>
+                        </li>
+                    </ul>
+                </div>
+                <div class="button-slide-brands"><a
+                            href="{{ path('details_marques', {'marque': brand.getName()} ) }}"
+                            class="button-sb p-1">
+                        Découvrir la marque </a>
+                </div>
+
+            </div>
+        </div>
+    {% endfor %}
+</div>
