@@ -2,6 +2,10 @@ function onStart() {
 
     var cookiesFiltres = getCookie("filters");
     var cookiesTarget = getCookie("target");
+    if (cookiesTarget != "") {
+        var x = document.getElementById(cookiesTarget + "-tab");
+        x.click();
+    }
     if (cookiesFiltres != "") {
         var cb = $("input:checkbox");
         $.each(cb, function () {
@@ -9,16 +13,9 @@ function onStart() {
                 this.checked = true;
             }
         });
-        filter();
-    }
-    if (cookiesTarget != "") {
-       var x = document.getElementById(cookiesTarget+"-tab");
-       x.click();
     }
 
-    filterAll();
-    initSuggestion();
-
+    filter(true);
 
     var x = document.getElementById("homme-tab");
     x.addEventListener("click", newTab);
@@ -32,9 +29,7 @@ function onStart() {
 function newTab() {
 
     setTimeout(function () {
-        filter();
-    }, 500);
-    setTimeout(function () {
+        filter(true);
         setCookie("target", document.getElementsByClassName("col-9 tab-pane fade show active")[0].id);
     }, 500);
 
@@ -42,28 +37,25 @@ function newTab() {
 
 function initSuggestion() {
 
-    setTimeout(function () {
-
-        var x = document.getElementsByClassName("col-9 tab-pane fade show active")[0].getElementsByClassName("row")[0].getElementsByClassName("afficher");
-        var brandsArray = [], filtersArray = [];
-        for (var i = 0; i < x.length; i++) {
-            var temp = x[i].getElementsByClassName("card-title")[0].innerHTML;
-            temp = temp.substring(1);
-            temp = temp.substring(0, temp.length - 1);
-            brandsArray.push(temp + " - Marque");
+    var x = document.getElementsByClassName("col-9 tab-pane fade show active")[0].getElementsByClassName("row")[0].getElementsByClassName("afficher");
+    var brandsArray = [], filtersArray = [];
+    for (var i = 0; i < x.length; i++) {
+        var temp = x[i].getElementsByClassName("card-title")[0].innerHTML;
+        temp = temp.substring(1);
+        temp = temp.substring(0, temp.length - 1);
+        brandsArray.push(temp + " - <em>Marque</em>");
+    }
+    var cb = $("input:checkbox");
+    $.each(cb, function () {
+        if (this.value.split(":")[0] == "categorie") {
+            filtersArray.push(this.value.split(":")[1] + " - <em>Categorie</em>");
         }
-        var cb = $("input:checkbox");
-        $.each(cb, function () {
-            if (this.value.split(":")[0] == "categorie") {
-                filtersArray.push(this.value.split(":")[1] + " - Categorie");
-            }
-        });
-        autocomplete(document.getElementById("target"), brandsArray, filtersArray);
-    }, 500);
+    });
+    autocomplete(document.getElementById("target"), brandsArray, filtersArray);
 
 }
 
-function filter() {
+function filter(bool) {
 
     var cb = $("input:checkbox");
     var tab = [];
@@ -118,13 +110,17 @@ function filter() {
     else {
         filterAll();
     }
-    initSuggestion();
+    if (bool) {
+        setTimeout(function () {
+            initSuggestion();
+        }, 500);
+    }
     affichageVide();
 }
 
 function filterSearchBar(str) {
 
-    filter();
+    filter(false);
     if (str.length != 0) {
         var x, texte;
         x = document.getElementsByClassName("afficher");
@@ -132,12 +128,9 @@ function filterSearchBar(str) {
         for (var i = x.length - 1; i >= 0; i--) {
             var aGarder = false;
             var categories = x[i].getElementsByClassName("categorie")[0].innerHTML.toUpperCase().split(",");
-            var indexDebutTitle = x[i].getElementsByClassName("card-title")[0].innerHTML.toUpperCase().search("[A-Z]")
             for (var j = 0; j < categories.length; j++) {
-
-                var indexDebutCat = categories[j].search("[A-Z]");
-                if (x[i].getElementsByClassName("card-title")[0].innerHTML.toUpperCase().substring(indexDebutTitle, indexDebutTitle + texte.length) == texte
-                    || categories[j].substring(indexDebutCat, indexDebutCat + texte.length) == texte) {
+                if (x[i].getElementsByClassName("card-title")[0].innerHTML.toUpperCase().trim().substring(0, texte.length) == texte
+                    || categories[j].trim().substring(0, texte.length) == texte) {
                     aGarder = true;
                     break;
                 }
@@ -178,6 +171,7 @@ function removeClass(element, name) {
 }
 
 function reinit() {
+    /* Call when click on "Reiniatiliser" button only */
     delete_cookie("filters");
     var cb = $("input:checkbox");
 
@@ -188,11 +182,11 @@ function reinit() {
     $('#target').val("");
 
     filterAll();
+    affichageVide();
 }
 
 function affichageVide() {
     var x = document.getElementsByClassName("col-9 tab-pane fade show active")[0].getElementsByClassName("row")[0].getElementsByClassName("afficher");
-
 
     if (x.length == 0) {
         document.getElementsByClassName("affichageVide")[0].innerHTML = "<p class='text-search-null'>Nous sommes désolés, votre recherche n'a donné aucun résultat.</p>";
@@ -244,7 +238,7 @@ function autocomplete(inp, arrBrands, arrFilters) {
                 /*insert a input field that will hold the current array item's value:*/
                 b.innerHTML += "<input type='hidden' value='" + arrBrands[i] + "'>";
                 b.addEventListener("click", function (e) {
-                    inp.value = this.getElementsByTagName("input")[0].value;
+                    inp.value = this.getElementsByTagName("input")[0].value.split(" -")[0];
                     filterSearchBar(inp.value);
                     closeAllLists();
                 });
@@ -262,7 +256,7 @@ function autocomplete(inp, arrBrands, arrFilters) {
                 /*insert a input field that will hold the current array item's value:*/
                 b.innerHTML += "<input type='hidden' value='" + arrFilters[i] + "'>";
                 b.addEventListener("click", function (e) {
-                    inp.value = this.getElementsByTagName("input")[0].value;
+                    inp.value = this.getElementsByTagName("input")[0].value.split(" -")[0];
                     filterSearchBar(inp.value);
                     closeAllLists();
                 });
@@ -295,6 +289,8 @@ function autocomplete(inp, arrBrands, arrFilters) {
                 /*and simulate a click on the "active" item:*/
                 if (x) x[currentFocus].click();
             }
+        } else if (e.keyCode == 8){
+
         }
     }
 
