@@ -1386,6 +1386,31 @@ a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover{
 	color: white;
 }
 
+
+.autocomplete {
+    position: relative;
+    display: inline-block;
+}
+.autocomplete-items {
+    z-index: 99;
+	width: 90%;
+	margin: 5px auto;
+	border-radius: 5px;
+	box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
+}
+.autocomplete-items div {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #fff;
+	border-radius: 5px;
+}
+.autocomplete-items div:hover {
+    background-color: #e9e9e9;
+}
+.autocomplete-active {
+	background-color: #e9e9e9 !important;
+}
+
 .nav-filter-brands{
 	border: none;
 	margin-top:3rem;
@@ -1545,31 +1570,4 @@ select{
 .footer-icons a:hover {
 	background-color: #333745;
 	color: #fff;
-}
-
-.autocomplete {
-	/*the container must be positioned relative:*/
-	position: relative;
-	display: inline-block;
-}
-.autocomplete-items {
-	border: 1px solid #d4d4d4;
-	border-bottom: none;
-	border-top: none;
-	z-index: 99;
-}
-.autocomplete-items div {
-	padding: 10px;
-	cursor: pointer;
-	background-color: #fff;
-	border-bottom: 1px solid #d4d4d4;
-}
-.autocomplete-items div:hover {
-	/*when hovering an item:*/
-	background-color: #e9e9e9;
-}
-.autocomplete-active {
-	/*when navigating through the items using the arrow keys:*/
-	background-color: DodgerBlue ;
-	color: #ffffff;
 }
