@@ -13,6 +13,8 @@ function onStart() {
                 this.checked = true;
             }
         });
+    }else{
+        setCookie("target", document.getElementsByClassName("col-9 tab-pane fade show active")[0].id);
     }
 
     filter(true);
@@ -23,6 +25,16 @@ function onStart() {
     x.addEventListener("click", newTab);
     x = document.getElementById("enfant-tab");
     x.addEventListener("click", newTab);
+
+    x = document.getElementsByClassName("button-slide-brands");
+    for( var i =0; i<x.length; i++){
+        x[i].onclick= function(){
+            var temp = getCookie("target");
+            setCookie("target2", temp);
+            temp = getCookie("filters");
+            setCookie("filters2", temp);
+        }
+    }
 
 }
 
@@ -173,6 +185,7 @@ function removeClass(element, name) {
 function reinit() {
     /* Call when click on "Reiniatiliser" button only */
     delete_cookie("filters");
+    delete_cookie("filters2");
     var cb = $("input:checkbox");
 
     $.each(cb, function () {

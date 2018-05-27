@@ -6,13 +6,8 @@
 
     {% block body %}
 
+
         <section class="container-fluid padding-start" id="section-start">
-
-            <script>
-                var temp = getCookie("target");
-                console.log(temp);
-            </script>
-
 
             <div class="container container-brand-detail-master mt-3">
                 <div class="container-brand-detail">
@@ -20,7 +15,7 @@
                         <img class="img-fluid bandeau-marque"
                              src="{{ asset('bundles/app/img/'~brand.getLifestyleHomme()) }}"></div>
                     <div class="container-brand-detail-text">
-                        <div class="container-button-backb"><a href="{{ path('marques') }}"><span
+                        <div class="container-button-backb"><a href="{{ path('marques') }}" id="btn-retour"><span
                                         class="button-backb p-2"><img
                                             src=" {{ asset('bundles/app/img/angle-left.svg') }}" height="20px"/> Retour aux marques</span></a>
                         </div>

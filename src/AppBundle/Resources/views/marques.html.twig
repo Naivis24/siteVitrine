@@ -9,6 +9,12 @@
             $(document).ready(function () {
                 onStart();
             });
+            window.onbeforeunload = function (e) {
+             delete_cookie("target");
+             delete_cookie("filters");
+             setCookie("filters", getCookie("filters2"));
+             deleteCookie("filters2");
+            };
 
         </script>
         <div class="container-fluid marquesbg padding-start" id="section-start">
