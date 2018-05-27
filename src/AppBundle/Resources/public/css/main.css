@@ -84,8 +84,8 @@ input[type=checkbox] {
 }
 input[type=checkbox] {
 	border-radius: 2px;
-	height: 15px;
-	width: 15px;
+	height: 12px;
+	width: 12px;
 	background: #fff;
 	border: 1px solid #333745;
 }
@@ -98,6 +98,11 @@ input[type="checkbox"]:checked {
 .form-check-input{
 	margin-left:-1.5rem;
 }
+
+.form-check{
+	padding-top:0.25rem;
+}
+
 
 input:focus, textarea:focus, select:focus {
 	outline-offset: 0px !important;
@@ -1107,19 +1112,8 @@ input:focus, textarea:focus, select:focus {
 }
 
 /* SALONS */
-.map-responsive {
-	overflow:hidden;
-	padding-bottom:56.25%;
-	position:relative;>
-height:0;
-}
-
-.map-responsive iframe {
-	left:0;
-	top:0;
-	height:100%;
-	width:100%;
-	position:absolute;
+.detail-salon{
+	color: #333745;
 }
 
 /* MARQUES DÉTAILS*/
@@ -1294,6 +1288,7 @@ height:0;
 .column-filters{
 	background-color: #FFF;
 	min-width: 300px;
+	max-width: 300px;
 }
 
 .column-filters h2{
@@ -1301,6 +1296,8 @@ height:0;
 	font-family: "Old Standard TT";
 	font-size: 20px;
 	margin-left:1.2rem;
+	margin-bottom:10px;
+	margin-top:50px;
 }
 
 .container-btn-filters{
@@ -1309,6 +1306,7 @@ height:0;
 
 .container-filters{
 	margin-left:2rem;
+	font-size:15px;
 }
 
 a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover{
