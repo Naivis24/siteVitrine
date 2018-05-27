@@ -1,59 +1,40 @@
 {% extends "AppBundle::layout.html.twig" %}
 
 {% block title %}
-    French Select - Le Salon {{ salon.getName() }}
+    French Select - Le salon {{ salon.getName() }}
 {% endblock %}
 
     {% block body %}
-        <section class="container-fluid padding-start" id="section-start">
+        <section class="container-fluid padding-start pb-4" id="section-start">
 
-            <a class="btn" href="{{ app.request.headers.get('referer') }}" role="button">Retour</a>
+            <div class="container container-brand-detail-master mt-3">
+                <div class="container-brand-detail">
+                    <div class="mask-brand">
+                        <img class="img-fluid bandeau-marque" src="{{ asset('bundles/app/img/'~salon.getGImg()) }}"></div>
+                    <div class="container-brand-detail-text">
+                        <div class="container-button-backb"><a href="{{ path('salons_boutiques') }}"><span
+                                        class="button-backb p-2"><img
+                                            src=" {{ asset('bundles/app/img/angle-left.svg') }}" height="20px"/> Retour aux salons</span></a>
+                        </div>
+                        <h1>{{ salon.getName() }}</h1>
+                        <p>
+                            Du {{ salon.getDateDebut()|date("d") }}
+                                au {{ salon.getDateFin()|date("d") }}/{{ salon.getDateFin()|date("m") }}/{{ salon.getDateDebut()|date("Y") }}
+                            </p>
+                        <p class="font-weight-bold p-4">{{ salon.getLieu() }} - {{ salon.getAdresse() }}, {{ salon.getVille() }}
+                            - {{ salon.getPays().getName() }}</p>
+                        <p class="p-4">{{ salon.getDescription() }}</p>
+                        <h2>Marques participantes</h2>
 
-            <div class="container containter-brand-detail">
-                <img class="img-fluid bandeau-marque" src="{{ asset('bundles/app/img/'~salon.getGImg()) }}">
-                <div class="centered"><h1 style="color: #FFFFFF">{{ salon.getName() }}</h1></div>
-            </div>
-
-
-            <div class="container">
-                {% set month = {01: 'Janvier', 02: 'Février', 03: 'Mars', 04: 'Avril',
-                05: 'Mai', 06: 'Juin', 07: 'Juillet', 08: 'Août', 09: 'Septembre',
-                10: 'Octobre', 11: 'Janvier', 12: 'Janvier'
-                } %}
-                <h1>{{ salon.getName() }}</h1>
-
-                <p>{{ salon.getDescription() }}</p>
-                <p style="color: #FE5F55">
-                    <strong>Du {{ salon.getDateDebut()|date("d") }}
-                        au {{ salon.getDateFin()|date("d") }}
-                        {{ salon.getDateFin()|date("m") }}
-                        {{ salon.getDateDebut()|date("Y") }}
-                    </strong></p>
-                <p>{{ salon.getLieu() }}</p>
-                <p style="color: #FE5F55"> {{ salon.getAdresse() }}, {{ salon.getVille() }}
-                    - {{ salon.getPays().getName() }}</p>
-            </div>
-            <div class="container">
-
-                <h2>Marques participantes</h2>
-
-                {% set participants = salon.getBrand.toArray() %}
-                {{ render(controller(
-                'AppBundle\\Controller\\BrandController::cardsBrandsAction',
-                { 'brands' : participants }
-                )) }}
-
-
-            </div>
-
-            <div class="map-responsive">
-                <iframe
-                        width="600"
-                        height="450"
-                        frameborder="0" style="border:0"
-                        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAK1YsHXrLJDt6DNx4x0fkdgeA6LBo8wMM
-    &q=~{{ salon.getAdresse() }},Bordeaux+France" allowfullscreen>
-                </iframe>
+                        <div class="detail-salon">
+                        {% set participants = salon.getBrand.toArray() %}
+                        {{ render(controller(
+                            'AppBundle\\Controller\\BrandController::cardsBrandsAction',
+                            { 'brands' : participants }
+                        )) }}
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     {% endblock %}

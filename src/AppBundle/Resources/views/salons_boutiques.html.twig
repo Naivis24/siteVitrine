@@ -29,8 +29,7 @@
                                     <h6 class="card-title">{{ salon.getName() }}</h6>
                                     <p class="slide-salons-date">
                                         Du {{ salon.getDateDebut()|date("d") }}
-                                        au {{ salon.getDateFin()|date("d") }}/{{ salon.getDateFin()|date("m") }}
-                                        /{{ salon.getDateDebut()|date("Y") }}</p>
+                                        au {{ salon.getDateFin()|date("d") }}/{{ salon.getDateFin()|date("m") }}/{{ salon.getDateDebut()|date("Y") }}</p>
                                     <p class="slide-salons-place">{{ salon.getLieu() }} - {{ salon.getVille() }}
                                         <br>{{ salon.getPays().getName() }}</p>
                                 </div>
