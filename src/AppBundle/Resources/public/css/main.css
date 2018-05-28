@@ -980,9 +980,9 @@ input:focus, textarea:focus, select:focus {
 }
 
 .container-img-brand img {
-	height: 60px;
+	height: 40px;
 	width: auto;
-	margin: 0;
+	margin: 10px 0;
 }
 .card-marques:hover .card-img{
 	opacity: 0.1;
