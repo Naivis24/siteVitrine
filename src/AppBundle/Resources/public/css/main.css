@@ -1413,6 +1413,15 @@ a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover{
 	border: none;
 	margin-top:3rem;
 }
+
+.nav-filter-brands li a{
+	-moz-transition: 0s;
+	-webkit-transition: 0s;
+	-ms-transition: 0s;
+	-o-transition: 0s;
+	transition: 0s;
+}
+
 .nav-filter-brands .nav-item{
 	text-transform: uppercase;
 	margin: 0 2rem;

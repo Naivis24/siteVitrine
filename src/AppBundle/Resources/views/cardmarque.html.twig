@@ -4,6 +4,7 @@
         {% set targets = brand.getTarget.toArray() %}
         {% set styles = brand.getStyle.toArray() %}
         {% set categories = brand.getPrimaryCategory().toArray() %}
+        {% set features = brand.getFeature().toArray() %}
         <div class="col-md-3 px-2 py-2">
 
             <div class="card-marques shadow-sm">
@@ -30,21 +31,26 @@
                             <strong>{{ brand.getCountry().getName() }}</strong></li>
                         <li>CATÉGORIE<br>
                             <strong> {% for categorie in categories %}
-                                    {{ categorie.getLabel() }},
+                                    {{ categorie.getLabel() }}{% if not loop.last %},{% endif %}
                                 {% endfor %}</strong>
                         </li>
-                        <li>STYLE<br>
+                        <li>UNIVERS<br>
                             <strong>  {% for style in styles %}
-                                    {{ style.getLabel() }},
+                                    {{ style.getLabel() }}{% if not loop.last %},{% endif %}
                                 {% endfor %}</strong>
                         </li>
                         <li>CIBLE<br>
-                            <strong id="cible"> {% for target in targets %}
-                                    {{ target.getLabel() }},
+                            <strong> {{ brand.getPrimarytarget().getLabel() }}{% for target in targets %}{% if loop.first %},{% endif %}
+                                    {{ target.getLabel() }}{% if not loop.last %},{% endif %}
                                 {% endfor %}</strong>
                         </li>
                         <li>GAMME DE PRIX<br>
                             <strong>{{ brand.getPriceRange().getLabel() }}</strong>
+                        </li>
+                        <li> {% if features is not empty %}LABEL<br>{% endif %}
+                            <strong> {% for feature in features %}
+                                    {{ feature.getLabel() }}{% if not loop.last %},{% endif %}
+                                {% endfor %}</strong>
                         </li>
                     </ul>
                 </div>
