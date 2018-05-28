@@ -259,7 +259,7 @@
                 <div class="col-lg-4 px-4">
                         <div class="slide-salons my-1 p-2">
                             <a href="{{ path('details_salons', {'ville': salon.getVille(), 'id': salon.getSalonId()} ) }}">
-                                <img class="img-fluid shadow-sm" src="{{ asset('bundles/app/img/anaik_1.jpg') }}">
+                                <img class="img-fluid shadow-sm" src="{{ asset('bundles/app/img/' ~ salon.getPicture() ) }}">
                                 <div class="p-3">
                                     <h6>{{ salon.getName() }}</h6>
                                     <p class="slide-salons-date">
