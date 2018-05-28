@@ -10,10 +10,14 @@
                 onStart();
             });
             window.onbeforeunload = function (e) {
+
              delete_cookie("target");
+             setCookie("target", getCookie("target2"));
+             delete_cookie("target2");
+
              delete_cookie("filters");
              setCookie("filters", getCookie("filters2"));
-             deleteCookie("filters2");
+             delete_cookie("filters2");
             };
 
         </script>
@@ -22,7 +26,7 @@
                 <span style="color:#FE5F55;">pour votre boutique</span></h1>
             <ul class="nav nav-tabs justify-content-center nav-filter-brands" id="myTab" role="tablist">
                 <li class="nav-item">
-                    <a class="nav-link active" id="homme-tab" data-toggle="tab" href="#homme" role="tab"
+                    <a class="nav-link" id="homme-tab" data-toggle="tab" href="#homme" role="tab"
                        aria-controls="homme" aria-selected="true">Homme</a>
                 </li>
                 <li class="nav-item">
@@ -121,7 +125,7 @@
                     </div>
                     <div class="affichageVide">
                     </div>
-                    <div class="col-9 tab-pane fade show active" id="homme" role="tabpanel" aria-labelledby="home-tab">
+                    <div class="col-9 tab-pane fade" id="homme" role="tabpanel" aria-labelledby="homme-tab">
                         <div class="row px-3">
                             {% for brand in brands %}
                                 {% set cibles = brand.getTarget.toArray() %}
@@ -184,7 +188,7 @@
                     {# FIN TAB HOMME #}
                     <div class="affichageVide">
                     </div>
-                    <div class="col-9 tab-pane fade" id="femme" role="tabpanel" aria-labelledby="profile-tab">
+                    <div class="col-9 tab-pane fade" id="femme" role="tabpanel" aria-labelledby="femme-tab">
                         <div class="row px-3">
                             {% for brand in brands %}
                                 {% set cibles = brand.getTarget.toArray() %}
@@ -247,7 +251,7 @@
                     <div class="affichageVide">
 
                     </div>
-                    <div class="col-9 tab-pane fade" id="enfant" role="tabpanel" aria-labelledby="contact-tab">
+                    <div class="col-9 tab-pane fade" id="enfant" role="tabpanel" aria-labelledby="enfant-tab">
                         <div class="row px-3">
                             {% for brand in brands %}
                                 {% set cibles = brand.getTarget.toArray() %}

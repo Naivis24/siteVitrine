@@ -4,7 +4,15 @@ function onStart() {
     var cookiesTarget = getCookie("target");
     if (cookiesTarget != "") {
         var x = document.getElementById(cookiesTarget + "-tab");
-        x.click();
+        x.className += " active";
+        x= document.getElementById(cookiesTarget);
+        x.className += " active show";
+    }else{
+        var x = document.getElementById("femme-tab");
+        x.className += " active";
+        setCookie("target", "femme");
+        var x = document.getElementById("femme");
+        x.className += " active show";
     }
     if (cookiesFiltres != "") {
         var cb = $("input:checkbox");
@@ -13,8 +21,6 @@ function onStart() {
                 this.checked = true;
             }
         });
-    }else{
-        setCookie("target", document.getElementsByClassName("col-9 tab-pane fade show active")[0].id);
     }
 
     filter(true);
@@ -42,7 +48,7 @@ function newTab() {
 
     setTimeout(function () {
         filter(true);
-        setCookie("target", document.getElementsByClassName("col-9 tab-pane fade show active")[0].id);
+        setCookie("target", document.getElementsByClassName("col-9 tab-pane fade active show")[0].id);
     }, 500);
 
 }

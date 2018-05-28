@@ -11,9 +11,26 @@
 
             <div class="container container-brand-detail-master mt-3">
                 <div class="container-brand-detail">
-                    <div class="mask-brand">
-                        <img class="img-fluid bandeau-marque"
-                             src="{{ asset('bundles/app/img/'~brand.getLifestyleHomme()) }}"></div>
+                    <div class="mask-brand" id="lifestyle_div">
+                        <script>
+                            var temp;
+                            if (getCookie("target") == "homme") {
+                                temp = "<img class=\"img-fluid bandeau-marque\"\n" +
+                                    " src=\"{{ asset('bundles/app/img/'~brand.getLifestyleHomme()) }}\">"
+                            }
+                            else if(getCookie("target") == "femme"){
+                                temp = "<img class=\"img-fluid bandeau-marque\"\n" +
+                                    " src=\"{{ asset('bundles/app/img/'~brand.getLifestyleFemme()) }}\">"
+                            }
+                            else{
+                                temp = "<img class=\"img-fluid bandeau-marque\"\n" +
+                                    " src=\"{{ asset('bundles/app/img/'~brand.getLifestyleEnfant()) }}\">"
+                            }
+
+                            var x = document.getElementById("lifestyle_div");
+                            x.innerHTML = temp;
+                        </script>
+                    </div>
                     <div class="container-brand-detail-text">
                         <div class="container-button-backb"><a href="{{ path('marques') }}" id="btn-retour"><span
                                         class="button-backb p-2"><img
