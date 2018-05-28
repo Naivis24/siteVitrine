@@ -106,7 +106,7 @@
                                 {% endfor %}
                             </div>
                             <div id="feature">
-                                <h2>Particularité</h2>
+                                <h2>Labels</h2>
                                 {% for feature in features %}
                                     {% set marques = feature.getBrand.toArray() %}
                                     {% if marques is not empty %}
@@ -158,7 +158,7 @@
                                                                 {{ categorie.getLabel() }}{% if not loop.last %},{% endif %}
                                                             {% endfor %}</strong>
                                                     </li>
-                                                    <li>STYLE<br>
+                                                    <li>UNIVERS<br>
                                                         <strong class="style">  {% for style in styles %}
                                                                 {{ style.getLabel() }}{% if not loop.last %},{% endif %}
                                                             {% endfor %}</strong>
@@ -166,7 +166,7 @@
                                                     <li>GAMME DE PRIX<br>
                                                         <strong class="priceRange">{{ brand.getPriceRange().getLabel() }}</strong>
                                                     </li>
-                                                    <li> {% if features is not empty %}PARTICULARITÉ<br>{% endif %}
+                                                    <li> {% if features is not empty %}LABEL<br>{% endif %}
                                                         <strong class="feature"> {% for feature in features %}
                                                                 {{ feature.getLabel() }}{% if not loop.last %},{% endif %}
                                                             {% endfor %}</strong>
@@ -220,7 +220,7 @@
                                                                 {{ categorie.getLabel() }}{% if not loop.last %},{% endif %}
                                                             {% endfor %}</strong>
                                                     </li>
-                                                    <li>STYLE<br>
+                                                    <li>UNIVERS<br>
                                                         <strong class="style">  {% for style in styles %}
                                                                 {{ style.getLabel() }}{% if not loop.last %},{% endif %}
                                                             {% endfor %}</strong>
@@ -228,7 +228,7 @@
                                                     <li>GAMME DE PRIX<br>
                                                         <strong class="priceRange">{{ brand.getPriceRange().getLabel() }}</strong>
                                                     </li>
-                                                    <li> {% if features is not empty %}PARTICULARITÉ<br>{% endif %}
+                                                    <li> {% if features is not empty %}LABEL<br>{% endif %}
                                                         <strong class="feature"> {% for feature in features %}
                                                                 {{ feature.getLabel() }}{% if not loop.last %},{% endif %}
                                                             {% endfor %}</strong>
@@ -283,7 +283,7 @@
                                                                 {{ categorie.getLabel() }}{% if not loop.last %},{% endif %}
                                                             {% endfor %}</strong>
                                                     </li>
-                                                    <li>STYLE<br>
+                                                    <li>UNIVERS<br>
                                                         <strong class="style">  {% for style in styles %}
                                                                 {{ style.getLabel() }}{% if not loop.last %},{% endif %}
                                                             {% endfor %}</strong>
@@ -292,7 +292,7 @@
                                                         <strong class="priceRange">{{ brand.getPriceRange().getLabel() }}</strong>
                                                     </li>
 
-                                                    <li> {% if features is not empty %}PARTICULARITÉ<br>{% endif %}
+                                                    <li> {% if features is not empty %}LABEL<br>{% endif %}
                                                         <strong class="feature"> {% for feature in features %}
                                                                 {{ feature.getLabel() }}{% if not loop.last %},{% endif %}
                                                             {% endfor %}</strong>
