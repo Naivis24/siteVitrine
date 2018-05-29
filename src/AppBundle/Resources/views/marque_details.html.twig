@@ -54,7 +54,7 @@
                         <div>
                             {% if brand.getLookBook() != "" %}
                                 <a href="{{ asset('bundles/app/book/'~brand.getLookBook()) }}"
-                                   target="_blank">LOOKBOOK</a>
+                                   target="_blank">CONSULTER LE LOOKBOOK</a>
                             {% endif %}
                         </div>
                     </div>
@@ -86,7 +86,7 @@
             { 'brands' : brand.getIdrecommande() }
             )) }}
 
-            <div class="container-btn text-center"><a href="{{ path('marques') }}" class="button-fh p-2">Découvrez
+            <div class="container-btn text-center"><a href="{{ path('marques') }}" class="button-fh p-2 mb-4">Découvrez
                     toutes nos marques</a></div>
         </section>
 

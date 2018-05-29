@@ -86,6 +86,22 @@
                                     {% endif %}
                                 {% endfor %}
                             </div>
+                            <div id="feature">
+                                <h2>Labels</h2>
+                                {% for feature in features %}
+                                    {% set marques = feature.getBrand.toArray() %}
+                                    {% if marques is not empty %}
+                                        <div class="form-check">
+                                            <input type="checkbox" class="form-check-input"
+                                                   id="cb{{ feature.getLabel() }}"
+                                                   onchange="filter()"
+                                                   value="feature:{{ feature.getLabel() }}">
+                                            <label class="form-check-label"
+                                                   for="cb{{ feature.getLabel() }}">{{ feature.getLabel() }}</label>
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
                             <div id="price">
                                 <h2>Gamme de prix</h2>
                                 {% for price in prices %}
@@ -101,22 +117,6 @@
                                                    value="priceRange:{{ price.getLabel() }}">
                                             <label class="form-check-label"
                                                    for="cb{{ price.getLabel() }}">{{ price.getLabel() }}</label>
-                                        </div>
-                                    {% endif %}
-                                {% endfor %}
-                            </div>
-                            <div id="feature">
-                                <h2>Labels</h2>
-                                {% for feature in features %}
-                                    {% set marques = feature.getBrand.toArray() %}
-                                    {% if marques is not empty %}
-                                        <div class="form-check">
-                                            <input type="checkbox" class="form-check-input"
-                                                   id="cb{{ feature.getLabel() }}"
-                                                   onchange="filter()"
-                                                   value="feature:{{ feature.getLabel() }}">
-                                            <label class="form-check-label"
-                                                   for="cb{{ feature.getLabel() }}">{{ feature.getLabel() }}</label>
                                         </div>
                                     {% endif %}
                                 {% endfor %}
