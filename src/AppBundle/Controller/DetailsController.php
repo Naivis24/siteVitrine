@@ -14,12 +14,15 @@ class DetailsController extends Controller
     public function getOneShowroomAction($id){
         $em = $this->getDoctrine()->getManager();
 
-        $repository = $em->getRepository('AppBundle:Salon');
-        $salon = $repository->findOneBySalonId($id);
+        $salon = $em->getRepository('AppBundle:Salon')->findOneBySalonId($id);
+
+        $marquesParticipantes = $em->getRepository('AppBundle:ParticipeSalon')
+            ->findBy(array('salon' => $salon));
 
 
         return $this->render('AppBundle::salon_details.html.twig', array(
-            'salon' => $salon
+            'salon' => $salon,
+            'marquesParticipantes' => $marquesParticipantes
         ));
     }
 

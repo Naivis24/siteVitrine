@@ -4,7 +4,7 @@ offres_marques:
        _controller: AppBundle:Default:offresMarques
 
 showroom:
-    path:    /showroom-b2b-mode
+    path:    /marketplace-b2b-mode
     defaults:
         _controller: AppBundle:Default:showroom
 

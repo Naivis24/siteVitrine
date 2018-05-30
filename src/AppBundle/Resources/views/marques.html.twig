@@ -10,19 +10,24 @@
                 onStart();
             });
             window.onbeforeunload = function (e) {
-                delete_cookie("target");
-                delete_cookie("filters");
-                setCookie("filters", getCookie("filters2"));
-                deleteCookie("filters2");
+
+             delete_cookie("target");
+             setCookie("target", getCookie("target2"));
+             delete_cookie("target2");
+
+             delete_cookie("filters");
+             setCookie("filters", getCookie("filters2"));
+             delete_cookie("filters2");
+
             };
 
         </script>
-        <div class="container-fluid marquesbg padding-start" id="section-start">
+        <section class="container-fluid marquesbg padding-start" id="section-start">
             <h1>Découvrez de nouvelles marques</br>
                 <span style="color:#FE5F55;">pour votre boutique</span></h1>
             <ul class="nav nav-tabs justify-content-center nav-filter-brands" id="myTab" role="tablist">
                 <li class="nav-item">
-                    <a class="nav-link active" id="homme-tab" data-toggle="tab" href="#homme" role="tab"
+                    <a class="nav-link" id="homme-tab" data-toggle="tab" href="#homme" role="tab"
                        aria-controls="homme" aria-selected="true">Homme</a>
                 </li>
                 <li class="nav-item">
@@ -82,6 +87,22 @@
                                     {% endif %}
                                 {% endfor %}
                             </div>
+                            <div id="feature">
+                                <h2>Labels</h2>
+                                {% for feature in features %}
+                                    {% set marques = feature.getBrand.toArray() %}
+                                    {% if marques is not empty %}
+                                        <div class="form-check">
+                                            <input type="checkbox" class="form-check-input"
+                                                   id="cb{{ feature.getLabel() }}"
+                                                   onchange="filter()"
+                                                   value="feature:{{ feature.getLabel() }}">
+                                            <label class="form-check-label"
+                                                   for="cb{{ feature.getLabel() }}">{{ feature.getLabel() }}</label>
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
                             <div id="price">
                                 <h2>Gamme de prix</h2>
                                 {% for price in prices %}
@@ -101,27 +122,11 @@
                                     {% endif %}
                                 {% endfor %}
                             </div>
-                            <div id="feature">
-                                <h2>Particularité</h2>
-                                {% for feature in features %}
-                                    {% set marques = feature.getBrand.toArray() %}
-                                    {% if marques is not empty %}
-                                        <div class="form-check">
-                                            <input type="checkbox" class="form-check-input"
-                                                   id="cb{{ feature.getLabel() }}"
-                                                   onchange="filter()"
-                                                   value="feature:{{ feature.getLabel() }}">
-                                            <label class="form-check-label"
-                                                   for="cb{{ feature.getLabel() }}">{{ feature.getLabel() }}</label>
-                                        </div>
-                                    {% endif %}
-                                {% endfor %}
-                            </div>
                         </div>
                     </div>
                     <div class="affichageVide">
                     </div>
-                    <div class="col-9 tab-pane fade show active" id="homme" role="tabpanel" aria-labelledby="home-tab">
+                    <div class="col-9 tab-pane fade" id="homme" role="tabpanel" aria-labelledby="homme-tab">
                         <div class="row px-3">
                             {% for brand in brands %}
                                 {% set cibles = brand.getTarget.toArray() %}
@@ -154,7 +159,7 @@
                                                                 {{ categorie.getLabel() }}{% if not loop.last %},{% endif %}
                                                             {% endfor %}</strong>
                                                     </li>
-                                                    <li>STYLE<br>
+                                                    <li>UNIVERS<br>
                                                         <strong class="style">  {% for style in styles %}
                                                                 {{ style.getLabel() }}{% if not loop.last %},{% endif %}
                                                             {% endfor %}</strong>
@@ -162,7 +167,7 @@
                                                     <li>GAMME DE PRIX<br>
                                                         <strong class="priceRange">{{ brand.getPriceRange().getLabel() }}</strong>
                                                     </li>
-                                                    <li> {% if features is not empty %}PARTICULARITÉ<br>{% endif %}
+                                                    <li> {% if features is not empty %}LABEL<br>{% endif %}
                                                         <strong class="feature"> {% for feature in features %}
                                                                 {{ feature.getLabel() }}{% if not loop.last %},{% endif %}
                                                             {% endfor %}</strong>
@@ -184,7 +189,7 @@
                     {# FIN TAB HOMME #}
                     <div class="affichageVide">
                     </div>
-                    <div class="col-9 tab-pane fade" id="femme" role="tabpanel" aria-labelledby="profile-tab">
+                    <div class="col-9 tab-pane fade" id="femme" role="tabpanel" aria-labelledby="femme-tab">
                         <div class="row px-3">
                             {% for brand in brands %}
                                 {% set cibles = brand.getTarget.toArray() %}
@@ -216,7 +221,7 @@
                                                                 {{ categorie.getLabel() }}{% if not loop.last %},{% endif %}
                                                             {% endfor %}</strong>
                                                     </li>
-                                                    <li>STYLE<br>
+                                                    <li>UNIVERS<br>
                                                         <strong class="style">  {% for style in styles %}
                                                                 {{ style.getLabel() }}{% if not loop.last %},{% endif %}
                                                             {% endfor %}</strong>
@@ -224,7 +229,7 @@
                                                     <li>GAMME DE PRIX<br>
                                                         <strong class="priceRange">{{ brand.getPriceRange().getLabel() }}</strong>
                                                     </li>
-                                                    <li> {% if features is not empty %}PARTICULARITÉ<br>{% endif %}
+                                                    <li> {% if features is not empty %}LABEL<br>{% endif %}
                                                         <strong class="feature"> {% for feature in features %}
                                                                 {{ feature.getLabel() }}{% if not loop.last %},{% endif %}
                                                             {% endfor %}</strong>
@@ -247,7 +252,7 @@
                     <div class="affichageVide">
 
                     </div>
-                    <div class="col-9 tab-pane fade" id="enfant" role="tabpanel" aria-labelledby="contact-tab">
+                    <div class="col-9 tab-pane fade" id="enfant" role="tabpanel" aria-labelledby="enfant-tab">
                         <div class="row px-3">
                             {% for brand in brands %}
                                 {% set cibles = brand.getTarget.toArray() %}
@@ -279,7 +284,7 @@
                                                                 {{ categorie.getLabel() }}{% if not loop.last %},{% endif %}
                                                             {% endfor %}</strong>
                                                     </li>
-                                                    <li>STYLE<br>
+                                                    <li>UNIVERS<br>
                                                         <strong class="style">  {% for style in styles %}
                                                                 {{ style.getLabel() }}{% if not loop.last %},{% endif %}
                                                             {% endfor %}</strong>
@@ -288,7 +293,7 @@
                                                         <strong class="priceRange">{{ brand.getPriceRange().getLabel() }}</strong>
                                                     </li>
 
-                                                    <li> {% if features is not empty %}PARTICULARITÉ<br>{% endif %}
+                                                    <li> {% if features is not empty %}LABEL<br>{% endif %}
                                                         <strong class="feature"> {% for feature in features %}
                                                                 {{ feature.getLabel() }}{% if not loop.last %},{% endif %}
                                                             {% endfor %}</strong>
@@ -310,7 +315,7 @@
                     {# FIN TAB ENFANT#}
                 </div>{# FIN TABCONTENT #}
             </div>
-        </div> {# FIN CONTAINER FLUID #}
+        </section> {# FIN CONTAINER FLUID #}
 
 
 

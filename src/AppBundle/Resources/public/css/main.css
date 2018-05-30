@@ -980,9 +980,9 @@ input:focus, textarea:focus, select:focus {
 }
 
 .container-img-brand img {
-	height: 60px;
+	height: 40px;
 	width: auto;
-	margin: 0;
+	margin: 10px 0;
 }
 .card-marques:hover .card-img{
 	opacity: 0.1;
@@ -1413,6 +1413,15 @@ a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover{
 	border: none;
 	margin-top:3rem;
 }
+
+.nav-filter-brands li a{
+	-moz-transition: 0s;
+	-webkit-transition: 0s;
+	-ms-transition: 0s;
+	-o-transition: 0s;
+	transition: 0s;
+}
+
 .nav-filter-brands .nav-item{
 	text-transform: uppercase;
 	margin: 0 2rem;
