@@ -15,10 +15,10 @@ class BrandController extends Controller
     public function listBrandAction(){
         $em = $this->getDoctrine()->getManager();
 
-        $brands = $em->getRepository('AppBundle:Brand')->findBy(array('activated' => '1'), array('name' => 'ASC'));
+        $brands = $em->getRepository('AppBundle:Brand')->findBy(array('activated' => '1'), array('recommandation'=> 'DESC','name' => 'ASC'));
         $targets = $em->getRepository('AppBundle:Target')->findAll();
         $categories = $em->getRepository('AppBundle:PrimaryCategory')->findAll();
-        $styles = $em->getRepository('AppBundle:Style')->findAll();
+        $univers = $em->getRepository('AppBundle:Univers')->findAll();
         $prices = $em->getRepository('AppBundle:PriceRange')->findAll();
         $features = $em->getRepository('AppBundle:Feature')->findAll();
 
@@ -26,7 +26,7 @@ class BrandController extends Controller
             'brands' => $brands,
             'brands2' =>$brands,
             'targets' => $targets,
-            'styles' => $styles,
+            'univers' => $univers,
             'categories' => $categories,
             'prices' => $prices,
             'features' => $features

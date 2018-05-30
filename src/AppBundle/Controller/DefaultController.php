@@ -12,11 +12,13 @@ class DefaultController extends Controller
 
 
         $em = $this->getDoctrine()->getManager();
-        $brands = $em->getRepository('AppBundle:Brand')->findBy(array(), array('homepageIndex' => 'ASC'));
+        $brands = $em->getRepository('AppBundle:Brand')->findBy(array('activated' => '1'), array('recommandation' => 'DESC', 'dateInscription' => 'DESC'),3,0);
+        $brands2 = $em->getRepository('AppBundle:Brand')->findBy(array('activated' => '1'), array('recommandation' => 'DESC','dateInscription' => 'DESC'),3,3);
         $salons = $em->getRepository('AppBundle:Salon')->findAll();
 
         return $this->render('AppBundle::index.html.twig', array(
-            'brands' => $brands,
+            'brands1' => $brands,
+            'brands2' => $brands2,
             'salons' => $salons
         ));
 
