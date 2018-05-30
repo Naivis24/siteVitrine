@@ -57,5 +57,32 @@ class BrandDetailsController extends Controller
 
     }
 
+    public function triTableauUnivers($tabB, $tabR){
+        $em = $this->getDoctrine()->getManager();
+        $x = count($tabB);
+
+        for($i=0; $i<$x; $i++){
+            $this->setBrandUniverse($tabB[$i], $tabR[$i]);
+        }
+
+        $em->flush();
+
+        return $this->render('AppBundle::crm.html.twig', array(
+            'x' => $x,
+        ));
+
+    }
+
+
+    public function setBrandUniverse($idBrand, $idUniverse){
+        $em = $this->getDoctrine()->getManager();
+        $brand = $em->getRepository('AppBundle:Brand')->find($idBrand);
+        $branduniv = $em->getRepository('AppBundle:Univers')->find($idUniverse);
+
+        $brand->addUniver($branduniv);
+
+        $em->persist($brand);
+    }
+
 
 }
