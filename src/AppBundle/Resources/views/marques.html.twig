@@ -18,6 +18,7 @@
              delete_cookie("filters");
              setCookie("filters", getCookie("filters2"));
              delete_cookie("filters2");
+
             };
 
         </script>
@@ -315,5 +316,41 @@
                 </div>{# FIN TABCONTENT #}
             </div>
         </section> {# FIN CONTAINER FLUID #}
+
+
+
+        {% set tabres = [] %}
+        {% set tabid = [] %}
+        {% for brand in brands %}
+            {% set restemp = 0 %}
+            {% set res = 0 %}
+
+            {% set resuniv = 0 %}
+            
+            {% set stylebrand = brand.getStyle().toArray() %}
+
+            {% for univ in univers %}
+                {% set styleuniv = univ.getStyle().toArray() %}
+
+                {% for styleb in stylebrand %}
+                    {% if styleb in styleuniv %}
+                        {% set restemp = restemp + 1 %}
+                    {% endif %}
+                {% endfor %}
+
+                {% if res < restemp %}
+                    {% set res = restemp %}
+                    {% set resuniv = univ.getId() %}
+                {% endif %}
+            {% endfor %}
+            {% set tabres = tabres|merge([resuniv]) %}
+            {% set tabid = tabid|merge([brand.getId()]) %}
+        {% endfor %}
+
+        {{ render(controller(
+            'AppBundle\\Controller\\BrandDetailsController::triTableauUnivers',
+            { 'tabB': tabid, 'tabR': tabres }
+        )) }}
+
 
     {% endblock %}

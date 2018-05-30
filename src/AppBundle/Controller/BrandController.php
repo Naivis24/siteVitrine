@@ -21,6 +21,7 @@ class BrandController extends Controller
         $univers = $em->getRepository('AppBundle:Univers')->findAll();
         $prices = $em->getRepository('AppBundle:PriceRange')->findAll();
         $features = $em->getRepository('AppBundle:Feature')->findAll();
+        $univers = $em->getRepository('AppBundle:Univers')->findAll();
 
         return $this->render('AppBundle::marques.html.twig', array(
             'brands' => $brands,
@@ -29,7 +30,8 @@ class BrandController extends Controller
             'univers' => $univers,
             'categories' => $categories,
             'prices' => $prices,
-            'features' => $features
+            'features' => $features,
+            'univers' => $univers
         ));
     }
 
