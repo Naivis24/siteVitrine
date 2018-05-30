@@ -10,7 +10,8 @@
             <div class="container container-brand-detail-master mt-3">
                 <div class="container-brand-detail">
                     <div class="mask-brand">
-                        <img class="img-fluid bandeau-marque" src="{{ asset('bundles/app/img/'~salon.getLifestyle()) }}"></div>
+                        <img class="img-fluid bandeau-marque"
+                             src="{{ asset('bundles/app/img/'~salon.getLifestyle()) }}"></div>
                     <div class="container-brand-detail-text">
                         <div class="container-button-backb"><a href="{{ path('salons_boutiques') }}"><span
                                         class="button-backb p-2"><img
@@ -19,11 +20,17 @@
                         <h1>{{ salon.getName() }}</h1>
                         <p>
                             Du {{ salon.getDateDebut()|date("d") }}
-                                au {{ salon.getDateFin()|date("d") }}/{{ salon.getDateFin()|date("m") }}/{{ salon.getDateDebut()|date("Y") }}
-                            </p>
-                        <p class="font-weight-bold p-4">{{ salon.getLieu() }} - {{ salon.getAdresse() }}, {{ salon.getVille() }}
+                            au {{ salon.getDateFin()|date("d") }}/{{ salon.getDateFin()|date("m") }}
+                            /{{ salon.getDateDebut()|date("Y") }}
+                        </p>
+                        <p class="font-weight-bold p-4">{{ salon.getLieu() }} - {{ salon.getAdresse() }}
+                            , {{ salon.getVille() }}
                             - {{ salon.getPays().getName() }}</p>
                         <p class="p-4">{{ salon.getDescription() }}</p>
+                        <h2>Marques participantes</h2>
+                        {% for row in marquesParticipantes %}
+                           <a href="{{ path('details_marques', {'marque': row.getBrand().getName()} ) }}" >{{ row.getBrand().getName() }} - {{ row.getStand() }} </a>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
