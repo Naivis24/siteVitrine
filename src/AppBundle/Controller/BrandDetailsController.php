@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\AppBundle;
+use AppBundle\Entity\BrandUniversCalcul;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use AppBundle\Entity\Brand;
@@ -57,14 +58,13 @@ class BrandDetailsController extends Controller
 
     }
 
-    public function triTableauUnivers($tabB, $tabR){
+    public function fillBrandUniversCalcul($tabBrand, $tabUnivers, $tabPoids){
         $em = $this->getDoctrine()->getManager();
-        $x = count($tabB);
+        $x = count($tabBrand);
 
         for($i=0; $i<$x; $i++){
-            $this->setBrandUniverse($tabB[$i], $tabR[$i]);
+            $this->setBrandUniversCalcul($tabBrand[$i], $tabUnivers[$i], $tabPoids[$i]);
         }
-
         $em->flush();
 
         return $this->render('AppBundle::crm.html.twig', array(
@@ -73,15 +73,44 @@ class BrandDetailsController extends Controller
 
     }
 
+    public function fillBrandUnivers($tabBrand, $tabUnivers){
+        $em = $this->getDoctrine()->getManager();
+        $x = count($tabBrand);
 
-    public function setBrandUniverse($idBrand, $idUniverse){
+        for($i=0; $i<$x; $i++){
+            $this->setBrandUnivers($tabBrand[$i], $tabUnivers[$i]);
+        }
+        $em->flush();
+
+        return $this->render('AppBundle::crm.html.twig', array(
+            'x' => $x,
+        ));
+
+    }
+
+    public function setBrandUnivers($idBrand, $idUnivers){
         $em = $this->getDoctrine()->getManager();
         $brand = $em->getRepository('AppBundle:Brand')->find($idBrand);
-        $branduniv = $em->getRepository('AppBundle:Univers')->find($idUniverse);
-
-        $brand->addUniver($branduniv);
+        $univers = $em->getRepository('AppBundle:Univers')->find($idUnivers);
+        $brand -> addUniver($univers);
 
         $em->persist($brand);
+    }
+
+
+    public function setBrandUniversCalcul($idBrand, $idUnivers, $poids){
+        $em = $this->getDoctrine()->getManager();
+        $brand = $em->getRepository('AppBundle:Brand')->find($idBrand);
+        $univers = $em->getRepository('AppBundle:Univers')->find($idUnivers);
+
+        $row = new BrandUniversCalcul();
+        $row->setBrand($brand);
+        $row->setUnivers($univers);
+        $row->setPoids($poids);
+
+
+
+        $em->persist($row);
     }
 
 

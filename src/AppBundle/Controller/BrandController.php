@@ -15,13 +15,14 @@ class BrandController extends Controller
     public function listBrandAction(){
         $em = $this->getDoctrine()->getManager();
 
-        $brands = $em->getRepository('AppBundle:Brand')->findBy(array('activated' => '1'), array('recommandation'=> 'DESC','name' => 'ASC'));
+        $brands = $em->getRepository('AppBundle:Brand')->findBy(array('activated' => '1'), array('recommandation'=> 'DESC','dateInscription' => 'DESC'));
         $targets = $em->getRepository('AppBundle:Target')->findAll();
         $categories = $em->getRepository('AppBundle:PrimaryCategory')->findAll();
         $prices = $em->getRepository('AppBundle:PriceRange')->findAll();
         $features = $em->getRepository('AppBundle:Feature')->findAll();
         $univers = $em->getRepository('AppBundle:Univers')->findAll();
-        $styleunivers = $em->getRepository('AppBundle:StyleUnivers')->findAll();
+        $styleunivers = $em->getRepository('AppBundle:StyleUniversCalcul')->findAll();
+        $brandunivers = $em->getRepository('AppBundle:BrandUniversCalcul')->findAll();
 
 
         return $this->render('AppBundle::marques.html.twig', array(
@@ -33,7 +34,8 @@ class BrandController extends Controller
             'features' => $features,
             'univers'=> $univers,
             'univers2'=> $univers,
-            'styleunivers'=> $styleunivers
+            'styleunivers'=> $styleunivers,
+            'brandunivers'=> $brandunivers,
         ));
     }
 
