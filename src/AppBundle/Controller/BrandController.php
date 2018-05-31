@@ -18,20 +18,22 @@ class BrandController extends Controller
         $brands = $em->getRepository('AppBundle:Brand')->findBy(array('activated' => '1'), array('recommandation'=> 'DESC','name' => 'ASC'));
         $targets = $em->getRepository('AppBundle:Target')->findAll();
         $categories = $em->getRepository('AppBundle:PrimaryCategory')->findAll();
-        $univers = $em->getRepository('AppBundle:Univers')->findAll();
         $prices = $em->getRepository('AppBundle:PriceRange')->findAll();
         $features = $em->getRepository('AppBundle:Feature')->findAll();
         $univers = $em->getRepository('AppBundle:Univers')->findAll();
+        $styleunivers = $em->getRepository('AppBundle:StyleUnivers')->findAll();
+
 
         return $this->render('AppBundle::marques.html.twig', array(
             'brands' => $brands,
             'brands2' =>$brands,
             'targets' => $targets,
-            'univers' => $univers,
             'categories' => $categories,
             'prices' => $prices,
             'features' => $features,
-            'univers' => $univers
+            'univers'=> $univers,
+            'univers2'=> $univers,
+            'styleunivers'=> $styleunivers
         ));
     }
 

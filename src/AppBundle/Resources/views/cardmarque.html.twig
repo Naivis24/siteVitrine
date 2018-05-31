@@ -36,7 +36,7 @@
                         </li>
                         <li>UNIVERS<br>
                             <strong>  {% for univ in univers %}
-                                    {{ style.getLabel() }}{% if not loop.last %},{% endif %}
+                                    {{ univ.getLabel() }}{% if not loop.last %},{% endif %}
                                 {% endfor %}</strong>
                         </li>
                         <li>CIBLE<br>
