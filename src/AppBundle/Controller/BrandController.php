@@ -29,6 +29,7 @@ class BrandController extends Controller
             'brands' => $brands,
             'brands2' =>$brands,
             'targets' => $targets,
+            'targets2' => $targets,
             'categories' => $categories,
             'prices' => $prices,
             'features' => $features,
