@@ -716,6 +716,43 @@ input:focus, textarea:focus, select:focus {
 	background-color: #333745;
 	color: #FFF;
 }
+
+/* CRM OFFER */
+
+.crm-offer h1{
+	text-align: center;
+}
+
+.line-tools{
+	border-top: 1px #d7d2ce solid;
+	text-align: center;
+}
+
+.line-tools-point{
+	position: absolute;
+	left:40%;
+	top:-45px;
+	background-color: #f4efeb;
+	width:20%;
+	border-radius: 30px;
+}
+
+.line-tools h2{
+	font-size: 20px;
+	margin: 0;
+}
+
+.line-tools-text{
+	position: absolute;
+	left:40%;
+	top:-45px;
+}
+
+.tools-detail h2{
+	text-align: center;
+}
+
+
 /* PRICES */
 .pricebg {
 	background: -webkit-gradient(linear, left top, right top, from(#f4efeb), to(#fbf8f6));
