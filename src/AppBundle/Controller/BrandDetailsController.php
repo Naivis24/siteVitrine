@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\AppBundle;
+use AppBundle\Entity\BrandUniversCalcul;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use AppBundle\Entity\Brand;
@@ -20,7 +21,8 @@ class BrandDetailsController extends Controller
      * @param $marque : nom de la marque dont on veut les détails
      * @return Response : brand => détails d'une marque, brands => liste des marques
      */
-    public function getOneBrandAction($marque){
+    public function getOneBrandAction($marque)
+    {
         $em = $this->getDoctrine()->getManager();
 
         $brand = $em->getRepository('AppBundle:Brand')->findOneByName($marque);
@@ -54,42 +56,5 @@ class BrandDetailsController extends Controller
         for($i=0; $i<$x; $i++){
             $this->setBrandCompeting($tabB[$i], $tabHomme[$i], $tabFemme[$i], $tabEnfant[$i]);
         }
-
-        $em->flush();
-
-        return $this->render('AppBundle::crm.html.twig', array(
-            'x' => $x,
-        ));
-
-
-    }
-
-    public function triTableauUnivers($tabB, $tabR){
-        $em = $this->getDoctrine()->getManager();
-        $x = count($tabB);
-
-        for($i=0; $i<$x; $i++){
-            $this->setBrandUniverse($tabB[$i], $tabR[$i]);
-        }
-
-        $em->flush();
-
-        return $this->render('AppBundle::crm.html.twig', array(
-            'x' => $x,
-        ));
-
-    }
-
-
-    public function setBrandUniverse($idBrand, $idUniverse){
-        $em = $this->getDoctrine()->getManager();
-        $brand = $em->getRepository('AppBundle:Brand')->find($idBrand);
-        $branduniv = $em->getRepository('AppBundle:Univers')->find($idUniverse);
-
-        $brand->addUniver($branduniv);
-
-        $em->persist($brand);
-    }
-
 
 }

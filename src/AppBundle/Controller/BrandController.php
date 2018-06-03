@@ -15,24 +15,28 @@ class BrandController extends Controller
     public function listBrandAction(){
         $em = $this->getDoctrine()->getManager();
 
-        $brands = $em->getRepository('AppBundle:Brand')->findBy(array('activated' => '1'), array('name' => 'ASC'));
+        $brands = $em->getRepository('AppBundle:Brand')->findBy(array('activated' => '1'), array('recommandation'=> 'DESC','dateInscription' => 'DESC'));
         $targets = $em->getRepository('AppBundle:Target')->findAll();
         $categories = $em->getRepository('AppBundle:PrimaryCategory')->findAll();
-        $styles = $em->getRepository('AppBundle:Style')->findAll();
         $prices = $em->getRepository('AppBundle:PriceRange')->findAll();
         $features = $em->getRepository('AppBundle:Feature')->findAll();
         $univers = $em->getRepository('AppBundle:Univers')->findAll();
+        $styleunivers = $em->getRepository('AppBundle:StyleUniversCalcul')->findAll();
+        $brandunivers = $em->getRepository('AppBundle:BrandUniversCalcul')->findAll();
+
 
         return $this->render('AppBundle::marques.html.twig', array(
             'brands' => $brands,
             'brands2' =>$brands,
             'targets' => $targets,
             'targets2' => $targets,
-            'styles' => $styles,
             'categories' => $categories,
             'prices' => $prices,
             'features' => $features,
-            'univers' => $univers
+            'univers'=> $univers,
+            'univers2'=> $univers,
+            'styleunivers'=> $styleunivers,
+            'brandunivers'=> $brandunivers,
         ));
     }
 

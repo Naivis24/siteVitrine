@@ -71,18 +71,18 @@
                                     {% endif %}
                                 {% endfor %}
                             </div>
-                            <div id="style">
+                            <div id="univers">
                                 <h2>Univers</h2>
-                                {% for style in styles %}
-                                    {% set marques = style.getBrand.toArray() %}
+                                {% for univ in univers %}
+                                    {% set marques = univ.getBrand.toArray() %}
                                     {% if marques is not empty %}
                                         <div class="form-check">
                                             <input type="checkbox" class="form-check-input"
-                                                   id="cb{{ style.getLabel() }}"
+                                                   id="cb{{ univ.getLabel() }}"
                                                    onchange="filter()"
-                                                   value="style:{{ style.getLabel() }}">
+                                                   value="univers:{{ univ.getLabel() }}">
                                             <label class="form-check-label"
-                                                   for="cb{{ style.getLabel() }}">{{ style.getLabel() }}</label>
+                                                   for="cb{{ univ.getLabel() }}">{{ univ.getLabel() }}</label>
                                         </div>
                                     {% endif %}
                                 {% endfor %}
@@ -135,7 +135,7 @@
                                 {% if "Homme" in temp %}
 
                                     {% set targets = brand.getTarget.toArray() %}
-                                    {% set styles = brand.getStyle.toArray() %}
+                                    {% set univers = brand.getUnivers.toArray() %}
                                     {% set categories = brand.getPrimaryCategory().toArray() %}
                                     {% set features = brand.getFeature().toArray() %}
                                     <div class="col-md-3 px-2 py-2 filter-card">
@@ -160,8 +160,8 @@
                                                             {% endfor %}</strong>
                                                     </li>
                                                     <li>UNIVERS<br>
-                                                        <strong class="style">  {% for style in styles %}
-                                                                {{ style.getLabel() }}{% if not loop.last %},{% endif %}
+                                                        <strong class="univers">  {% for univ in univers %}
+                                                                {{ univ.getLabel() }}{% if not loop.last %},{% endif %}
                                                             {% endfor %}</strong>
                                                     </li>
                                                     <li>GAMME DE PRIX<br>
@@ -198,7 +198,7 @@
                                 {% if "Femme" in temp %}
 
                                     {% set targets = brand.getTarget.toArray() %}
-                                    {% set styles = brand.getStyle.toArray() %}
+                                    {% set univers = brand.getUnivers().toArray() %}
                                     {% set categories = brand.getPrimaryCategory().toArray() %}
                                     {% set features = brand.getFeature().toArray() %}
                                     <div class="col-md-3 px-2 py-2 filter-card">
@@ -222,8 +222,8 @@
                                                             {% endfor %}</strong>
                                                     </li>
                                                     <li>UNIVERS<br>
-                                                        <strong class="style">  {% for style in styles %}
-                                                                {{ style.getLabel() }}{% if not loop.last %},{% endif %}
+                                                        <strong class="univers">  {% for univ in univers %}
+                                                                {{ univ.getLabel() }}{% if not loop.last %},{% endif %}
                                                             {% endfor %}</strong>
                                                     </li>
                                                     <li>GAMME DE PRIX<br>
@@ -260,7 +260,7 @@
                                 {% for c in cibles %} {% set temp = temp|merge([c.getLabel()]) %} {% endfor %}
                                 {% if "Enfant" in temp %}
 
-                                    {% set styles = brand.getStyle.toArray() %}
+                                    {% set univers = brand.getUnivers().toArray() %}
                                     {% set categories = brand.getPrimaryCategory().toArray() %}
                                     {% set features = brand.getFeature().toArray() %}
                                     <div class="col-md-3 px-2 py-2 filter-card">
@@ -285,8 +285,8 @@
                                                             {% endfor %}</strong>
                                                     </li>
                                                     <li>UNIVERS<br>
-                                                        <strong class="style">  {% for style in styles %}
-                                                                {{ style.getLabel() }}{% if not loop.last %},{% endif %}
+                                                        <strong class="univers">  {% for univ in univers %}
+                                                                {{ univ.getLabel() }}{% if not loop.last %},{% endif %}
                                                             {% endfor %}</strong>
                                                     </li>
                                                     <li>GAMME DE PRIX<br>
@@ -318,39 +318,6 @@
         </section> {# FIN CONTAINER FLUID #}
 
 
-
-        {% set tabres = [] %}
-        {% set tabid = [] %}
-        {% for brand in brands %}
-            {% set restemp = 0 %}
-            {% set res = 0 %}
-
-            {% set resuniv = 0 %}
-            
-            {% set stylebrand = brand.getStyle().toArray() %}
-
-            {% for univ in univers %}
-                {% set styleuniv = univ.getStyle().toArray() %}
-
-                {% for styleb in stylebrand %}
-                    {% if styleb in styleuniv %}
-                        {% set restemp = restemp + 1 %}
-                    {% endif %}
-                {% endfor %}
-
-                {% if res < restemp %}
-                    {% set res = restemp %}
-                    {% set resuniv = univ.getId() %}
-                {% endif %}
-            {% endfor %}
-            {% set tabres = tabres|merge([resuniv]) %}
-            {% set tabid = tabid|merge([brand.getId()]) %}
-        {% endfor %}
-
-        {{ render(controller(
-            'AppBundle\\Controller\\BrandDetailsController::triTableauUnivers',
-            { 'tabB': tabid, 'tabR': tabres }
-        )) }}
 
 
     {% endblock %}

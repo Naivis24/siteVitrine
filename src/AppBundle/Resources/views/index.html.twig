@@ -137,71 +137,20 @@
         <div class="container">
             <h4>Quelques marques <span style="color:#FE5F55;">partenaires</span></h4>
 
+
             <div id="carousel-brands" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item row-equal active">
-                        {% set idx = 1 %}
-                        {% for brand in brands if brand.getHomepageIndex() == idx %}
-                        {% if idx == 4 %}
+                        {{ render(controller(
+                        'AppBundle\\Controller\\BrandController::cardsBrandsAction',
+                        { 'brands' : brands1 }
+                        )) }}
                     </div>
                     <div class="carousel-item row-equal">
-                        {% endif %}
-                        {% set idx = idx + 1 %}
-                        <div class="col-lg-4">
-                            <div class="card-marques shadow-sm">
-                                    {% set var = brand.getPrimarytarget().getLabel() %}
-                                    {% if var == "Homme" %}
-                                        <img class="img-fluid card-img" src="{{ asset('bundles/app/img/' ~ brand.getPictureHomme() ) }}">
-                                    {% elseif var == "Femme" %}
-                                        <img class="img-fluid card-img" src="{{ asset('bundles/app/img/' ~ brand.getPictureFemme() ) }}">
-                                    {% else %}
-                                        <img class="img-fluid card-img" src="{{ asset('bundles/app/img/' ~ brand.getPictureEnfant() ) }}">
-                                    {% endif %}
-
-                                <div class="container-img-brand">
-                                    <img src="{{ asset('bundles/app/img/' ~ brand.getLogo()) }}" class="img-fluid">
-                                </div>
-                                <div class="container-hover-info">
-                                    {% set targets = brand.getTarget.toArray() %}
-                                    {% set styles = brand.getStyle.toArray() %}
-                                    {% set categories = brand.getPrimaryCategory().toArray() %}
-                                    {% set features = brand.getFeature().toArray() %}
-                                    <h5 class="card-title"> {{ brand.getName() }} </h5>
-                                    {{ brand.getSlogan() }}
-                                    <ul>
-                                        <li>PAYS<br>
-                                            <strong>{{ brand.getCountry().getName() }}</strong></li>
-                                        <li>CATÉGORIE<br>
-                                            <strong> {% for categorie in categories %}
-                                                    {{ categorie.getLabel() }}{% if not loop.last %},{% endif %}
-                                            {% endfor %}</strong>
-                                        </li>
-                                        <li>UNIVERS<br>
-                                            <strong>  {% for style in styles %}
-                                                    {{ style.getLabel() }}{% if not loop.last %},{% endif %}
-                                            {% endfor %}</strong>
-                                        </li>
-                                        <li>CIBLE<br>
-                                            <strong> {{ brand.getPrimarytarget().getLabel() }}{% for target in targets %}{% if loop.first %},{% endif %}
-                                                    {{ target.getLabel() }}{% if not loop.last %},{% endif %}
-                                            {% endfor %}</strong>
-                                        </li>
-                                        <li>GAMME DE PRIX<br>
-                                            <strong>{{ brand.getPriceRange().getLabel() }}</strong>
-                                        </li>
-                                        <li> {% if features is not empty %}LABEL<br>{% endif %}
-                                            <strong> {% for feature in features %}
-                                                    {{ feature.getLabel() }}{% if not loop.last %},{% endif %}
-                                                {% endfor %}</strong>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="button-slide-brands"><a href="{{ path('details_marques', {'marque': brand.getName()} ) }}" class="button-sb p-1">
-                                        Découvrir la marque </a>
-                                </div>
-                            </div>
-                        </div>
-                        {% endfor %}
+                        {{ render(controller(
+                        'AppBundle\\Controller\\BrandController::cardsBrandsAction',
+                        { 'brands' : brands2 }
+                        )) }}
                     </div>
                 </div>
             </div>

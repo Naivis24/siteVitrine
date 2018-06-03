@@ -2,7 +2,7 @@
 
     {% for brand in brands %}
         {% set targets = brand.getTarget.toArray() %}
-        {% set styles = brand.getStyle.toArray() %}
+        {% set univers = brand.getUnivers().toArray() %}
         {% set categories = brand.getPrimaryCategory().toArray() %}
         {% set features = brand.getFeature().toArray() %}
         <div class="col-md-3 px-2 py-2">
@@ -35,8 +35,8 @@
                                 {% endfor %}</strong>
                         </li>
                         <li>UNIVERS<br>
-                            <strong>  {% for style in styles %}
-                                    {{ style.getLabel() }}{% if not loop.last %},{% endif %}
+                            <strong>  {% for univ in univers %}
+                                    {{ univ.getLabel() }}{% if not loop.last %},{% endif %}
                                 {% endfor %}</strong>
                         </li>
                         <li>CIBLE<br>
