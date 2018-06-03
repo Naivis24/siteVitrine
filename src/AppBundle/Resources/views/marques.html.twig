@@ -39,7 +39,9 @@
                        aria-controls="enfant" aria-selected="false">Enfant</a>
                 </li>
             </ul>
-            <div class="container bg-searchbar">
+            <div class="row bg-searchbar">
+                <div class="col-lg-3"></div>
+                <div class="col-lg-6">
                 <form autocomplete="off">
                     <div class="form" id="searchbar">
                         <input type='text' id='target' name='target'
@@ -48,6 +50,9 @@
                                onblur="this.placeholder='Nom d\'une marque ou type de produit'" class="shadow-sm">
                     </div>
                 </form>
+                </div>
+                <div class="col-lg-3 text-center pt-3"><a href="" class="button-filter">Ajouter des filtres</a>
+            </div>
             </div>
             <div class="container-list-brand">
                 <div class="row tab-content" id="myTabContent">
