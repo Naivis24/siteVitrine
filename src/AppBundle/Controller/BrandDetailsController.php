@@ -30,22 +30,29 @@ class BrandDetailsController extends Controller
         ));
     }
 
-    public function setBrandCompeting($idBrand, $idRecommande){
+    public function setBrandCompeting($idBrand, $idHomme, $idFemme, $idEnfant){
+
+        $brandrecommande = new BrandRecommande();
         $em = $this->getDoctrine()->getManager();
         $brand = $em->getRepository('AppBundle:Brand')->find($idBrand);
-        $brandrec = $em->getRepository('AppBundle:Brand')->find($idRecommande);
+        $recHomme = $em->getRepository('AppBundle:Brand')->find($idHomme);
+        $recFemme = $em->getRepository('AppBundle:Brand')->find($idFemme);
+        $recEnfant = $em->getRepository('AppBundle:Brand')->find($idEnfant);
 
-        $brand->addIdrecommande($brandrec);
+        $brandrecommande->setBrand($brand);
+        $brandrecommande->setRecommandeHomme($recHomme);
+        $brandrecommande->setRecommandeFemme($recFemme);
+        $brandrecommande->setRecommandeEnfant($recEnfant);
 
-        $em->persist($brand);
+        $em->persist($brandrecommande);
     }
 
-    public function triTableau($tabB, $tabR){
+    public function triTableau($tabB, $tabHomme, $tabFemme, $tabEnfant){
         $em = $this->getDoctrine()->getManager();
         $x = count($tabB);
 
         for($i=0; $i<$x; $i++){
-            $this->setBrandCompeting($tabB[$i], $tabR[$i]);
+            $this->setBrandCompeting($tabB[$i], $tabHomme[$i], $tabFemme[$i], $tabEnfant[$i]);
         }
 
         $em->flush();
