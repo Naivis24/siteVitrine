@@ -57,4 +57,5 @@ class BrandDetailsController extends Controller
             $this->setBrandCompeting($tabB[$i], $tabHomme[$i], $tabFemme[$i], $tabEnfant[$i]);
         }
 
+        }
 }

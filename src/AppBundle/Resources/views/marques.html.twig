@@ -20,7 +20,6 @@
              delete_cookie("filters2");
 
             };
-
         </script>
         <section class="container-fluid marquesbg padding-start" id="section-start">
             <h1>Découvrez de nouvelles marques</br>
@@ -51,12 +50,12 @@
                     </div>
                 </form>
                 </div>
-                <div class="col-lg-3 text-center pt-3"><a href="" class="button-filter">Ajouter des filtres</a>
-            </div>
+                <div class="col-lg-3 ctn-button-filter"><button class="button-filter" type="button" data-toggle="collapse" data-target="#filterbarContent" aria-controls="filterbarContent" aria-expanded="false" aria-label="Filters navigation">Ajouter des filtres</button>
+                </div>
             </div>
             <div class="container-list-brand">
                 <div class="row tab-content" id="myTabContent">
-                    <div class="col-3 column-filters p-4 shadow-sm">
+                    <div class="col-3 column-filters p-4 shadow-sm collapse" id="filterbarContent">
                         <div class="container-btn-filters text-center"><a onclick="reinit()" class="button-fb p-2">Réinitialiser</a>
                         </div>
                         <div class="container-filters">
@@ -131,8 +130,8 @@
                     </div>
                     <div class="affichageVide">
                     </div>
-                    <div class="col-9 tab-pane fade" id="homme" role="tabpanel" aria-labelledby="homme-tab">
-                        <div class="row px-3">
+                    <div class="col tab-pane fade" id="homme" role="tabpanel" aria-labelledby="homme-tab">
+                        <div class="row px-3 justify-content-around">
                             {% for brand in brands %}
                                 {% set cibles = brand.getTarget.toArray() %}
                                 {% set temp = [brand.getPrimarytarget().getLabel()] %}
@@ -194,8 +193,8 @@
                     {# FIN TAB HOMME #}
                     <div class="affichageVide">
                     </div>
-                    <div class="col-9 tab-pane fade" id="femme" role="tabpanel" aria-labelledby="femme-tab">
-                        <div class="row px-3">
+                    <div class="col tab-pane fade" id="femme" role="tabpanel" aria-labelledby="femme-tab">
+                        <div class="row px-3 justify-content-around">
                             {% for brand in brands %}
                                 {% set cibles = brand.getTarget.toArray() %}
                                 {% set temp = [brand.getPrimarytarget().getLabel()] %}
@@ -257,8 +256,8 @@
                     <div class="affichageVide">
 
                     </div>
-                    <div class="col-9 tab-pane fade" id="enfant" role="tabpanel" aria-labelledby="enfant-tab">
-                        <div class="row px-3">
+                    <div class="col tab-pane fade" id="enfant" role="tabpanel" aria-labelledby="enfant-tab">
+                        <div class="row px-3 justify-content-around">
                             {% for brand in brands %}
                                 {% set cibles = brand.getTarget.toArray() %}
                                 {% set temp = [brand.getPrimarytarget().getLabel()] %}

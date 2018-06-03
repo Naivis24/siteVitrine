@@ -48,14 +48,14 @@ function newTab() {
 
     setTimeout(function () {
         filter(true);
-        setCookie("target", document.getElementsByClassName("col-9 tab-pane fade active show")[0].id);
+        setCookie("target", document.getElementsByClassName("col tab-pane fade active show")[0].id);
     }, 500);
 
 }
 
 function initSuggestion() {
 
-    var x = document.getElementsByClassName("col-9 tab-pane fade show active")[0].getElementsByClassName("row")[0].getElementsByClassName("afficher");
+    var x = document.getElementsByClassName("col tab-pane fade show active")[0].getElementsByClassName("row")[0].getElementsByClassName("afficher");
     var brandsArray = [], filtersArray = [];
     for (var i = 0; i < x.length; i++) {
         var temp = x[i].getElementsByClassName("card-title")[0].innerHTML;
@@ -205,7 +205,7 @@ function reinit() {
 }
 
 function affichageVide() {
-    var x = document.getElementsByClassName("col-9 tab-pane fade show active")[0].getElementsByClassName("row")[0].getElementsByClassName("afficher");
+    var x = document.getElementsByClassName("col tab-pane fade show active")[0].getElementsByClassName("row")[0].getElementsByClassName("afficher");
 
     if (x.length == 0) {
         document.getElementsByClassName("affichageVide")[0].innerHTML = "<p class='text-search-null'>Nous sommes désolés, votre recherche n'a donné aucun résultat.</p>";

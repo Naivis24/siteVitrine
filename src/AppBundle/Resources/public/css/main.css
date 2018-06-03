@@ -1319,6 +1319,12 @@ input:focus, textarea:focus, select:focus {
 		-ms-flex: 0 0 100%;
 		flex: 0 0 100%;
 		max-width: 100%;
+	text-align: center;
+	}
+
+	.ctn-button-filter{
+		text-align: center;
+		margin-top: 20px;
 	}
 }
 .container-list-brand .row {
