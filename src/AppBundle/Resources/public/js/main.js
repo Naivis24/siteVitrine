@@ -1,18 +1,36 @@
 function onStart() {
 
+    var x = document.getElementsByClassName("button-slide-brands");
+    for (var i = 0; i < x.length; i++) {
+        x[i].onclick = function () {
+            var temp = getCookie("target");
+            setCookie("target2", temp);
+            temp = getCookie("filters");
+            setCookie("filters2", temp);
+        }
+    }
+
+    var y = document.getElementById("btn-filter");
+    $('.column-filters').on('hide.bs.collapse', function () {
+        delete_cookie("filterBar");
+        y.innerHTML = "Ajouter des filtres";
+    });
+    $('.column-filters').on('show.bs.collapse', function () {
+        setCookie("filterBar", "yes");
+        y.innerHTML = "Masquer les filtres";
+    });
+
     var cookiesFiltres = getCookie("filters");
     var cookiesTarget = getCookie("target");
+    var cookiesFilterBar = getCookie("filterBar");
     if (cookiesTarget != "") {
-        var x = document.getElementById(cookiesTarget + "-tab");
-        x.className += " active";
-        x= document.getElementById(cookiesTarget);
-        x.className += " active show";
-    }else{
+        var x = document.getElementById(cookiesTarget);
+        var a ="#";
+        var b=a.concat(cookiesTarget);
+        $(b).tab('show');
+    } else {
         var x = document.getElementById("femme-tab");
-        x.className += " active";
-        setCookie("target", "femme");
-        var x = document.getElementById("femme");
-        x.className += " active show";
+        $('#femme-tab').tab('show');
     }
     if (cookiesFiltres != "") {
         var cb = $("input:checkbox");
@@ -22,37 +40,23 @@ function onStart() {
             }
         });
     }
+    if (cookiesFilterBar != "") {
+        $('.column-filters').collapse('show');
+    }
 
+    $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+        filter(true);
+        setCookie("target", e.target.id);
+        console.log("cookie set");
+        console.log(getCookie("target"));
+
+    })
 
     filter(true);
 
-    var x = document.getElementById("homme-tab");
-    x.addEventListener("click", newTab);
-    x = document.getElementById("femme-tab");
-    x.addEventListener("click", newTab);
-    x = document.getElementById("enfant-tab");
-    x.addEventListener("click", newTab);
-
-    x = document.getElementsByClassName("button-slide-brands");
-    for( var i =0; i<x.length; i++){
-        x[i].onclick= function(){
-            var temp = getCookie("target");
-            setCookie("target2", temp);
-            temp = getCookie("filters");
-            setCookie("filters2", temp);
-        }
-    }
-
 }
 
-function newTab() {
 
-    setTimeout(function () {
-        filter(true);
-        setCookie("target", document.getElementsByClassName("col tab-pane fade active show")[0].id);
-    }, 500);
-
-}
 
 function initSuggestion() {
 
@@ -129,7 +133,7 @@ function filter(bool) {
     else {
         filterAll();
     }
-    if (bool) {
+   if (bool) {
         setTimeout(function () {
             initSuggestion();
         }, 500);
@@ -309,7 +313,7 @@ function autocomplete(inp, arrBrands, arrFilters) {
                 /*and simulate a click on the "active" item:*/
                 if (x) x[currentFocus].click();
             }
-        } else if (e.keyCode == 8){
+        } else if (e.keyCode == 8) {
 
         }
     }

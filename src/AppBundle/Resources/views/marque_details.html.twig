@@ -97,7 +97,7 @@
 
             <script>
                 var temp;
-                if (getCookie("target") == "homme") {
+                if (getCookie("target") == "homme-tab") {
 
                     temp = "<div class=\"row px-4\">" +
 
@@ -161,7 +161,7 @@
                         "    {% endfor %}\n" +
                         "</div>"
                 }
-                if (getCookie("target") == "femme") {
+                if (getCookie("target") == "femme-tab") {
 
                     temp = "<div class=\"row px-4\">" +
 
@@ -225,7 +225,7 @@
                         "    {% endfor %}\n" +
                         "</div>"
                 }
-                if (getCookie("target") == "enfant") {
+                if (getCookie("target") == "enfant-tab") {
 
                     temp = "<div class=\"row px-4\">" +
 
@@ -294,7 +294,6 @@
 
                 var x = document.getElementById("brand_recommande");
                 x.innerHTML = temp;
-                console.log(x);
             </script>
 
 
