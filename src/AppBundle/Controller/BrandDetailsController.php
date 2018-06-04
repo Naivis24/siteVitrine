@@ -32,29 +32,4 @@ class BrandDetailsController extends Controller
         ));
     }
 
-    public function setBrandCompeting($idBrand, $idHomme, $idFemme, $idEnfant){
-
-        $brandrecommande = new BrandRecommande();
-        $em = $this->getDoctrine()->getManager();
-        $brand = $em->getRepository('AppBundle:Brand')->find($idBrand);
-        $recHomme = $em->getRepository('AppBundle:Brand')->find($idHomme);
-        $recFemme = $em->getRepository('AppBundle:Brand')->find($idFemme);
-        $recEnfant = $em->getRepository('AppBundle:Brand')->find($idEnfant);
-
-        $brandrecommande->setBrand($brand);
-        $brandrecommande->setRecommandeHomme($recHomme);
-        $brandrecommande->setRecommandeFemme($recFemme);
-        $brandrecommande->setRecommandeEnfant($recEnfant);
-
-        $em->persist($brandrecommande);
-    }
-
-    public function triTableau($tabB, $tabHomme, $tabFemme, $tabEnfant){
-        $em = $this->getDoctrine()->getManager();
-        $x = count($tabB);
-
-        for($i=0; $i<$x; $i++){
-            $this->setBrandCompeting($tabB[$i], $tabHomme[$i], $tabFemme[$i], $tabEnfant[$i]);
-        }
-
 }
