@@ -47,8 +47,6 @@ function onStart() {
     $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
         filter(true);
         setCookie("target", e.target.id);
-        console.log("cookie set");
-        console.log(getCookie("target"));
 
     })
 
