@@ -37,6 +37,16 @@ a:visited {
 a:active, a:focus {
 	text-decoration: none
 }
+
+a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover{
+	color: #FFF;
+}
+.btn:focus {
+	box-shadow: none;
+ }
+.btn:active {
+	box-shadow: none;
+}
 h1 {
 	font-weight: 900;
 	font-size: 48px;
@@ -1118,6 +1128,10 @@ input:focus, textarea:focus, select:focus {
 		display:none;
 	}
 }
+
+.marques-list{
+	margin-bottom:2rem;
+}
 /* CAROUSEL MARQUE */
 /* equal card height */
 .row-equal > div[class*='col-'] {
@@ -1319,6 +1333,18 @@ input:focus, textarea:focus, select:focus {
 		-ms-flex: 0 0 100%;
 		flex: 0 0 100%;
 		max-width: 100%;
+	text-align: center;
+	}
+
+	.ctn-button-filter{
+		text-align: center;
+		margin-top: 20px;
+	}
+	.container-filters{
+		margin-left: 0!important;
+	}
+	.column-filters h2{
+		margin-left: 0!important;
 	}
 }
 .container-list-brand .row {
@@ -1327,6 +1353,7 @@ input:focus, textarea:focus, select:focus {
 	background-color: #FFF;
 	min-width: 300px;
 	max-width: 300px;
+	margin-bottom:2rem;
 }
 
 .column-filters h2{
@@ -1345,10 +1372,6 @@ input:focus, textarea:focus, select:focus {
 .container-filters{
 	margin-left:2rem;
 	font-size:15px;
-}
-
-a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover{
-	color: #FFF;
 }
 
 .button-fb {
