@@ -18,11 +18,11 @@
                                 temp = "<img class=\"img-fluid bandeau-marque\"\n" +
                                     " src=\"{{ asset('bundles/app/img/'~brand.getLifestyleHomme()) }}\">"
                             }
-                            else if(getCookie("target") == "femme"){
+                            else if (getCookie("target") == "femme") {
                                 temp = "<img class=\"img-fluid bandeau-marque\"\n" +
                                     " src=\"{{ asset('bundles/app/img/'~brand.getLifestyleFemme()) }}\">"
                             }
-                            else{
+                            else {
                                 temp = "<img class=\"img-fluid bandeau-marque\"\n" +
                                     " src=\"{{ asset('bundles/app/img/'~brand.getLifestyleEnfant()) }}\">"
                             }
@@ -80,11 +80,225 @@
 
         <section class="container-fluid brands-competitor p-4">
 
+            {% set hommeRecommande = [] %}
+            {% set femmeRecommande = [] %}
+            {% set enfantRecommande = [] %}
+            {% for row in brandRecommande %}
+
+                {% set hommeRecommande = hommeRecommande|merge([row.getRecommandeHomme()]) %}
+                {% set femmeRecommande = femmeRecommande|merge([row.getRecommandeFemme()]) %}
+                {% set enfantRecommande = enfantRecommande|merge([row.getRecommandeEnfant()]) %}
+
+            {% endfor %}
+
+
             <h2>Les marques complémentaires</h2>
-            {{ render(controller(
-            'AppBundle\\Controller\\BrandController::cardsBrandsAction',
-            { 'brands' : brand.getIdrecommande() }
-            )) }}
+            <div id="brand_recommande"></div>
+
+            <script>
+                var temp;
+                if (getCookie("target") == "homme") {
+
+                    temp = "<div class=\"row px-4\">" +
+
+                        "    {% for brand in hommeRecommande %}" +
+                        "        {% if brand is not null %}" +
+                        "        {% set targets = brand.getTarget.toArray() %}" +
+                        "        {% set univers = brand.getUnivers().toArray() %}" +
+                        "        {% set categories = brand.getPrimaryCategory().toArray() %}" +
+                        "        {% set features = brand.getFeature().toArray() %}" +
+                        "        <div class=\"col-md-3 px-2 py-2\">\n" +
+                        "\n" +
+                        "            <div class=\"card-marques shadow-sm\">\n" +
+
+                        "                    <img class=\"img-fluid card-img\"\n" +
+                        "                         src=\"{{ asset('bundles/app/img/' ~ brand.getPictureHomme() ) }}\">\n" +
+
+                        "                <div class=\"container-img-brand\">\n" +
+                        "                    <img src=\"{{ asset('bundles/app/img/' ~ brand.getLogo()) }}\" class=\"img-fluid\">\n" +
+                        "                </div>\n" +
+                        "                <div class=\"container-hover-info\">\n" +
+                        "\n" +
+                        "                    <h5 class=\"card-title\"> {{ brand.getName() }} </h5>\n" +
+                        "                    {{ brand.getSlogan() }}\n" +
+                        "                    <ul>\n" +
+                        "                        <li>PAYS<br>\n" +
+                        "                            <strong>{{ brand.getCountry().getName() }}</strong></li>\n" +
+                        "                        <li>CATÉGORIE<br>\n" +
+                        "                            <strong> {% for categorie in categories %}\n" +
+                        "                                    {{ categorie.getLabel() }}{% if not loop.last %},{% endif %}\n" +
+                        "                                {% endfor %}</strong>\n" +
+                        "                        </li>\n" +
+                        "                        <li>UNIVERS<br>\n" +
+                        "                            <strong>  {% for univ in univers %}\n" +
+                        "                                    {{ univ.getLabel() }}{% if not loop.last %},{% endif %}\n" +
+                        "                                {% endfor %}</strong>\n" +
+                        "                        </li>\n" +
+                        "                        <li>CIBLE<br>\n" +
+                        "                            <strong> {{ brand.getPrimarytarget().getLabel() }}{% for target in targets %}{% if loop.first %},{% endif %}\n" +
+                        "                                    {{ target.getLabel() }}{% if not loop.last %},{% endif %}\n" +
+                        "                                {% endfor %}</strong>\n" +
+                        "                        </li>\n" +
+                        "                        <li>GAMME DE PRIX<br>\n" +
+                        "                            <strong>{{ brand.getPriceRange().getLabel() }}</strong>\n" +
+                        "                        </li>\n" +
+                        "                        <li> {% if features is not empty %}LABEL<br>{% endif %}\n" +
+                        "                            <strong> {% for feature in features %}\n" +
+                        "                                    {{ feature.getLabel() }}{% if not loop.last %},{% endif %}\n" +
+                        "                                {% endfor %}</strong>\n" +
+                        "                        </li>\n" +
+                        "                    </ul>\n" +
+                        "                </div>\n" +
+                        "                <div class=\"button-slide-brands\"><a\n" +
+                        "                            href=\"\"{{ path('details_marques', {'marque': brand.getName()} ) }}\"\n" +
+                        "                            class=\"button-sb p-1\">\n" +
+                        "                        Découvrir la marque </a>\n" +
+                        "                </div>\n" +
+                        "\n" +
+                        "            </div>\n" +
+                        "        </div>\n" +
+                        "    {% endif %}\n" +
+                        "    {% endfor %}\n" +
+                        "</div>"
+                }
+                if (getCookie("target") == "femme") {
+
+                    temp = "<div class=\"row px-4\">" +
+
+                        "    {% for brand in femmeRecommande %}" +
+                        "        {% if brand is not null %}" +
+                        "        {% set targets = brand.getTarget.toArray() %}" +
+                        "        {% set univers = brand.getUnivers().toArray() %}" +
+                        "        {% set categories = brand.getPrimaryCategory().toArray() %}" +
+                        "        {% set features = brand.getFeature().toArray() %}" +
+                        "        <div class=\"col-md-3 px-2 py-2\">\n" +
+                        "\n" +
+                        "            <div class=\"card-marques shadow-sm\">\n" +
+
+                        "                    <img class=\"img-fluid card-img\"\n" +
+                        "                         src=\"{{ asset('bundles/app/img/' ~ brand.getPictureFemme() ) }}\">\n" +
+
+                        "                <div class=\"container-img-brand\">\n" +
+                        "                    <img src=\"{{ asset('bundles/app/img/' ~ brand.getLogo()) }}\" class=\"img-fluid\">\n" +
+                        "                </div>\n" +
+                        "                <div class=\"container-hover-info\">\n" +
+                        "\n" +
+                        "                    <h5 class=\"card-title\"> {{ brand.getName() }} </h5>\n" +
+                        "                    {{ brand.getSlogan() }}\n" +
+                        "                    <ul>\n" +
+                        "                        <li>PAYS<br>\n" +
+                        "                            <strong>{{ brand.getCountry().getName() }}</strong></li>\n" +
+                        "                        <li>CATÉGORIE<br>\n" +
+                        "                            <strong> {% for categorie in categories %}\n" +
+                        "                                    {{ categorie.getLabel() }}{% if not loop.last %},{% endif %}\n" +
+                        "                                {% endfor %}</strong>\n" +
+                        "                        </li>\n" +
+                        "                        <li>UNIVERS<br>\n" +
+                        "                            <strong>  {% for univ in univers %}\n" +
+                        "                                    {{ univ.getLabel() }}{% if not loop.last %},{% endif %}\n" +
+                        "                                {% endfor %}</strong>\n" +
+                        "                        </li>\n" +
+                        "                        <li>CIBLE<br>\n" +
+                        "                            <strong> {{ brand.getPrimarytarget().getLabel() }}{% for target in targets %}{% if loop.first %},{% endif %}\n" +
+                        "                                    {{ target.getLabel() }}{% if not loop.last %},{% endif %}\n" +
+                        "                                {% endfor %}</strong>\n" +
+                        "                        </li>\n" +
+                        "                        <li>GAMME DE PRIX<br>\n" +
+                        "                            <strong>{{ brand.getPriceRange().getLabel() }}</strong>\n" +
+                        "                        </li>\n" +
+                        "                        <li> {% if features is not empty %}LABEL<br>{% endif %}\n" +
+                        "                            <strong> {% for feature in features %}\n" +
+                        "                                    {{ feature.getLabel() }}{% if not loop.last %},{% endif %}\n" +
+                        "                                {% endfor %}</strong>\n" +
+                        "                        </li>\n" +
+                        "                    </ul>\n" +
+                        "                </div>\n" +
+                        "                <div class=\"button-slide-brands\"><a\n" +
+                        "                            href=\"\"{{ path('details_marques', {'marque': brand.getName()} ) }}\"\n" +
+                        "                            class=\"button-sb p-1\">\n" +
+                        "                        Découvrir la marque </a>\n" +
+                        "                </div>\n" +
+                        "\n" +
+                        "            </div>\n" +
+                        "        </div>\n" +
+                        "    {% endif %}\n" +
+                        "    {% endfor %}\n" +
+                        "</div>"
+                }
+                if (getCookie("target") == "enfant") {
+
+                    temp = "<div class=\"row px-4\">" +
+
+                        "    {% for brand in enfantRecommande %}" +
+                        "        {% if brand is not null %}" +
+                        "        {% set targets = brand.getTarget.toArray() %}" +
+                        "        {% set univers = brand.getUnivers().toArray() %}" +
+                        "        {% set categories = brand.getPrimaryCategory().toArray() %}" +
+                        "        {% set features = brand.getFeature().toArray() %}" +
+                        "        <div class=\"col-md-3 px-2 py-2\">\n" +
+                        "\n" +
+                        "            <div class=\"card-marques shadow-sm\">\n" +
+
+                        "                    <img class=\"img-fluid card-img\"\n" +
+                        "                         src=\"{{ asset('bundles/app/img/' ~ brand.getPictureEnfant() ) }}\">\n" +
+
+                        "                <div class=\"container-img-brand\">\n" +
+                        "                    <img src=\"{{ asset('bundles/app/img/' ~ brand.getLogo()) }}\" class=\"img-fluid\">\n" +
+                        "                </div>\n" +
+                        "                <div class=\"container-hover-info\">\n" +
+                        "\n" +
+                        "                    <h5 class=\"card-title\"> {{ brand.getName() }} </h5>\n" +
+                        "                    {{ brand.getSlogan() }}\n" +
+                        "                    <ul>\n" +
+                        "                        <li>PAYS<br>\n" +
+                        "                            <strong>{{ brand.getCountry().getName() }}</strong></li>\n" +
+                        "                        <li>CATÉGORIE<br>\n" +
+                        "                            <strong> {% for categorie in categories %}\n" +
+                        "                                    {{ categorie.getLabel() }}{% if not loop.last %},{% endif %}\n" +
+                        "                                {% endfor %}</strong>\n" +
+                        "                        </li>\n" +
+                        "                        <li>UNIVERS<br>\n" +
+                        "                            <strong>  {% for univ in univers %}\n" +
+                        "                                    {{ univ.getLabel() }}{% if not loop.last %},{% endif %}\n" +
+                        "                                {% endfor %}</strong>\n" +
+                        "                        </li>\n" +
+                        "                        <li>CIBLE<br>\n" +
+                        "                            <strong> {{ brand.getPrimarytarget().getLabel() }}{% for target in targets %}{% if loop.first %},{% endif %}\n" +
+                        "                                    {{ target.getLabel() }}{% if not loop.last %},{% endif %}\n" +
+                        "                                {% endfor %}</strong>\n" +
+                        "                        </li>\n" +
+                        "                        <li>GAMME DE PRIX<br>\n" +
+                        "                            <strong>{{ brand.getPriceRange().getLabel() }}</strong>\n" +
+                        "                        </li>\n" +
+                        "                        <li> {% if features is not empty %}LABEL<br>{% endif %}\n" +
+                        "                            <strong> {% for feature in features %}\n" +
+                        "                                    {{ feature.getLabel() }}{% if not loop.last %},{% endif %}\n" +
+                        "                                {% endfor %}</strong>\n" +
+                        "                        </li>\n" +
+                        "                    </ul>\n" +
+                        "                </div>\n" +
+                        "                <div class=\"button-slide-brands\"><a\n" +
+                        "                            href=\"\"{{ path('details_marques', {'marque': brand.getName()} ) }}\"\n" +
+                        "                            class=\"button-sb p-1\">\n" +
+                        "                        Découvrir la marque </a>\n" +
+                        "                </div>\n" +
+                        "\n" +
+                        "            </div>\n" +
+                        "        </div>\n" +
+                        "    {% endif %}\n" +
+                        "    {% endfor %}\n" +
+                        "</div>"
+                }
+
+
+
+                var x = document.getElementById("brand_recommande");
+                x.innerHTML = temp;
+                console.log(x);
+            </script>
+
+
+
 
             <div class="container-btn text-center"><a href="{{ path('marques') }}" class="button-fh p-2 mb-4">Découvrez
                     toutes nos marques</a></div>

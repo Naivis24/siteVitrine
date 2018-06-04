@@ -26,9 +26,11 @@ class BrandDetailsController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $brand = $em->getRepository('AppBundle:Brand')->findOneByName($marque);
+        $brandRecommande = $em->getRepository('AppBundle:BrandRecommande')->findByBrand($brand);
 
         return $this->render('AppBundle::marque_details.html.twig', array(
             'brand' => $brand,
+            'brandRecommande' => $brandRecommande ,
         ));
     }
 

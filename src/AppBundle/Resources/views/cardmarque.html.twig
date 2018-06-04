@@ -1,6 +1,7 @@
 <div class="row px-4">
 
     {% for brand in brands %}
+        {% if brand is not null %}
         {% set targets = brand.getTarget.toArray() %}
         {% set univers = brand.getUnivers().toArray() %}
         {% set categories = brand.getPrimaryCategory().toArray() %}
@@ -11,16 +12,16 @@
                 {% set var = brand.getPrimarytarget().getLabel() %}
                 {% if var == "Homme" %}
                     <img class="img-fluid card-img"
-                         src="{{ asset('bundles/app/img/' ~ brand.getPictureHomme() ) }}">
+                         src=""{{ asset('bundles/app/img/' ~ brand.getPictureHomme() ) }}">
                 {% elseif var == "Femme" %}
                     <img class="img-fluid card-img"
-                         src="{{ asset('bundles/app/img/' ~ brand.getPictureFemme() ) }}">
+                         src=""{{ asset('bundles/app/img/' ~ brand.getPictureFemme() ) }}">
                 {% else %}
                     <img class="img-fluid card-img"
-                         src="{{ asset('bundles/app/img/' ~ brand.getPictureEnfant() ) }}">
+                         src=""{{ asset('bundles/app/img/' ~ brand.getPictureEnfant() ) }}">
                 {% endif %}
                 <div class="container-img-brand">
-                    <img src="{{ asset('bundles/app/img/' ~ brand.getLogo()) }}" class="img-fluid">
+                    <img src=""{{ asset('bundles/app/img/' ~ brand.getLogo()) }}" class="img-fluid">
                 </div>
                 <div class="container-hover-info">
 
@@ -55,12 +56,13 @@
                     </ul>
                 </div>
                 <div class="button-slide-brands"><a
-                            href="{{ path('details_marques', {'marque': brand.getName()} ) }}"
+                            href=""{{ path('details_marques', {'marque': brand.getName()} ) }}"
                             class="button-sb p-1">
                         Découvrir la marque </a>
                 </div>
 
             </div>
         </div>
+    {%  endif %}
     {% endfor %}
 </div>

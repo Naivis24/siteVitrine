@@ -28,9 +28,12 @@
                             - {{ salon.getPays().getName() }}</p>
                         <p class="p-4">{{ salon.getDescription() }}</p>
                         <h2>Marques participantes</h2>
+                        <ul>
                         {% for row in marquesParticipantes %}
-                           <a href="{{ path('details_marques', {'marque': row.getBrand().getName()} ) }}" >{{ row.getBrand().getName() }} - {{ row.getStand() }} </a>
+                           <li><a href="{{ path('details_marques', {'marque': row.getBrand().getName()} ) }}" >{{ row.getBrand().getName() }} {% if row.getStand() %} - {{ row.getStand() }} {% endif %}</a>
+                           </li>
                         {% endfor %}
+                        </ul>
                     </div>
                 </div>
             </div>
