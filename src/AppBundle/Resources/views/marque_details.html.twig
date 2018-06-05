@@ -14,15 +14,18 @@
                     <div class="mask-brand" id="lifestyle_div">
                         <script>
                             var temp;
-                            if (getCookie("target") == "homme") {
+                            if (getCookie("target") == "homme-tab") {
+                                console.log("homme");
                                 temp = "<img class=\"img-fluid bandeau-marque\"\n" +
                                     " src=\"{{ asset('bundles/app/img/'~brand.getLifestyleHomme()) }}\">"
                             }
-                            else if (getCookie("target") == "femme") {
+                            else if (getCookie("target") == "femme-tab") {
+                                console.log("femme");
                                 temp = "<img class=\"img-fluid bandeau-marque\"\n" +
                                     " src=\"{{ asset('bundles/app/img/'~brand.getLifestyleFemme()) }}\">"
                             }
                             else {
+                                console.log("enfant");
                                 temp = "<img class=\"img-fluid bandeau-marque\"\n" +
                                     " src=\"{{ asset('bundles/app/img/'~brand.getLifestyleEnfant()) }}\">"
                             }
@@ -150,7 +153,7 @@
                         "                    </ul>\n" +
                         "                </div>\n" +
                         "                <div class=\"button-slide-brands\"><a\n" +
-                        "                            href=\"\"{{ path('details_marques', {'marque': brand.getName()} ) }}\"\n" +
+                        "                            href=\"{{ path('details_marques', {'marque': brand.getName()} ) }}\"\n" +
                         "                            class=\"button-sb p-1\">\n" +
                         "                        Découvrir la marque </a>\n" +
                         "                </div>\n" +
@@ -214,7 +217,7 @@
                         "                    </ul>\n" +
                         "                </div>\n" +
                         "                <div class=\"button-slide-brands\"><a\n" +
-                        "                            href=\"\"{{ path('details_marques', {'marque': brand.getName()} ) }}\"\n" +
+                        "                            href=\"{{ path('details_marques', {'marque': brand.getName()} ) }}\"\n" +
                         "                            class=\"button-sb p-1\">\n" +
                         "                        Découvrir la marque </a>\n" +
                         "                </div>\n" +
@@ -278,7 +281,7 @@
                         "                    </ul>\n" +
                         "                </div>\n" +
                         "                <div class=\"button-slide-brands\"><a\n" +
-                        "                            href=\"\"{{ path('details_marques', {'marque': brand.getName()} ) }}\"\n" +
+                        "                            href=\"{{ path('details_marques', {'marque': brand.getName()} ) }}\"\n" +
                         "                            class=\"button-sb p-1\">\n" +
                         "                        Découvrir la marque </a>\n" +
                         "                </div>\n" +
