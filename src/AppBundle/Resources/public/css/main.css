@@ -1019,7 +1019,7 @@ input:focus, textarea:focus, select:focus {
 
 .container-img-brand {
 	position: absolute;
-	bottom: 25px;
+	bottom: 40px;
 	left: 12%;
 	width: 75%;
 	height: 60px;
@@ -1093,10 +1093,9 @@ input:focus, textarea:focus, select:focus {
 	border: 2px solid #333745;
 	border-radius: 5px;
 	text-transform: uppercase;
-	font-size: 13px;
+	font-size: 14px;
 	font-weight: bold;
 	font-family: Lato;
-	line-height: 16px;
 	text-align: center;
 	-webkit-transition: all .5s ease;
 	-moz-transition: all .5s ease;
@@ -1328,7 +1327,7 @@ input:focus, textarea:focus, select:focus {
 
 /* FILTRES */
 
-@media (max-width: 1024px){
+@media (max-width: 992px){
 .container-list-brand .col-3 {
 		-ms-flex: 0 0 100%;
 		flex: 0 0 100%;
@@ -1337,7 +1336,6 @@ input:focus, textarea:focus, select:focus {
 	}
 
 	.ctn-button-filter{
-		text-align: center;
 		margin-top: 20px;
 	}
 	.container-filters{
@@ -1345,6 +1343,9 @@ input:focus, textarea:focus, select:focus {
 	}
 	.column-filters h2{
 		margin-left: 0!important;
+	}
+	.nav-filter-brands{
+		margin-bottom: 15px;
 	}
 }
 .container-list-brand .row {
@@ -1470,6 +1471,10 @@ input:focus, textarea:focus, select:focus {
 	background-color: #e9e9e9 !important;
 }
 
+.ctn-button-filter{
+	text-align: center;
+}
+
 .button-filter {
 	border: 1.5px solid #333745;
 	border-radius: 5px;
@@ -1498,7 +1503,6 @@ input:focus, textarea:focus, select:focus {
 
 .nav-filter-brands{
 	border: none;
-	margin-top:3rem;
 }
 
 .nav-filter-brands li a{
@@ -1511,14 +1515,14 @@ input:focus, textarea:focus, select:focus {
 
 .nav-filter-brands .nav-item{
 	text-transform: uppercase;
-	margin: 0 2rem;
-	font-size:20px;
+	font-size:17px;
+	padding: 15px;
 }
 
-.nav-filter-brands .nav-link{
+.nav-filter-brands a{
 	border: 0px;
 }
-.nav-filter-brands .nav-item.show .nav-link, .nav-tabs .nav-link.active{
+.nav-filter-brands .nav-item.show a, .nav-tabs a.active{
 	background: none;
 	border: none;
 	color: #FE5F55;

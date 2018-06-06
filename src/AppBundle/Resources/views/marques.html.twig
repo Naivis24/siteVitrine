@@ -25,22 +25,22 @@
         <section class="container-fluid marquesbg padding-start" id="section-start">
             <h1>Découvrez de nouvelles marques</br>
                 <span style="color:#FE5F55;">pour votre boutique</span></h1>
-            <ul class="nav nav-tabs justify-content-center nav-filter-brands" id="myTab" role="tablist">
-                <li class="nav-item">
-                    <a class="nav-link" id="homme-tab" data-toggle="tab" href="#homme" role="tab"
-                       aria-controls="homme" aria-selected="true">Homme</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="femme-tab" data-toggle="tab" href="#femme" role="tab"
-                       aria-controls="femme" aria-selected="false">Femme</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="enfant-tab" data-toggle="tab" href="#enfant" role="tab"
-                       aria-controls="enfant" aria-selected="false">Enfant</a>
-                </li>
-            </ul>
             <div class="row bg-searchbar">
-                <div class="col-lg-3"></div>
+                <div class="col-lg-3"><ul class="nav nav-tabs nav-filter-brands justify-content-center" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a id="homme-tab" data-toggle="tab" href="#homme" role="tab"
+                               aria-controls="homme" aria-selected="true">Homme</a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="femme-tab" data-toggle="tab" href="#femme" role="tab"
+                               aria-controls="femme" aria-selected="false">Femme</a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="enfant-tab" data-toggle="tab" href="#enfant" role="tab"
+                               aria-controls="enfant" aria-selected="false">Enfant</a>
+                        </li>
+                    </ul>
+                </div>
                 <div class="col-lg-6">
                 <form autocomplete="off">
                     <div class="form" id="searchbar">
@@ -51,7 +51,7 @@
                     </div>
                 </form>
                 </div>
-                <div class="col-lg-3 ctn-button-filter"><button id="btn-filter" class="btn button-filter" type="button" data-toggle="collapse" data-target="#filterbarContent" aria-controls="filterbarContent" aria-expanded="false" aria-label="Filters navigation">Ajouter des filtres</button>
+                <div class="col-lg-3 ctn-button-filter justify-content-center"><button id="btn-filter" class="btn button-filter" type="button" data-toggle="collapse" data-target="#filterbarContent" aria-controls="filterbarContent" aria-expanded="false" aria-label="Filters navigation">Ajouter des filtres</button>
                 </div>
             </div>
             <div class="container-list-brand">
